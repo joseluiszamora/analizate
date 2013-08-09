@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Login
+    = stylesheet_link_tag    "login", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "login", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %h1 Este es el login jose salvaje, es el layouts/login.html.haml
+    .notice= notice
+    .alert= alert
+    = yield
