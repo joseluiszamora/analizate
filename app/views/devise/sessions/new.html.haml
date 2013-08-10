@@ -1,16 +1,14 @@
-%h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Sign in"
+.span4.box
+  .content-wrap
+    %h6 Log in
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      = f.email_field :email, :autofocus => true, :class => 'span12', :placeholder => "E-mail"
+      = f.password_field :password, :class => 'span12', :placeholder => "Password"
+      %a.forgot{:href => "#"} Forgot password?
+      .remember
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me, :id => 'remember-me'
+          = f.label :remember_me, :for => 'remember-me'
+
+      %div= f.submit "Ingresar", :class => 'btn-glow primary login'
 = render "devise/shared/links"
