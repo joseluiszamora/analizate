@@ -248,7 +248,7 @@ textarea::-webkit-input-placeholder {
 .pagination ul > li:first-child > span{
 	font-size: 23px;
 	color: #bcc6d3;
-	padding: 1px 9px 3px 9px;
+	padding: 5px 9px 3px 9px;
 }
 .pagination ul > li:last-child > a:hover,
 .pagination ul > li:last-child > span:hover,

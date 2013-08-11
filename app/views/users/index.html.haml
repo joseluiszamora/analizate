@@ -1,0 +1,89 @@
+/ main container
+
+.container-fluid
+  #pad-wrapper.users-list
+    .row-fluid.header
+      %h3 Usuarios
+      .span10.pull-right
+        .span3
+          %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
+        .span2.field-box
+          .ui-select
+            %select
+              %option{:value => ""} Tipo de Usuario
+              %option{:value => "AK"} Medico
+              %option{:value => "HI"} Paciente
+              %option{:value => "CA"} Otro
+        .span4 
+          %a.btn-glow.primary Buscar
+    / Users table
+    .row-fluid.table
+      %table.table.table-hover
+        %thead
+          %tr
+            %th.span3.sortable
+              Nombre
+            %th.span2.sortable
+              %span.line>
+              Institucion
+            %th.span2.sortable
+              %span.line>
+              Fecha de Registro
+            %th.span3.sortable.align-right
+              %span.line>
+              Email
+        %tbody
+          / row
+          %tr.first
+            %td
+              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
+              %span.subtext Doctor
+            %td
+              Centro Medico Kolping
+            %td
+              10 de agosto del 2013
+            %td.align-right
+              %a{:href => "#"} alejandra@canvas.com
+          / row
+          %tr
+            %td
+              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img2.png"}/
+              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
+              %span.subtext Paciente
+            %td
+              Clinica Santa Maria
+            %td
+              10 de agosto del 2013
+            %td.align-right
+              %a{:href => "#"} alejandra@canvas.com
+          / row
+          %tr
+            %td
+              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
+              %span.subtext Administrador
+            %td
+              Analizate
+            %td
+              10 de agosto del 2013
+            %td.align-right
+              %a{:href => "#"} alejandra@canvas.com         
+    .pagination.pull-right
+      %ul
+        %li
+          %a{:href => "#"} ‹
+        %li
+          %a.active{:href => "#"} 1
+        %li
+          %a{:href => "#"} 2
+        %li
+          %a{:href => "#"} 3
+        %li
+          %a{:href => "#"} 4
+        %li
+          %a{:href => "#"} 5
+        %li
+          %a{:href => "#"} ›
+    / end users table
+/ end main container

@@ -97,7 +97,7 @@ textarea {
 a, a:visited {
     text-decoration: underline;
 }
-a[href]:after {
+/*a[href]:after {
     content: " (" attr(href) ")";
 }
 abbr[title]:after {
@@ -105,7 +105,7 @@ abbr[title]:after {
 }
 .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
     content: "";
-}
+}*/
 pre, blockquote {
     border: 1px solid #999999;
     page-break-inside: avoid;
@@ -2966,7 +2966,7 @@ button.btn.btn-mini, input.btn.btn-mini[type="submit"] {
 }
 .navbar-inverse .navbar-inner {
     background-color: #1B1B1B;
-    background-image: linear-gradient(to bottom, #222222, #111111);
+    /*background-image: linear-gradient(to bottom, #222222, #111111);*/
     background-repeat: repeat-x;
     border-color: #252525;
 }

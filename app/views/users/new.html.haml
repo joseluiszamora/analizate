@@ -1,0 +1,40 @@
+/ main container
+.container-fluid
+  #pad-wrapper.new-user
+    .row-fluid.header
+      %h3 Nuevo Usuario
+
+    .row-fluid.form-wrapper
+      / left column
+      .span9.with-sidebar
+        .container
+          %form.new_user_form.inline-input
+            .span12.field-box
+              %label Name:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label State:
+              .ui-select.span5
+                %select
+                  %option{:value => ""} Tipo de Usuario
+                  %option{:value => "AK"} Medico
+                  %option{:value => "HI"} Paciente
+                  %option{:value => "CA"} Otro
+            .span12.field-box
+              %label Company:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Phone:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Address:
+              .address-fields
+                %input.span12{:type => "text"}/
+            .span12.field-box.textarea
+              %label Notes:
+              %textarea.span9
+              %span.charactersleft 90 characters remaining. Field limited to 100 characters
+            .span11.field-box.actions
+              %input.btn-glow.primary{:type => "button", :value => "Create user"}/
+              %span OR
+              %input.reset{:type => "reset", :value => "Cancel"}/
