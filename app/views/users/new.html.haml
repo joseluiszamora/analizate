@@ -10,26 +10,41 @@
         .container
           %form.new_user_form.inline-input
             .span12.field-box
-              %label Name:
-              %input.span9{:type => "text"}/
-            .span12.field-box
-              %label State:
+              %label Tipo de Usuario:
               .ui-select.span5
                 %select
-                  %option{:value => ""} Tipo de Usuario
-                  %option{:value => "AK"} Medico
-                  %option{:value => "HI"} Paciente
-                  %option{:value => "CA"} Otro
+                  %option{:value => "m"} Medico
+                  %option{:value => "p"} Paciente
+                  %option{:value => "pl"} Personal de laboratorio
             .span12.field-box
-              %label Company:
+              %label Nombres:
               %input.span9{:type => "text"}/
             .span12.field-box
-              %label Phone:
+              %label Apellidos:
               %input.span9{:type => "text"}/
             .span12.field-box
-              %label Address:
-              .address-fields
-                %input.span12{:type => "text"}/
+              %label Nombre de Usuario:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Contrasena:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Confirmar Contrasena:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Telefono:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Celular:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Direccion:
+              %input.span9{:type => "text"}/
+            .span12.field-box
+              %label Fecha de Nacimiento:
+              %input.input-large.datepicker{:type => "text", :value => "00/12/2013"}/
+
+
             .span12.field-box.textarea
               %label Notes:
               %textarea.span9
