@@ -1,0 +1,33 @@
+%h1 Listing tests
+
+%table
+  %tr
+    %th Parameter
+    %th Result
+    %th Unit
+    %th Reference values
+    %th Test type
+    %th Description
+    %th Image
+    %th Test category
+    %th
+    %th
+    %th
+
+  - @tests.each do |test|
+    %tr
+      %td= test.parameter
+      %td= test.result
+      %td= test.unit
+      %td= test.reference_values
+      %td= test.test_type
+      %td= test.description
+      %td= test.image
+      %td= test.test_category
+      %td= link_to 'Show', test
+      %td= link_to 'Edit', edit_test_path(test)
+      %td= link_to 'Destroy', test, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Test', new_test_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813034535) do
+ActiveRecord::Schema.define(version: 20130813043605) do
 
   create_table "patients", force: true do |t|
     t.string   "name"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20130813034535) do
   end
 
   add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry", using: :btree
+
+  create_table "tests", force: true do |t|
+    t.string   "parameter"
+    t.float    "result"
+    t.string   "unit"
+    t.string   "reference_values"
+    t.string   "test_type"
+    t.text     "description"
+    t.string   "image"
+    t.integer  "test_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
