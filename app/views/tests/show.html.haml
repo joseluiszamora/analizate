@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b Test category:
+  = @test.test_category_description
+%p
   %b Parameter:
   = @test.parameter
 %p
@@ -12,18 +15,18 @@
 %p
   %b Reference values:
   = @test.reference_values
-%p
-  %b Test type:
-  = @test.test_type
-%p
-  %b Description:
-  = @test.description
-%p
-  %b Image:
-  = @test.image
-%p
-  %b Test category:
-  = @test.test_category
+- if @test.test_type.present?
+  %p
+    %b Test type:
+    = @test.test_type
+- if @test.description.present?
+  %p
+    %b Description:
+    = @test.description
+- if @test.image.present?
+  %p
+    %b Image:
+    = @test.image
 
 = link_to 'Edit', edit_test_path(@test)
 \|

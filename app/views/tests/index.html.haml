@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Test category
     %th Parameter
     %th Result
     %th Unit
@@ -9,13 +10,11 @@
     %th Test type
     %th Description
     %th Image
-    %th Test category
-    %th
-    %th
     %th
 
   - @tests.each do |test|
     %tr
+      %td= test.test_category_description
       %td= test.parameter
       %td= test.result
       %td= test.unit
@@ -23,10 +22,10 @@
       %td= test.test_type
       %td= test.description
       %td= test.image
-      %td= test.test_category
-      %td= link_to 'Show', test
-      %td= link_to 'Edit', edit_test_path(test)
-      %td= link_to 'Destroy', test, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td
+        = link_to 'Show', test
+        = link_to 'Edit', edit_test_path(test)
+        = link_to 'Destroy', test, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

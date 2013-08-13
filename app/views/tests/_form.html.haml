@@ -7,6 +7,9 @@
           %li= msg
 
   .field
+    = f.label :test_category
+    = f.select :test_category_id, options_for_select(TestCategory.all.map { |t| [t.description, t.id] })
+  .field
     = f.label :parameter
     = f.text_field :parameter
   .field
@@ -27,8 +30,5 @@
   .field
     = f.label :image
     = f.text_field :image
-  .field
-    = f.label :test_category
-    = f.text_field :test_category
   .actions
     = f.submit 'Save'
