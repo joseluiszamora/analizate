@@ -1,4 +1,6 @@
 Analizate::Application.routes.draw do
+  resources :test_categories
+
   devise_for :users, controllers: { sessions: 'sessions' }
 
   root 'welcome#index'
