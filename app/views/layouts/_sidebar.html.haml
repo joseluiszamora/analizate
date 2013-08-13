@@ -17,6 +17,14 @@
         %li= link_to "Nuevo Usuario", "users/new"
         %li= link_to "Perfil de Usuario", "users/profile/1"
     %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-edit
+        %span Analisis
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Nuevo Analisis", "analysis/new"
+        %li= link_to "Lista de Analisis", "analysis"
+    %li
       %a{:href => "#"}
         %i.icon-signal
         %span Charts
@@ -27,7 +35,7 @@
         %i.icon-chevron-down
       %ul.submenu
         %li
-          %a{:href => "javascript:if(confirm('http://detail.herokuapp.com/form-showcase.html  \\n\\nThis file was not retrieved by Teleport Pro, because it was unavailable, or its retrieval was aborted, or the project was stopped too soon.  \\n\\nDo you want to open it from the server?'))window.location='http://detail.herokuapp.com/form-showcase.html'", :tppabs => "http://detail.herokuapp.com/form-showcase.html"} Form showcase
+          %a{:href => "#"} Form showcase
         %li
           %a{:href => "form-wizard.html"} Form wizard
     %li

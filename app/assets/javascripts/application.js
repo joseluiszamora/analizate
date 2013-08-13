@@ -17,7 +17,7 @@
 *= require function.js
 *= require bootstrap.min.js
 * require bootstrap.datepicker.js
-* require fuelux.wizard.js
+*= require fuelux.wizard.js
 * require fullcalendar.min.js
 * require function.js
 * require html5.js

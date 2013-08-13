@@ -21,6 +21,8 @@
  * require jquery-ui-1.10.2.custom
  *= require layout
  *= require user-list
+ *= require users
+ *= require form-wizard
  
  * require_tree .
  */

@@ -1,0 +1,168 @@
+.container-fluid
+  #pad-wrapper
+    /
+      <div class="row-fluid head">
+      <div class="span12">
+      <h4>Form wizard</h4>
+      </div>
+      </div>
+    .row-fluid
+      .span12
+        #fuelux-wizard.wizard.row-fluid
+          %ul.wizard-steps
+            %li.complete{"data-target" => "#step1"}
+              %span.step 1
+              %span.title
+                General
+                %br/
+                information
+            %li.complete{"data-target" => "#step2"}
+              %span.step 2
+              %span.title
+                Address
+                %br/
+                information
+            %li.complete{"data-target" => "#step3"}
+              %span.step 3
+              %span.title
+                User
+                %br/
+                settings
+            %li.active{"data-target" => "#step4"}
+              %span.step 4
+              %span.title
+                Payment
+                %br/
+                info
+        .step-content
+          #step1.step-pane
+            .row-fluid.form-wrapper
+              .span8
+                %form
+                  .field-box
+                    %label Name:
+                    %input.span8{:type => "text"}/
+                  .field-box.error
+                    %label Company:
+                    %input.span8{:type => "text"}/
+                    %span.alert-msg
+                      %i.icon-remove-sign
+                      Please enter your company
+                  .field-box
+                    %label Email:
+                    %input.span8{:type => "text"}/
+                  .field-box.success
+                    %label Username:
+                    %input.span8{:type => "text"}/
+                    %span.alert-msg
+                      %i.icon-ok-sign
+                      Username available
+          #step2.step-pane
+            .row-fluid.form-wrapper
+              .span8
+                %form
+                  .field-box
+                    %label Address:
+                    %input.span8{:type => "text", :value => "asd"}/
+                  .field-box
+                    %label City:
+                    %input.span8{:type => "text", :value => "sdvs"}/
+                  .field-box
+                    %label Postal/ZIP code:
+                    %input.span8{:type => "text", :value => "vdf"}/
+                  .field-box
+                    %label Country:
+                    %input.span8{:type => "text", :value => "vdfvd"}/
+          #step3.step-pane
+            .row-fluid.form-wrapper
+              .span8
+                %form
+                  .field-box
+                    %label Username:
+                    %input.span8{:type => "text"}/
+                  .field-box
+                    %label Photo:
+                    %input{:type => "file"}/
+                  .field-box
+                    %label App name:
+                    %input.span8{:type => "text"}/
+                  .field-box
+                    %label Time zone:
+                    %select
+                      %option{:selected => "selected", :value => "Hawaii"} (GMT-10:00) Hawaii
+                      %option{:value => "Alaska"} (GMT-09:00) Alaska
+                      %option{:value => "Pacific Time (US & Canada)"} (GMT-08:00) Pacific Time (US & Canada)
+                      %option{:value => "Arizona"} (GMT-07:00) Arizona
+                      %option{:value => "Mountain Time (US & Canada)"} (GMT-07:00) Mountain Time (US & Canada)
+                      %option{:value => "Central Time (US & Canada)"} (GMT-06:00) Central Time (US & Canada)
+                      %option{:value => "Eastern Time (US & Canada)"} (GMT-05:00) Eastern Time (US & Canada)
+                      %option{:value => "Indiana (East)"} (GMT-05:00) Indiana (East)
+                      %option{:disabled => "disabled", :value => ""} -------------
+                      %option{:value => "American Samoa"} (GMT-11:00) American Samoa
+                      %option{:value => "International Date Line West"} (GMT-11:00) International Date Line West
+                      %option{:value => "Midway Island"} (GMT-11:00) Midway Island
+          #step4.step-pane.active
+            .row-fluid.form-wrapper.payment-info
+              .span8
+                %form
+                  .field-box
+                    %label Subscription Plan:
+                    %select#plan.span5
+                      %option{:selected => "selected", :value => "66"} Basic - $2.99/month (USD)
+                      %option{:value => "67"} Pro - $9.99/month (USD)
+                      %option{:value => "68"} Premium - $49.99/month (USD)
+                  .field-box
+                    %label Credit Card Number:
+                    %input.span5{:type => "text"}/
+                  .field-box
+                    %label Expiration:
+                    %input{:placeholder => "MM", :style => "width:60px;", :type => "text"}/
+                    \  /  
+                    %input{:placeholder => "YYYY", :style => "width:85px;", :type => "text"}/
+                  .field-box
+                    %label Card CVC Number:
+                    %input.span4{:type => "text"}/
+        .wizard-actions
+          %button.btn-glow.primary.btn-prev{:type => "button"}
+            %i.icon-chevron-left
+            Prev
+          %button.btn-glow.primary.btn-next{"data-last" => "Finish", :style => "display: inline-block;", :type => "button"}
+            Next
+            %i.icon-chevron-right
+          %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
+            Setup your account!
+
+:javascript
+  $(document).ready(function(){
+    $(function () {
+      var $wizard = $('#fuelux-wizard'),
+          $btnPrev = $('.wizard-actions .btn-prev'),
+          $btnNext = $('.wizard-actions .btn-next'),
+          $btnFinish = $(".wizard-actions .btn-finish");
+
+      $wizard.wizard().on('finished', function(e) {
+          // wizard complete code
+      }).on("changed", function(e) {
+          var step = $wizard.wizard("selectedItem");
+          // reset states
+          $btnNext.removeAttr("disabled");
+          $btnPrev.removeAttr("disabled");
+          $btnNext.show();
+          $btnFinish.hide();
+
+          if (step.step === 1) {
+              $btnPrev.attr("disabled", "disabled");
+          } else if (step.step === 4) {
+              $btnNext.hide();
+              $btnFinish.show();
+          }
+      });
+
+      $btnPrev.on('click', function() {
+          $wizard.wizard('previous');
+      });
+      $btnNext.on('click', function() {
+          $wizard.wizard('next');
+      });
+    });
+  });
