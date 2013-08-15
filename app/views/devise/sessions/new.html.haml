@@ -2,7 +2,7 @@
   .content-wrap
     %h6 Log in
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      = f.email_field :email, :autofocus => true, :class => 'span12', :placeholder => "E-mail"
+      = f.text_field :login, :autofocus => true, :class => 'span12', :placeholder => "E-mail or Username"
       = f.password_field :password, :class => 'span12', :placeholder => "Password"
       %a.forgot{:href => "#"} Forgot password?
       .remember
