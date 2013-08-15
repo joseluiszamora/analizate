@@ -13,8 +13,8 @@
  *= require bootstrap-overrides
  *= require bootstrap-responsive
  *= require bootstrap-wysihtml5
- *= require bootstrap-datepicker
  *= require bootstrap
+ *= require datepicker
  *= require elements
  *= require font-awesome
  * require icons

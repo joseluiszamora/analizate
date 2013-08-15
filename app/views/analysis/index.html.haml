@@ -29,8 +29,8 @@
                 %br/
                 info
         .step-content
-          #step1.step-pane
-            .row-fluid.form-wrapper
+          #step1.step-pane.active
+            .row-fluid.form-wrapper.payment-info
               .span8
                 %form
                   .field-box
@@ -41,13 +41,34 @@
                     %input.span8{:type => "text"}/
                   .field-box
                     %label Entrega de la muestra:
-                    %input.span4{:placeholder => "Fecha", :type => "text", :type => "datepicker"}/
-                      
+                    %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
                     %input.span2{:placeholder => "Hora", :type => "text"}/
                   .field-box
                     %label Entrega:
-                    %input.span8{:type => "text"}/
+                    %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
+                    %input.span2{:placeholder => "Hora", :type => "text"}/
           #step2.step-pane
+            .row-fluid.form-wrapper
+              / left column
+              .span8.column
+                %form                 
+                  .field-box
+                    %label Checkboxes:
+                    %label.checkbox
+                    .checker
+                      %span.checked
+                        %input{:type => "checkbox"}/
+                        Analisis de sangre
+                        %label.checkbox
+                        .checker
+                          %span.checked
+                            %input{:type => "checkbox"}/
+                        Analisis de orina
+                        %label.checkbox
+                        .checker
+                          %span
+                            %input{:type => "checkbox"}/                  
+          #step3.step-pane
             .row-fluid.form-wrapper
               .span8
                 %form
@@ -63,10 +84,6 @@
                   .field-box
                     %label Country:
                     %input.span8{:type => "text", :value => "vdfvd"}/
-          #step3.step-pane
-            .row-fluid.form-wrapper
-              .span8
-                %form
                   .field-box
                     %label Username:
                     %input.span8{:type => "text"}/
@@ -91,8 +108,8 @@
                       %option{:value => "American Samoa"} (GMT-11:00) American Samoa
                       %option{:value => "International Date Line West"} (GMT-11:00) International Date Line West
                       %option{:value => "Midway Island"} (GMT-11:00) Midway Island
-          #step4.step-pane.active
-            .row-fluid.form-wrapper.payment-info
+          #step4.step-pane
+            .row-fluid.form-wrapper
               .span8
                 %form
                   .field-box
@@ -123,12 +140,13 @@
             Setup your account!
 
 :javascript
-$(document).ready(function(){
   $(function () {
     var $wizard = $('#fuelux-wizard'),
     $btnPrev = $('.wizard-actions .btn-prev'),
     $btnNext = $('.wizard-actions .btn-next'),
     $btnFinish = $(".wizard-actions .btn-finish");
+
+    $btnPrev.attr("disabled", "disabled");
 
     $wizard.wizard().on('finished', function(e) {
     // wizard complete code
@@ -139,7 +157,6 @@ $(document).ready(function(){
       $btnPrev.removeAttr("disabled");
       $btnNext.show();
       $btnFinish.hide();
-
       if (step.step === 1) {
         $btnPrev.attr("disabled", "disabled");
       } else if (step.step === 4) {
@@ -147,12 +164,10 @@ $(document).ready(function(){
         $btnFinish.show();
       }
     });
-
     $btnPrev.on('click', function() {
       $wizard.wizard('previous');
     });
-    $btnNext.on('click', function() {
+      $btnNext.on('click', function() {
       $wizard.wizard('next');
     });
-  });
-});
+  }); 
