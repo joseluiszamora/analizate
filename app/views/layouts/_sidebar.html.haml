@@ -13,17 +13,17 @@
         %span Usuarios
         %i.icon-chevron-down
       %ul.submenu
-        %li= link_to "Lista de Usuarios", "users"
-        %li= link_to "Nuevo Usuario", "users/new"
-        %li= link_to "Perfil de Usuario", "users/profile/1"
+        %li= link_to "Lista de Usuarios", "/users"
+        %li= link_to "Nuevo Usuario", "/users/new"
+        %li= link_to "Perfil de Usuario", "/users/profile/1"
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-edit
         %span Analisis
         %i.icon-chevron-down
       %ul.submenu
-        %li= link_to "Nuevo Analisis", "analysis/new"
-        %li= link_to "Lista de Analisis", "analysis"
+        %li= link_to "Nuevo Analisis", new_test_category_path
+        %li= link_to "Lista de Analisis", "/analysis"
     %li
       %a{:href => "#"}
         %i.icon-signal
