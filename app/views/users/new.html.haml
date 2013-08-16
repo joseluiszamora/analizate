@@ -8,48 +8,52 @@
       / left column
       .span9.with-sidebar
         .container
-          %form.new_user_form.inline-input
+          = form_for @user, html: { class: 'new_user_form inline-input' } do |f|
+            - if @user.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+                %ul
+                  - @user.errors.full_messages.each do |msg|
+                    %li= msg
             .span12.field-box
-              %label Tipo de Usuario:
+              = f.label :user_type, 'Tipo de Usuario:'
               .ui-select.span5
-                %select
-                  %option{:value => "m"} Medico
-                  %option{:value => "p"} Paciente
-                  %option{:value => "pl"} Personal de laboratorio
+                = f.select :user_type, options_for_select(get_user_type)
             .span12.field-box
-              %label Nombres:
-              %input.span9{:type => "text"}/
+              = f.label :name, 'Nombres:'
+              = f.text_field :name, class: 'span9'
             .span12.field-box
-              %label Apellidos:
-              %input.span9{:type => "text"}/
+              = f.label :last_name, 'Apellidos:'
+              = f.text_field :last_name, class: 'span9'
             .span12.field-box
-              %label Nombre de Usuario:
-              %input.span9{:type => "text"}/
+              = f.label :email, 'Email:'
+              = f.email_field :email, class: 'span9'
             .span12.field-box
-              %label Contrasena:
-              %input.span9{:type => "text"}/
+              = f.label :username, 'Nombre de Usuario:'
+              = f.text_field :username, class: 'span9'
             .span12.field-box
-              %label Confirmar Contrasena:
-              %input.span9{:type => "text"}/
+              = f.label :password, 'Contraseña:'
+              = f.password_field :password, class: 'span9'
             .span12.field-box
-              %label Telefono:
-              %input.span9{:type => "text"}/
+              = f.label :password_confirmation, 'Confirmar Contraseña:'
+              = f.password_field :password_confirmation, class: 'span9'
             .span12.field-box
-              %label Celular:
-              %input.span9{:type => "text"}/
+              = f.label :phone, 'Telefono:'
+              = f.text_field :phone, class: 'span9'
             .span12.field-box
-              %label Direccion:
-              %input.span9{:type => "text"}/
+              = f.label :cellular, 'Celular:'
+              = f.text_field :cellular, class: 'span9'
             .span12.field-box
-              %label Fecha de Nacimiento:
-              %input.input-large.datepicker{:type => "text", :value => "00/12/2013"}/
-
-
+              = f.label :address, 'Direccion:'
+              = f.text_field :address, class: 'span9'
+            .span12.field-box
+              = f.label :birthday, 'Fecha de Nacimiento:'
+              = f.text_field :birthday, class: 'input-large datepicker'
             .span12.field-box.textarea
-              %label Notes:
-              %textarea.span9
+              = f.label :notes, 'Notes:'
+              = f.text_area :notes, class: 'span9'
               %span.charactersleft 90 characters remaining. Field limited to 100 characters
             .span11.field-box.actions
-              %input.btn-glow.primary{:type => "button", :value => "Create user"}/
+              = f.submit 'Create user', class: 'btn-glow primary'
               %span OR
-              %input.reset{:type => "reset", :value => "Cancel"}/
+              = link_to 'CANCEL', users_path, class: 'reset'

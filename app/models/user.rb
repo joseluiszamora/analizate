@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
+  USER_TYPE = %w(medical patient laboratory_staff)
+
   before_save :ensure_authentication_token
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :token_authenticatable,

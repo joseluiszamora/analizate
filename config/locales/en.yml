@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  user:
+    user_type:
+      medical: 'Médico'
+      patient: 'Paciente'
+      laboratory_staff: 'Personal de laboratorio'
