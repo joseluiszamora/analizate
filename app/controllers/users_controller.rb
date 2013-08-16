@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     respond_with @users
   end
 
+  def show
+  end
+
   def new
     @user = User.new
     respond_with @user

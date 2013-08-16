@@ -1,5 +1,5 @@
 Analizate::Application.routes.draw do
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :show, :new, :create]
 
   resources :tests
 
