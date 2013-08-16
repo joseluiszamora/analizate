@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def full_name
+    "#{ name } #{ last_name }"
+  end
 end

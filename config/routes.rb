@@ -1,4 +1,6 @@
 Analizate::Application.routes.draw do
+  resources :users, only: [:index]
+
   resources :tests
 
   resources :test_categories
@@ -7,7 +9,6 @@ Analizate::Application.routes.draw do
 
   root 'welcome#index'
 
-  match "/users" => "users#index", :via => :get
   match "/users/new" => "users#new", :via => :get
   match "/users/profile/1" => "users#profile", :via => :get
 

@@ -14,7 +14,7 @@
               %option{:value => "AK"} Medico
               %option{:value => "HI"} Paciente
               %option{:value => "CA"} Otro
-        .span4 
+        .span4
           %a.btn-glow.primary Buscar
     / Users table
     .row-fluid.table
@@ -33,42 +33,18 @@
               %span.line>
               Email
         %tbody
-          / row
-          %tr.first
-            %td
-              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
-              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
-              %span.subtext Doctor
-            %td
-              Centro Medico Kolping
-            %td
-              10 de agosto del 2013
-            %td.align-right
-              %a{:href => "#"} alejandra@canvas.com
-          / row
-          %tr
-            %td
-              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img2.png"}/
-              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
-              %span.subtext Paciente
-            %td
-              Clinica Santa Maria
-            %td
-              10 de agosto del 2013
-            %td.align-right
-              %a{:href => "#"} alejandra@canvas.com
-          / row
-          %tr
-            %td
-              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
-              %a.name{:href => "http://detail.herokuapp.com/user-profile.html"} Alejandra Galvan Castillo
-              %span.subtext Administrador
-            %td
-              Analizate
-            %td
-              10 de agosto del 2013
-            %td.align-right
-              %a{:href => "#"} alejandra@canvas.com         
+          - @users.each_with_index do |user, index|
+            %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+              %td
+                %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+                %a.name{:href => "http://detail.herokuapp.com/user-profile.html"}= user.full_name
+                %span.subtext= user.user_type
+              %td
+                Centro Medico Kolping
+              %td
+                = I18n.l user.created_at, format: :long
+              %td.align-right
+                = mail_to user.email
     .pagination.pull-right
       %ul
         %li
