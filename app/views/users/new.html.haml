@@ -1,0 +1,59 @@
+/ main container
+.container-fluid
+  #pad-wrapper.new-user
+    .row-fluid.header
+      %h3 Nuevo Usuario
+
+    .row-fluid.form-wrapper
+      / left column
+      .span9.with-sidebar
+        .container
+          = form_for @user, html: { class: 'new_user_form inline-input' } do |f|
+            - if @user.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+                %ul
+                  - @user.errors.full_messages.each do |msg|
+                    %li= msg
+            .span12.field-box
+              = f.label :user_type, 'Tipo de Usuario:'
+              .ui-select.span5
+                = f.select :user_type, options_for_select(get_user_type)
+            .span12.field-box
+              = f.label :name, 'Nombres:'
+              = f.text_field :name, class: 'span9'
+            .span12.field-box
+              = f.label :last_name, 'Apellidos:'
+              = f.text_field :last_name, class: 'span9'
+            .span12.field-box
+              = f.label :email, 'Email:'
+              = f.email_field :email, class: 'span9'
+            .span12.field-box
+              = f.label :username, 'Nombre de Usuario:'
+              = f.text_field :username, class: 'span9'
+            .span12.field-box
+              = f.label :password, 'Contraseña:'
+              = f.password_field :password, class: 'span9'
+            .span12.field-box
+              = f.label :password_confirmation, 'Confirmar Contraseña:'
+              = f.password_field :password_confirmation, class: 'span9'
+            .span12.field-box
+              = f.label :phone, 'Telefono:'
+              = f.text_field :phone, class: 'span9'
+            .span12.field-box
+              = f.label :cellular, 'Celular:'
+              = f.text_field :cellular, class: 'span9'
+            .span12.field-box
+              = f.label :address, 'Direccion:'
+              = f.text_field :address, class: 'span9'
+            .span12.field-box
+              = f.label :birthday, 'Fecha de Nacimiento:'
+              = f.text_field :birthday, class: 'input-large datepicker'
+            .span12.field-box.textarea
+              = f.label :notes, 'Notes:'
+              = f.text_area :notes, class: 'span9'
+              %span.charactersleft 90 characters remaining. Field limited to 100 characters
+            .span11.field-box.actions
+              = f.submit 'Create user', class: 'btn-glow primary'
+              %span OR
+              = link_to 'CANCEL', users_path, class: 'reset'

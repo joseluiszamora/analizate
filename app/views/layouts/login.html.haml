@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Login
+    = stylesheet_link_tag    "login", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "login", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .login-bg
+      .row-fluid.login-wrapper
+        %img.logo{:src => "/images/analizate.png"}/
+        - if notice
+          .notice= notice
+        - if alert
+          .alert= alert
+        = yield

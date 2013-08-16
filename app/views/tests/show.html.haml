@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Test category:
+  = @test.test_category_description
+%p
+  %b Parameter:
+  = @test.parameter
+%p
+  %b Result:
+  = @test.result
+%p
+  %b Unit:
+  = @test.unit
+%p
+  %b Reference values:
+  = @test.reference_values
+- if @test.test_type.present?
+  %p
+    %b Test type:
+    = @test.test_type
+- if @test.description.present?
+  %p
+    %b Description:
+    = @test.description
+- if @test.image.present?
+  %p
+    %b Image:
+    = @test.image
+
+= link_to 'Edit', edit_test_path(@test)
+\|
+= link_to 'Back', tests_path

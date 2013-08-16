@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130808032325) do
+ActiveRecord::Schema.define(version: 20130815021426) do
+
+  create_table "patients", force: true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "test_categories", force: true do |t|
+    t.string   "description"
+    t.string   "ancestry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry"
+
+  create_table "tests", force: true do |t|
+    t.string   "parameter"
+    t.float    "result"
+    t.string   "unit"
+    t.string   "reference_values"
+    t.string   "test_type"
+    t.text     "description"
+    t.string   "image"
+    t.integer  "test_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -34,12 +65,22 @@ ActiveRecord::Schema.define(version: 20130808032325) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username",               default: "", null: false
+    t.string   "user_type"
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "cellular"
+    t.date     "birthday"
+    t.text     "notes"
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

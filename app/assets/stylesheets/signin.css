@@ -1,0 +1,127 @@
+
+.login-bg {
+  background-image : url("/images/9.jpg");
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.login-wrapper {
+    position: absolute;
+    text-align: center;
+    top: 90px;
+}
+.login-wrapper .logo {
+    left: -2px;
+    margin-bottom: 45px;
+    position: relative;
+}
+.login-wrapper .box {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.65);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+    float: none;
+    margin: 0 auto;
+    padding: 35px 0 30px;
+    width: 400px;
+}
+.login-wrapper .box .content-wrap {
+    margin: 0 auto;
+    width: 82%;
+}
+.login-wrapper .box h6 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+}
+.login-wrapper .box input[type="text"], .login-wrapper .box input[type="password"] {
+    border-color: #B2BFC7;
+    font-size: 15px;
+    height: 40px;
+    margin-bottom: 18px;
+    padding-left: 12px;
+}
+.login-wrapper .box input[type="password"] {
+    margin-bottom: 10px;
+}
+.login-wrapper .box input:-moz-placeholder {
+    color: #9BA8B6;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: 0;
+}
+.login-wrapper .box a.forgot {
+    color: #3D88BA;
+    display: block;
+    font-size: 13px;
+    font-style: italic;
+    margin-bottom: 6px;
+    text-align: right;
+    text-decoration: underline;
+}
+.login-wrapper .box .remember {
+    display: block;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.login-wrapper .box .remember input[type="checkbox"] {
+    float: left;
+    margin-right: 8px;
+}
+.login-wrapper .box .remember label {
+    color: #4A576A;
+    float: left;
+    font-size: 13px;
+}
+.login-wrapper .box .login {
+    font-size: 13px;
+    padding: 8px 30px;
+    text-transform: uppercase;
+}
+.login-wrapper .no-account {
+    float: none;
+    font-size: 14px;
+    margin: 25px auto 0;
+    text-align: center;
+}
+.login-wrapper .no-account p {
+    color: #AAAAAA;
+    display: inline-block;
+}
+.login-wrapper .no-account a {
+    border-bottom: 1px solid;
+    color: #AAAAAA;
+    margin-left: 7px;
+    transition: all 0.1s linear 0s;
+}
+.login-wrapper .no-account a:hover {
+    border-bottom-color: #FFFFFF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.bg-switch {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+    border-radius: 0 10px 10px 0;
+    padding: 10px 10px 0;
+    position: absolute;
+    top: 60px;
+    z-index: 999;
+}
+.bg-switch .bgs .bg {
+    display: block;
+    margin-bottom: 13px;
+    text-align: center;
+    text-decoration: none;
+}
+.bg-switch .bgs .bg.active img {
+    border-color: #000000;
+}
+.bg-switch .bgs .bg img {
+    border: 2px solid #9FCEF1;
+    cursor: pointer;
+    height: 60px;
+    width: 80px;
+}
+.login-wrapper .box {
+  width: 400px;
+}

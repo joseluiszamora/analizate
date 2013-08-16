@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  layout 'login'
+
   respond_to :json, :html
 
   def destroy

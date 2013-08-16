@@ -6,6 +6,17 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    .notice= notice
-    .alert= alert
-    = yield
+    /.notice= notice
+    /.alert= alert
+
+    / sidebar
+    = render "layouts/navbar"
+    / end sidebar
+
+    / sidebar
+    = render "layouts/sidebar"
+    / end sidebar
+
+    / main container    
+    .content
+      = yield

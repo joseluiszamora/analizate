@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @test_category.description
+%p
+  %b Ancestry:
+  = @test_category.ancestry
+
+= link_to 'Edit', edit_test_category_path(@test_category)
+\|
+= link_to 'Back', test_categories_path

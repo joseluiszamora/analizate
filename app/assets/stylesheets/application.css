@@ -9,5 +9,21 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ * require application
+ *= require bootstrap-overrides
+ *= require bootstrap-responsive
+ *= require bootstrap-wysihtml5
+ *= require bootstrap
+ *= require datepicker
+ *= require elements
+ *= require font-awesome
+ * require icons
+ * require index
+ * require jquery-ui-1.10.2.custom
+ *= require layout
+ *= require user-list
+ *= require users
+ *= require form-wizard
+ 
+ * require_tree .
  */

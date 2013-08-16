@@ -1,0 +1,116 @@
+/ navbar
+.navbar.navbar-inverse
+  .navbar-inner
+    %button#menu-toggler.btn.btn-navbar.visible-phone{:type => "button"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to root_path, class: 'brand' do
+      %img{:src => "/images/analizate.png", :width => "220"}/
+    %ul.nav.pull-right
+      %li.hidden-phone
+        %input.search{:type => "text"}/
+      %li.notification-dropdown.hidden-phone
+        %a.trigger{:href => "#"}
+          %i.icon-warning-sign
+          %span.count 8
+        .pop-dialog
+          .pointer.right
+            .arrow
+            .arrow_border
+          .body
+            %a.close-icon{:href => "#"}
+              %i.icon-remove-sign
+            .notifications
+              %h3 You have 6 new notifications
+              %a.item{:href => "#"}
+                %i.icon-signin
+                New user registration
+                %span.time
+                  %i.icon-time
+                  13 min.
+              %a.item{:href => "#"}
+                %i.icon-signin
+                New user registration
+                %span.time
+                  %i.icon-time
+                  18 min.
+              %a.item{:href => "#"}
+                %i.icon-envelope-alt
+                New message from Alejandra
+                %span.time
+                  %i.icon-time
+                  28 min.
+              %a.item{:href => "#"}
+                %i.icon-signin
+                New user registration
+                %span.time
+                  %i.icon-time
+                  49 min.
+              %a.item{:href => "#"}
+                %i.icon-download-alt
+                New order placed
+                %span.time
+                  %i.icon-time
+                  1 day.
+              .footer
+                %a.logout{:href => "#"} View all notifications
+      %li.notification-dropdown.hidden-phone
+        %a.trigger{:href => "#"}
+          %i.icon-envelope-alt
+        .pop-dialog
+          .pointer.right
+            .arrow
+            .arrow_border
+          .body
+            %a.close-icon{:href => "#"}
+              %i.icon-remove-sign
+            .messages
+              %a.item{:href => "#"}
+                %img.display{:src => "/images/contact-img.png"}/
+              .name Alejandra Galván
+              .msg
+                There are many variations of available, but the majority have suffered alterations.
+              %span.time
+                %i.icon-time
+                13 min.
+              %a.item{:href => "#"}
+                %img.display{:src => "/images/contact-img2.png"}/
+              .name Alejandra Galván
+              .msg
+                There are many variations of available, have suffered alterations.
+              %span.time
+                %i.icon-time
+                26 min.
+              %a.item.last{:href => "#"}
+                %img.display{:src => "/images/contact-img.png", :tppabs => "http://detail.herokuapp.com/img/contact-img.png"}/
+              .name Alejandra Galván
+              .msg
+                There are many variations of available, but the majority have suffered alterations.
+              %span.time
+                %i.icon-time
+                48 min.
+              .footer
+                %a.logout{:href => "#"} View all messages
+      %li.dropdown
+        %a.dropdown-toggle.hidden-phone{"data-toggle" => "dropdown", :href => "#"}
+          Your account
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{:href => "personal-info.html", :tppabs => "http://detail.herokuapp.com/personal-info.html"} Personal info
+          %li
+            %a{:href => "#"} Account settings
+          %li
+            %a{:href => "#"} Billing
+          %li
+            %a{:href => "#"} Export your data
+          %li
+            %a{:href => "#"} Send feedback
+      %li.settings.hidden-phone
+        %a{:href => "#", :role => "button", :tppabs => "http://detail.herokuapp.com/personal-info.html"}
+          %i.icon-cog
+      %li.settings.hidden-phone
+        = link_to destroy_user_session_path, method: :delete, role: 'button' do
+          %i.icon-share-alt
+/ end navbar
