@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     respond_with @users
   end
 
-  def show
+  def profile
+    render :show
   end
 
   def new

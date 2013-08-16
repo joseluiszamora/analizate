@@ -37,7 +37,7 @@
             %tr{ class: "#{ index == 0 ? 'first' : '' }" }
               %td
                 %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
-                = link_to user.full_name, user, class: 'name'
+                = link_to user.full_name, profile_user_path(user), class: 'name'
                 %span.subtext= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
               %td
                 Centro Medico Kolping

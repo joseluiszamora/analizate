@@ -5,7 +5,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.brand{:href => "#"}
+    = link_to root_path, class: 'brand' do
       %img{:src => "/images/analizate.png", :width => "220"}/
     %ul.nav.pull-right
       %li.hidden-phone
@@ -111,6 +111,6 @@
         %a{:href => "#", :role => "button", :tppabs => "http://detail.herokuapp.com/personal-info.html"}
           %i.icon-cog
       %li.settings.hidden-phone
-        %a{:href => "#", :role => "button"}
+        = link_to destroy_user_session_path, method: :delete, role: 'button' do
           %i.icon-share-alt
 / end navbar
