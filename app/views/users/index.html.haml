@@ -25,7 +25,7 @@
               Nombre
             %th.span2.sortable
               %span.line>
-              Institucion
+              Institución
             %th.span2.sortable
               %span.line>
               Fecha de Registro
@@ -38,7 +38,7 @@
               %td
                 %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
                 %a.name{:href => "http://detail.herokuapp.com/user-profile.html"}= user.full_name
-                %span.subtext= user.user_type
+                %span.subtext= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
               %td
                 Centro Medico Kolping
               %td

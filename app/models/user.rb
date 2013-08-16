@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{ name } #{ last_name }"
+    "#{ name } #{ last_name }".presence || username.presence || email
   end
 end
