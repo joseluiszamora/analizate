@@ -24,7 +24,7 @@ class TestCategoriesController < ApplicationController
     @test_category = TestCategory.new(test_category_params)
 
     if @test_category.save
-      redirect_to @test_category, notice: 'Test category was successfully created.'
+      redirect_to test_categories_url, notice: 'Test category was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +33,7 @@ class TestCategoriesController < ApplicationController
   # PATCH/PUT /test_categories/1
   def update
     if @test_category.update(test_category_params)
-      redirect_to @test_category, notice: 'Test category was successfully updated.'
+      redirect_to test_categories_url, notice: 'Test category was successfully updated.'
     else
       render action: 'edit'
     end
