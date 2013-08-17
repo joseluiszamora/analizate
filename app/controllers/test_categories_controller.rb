@@ -3,7 +3,7 @@ class TestCategoriesController < ApplicationController
 
   # GET /test_categories
   def index
-    @test_categories = TestCategory.all
+    @test_categories = TestCategory.roots
   end
 
   # GET /test_categories/1
@@ -12,7 +12,7 @@ class TestCategoriesController < ApplicationController
 
   # GET /test_categories/new
   def new
-    @test_category = TestCategory.new
+    @test_category = TestCategory.new(parent_id: params[:parent_id])
   end
 
   # GET /test_categories/1/edit
@@ -24,7 +24,7 @@ class TestCategoriesController < ApplicationController
     @test_category = TestCategory.new(test_category_params)
 
     if @test_category.save
-      redirect_to @test_category, notice: 'Test category was successfully created.'
+      redirect_to test_categories_url, notice: 'Test category was successfully created.'
     else
       render action: 'new'
     end
@@ -33,7 +33,7 @@ class TestCategoriesController < ApplicationController
   # PATCH/PUT /test_categories/1
   def update
     if @test_category.update(test_category_params)
-      redirect_to @test_category, notice: 'Test category was successfully updated.'
+      redirect_to test_categories_url, notice: 'Test category was successfully updated.'
     else
       render action: 'edit'
     end
@@ -53,6 +53,6 @@ class TestCategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def test_category_params
-      params.require(:test_category).permit(:description, :ancestry)
+      params.require(:test_category).permit(:description, :parent_id)
     end
 end

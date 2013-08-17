@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-#ruby '2.0.0'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-#gem 'pg'
-gem 'sqlite3'
+gem 'pg'
+#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -27,7 +27,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'active_model_serializers'
 gem 'ancestry'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
