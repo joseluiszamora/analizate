@@ -13,21 +13,15 @@
             %li.complete{"data-target" => "#step2"}
               %span.step 2
               %span.title
-                Seleccione 
-                %br/
-                los Analisis
+                Categorias
             %li.complete{"data-target" => "#step3"}
               %span.step 3
               %span.title
-                User
-                %br/
-                settings
+                Analisis
             %li.active{"data-target" => "#step4"}
               %span.step 4
               %span.title
-                Payment
-                %br/
-                info
+                Resultados
         .step-content
           #step1.step-pane.active
             .row-fluid.form-wrapper.payment-info
@@ -49,96 +43,161 @@
                     %input.span2{:placeholder => "Hora", :type => "text"}/
           #step2.step-pane
             .row-fluid.form-wrapper
-              / left column
               .span8.column
                 %form
-                  %label.checkbox
-                    .checker
-                      %span
-                        %input{:type => "checkbox"}/
-                    Option 1
                   .field-box.span4
                     %label.checkbox
                       .checker
                         %span
                           %input{:type => "checkbox"}/
-                      Option 1
+                      Categoria 1
                   .field-box.span4
                     %label.checkbox
                       .checker
                         %span
                           %input{:type => "checkbox"}/
-                      Option 1
+                      Categoria 2
+                  .field-box.span4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Categoria 3
           #step3.step-pane
             .row-fluid.form-wrapper
-              .span8
+              .span8.column
                 %form
-                  .field-box
-                    %label Address:
-                    %input.span8{:type => "text", :value => "asd"}/
-                  .field-box
-                    %label City:
-                    %input.span8{:type => "text", :value => "sdvs"}/
-                  .field-box
-                    %label Postal/ZIP code:
-                    %input.span8{:type => "text", :value => "vdf"}/
-                  .field-box
-                    %label Country:
-                    %input.span8{:type => "text", :value => "vdfvd"}/
-                  .field-box
-                    %label Username:
-                    %input.span8{:type => "text"}/
-                  .field-box
-                    %label Photo:
-                    %input{:type => "file"}/
-                  .field-box
-                    %label App name:
-                    %input.span8{:type => "text"}/
-                  .field-box
-                    %label Time zone:
-                    %select
-                      %option{:selected => "selected", :value => "Hawaii"} (GMT-10:00) Hawaii
-                      %option{:value => "Alaska"} (GMT-09:00) Alaska
-                      %option{:value => "Pacific Time (US & Canada)"} (GMT-08:00) Pacific Time (US & Canada)
-                      %option{:value => "Arizona"} (GMT-07:00) Arizona
-                      %option{:value => "Mountain Time (US & Canada)"} (GMT-07:00) Mountain Time (US & Canada)
-                      %option{:value => "Central Time (US & Canada)"} (GMT-06:00) Central Time (US & Canada)
-                      %option{:value => "Eastern Time (US & Canada)"} (GMT-05:00) Eastern Time (US & Canada)
-                      %option{:value => "Indiana (East)"} (GMT-05:00) Indiana (East)
-                      %option{:disabled => "disabled", :value => ""} -------------
-                      %option{:value => "American Samoa"} (GMT-11:00) American Samoa
-                      %option{:value => "International Date Line West"} (GMT-11:00) International Date Line West
-                      %option{:value => "Midway Island"} (GMT-11:00) Midway Island
+                  %h4.span8 CATEGORIA 1
+                  .field-box.span4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 1
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 2
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 3
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 5
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 6
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 7
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 8
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 9
+                  %h4.span8 CATEGORIA 2
+                  .field-box.span4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 1
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 2
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 3
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 5
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 6
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 7
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 8
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Analisis 9
           #step4.step-pane
             .row-fluid.form-wrapper
-              .span8
-                %form
-                  .field-box
-                    %label Subscription Plan:
-                    %select#plan.span5
-                      %option{:selected => "selected", :value => "66"} Basic - $2.99/month (USD)
-                      %option{:value => "67"} Pro - $9.99/month (USD)
-                      %option{:value => "68"} Premium - $49.99/month (USD)
-                  .field-box
-                    %label Credit Card Number:
-                    %input.span5{:type => "text"}/
-                  .field-box
-                    %label Expiration:
-                    %input{:placeholder => "MM", :style => "width:60px;", :type => "text"}/
-                    \  /  
-                    %input{:placeholder => "YYYY", :style => "width:85px;", :type => "text"}/
-                  .field-box
-                    %label Card CVC Number:
-                    %input.span4{:type => "text"}/
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th PARAMETRO
+                    %th RESULTADO
+                    %th UNIDADES
+                    %th VALORES DE REFERENCIA     
+                %tbody
+                  %tr
+                    %td Globulos Rojos
+                    %td 
+                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                    %td millones/mm3
+                    %td Varon 5,2 - 6,6 mujer 4,5 - 5,5
+                  %tr
+                    %td Hematocrito
+                    %td 
+                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                    %td %
+                    %td Varon 49 - 57 mujer 45 - 42
+                  %tr
+                    %td V.C.M
+                    %td 
+                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                    %td pg
+                    %td 27 - 32
         .wizard-actions
           %button.btn-glow.primary.btn-prev{:type => "button"}
             %i.icon-chevron-left
-            Prev
+            Anterior
           %button.btn-glow.primary.btn-next{"data-last" => "Finish", :style => "display: inline-block;", :type => "button"}
-            Next
+            Siguiente
             %i.icon-chevron-right
           %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
-            Setup your account!
+            Finzalizar Analisis
 
 :javascript
   $(function () {
