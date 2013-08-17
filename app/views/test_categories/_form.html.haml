@@ -10,6 +10,10 @@
               - @test_category.errors.full_messages.each do |msg|
                 %li= msg
         .span12.field-box
+          = f.label :parent_id, 'Categoría Padre:'
+          .ui-select.span5
+            = f.select :parent_id, options_for_select(get_test_category_roots, f.object.parent_id), include_blank: true
+        .span12.field-box
           = f.label :description, 'Descripción:'
           = f.text_field :description, class: 'span9'
         .span11.field-box.actions

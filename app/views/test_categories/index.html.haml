@@ -7,8 +7,13 @@
       %table.table.table-hover
         %thead
           %tr
-            %th.span3.sortable
+            %th.span4.sortable
               Descripción
+            %th.span4.sortable
+              %span.line>
+              Subcategorías
+            %th.span2.sortable
+              %span.line>
             %th.span2.sortable
               %span.line>
         %tbody
@@ -17,9 +22,12 @@
               %td
                 = test_category.description
               %td
-                = link_to 'Ver', test_category_path(test_category)
+                = link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'subcategoría'), test_category_path(test_category)
+              %td
+                = link_to 'Nueva Subcategoría', new_test_category_path(parent_id: test_category.id)
+              %td
                 = link_to 'Editar', edit_test_category_path(test_category)
-                = link_to 'Eliminar', test_category_path(test_category), method: :delete, confirm: '¿Está seguro?'
+                = link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
 
     .pagination.pull-right
       %ul

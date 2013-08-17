@@ -1,12 +1,24 @@
-%p#notice= notice
+.container-fluid
+  #pad-wrapper.user-profile
+    / header
+    .row-fluid.header
+      %h3
+        Categoría:
+        %span.muted= @test_category.description
+    - if @test_category.children.present?
+      .row-fluid.table
+        %table.table.table-hover
+          %tbody
+            - @test_category.children.each_with_index do |test_category, index|
+              %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+                %td.span1
+                  = index + 1
+                %td
+                  = test_category.description
+                %td
+                  = link_to 'Editar', edit_test_category_path(test_category)
+                  = link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
 
-%p
-  %b Description:
-  = @test_category.description
-%p
-  %b Ancestry:
-  = @test_category.ancestry
-
-= link_to 'Edit', edit_test_category_path(@test_category)
-\|
-= link_to 'Back', test_categories_path
+        = link_to 'Edit', edit_test_category_path(@test_category)
+        \|
+        = link_to 'Back', test_categories_path

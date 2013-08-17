@@ -3,7 +3,7 @@ class TestCategoriesController < ApplicationController
 
   # GET /test_categories
   def index
-    @test_categories = TestCategory.all
+    @test_categories = TestCategory.roots
   end
 
   # GET /test_categories/1
@@ -12,7 +12,7 @@ class TestCategoriesController < ApplicationController
 
   # GET /test_categories/new
   def new
-    @test_category = TestCategory.new
+    @test_category = TestCategory.new(parent_id: params[:parent_id])
   end
 
   # GET /test_categories/1/edit
@@ -53,6 +53,6 @@ class TestCategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def test_category_params
-      params.require(:test_category).permit(:description, :ancestry)
+      params.require(:test_category).permit(:description, :parent_id)
     end
 end
