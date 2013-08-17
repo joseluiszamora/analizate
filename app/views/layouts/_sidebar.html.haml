@@ -25,56 +25,50 @@
         %li= link_to "Nuevo Analisis", new_test_category_path
         %li= link_to "Lista de Analisis", "/analysis"
     %li
-      %a{:href => "#"}
-        %i.icon-signal
-        %span Charts
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-code-fork
+        %span Categorías
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Categorias", test_categories_path
+        %li= link_to "Nueva Categoria", new_test_category_path
+    %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-th-large
+        %span Test
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Test", "/test"
+        %li= link_to "Nuevo Test", "/test/new"
+    %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-group
+        %span Pacientes
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Pacientes", "/patient"
+        %li= link_to "Nuevo Paciente", "/patient/new"
+    %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-picture
+        %span Medicos
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Medicos", "/doctor"
+        %li= link_to "Nuevo Medico", "/doctor/new"
+    %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-calendar-empty
+        %span Hospitales
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Hospitales", "/hospital"
+        %li= link_to "Nuevo Hospital", "/hospital/new"
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-edit
-        %span Forms
+        %span Farmacias
         %i.icon-chevron-down
       %ul.submenu
-        %li
-          %a{:href => "#"} Form showcase
-        %li
-          %a{:href => "form-wizard.html"} Form wizard
-    %li
-      %a{:href => "gallery.html"}
-        %i.icon-picture
-        %span Gallery
-    %li
-      %a{:href => "calendar.html"}
-        %i.icon-calendar-empty
-        %span Calendar
-    %li
-      %a{:href => "tables.html"}
-        %i.icon-th-large
-        %span Tables
-    %li
-      %a.dropdown-toggle.ui-elements{:href => "#"}
-        %i.icon-code-fork
-        %span UI Elements
-        %i.icon-chevron-down
-      %ul.submenu
-        %li
-          %a{:href => "ui-elements.html"} UI Elements
-        %li
-          %a{:href => "icons.html"} Icons
-    %li
-      %a{:href => "personal-info.html", :tppabs => "http://detail.herokuapp.com/personal-info.html"}
-        %i.icon-cog
-        %span My Info
-    %li
-      %a.dropdown-toggle{:href => "#"}
-        %i.icon-share-alt
-        %span Extras
-        %i.icon-chevron-down
-      %ul.submenu
-        %li
-          %a{:href => "code-editor.html", :tppabs => "http://detail.herokuapp.com/code-editor.html"} Code editor
-        %li
-          %a{:href => "grids.html", :tppabs => "http://detail.herokuapp.com/grids.html"} Grids
-        %li
-          %a{:href => "signin.html", :tppabs => "http://detail.herokuapp.com/signin.html"} Sign in
-        %li
-          %a{:href => "signup.html", :tppabs => "http://detail.herokuapp.com/signup.html"} Sign up
+        %li= link_to "Lista de Farmacias", "/pharm"
+        %li= link_to "Nuevo Farmacia", "/pharm/new"

@@ -17,13 +17,15 @@
  *= require datepicker
  *= require elements
  *= require font-awesome
- * require icons
+ * require form-showcase
+ *= require icons
  * require index
  * require jquery-ui-1.10.2.custom
  *= require layout
  *= require user-list
  *= require users
  *= require form-wizard
+ *= require uniform
  
  * require_tree .
  */

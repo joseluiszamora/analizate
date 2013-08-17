@@ -51,23 +51,24 @@
             .row-fluid.form-wrapper
               / left column
               .span8.column
-                %form                 
-                  .field-box
-                    %label Checkboxes:
-                    %label.checkbox
+                %form
+                  %label.checkbox
                     .checker
-                      %span.checked
+                      %span
                         %input{:type => "checkbox"}/
-                        Analisis de sangre
-                        %label.checkbox
-                        .checker
-                          %span.checked
-                            %input{:type => "checkbox"}/
-                        Analisis de orina
-                        %label.checkbox
-                        .checker
-                          %span
-                            %input{:type => "checkbox"}/                  
+                    Option 1
+                  .field-box.span4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Option 1
+                  .field-box.span4
+                    %label.checkbox
+                      .checker
+                        %span
+                          %input{:type => "checkbox"}/
+                      Option 1
           #step3.step-pane
             .row-fluid.form-wrapper
               .span8
@@ -170,4 +171,54 @@
       $btnNext.on('click', function() {
       $wizard.wizard('next');
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $(function () {
+    // add uniform plugin styles to html elements
+    $("input:checkbox, input:radio").uniform();
+    // select2 plugin for select elements
+    $(".select2").select2({
+    placeholder: "Select a State"
+    });
+    // datepicker plugin
+    $('.datepicker').datepicker().on('changeDate', function (ev) {
+    $(this).datepicker('hide');
+    });
+    // wysihtml5 plugin on textarea
+    $(".wysihtml5").wysihtml5({
+    "font-styles": false
+    });
+    }); $(function () {
+    // add uniform plugin styles to html elements
+    $("input:checkbox, input:radio").uniform();
+    // select2 plugin for select elements
+    $(".select2").select2({
+    placeholder: "Select a State"
+    });
+    // datepicker plugin
+    $('.datepicker').datepicker().on('changeDate', function (ev) {
+    $(this).datepicker('hide');
+    });
+    // wysihtml5 plugin on textarea
+    $(".wysihtml5").wysihtml5({
+    "font-styles": false
+    });
+    }); 
   }); 

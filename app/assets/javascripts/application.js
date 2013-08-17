@@ -32,4 +32,5 @@
 * require morris.min
 * require raphael-min
 *= require theme
+*= require jquery.uniform
  */
