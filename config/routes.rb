@@ -9,7 +9,7 @@ Analizate::Application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'sessions' }
 
-  root 'welcome#index'
+  root 'users#index'
 
   match "/analysis" => "analysis#index", :via => :get
   match "/analysis/new" => "analysis#new", :via => :get
