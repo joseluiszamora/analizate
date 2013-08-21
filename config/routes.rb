@@ -1,4 +1,6 @@
 Analizate::Application.routes.draw do
+  resources :patients, only: [:index]
+
   resources :users, only: [:index, :new, :create] do
     get 'profile', on: :member
   end

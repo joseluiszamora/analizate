@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+  $typeahead = $('.patient-typeahead').typeahead
+    name: 'patients'
+    remote: '/patients.json?q=%QUERY'
+    template: '<p>{{name}}</p>'
+    engine: Hogan
+    valueKey: 'name'
+
+  $typeahead.on 'typeahead:selected', (evt, data) ->
+    console.log data
