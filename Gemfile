@@ -29,6 +29,7 @@ gem 'active_model_serializers'
 gem 'ancestry'
 gem 'rails_12factor', group: :production
 gem 'hogan_assets'
+gem 'ransack'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
