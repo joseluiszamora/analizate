@@ -4,35 +4,35 @@
       .span12
         #fuelux-wizard.wizard.row-fluid
           %ul.wizard-steps
-            %li.complete{"data-target" => "#step1"}
+            %li.active{"data-target" => "#step1"}
               %span.step 1
               %span.title
-                Informacion 
+                Informacion
                 %br/
                 General
-            %li.complete{"data-target" => "#step2"}
+            %li{"data-target" => "#step2"}
               %span.step 2
               %span.title
                 Categorias
-            %li.complete{"data-target" => "#step3"}
+            %li{"data-target" => "#step3"}
               %span.step 3
               %span.title
                 Analisis
-            %li.active{"data-target" => "#step4"}
+            %li{"data-target" => "#step4"}
               %span.step 4
               %span.title
                 Resultados
-        .step-content
-          #step1.step-pane.active
-            .row-fluid.form-wrapper.payment-info
-              .span8
-                %form
+        = form_tag '' do
+          .step-content
+            #step1.step-pane.active
+              .row-fluid.form-wrapper.payment-info
+                .span8
                   .field-box
                     %label Paciente:
-                    %input.span8{:type => "text"}/
+                    = text_field :patient, '', class: 'span8 patient-typeahead', data: { url: patients_analyzes_path(format: :json) }
                   .field-box
                     %label Medico Solicitante:
-                    %input.span8{:type => "text"}/
+                    = text_field :medical, '', class: 'span8 medical-typeahead', data: { url: medical_analyzes_path(format: :json) }
                   .field-box
                     %label Entrega de la muestra:
                     %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
@@ -41,10 +41,9 @@
                     %label Entrega:
                     %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
                     %input.span2{:placeholder => "Hora", :type => "text"}/
-          #step2.step-pane
-            .row-fluid.form-wrapper
-              .span8.column
-                %form
+            #step2.step-pane
+              .row-fluid.form-wrapper
+                .span8.column
                   .field-box.span4
                     %label.checkbox
                       .checker
@@ -63,10 +62,9 @@
                         %span
                           %input{:type => "checkbox"}/
                       Categoria 3
-          #step3.step-pane
-            .row-fluid.form-wrapper
-              .span8.column
-                %form
+            #step3.step-pane
+              .row-fluid.form-wrapper
+                .span8.column
                   %h4.span8 CATEGORIA 1
                   .field-box.span4
                     %label.checkbox
@@ -161,43 +159,43 @@
                         %span
                           %input{:type => "checkbox"}/
                       Analisis 9
-          #step4.step-pane
-            .row-fluid.form-wrapper
-              %table.table.table-striped
-                %thead
-                  %tr
-                    %th PARAMETRO
-                    %th RESULTADO
-                    %th UNIDADES
-                    %th VALORES DE REFERENCIA     
-                %tbody
-                  %tr
-                    %td Globulos Rojos
-                    %td 
-                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-                    %td millones/mm3
-                    %td Varon 5,2 - 6,6 mujer 4,5 - 5,5
-                  %tr
-                    %td Hematocrito
-                    %td 
-                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-                    %td %
-                    %td Varon 49 - 57 mujer 45 - 42
-                  %tr
-                    %td V.C.M
-                    %td 
-                      %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-                    %td pg
-                    %td 27 - 32
-        .wizard-actions
-          %button.btn-glow.primary.btn-prev{:type => "button"}
-            %i.icon-chevron-left
-            Anterior
-          %button.btn-glow.primary.btn-next{"data-last" => "Finish", :style => "display: inline-block;", :type => "button"}
-            Siguiente
-            %i.icon-chevron-right
-          %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
-            Finzalizar Analisis
+            #step4.step-pane
+              .row-fluid.form-wrapper
+                %table.table.table-striped
+                  %thead
+                    %tr
+                      %th PARAMETRO
+                      %th RESULTADO
+                      %th UNIDADES
+                      %th VALORES DE REFERENCIA
+                  %tbody
+                    %tr
+                      %td Globulos Rojos
+                      %td
+                        %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                      %td millones/mm3
+                      %td Varon 5,2 - 6,6 mujer 4,5 - 5,5
+                    %tr
+                      %td Hematocrito
+                      %td
+                        %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                      %td %
+                      %td Varon 49 - 57 mujer 45 - 42
+                    %tr
+                      %td V.C.M
+                      %td
+                        %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                      %td pg
+                      %td 27 - 32
+          .wizard-actions
+            %button.btn-glow.primary.btn-prev{:type => "button"}
+              %i.icon-chevron-left
+              Anterior
+            %button.btn-glow.primary.btn-next{"data-last" => "Finish", :style => "display: inline-block;", :type => "button"}
+              Siguiente
+              %i.icon-chevron-right
+            %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
+              Finalizar Analisis
 
 :javascript
   $(function () {
@@ -279,5 +277,5 @@
     $(".wysihtml5").wysihtml5({
     "font-styles": false
     });
-    }); 
-  }); 
+    });
+  });

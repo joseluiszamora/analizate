@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, #:confirmable,
          :timeoutable
 
+  scope :patients, -> { where(user_type: 'patient') }
+  scope :medical, -> { where(user_type: 'medical') }
+
   validates :username, uniqueness: { case_sensitive: true }
 
   attr_accessor :login
@@ -20,6 +23,13 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  def self.search_by_params(q)
+    options = {}
+    options.merge!({ name_or_last_name_cont: q }) if q.present?
+    qq = search(options)
+    qq.result
   end
 
   def full_name
