@@ -25,7 +25,7 @@
 *= require jquery.flot.stack
 * require jquery.knob
 * require jquery-1.10.2
-*= require jquery-latest
+* require jquery-latest
 * require jquery-ui-1.10.2.custom.min
 * require login
 *= require fuelux.wizard
@@ -33,4 +33,7 @@
 * require raphael-min
 *= require theme
 *= require jquery.uniform
+*= require hogan.js
+*= require typeahead
+*= require analysis
  */

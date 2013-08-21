@@ -1,2 +1,0 @@
-class AnalysisController < ApplicationController
-end

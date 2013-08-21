@@ -24,5 +24,6 @@
  *= require users
  *= require form-wizard
  *= require uniform
+ *= require typeahead
  *= require_self
  */
