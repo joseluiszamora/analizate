@@ -29,10 +29,10 @@
                 .span8
                   .field-box
                     %label Paciente:
-                    = text_field :patient, '', class: 'span8 patient-typeahead'
+                    = text_field :patient, '', class: 'span8 patient-typeahead', data: { url: patients_analyzes_path(format: :json) }
                   .field-box
                     %label Medico Solicitante:
-                    %input.span8{:type => "text"}/
+                    = text_field :medical, '', class: 'span8 medical-typeahead', data: { url: medical_analyzes_path(format: :json) }
                   .field-box
                     %label Entrega de la muestra:
                     %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/

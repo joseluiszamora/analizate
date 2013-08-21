@@ -1,5 +1,8 @@
 Analizate::Application.routes.draw do
-  resources :patients, only: [:index]
+  resources :analyzes, only: [:index, :new] do
+    get 'patients', on: :collection
+    get 'medical', on: :collection
+  end
 
   resources :users, only: [:index, :new, :create] do
     get 'profile', on: :member
@@ -12,7 +15,4 @@ Analizate::Application.routes.draw do
   devise_for :users, controllers: { sessions: 'sessions' }
 
   root 'users#index'
-
-  match "/analysis" => "analysis#index", :via => :get
-  match "/analysis/new" => "analysis#new", :via => :get
 end

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
          :timeoutable
 
   scope :patients, -> { where(user_type: 'patient') }
+  scope :medical, -> { where(user_type: 'medical') }
 
   validates :username, uniqueness: { case_sensitive: true }
 
