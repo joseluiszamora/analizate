@@ -6,14 +6,16 @@
         - @notice.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :image
-    = f.text_field :image
-  .actions
-    = f.submit 'Save'
+  .span12.field-box
+    = f.label :title, 'Titulo'
+    = f.text_field :title, class: 'span9'
+  .span12.field-box
+    = f.label :description, 'Descripcion:'
+    = f.text_area :description, class: 'span9'
+  .span12.field-box
+    = f.label :image, 'Imagen:'
+    = f.text_field :image, class: 'span9'
+  .span11.field-box.actions
+    = f.submit 'Crear Anuncio', class: 'btn-glow primary'
+    %span O
+    = link_to 'CANCELAR', notices_path, class: 'reset'

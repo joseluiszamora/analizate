@@ -36,4 +36,5 @@
 *= require hogan.js
 *= require typeahead
 *= require analysis
+*= jquery.cycle.lite
  */

@@ -1,7 +1,8 @@
-%h1 Editing notice
+.row-fluid.header
+  %h3 Editar Anuncio
 
-= render 'form'
-
-= link_to 'Show', @notice
-\|
-= link_to 'Back', notices_path
+.row-fluid.form-wrapper
+  / left column
+  .span9.with-sidebar
+    .container
+      = render 'form'
