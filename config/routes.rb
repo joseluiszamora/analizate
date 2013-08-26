@@ -1,4 +1,6 @@
 Analizate::Application.routes.draw do
+  resources :notices
+
   resources :analyzes, only: [:index, :new] do
     get 'patients', on: :collection
     get 'medical', on: :collection
