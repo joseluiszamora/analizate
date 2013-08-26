@@ -6,29 +6,31 @@
         - @test.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :test_category
-    = f.select :test_category_id, options_for_select(TestCategory.all.map { |t| [t.description, t.id] })
-  .field
-    = f.label :parameter
-    = f.text_field :parameter
-  .field
-    = f.label :result
-    = f.text_field :result
-  .field
-    = f.label :unit
-    = f.text_field :unit
-  .field
-    = f.label :reference_values
-    = f.text_field :reference_values
-  .field
-    = f.label :test_type
-    = f.text_field :test_type
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
+  .field-box
+    %label Categoria
+    .ui-select= f.select :test_category_id, options_for_select(TestCategory.all.map { |t| [t.description, t.id] })
+  .field-box
+    %label Parametro:
+    = f.text_field :parameter, :class => "span8 inline-input"
+  .field-box
+    %label Resultado:
+    = f.text_field :result, :class => "span8 inline-input"
+  .field-box
+    %label Unidad:
+    = f.text_field :unit, :class => "span8 inline-input"
+  .field-box
+    %label Valores de Referencia:
+    = f.text_field :reference_values, :class => "span8 inline-input"
+  .field-box
+    %label Tipo de Test:
+    = f.text_field :test_type, :class => "span8 inline-input"
+  .field-box
+    %label Descripcion:
+    = f.text_area :description, :class => "span8"
+  .field-box
     = f.label :image
-    = f.text_field :image
-  .actions
-    = f.submit 'Save'
+    = f.text_field :image, :class => "span8 inline-input"
+  .span11.field-box.actions
+    = f.submit 'Guardar', class: 'btn-glow primary'
+    %span O
+    = link_to 'CANCELAR', tests_path, class: 'reset'

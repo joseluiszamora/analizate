@@ -1,33 +1,36 @@
-%p#notice= notice
+.container-fluid
+  #pad-wrapper.form-page
+    .row-fluid.form-wrapper
+      %p#notice= notice
+      .span8.column
+        %form
+          .field-box
+            %label Categoria:
+            %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.test_category_description}/
+          .field-box
+            %label Parametro:
+            %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.parameter}/
+          .field-box
+            %label Resultado:
+            %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.result}/
+          .field-box
+            %label Unidad:
+            %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.unit}/
+          .field-box
+            %label Valores de Referencia:
+            %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.reference_values}/
+          - if @test.test_type.present?
+            .field-box
+              %label Tipo de Test:
+              %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.test_type}/
+          - if @test.description.present?
+            .field-box
+              %label Descripcion:
+              %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.description}/
+          - if @test.image.present?
+            .field-box
+              %label Imagen:
+              %input.span8.inline-input{:readonly => "readonly", :type => "text", :value => @test.image}/
 
-%p
-  %b Test category:
-  = @test.test_category_description
-%p
-  %b Parameter:
-  = @test.parameter
-%p
-  %b Result:
-  = @test.result
-%p
-  %b Unit:
-  = @test.unit
-%p
-  %b Reference values:
-  = @test.reference_values
-- if @test.test_type.present?
-  %p
-    %b Test type:
-    = @test.test_type
-- if @test.description.present?
-  %p
-    %b Description:
-    = @test.description
-- if @test.image.present?
-  %p
-    %b Image:
-    = @test.image
-
-= link_to 'Edit', edit_test_path(@test)
-\|
-= link_to 'Back', tests_path
+          = link_to 'Editar', edit_test_path(@test) ,:class => "btn btn-primary"
+          = link_to 'Volver', tests_path ,:class => "btn btn-info"

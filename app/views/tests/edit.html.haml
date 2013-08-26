@@ -1,7 +1,7 @@
-%h1 Editing test
-
-= render 'form'
-
-= link_to 'Show', @test
-\|
-= link_to 'Back', tests_path
+.container-fluid
+  #pad-wrapper.form-page
+    .row-fluid.form-wrapper
+      %h1 Editar Test
+      %p#notice= notice
+      .span8.column
+        = render 'form'
