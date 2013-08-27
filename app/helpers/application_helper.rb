@@ -3,6 +3,10 @@ module ApplicationHelper
     TestCategory.roots
   end
 
+  def get_childrens
+    TestCategory.childrens.map { |t| [t.full_description, t.id] }
+  end
+
   def get_test_category_roots
     TestCategory.roots.map { |t| [t.description, t.id] }
   end
