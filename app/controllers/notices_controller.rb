@@ -6,6 +6,11 @@ class NoticesController < ApplicationController
     @notices = Notice.all
   end
 
+  # GET /notices
+  def slide
+    @notices = Notice.all
+  end
+
   # GET /notices/1
   def show
   end
