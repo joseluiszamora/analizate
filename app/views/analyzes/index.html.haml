@@ -1,19 +1,22 @@
+- elements = 3
+- categories = get_categories
+- lotes = (categories.length/elements.to_f).ceil
 #fuelux-wizard.wizard.row-fluid
   %ul.wizard-steps
     %li.active{"data-target" => "#step1"}
       %span.step 1
       %span.title
-        Informacion
+        Información
         %br/
         General
     %li{"data-target" => "#step2"}
       %span.step 2
       %span.title
-        Categorias
+        Categorías
     %li{"data-target" => "#step3"}
       %span.step 3
       %span.title
-        Analisis
+        Análisis
     %li{"data-target" => "#step4"}
       %span.step 4
       %span.title
@@ -38,129 +41,37 @@
             %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
             %input.span2{:placeholder => "Hora", :type => "text"}/
     #step2.step-pane
-      .row-fluid.form-wrapper
-        .span8.column
-          .field-box.span4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Categoria 1
-          .field-box.span4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Categoria 2
-          .field-box.span4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Categoria 3
+      - (1..lotes).each do |lote|
+        - start = elements * (lote - 1)
+        .row-fluid.form-wrapper
+          - categories[start, elements].each do |category|
+            .span4.column
+              .field-box.span4
+                %label.checkbox{ style: 'width: 100%;' }
+                  .checker
+                    %span
+                      = check_box_tag '', 'true', false
+                  %strong= category.description
     #step3.step-pane
-      .row-fluid.form-wrapper
-        .span8.column
-          %h4.span8 CATEGORIA 1
-          .field-box.span4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 1
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 2
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 3
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 5
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 6
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 7
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 8
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 9
-          %h4.span8 CATEGORIA 2
-          .field-box.span4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 1
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 2
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 3
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 4
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 5
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 6
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 7
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 8
-            %label.checkbox
-              .checker
-                %span
-                  %input{:type => "checkbox"}/
-              Analisis 9
+      - (1..lotes).each do |lote|
+        - start = elements * (lote - 1)
+        .row-fluid.form-wrapper
+          - categories[start, elements].each do |category|
+            .span4.column
+              %h4.span8= category.description
+              .field-box.span4
+                - category.children.each do |subcategory|
+                  %label.checkbox{ style: 'width: 100%;' }
+                    .checker
+                      %span
+                        = check_box_tag '', 'true', false
+                    = subcategory.description
     #step4.step-pane
       .row-fluid.form-wrapper
         %table.table.table-striped
           %thead
             %tr
-              %th PARAMETRO
+              %th PARÁMETRO
               %th RESULTADO
               %th UNIDADES
               %th VALORES DE REFERENCIA

@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def get_categories
+    TestCategory.roots
+  end
+
   def get_test_category_roots
     TestCategory.roots.map { |t| [t.description, t.id] }
   end
