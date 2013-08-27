@@ -10,6 +10,9 @@ gem 'rails', '4.0.0'
 gem 'sqlite3'
 #gem 'mysql2', '0.3.11'
 
+#uploader image
+gem 'carrierwave'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
