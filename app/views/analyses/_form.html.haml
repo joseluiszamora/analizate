@@ -1,0 +1,22 @@
+= form_for @analysis do |f|
+  - if @analysis.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
+      %ul
+        - @analysis.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :patient
+    = f.text_field :patient
+  .field
+    = f.label :doctor
+    = f.text_field :doctor
+  .field
+    = f.label :receipt_date
+    = f.datetime_select :receipt_date
+  .field
+    = f.label :delivery_date
+    = f.datetime_select :delivery_date
+  .actions
+    = f.submit 'Save'

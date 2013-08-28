@@ -1,6 +1,8 @@
 Analizate::Application.routes.draw do
   resources :institutions
 
+  resources :analyses
+
   resources :notices
 
   resources :analyzes, only: [:index, :new] do

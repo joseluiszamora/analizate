@@ -1,0 +1,58 @@
+class AnalysesController < ApplicationController
+  before_action :set_analysis, only: [:show, :edit, :update, :destroy]
+
+  # GET /analyses
+  def index
+    @analyses = Analysis.all
+  end
+
+  # GET /analyses/1
+  def show
+  end
+
+  # GET /analyses/new
+  def new
+    @analysis = Analysis.new
+  end
+
+  # GET /analyses/1/edit
+  def edit
+  end
+
+  # POST /analyses
+  def create
+    @analysis = Analysis.new(analysis_params)
+
+    if @analysis.save
+      redirect_to @analysis, notice: 'Analysis was successfully created.'
+    else
+      render action: 'new'
+    end
+  end
+
+  # PATCH/PUT /analyses/1
+  def update
+    if @analysis.update(analysis_params)
+      redirect_to @analysis, notice: 'Analysis was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
+
+  # DELETE /analyses/1
+  def destroy
+    @analysis.destroy
+    redirect_to analyses_url, notice: 'Analysis was successfully destroyed.'
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_analysis
+      @analysis = Analysis.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def analysis_params
+      params.require(:analysis).permit(:patient_id, :doctor_id, :receipt_date, :delivery_date)
+    end
+end
