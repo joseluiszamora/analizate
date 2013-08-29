@@ -11,7 +11,7 @@ gem 'pg'
 #gem 'mysql2', '0.3.11'
 
 #uploader image
-gem 'carrierwave'
+gem 'carrierwave-google_drive'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
