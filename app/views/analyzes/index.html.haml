@@ -35,11 +35,17 @@
           .field-box
             %label Entrega de la muestra:
             %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
-            %input.span2{:placeholder => "Hora", :type => "text"}/
+            .input-append.bootstrap-timepicker
+              %input.timepicker.input-small{:type => "text"}/
+              %span.add-on
+                %i.icon-time
           .field-box
             %label Entrega:
             %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
-            %input.span2{:placeholder => "Hora", :type => "text"}/
+            .input-append.bootstrap-timepicker
+              %input.timepicker.input-small{:type => "text"}/
+              %span.add-on
+                %i.icon-time
     #step2.step-pane
       - (1..lotes).each do |lote|
         - start = elements * (lote - 1)
@@ -102,9 +108,17 @@
       Siguiente
       %i.icon-chevron-right
     %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
+
       Finalizar Analisis
 
 :javascript
+  $('.timepicker').timepicker();
+  $('.datepicker').datepicker({
+    format: 'yyyy-mm-dd'
+  }).on('changeDate', function(ev){
+    $(this).datepicker('hide');
+  });
+
   $(function () {
     var $wizard = $('#fuelux-wizard'),
     $btnPrev = $('.wizard-actions .btn-prev'),

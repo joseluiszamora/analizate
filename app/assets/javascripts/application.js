@@ -17,7 +17,7 @@
 * require function
 *= require bootstrap.min
 *= require bootstrap-datepicker
-* bootstrap-datepicker
+*= require bootstrap-timepicker
 * require fullcalendar.min
 * require html5
 *= require jquery.flot
