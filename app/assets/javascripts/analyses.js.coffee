@@ -2,6 +2,9 @@ jQuery ->
   new TypeaheadElement('patients', '.patient-typeahead')
   new TypeaheadElement('medical', '.medical-typeahead')
 
+  $(document).on 'change', '.category-check', ->
+    console.log $(@)
+
   $(".timepicker").timepicker()
   $(".datepicker").datepicker(format: "dd/mm/yyyy").on "changeDate", (ev) ->
     $(this).datepicker "hide"
@@ -30,12 +33,13 @@ jQuery ->
   $btnNext.on "click", ->
     $wizard.wizard "next"
 
-  $("input:checkbox, input:radio").uniform()
+  #$("input:checkbox, input:radio").uniform()
   $(".select2").select2 placeholder: "Select a State"
   $(".datepicker").datepicker().on "changeDate", (ev) ->
     $(this).datepicker "hide"
 
   $(".wysihtml5").wysihtml5 "font-styles": false
+
 
 class TypeaheadElement
   constructor: (name, selector) ->
