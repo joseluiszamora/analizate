@@ -1,0 +1,107 @@
+- elements = 3
+- categories = get_categories
+- lotes = (categories.length/elements.to_f).ceil
+#fuelux-wizard.wizard.row-fluid
+  %ul.wizard-steps
+    %li.active{"data-target" => "#step1"}
+      %span.step 1
+      %span.title
+        Información
+        %br/
+        General
+    %li{"data-target" => "#step2"}
+      %span.step 2
+      %span.title
+        Categorías
+    %li{"data-target" => "#step3"}
+      %span.step 3
+      %span.title
+        Análisis
+    %li{"data-target" => "#step4"}
+      %span.step 4
+      %span.title
+        Resultados
+= form_for @analysis do |f|
+  - if @analysis.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
+      %ul
+        - @analysis.errors.full_messages.each do |msg|
+          %li= msg
+
+  .step-content
+    #step1.step-pane.active
+      .row-fluid.form-wrapper.payment-info
+        .span8
+          .field-box
+            %label Paciente:
+            = f.text_field :patient_full_name, class: 'span8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
+            = f.hidden_field :patient_id
+          .field-box
+            %label Medico Solicitante:
+            = f.text_field :doctor_full_name, class: 'span8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
+            = f.hidden_field :doctor_id
+          .field-box
+            %label Entrega de la muestra:
+            = f.text_field :receipt_date, class: 'span4 datepicker', placeholder: 'Fecha'
+            .input-append.bootstrap-timepicker
+              = f.text_field :receipt_time, class: 'input-small timepicker'
+              %span.add-on
+                %i.icon-time
+          .field-box
+            %label Entrega:
+            = f.text_field :delivery_date, class: 'span4 datepicker', placeholder: 'Fecha'
+            .input-append.bootstrap-timepicker
+              = f.text_field :delivery_time, class: 'input-small timepicker'
+              %span.add-on
+                %i.icon-time
+    #step2.step-pane.editing-categories
+      - (1..lotes).each do |lote|
+        - start = elements * (lote - 1)
+        .row-fluid
+          - categories[start, elements].each do |category|
+            .span4.column
+              .field-box.span4
+                %label.checkbox{ style: 'width: 100%;' }
+                  = check_box_tag 'category_ids[]', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
+                  %strong= category.description
+    #step3.step-pane
+      - (1..lotes).each do |lote|
+        - start = elements * (lote - 1)
+        .row-fluid.form-wrapper
+          - categories[start, elements].each do |category|
+            .span4.column
+              %h4.span8= category.description
+              .field-box.span4
+                - category.children.each do |subcategory|
+                  %label.checkbox{ style: 'width: 100%;' }
+                    = check_box_tag '', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { id: subcategory.id, dom_id: dom_id(subcategory) }
+                    = subcategory.description
+    #step4.step-pane
+      - @analysis.categories.each do |category|
+        %h4= category.description
+        .row-fluid.form-wrapper
+          %table.table.table-striped
+            %thead
+              %tr
+                %th PARÁMETRO
+                %th RESULTADO
+                %th UNIDADES
+                %th VALORES DE REFERENCIA
+            %tbody
+              - category.tests.each do |test|
+                %tr
+                  %td= test.parameter
+                  %td
+                    %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                  %td= test.unit
+                  %td= test.reference_values
+  .wizard-actions
+    = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
+      %i.icon-chevron-left
+      Anterior
+    = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish' } do
+      Siguiente
+      %i.icon-chevron-right
+    = button_tag class: 'btn-glow success btn-finish', styel: 'display: none;' do
+      Finalizar Analisis

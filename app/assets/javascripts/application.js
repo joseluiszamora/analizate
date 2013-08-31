@@ -13,11 +13,10 @@
 *
 *= require jquery
 *= require jquery_ujs
-*= require turbolinks
 * require function
 *= require bootstrap.min
 *= require bootstrap-datepicker
-* bootstrap-datepicker
+*= require bootstrap-timepicker
 * require fullcalendar.min
 * require html5
 *= require jquery.flot
@@ -35,5 +34,6 @@
 *= require jquery.uniform
 *= require hogan.js
 *= require typeahead
-*= require analysis
+*= require analyses
+*= require jquery.cycle.lite
  */

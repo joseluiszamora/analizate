@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Patient:
+  = @analysis.patient_full_name
+%p
+  %b Doctor:
+  = @analysis.doctor_full_name
+%p
+  %b Receipt date:
+  = @analysis.receipt_date
+%p
+  %b Delivery date:
+  = @analysis.delivery_date
+
+= link_to 'Edit', edit_analysis_path(@analysis)
+\|
+= link_to 'Back', analyses_path

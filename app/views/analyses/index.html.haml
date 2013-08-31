@@ -1,0 +1,25 @@
+%h1 Listing analyses
+
+%table
+  %tr
+    %th Patient
+    %th Doctor
+    %th Receipt date
+    %th Delivery date
+    %th
+    %th
+    %th
+
+  - @analyses.each do |analysis|
+    %tr
+      %td= analysis.patient_full_name
+      %td= analysis.doctor_full_name
+      %td= analysis.receipt_date.to_date
+      %td= analysis.delivery_date.to_date
+      %td= link_to 'Show', analysis
+      %td= link_to 'Edit', edit_analysis_path(analysis)
+      %td= link_to 'Destroy', analysis, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Analysis', new_analysis_path

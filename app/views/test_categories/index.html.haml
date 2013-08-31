@@ -1,47 +1,29 @@
-.container-fluid
-  #pad-wrapper.test-categories-list
-    .row-fluid.header
-      %h3 Categorías
-    / Users table
-    .row-fluid.table
-      %table.table.table-hover
-        %thead
-          %tr
-            %th.span4.sortable
-              Descripción
-            %th.span4.sortable
-              %span.line>
-              Subcategorías
-            %th.span2.sortable
-              %span.line>
-            %th.span2.sortable
-              %span.line>
-        %tbody
-          - @test_categories.each_with_index do |test_category, index|
-            %tr{ class: "#{ index == 0 ? 'first' : '' }" }
-              %td
-                = test_category.description
-              %td
-                = link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'subcategoría'), test_category_path(test_category)
-              %td
-                = link_to 'Nueva Subcategoría', new_test_category_path(parent_id: test_category.id)
-              %td
-                = link_to 'Editar', edit_test_category_path(test_category)
-                = link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
-
-    .pagination.pull-right
-      %ul
-        %li
-          %a{:href => "#"} ‹
-        %li
-          %a.active{:href => "#"} 1
-        %li
-          %a{:href => "#"} 2
-        %li
-          %a{:href => "#"} 3
-        %li
-          %a{:href => "#"} 4
-        %li
-          %a{:href => "#"} 5
-        %li
-          %a{:href => "#"} ›
+.row-fluid.header
+  %h3 Categorías
+/ Users table
+.row-fluid.table
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.span4.sortable
+          Descripción
+        %th.span4.sortable
+          %span.line
+          Subcategorías
+        %th.span2.sortable
+          %span.line
+        %th.span2.sortable
+          %span.line
+    %tbody
+      - @test_categories.each_with_index do |test_category, index|
+        %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+          %td
+            = test_category.description
+          %td
+            = link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'subcategoría'), test_category_path(test_category)
+          %td
+            = link_to 'Nueva Subcategoría', new_test_category_path(parent_id: test_category.id)
+          %td
+            = link_to 'Editar', edit_test_category_path(test_category)
+            = link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
+        %tr.first

@@ -8,6 +8,10 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 #gem 'sqlite3'
+#gem 'mysql2', '0.3.11'
+
+#uploader image
+#gem 'carrierwave-google_drive'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -21,8 +25,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 gem 'haml-rails'
 gem 'devise'
 gem 'active_model_serializers'

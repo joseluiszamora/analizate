@@ -1,0 +1,22 @@
+.row-fluid.header      
+  %h3 Anuncios
+/ Users table
+.row-fluid.table
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.span3.sortable Titulo
+        %th.span2.sortable Descripcion
+        %th.span2.sortable Imagen
+        %th.span1
+        %th.span1
+        %th.span1
+    %tbody
+      - @notices.each do |notice|
+        %tr
+          %td= notice.title
+          %td= notice.description
+          %td= notice.image
+          %td= link_to 'Show', notice
+          %td= link_to 'Edit', edit_notice_path(notice)
+          %td= link_to 'Destroy', notice, :method => :delete, :data => { :confirm => 'Are you sure?' }

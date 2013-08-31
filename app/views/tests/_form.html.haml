@@ -1,34 +1,38 @@
-= form_for @test do |f|
-  - if @test.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@test.errors.count, "error")} prohibited this test from being saved:"
-      %ul
-        - @test.errors.full_messages.each do |msg|
-          %li= msg
+.row-fluid.form-wrapper
+  / left column
+  .span9.with-sidebar
+    .container
+      = form_for @test, html: { class: 'inline-input' } do |f|
+        - if @test.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@test.errors.count, "error")} prohibited this test from being saved:"
+            %ul
+              - @test.errors.full_messages.each do |msg|
+                %li= msg
 
-  .field
-    = f.label :test_category
-    = f.select :test_category_id, options_for_select(TestCategory.all.map { |t| [t.description, t.id] })
-  .field
-    = f.label :parameter
-    = f.text_field :parameter
-  .field
-    = f.label :result
-    = f.text_field :result
-  .field
-    = f.label :unit
-    = f.text_field :unit
-  .field
-    = f.label :reference_values
-    = f.text_field :reference_values
-  .field
-    = f.label :test_type
-    = f.text_field :test_type
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :image
-    = f.text_field :image
-  .actions
-    = f.submit 'Save'
+        .span12.field-box
+          %label Categoría
+          .ui-select.span5
+            = f.grouped_collection_select :test_category_id, get_categories, :children, :description, :id, :description
+        .span12.field-box
+          %label Parámetro:
+          = f.text_field :parameter, :class => "span9 inline-input"
+        .span12.field-box
+          %label Unidad:
+          = f.text_field :unit, :class => "span9 inline-input"
+        .span12.field-box
+          %label Valores de Referencia:
+          = f.text_field :reference_values, :class => "span9 inline-input"
+        .span12.field-box
+          %label Tipo de Test:
+          = f.text_field :test_type, :class => "span9 inline-input"
+        .span12.field-box
+          %label Descripción:
+          = f.text_area :description, :class => "span9"
+        .span12.field-box
+          = f.label :image
+          = f.text_field :image, :class => "span9 inline-input"
+        .span11.field-box.actions
+          = f.submit 'Guardar', class: 'btn-glow primary'
+          %span O
+          = link_to 'CANCELAR', tests_path, class: 'reset'

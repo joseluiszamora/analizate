@@ -22,8 +22,8 @@
         %span Analisis
         %i.icon-chevron-down
       %ul.submenu
-        %li= link_to "Nuevo Analisis", new_test_category_path
-        %li= link_to "Lista de Analisis", analyzes_path
+        %li= link_to "Nuevo Análisis", new_analysis_path
+        %li= link_to "Lista de Análisis", analyses_path
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-code-fork
@@ -38,8 +38,8 @@
         %span Test
         %i.icon-chevron-down
       %ul.submenu
-        %li= link_to "Lista de Test", "/test"
-        %li= link_to "Nuevo Test", "/test/new"
+        %li= link_to "Lista de Test", tests_path
+        %li= link_to "Nuevo Test", new_test_path
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-group
@@ -72,3 +72,11 @@
       %ul.submenu
         %li= link_to "Lista de Farmacias", "/pharm"
         %li= link_to "Nuevo Farmacia", "/pharm/new"
+    %li
+      %a.dropdown-toggle{:href => "#"}
+        %i.icon-edit
+        %span Anuncios
+        %i.icon-chevron-down
+      %ul.submenu
+        %li= link_to "Lista de Anuncios", notices_path
+        %li= link_to "Nuevo Anuncio", new_notice_path

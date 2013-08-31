@@ -11,7 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815021426) do
+ActiveRecord::Schema.define(version: 20130831151739) do
+
+  create_table "analyses", force: true do |t|
+    t.integer  "patient_id"
+    t.integer  "doctor_id"
+    t.datetime "receipt_date"
+    t.datetime "delivery_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree
+  add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id", using: :btree
+
+  create_table "analysis_categories", force: true do |t|
+    t.integer  "analysis_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "analysis_categories", ["analysis_id"], name: "index_analysis_categories_on_analysis_id", using: :btree
+  add_index "analysis_categories", ["category_id"], name: "index_analysis_categories_on_category_id", using: :btree
+
+  create_table "analysis_tests", force: true do |t|
+    t.integer  "test_id"
+    t.integer  "analysis_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "analysis_tests", ["analysis_category_id"], name: "index_analysis_tests_on_analysis_category_id", using: :btree
+  add_index "analysis_tests", ["test_id"], name: "index_analysis_tests_on_test_id", using: :btree
+
+  create_table "institutions", force: true do |t|
+    t.string   "category"
+    t.string   "name"
+    t.text     "address"
+    t.text     "desc"
+    t.string   "phone"
+    t.string   "mail"
+    t.string   "web"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notices", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "patients", force: true do |t|
     t.string   "name"
@@ -31,7 +83,6 @@ ActiveRecord::Schema.define(version: 20130815021426) do
 
   create_table "tests", force: true do |t|
     t.string   "parameter"
-    t.float    "result"
     t.string   "unit"
     t.string   "reference_values"
     t.string   "test_type"

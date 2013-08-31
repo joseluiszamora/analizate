@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Category:
+  = @institution.category
+%p
+  %b Name:
+  = @institution.name
+%p
+  %b Address:
+  = @institution.address
+%p
+  %b Desc:
+  = @institution.desc
+%p
+  %b Phone:
+  = @institution.phone
+%p
+  %b Mail:
+  = @institution.mail
+%p
+  %b Web:
+  = @institution.web
+
+= link_to 'Edit', edit_institution_path(@institution)
+\|
+= link_to 'Back', institutions_path
