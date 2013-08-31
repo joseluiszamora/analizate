@@ -3,7 +3,11 @@ jQuery ->
   new TypeaheadElement('medical', '.medical-typeahead')
 
   $(document).on 'change', '.category-check', ->
-    console.log $(@)
+    if $('li[data-target="#step3"]').hasClass('active')
+      ids = $.map $('#step3').find('input[type=checkbox]:checked'), (value, index) ->
+        $(value).val()
+      id = $(@).data('analysis-id')
+      $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
 
   $(".timepicker").timepicker()
   $(".datepicker").datepicker(format: "dd/mm/yyyy").on "changeDate", (ev) ->

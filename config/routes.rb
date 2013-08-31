@@ -4,6 +4,7 @@ Analizate::Application.routes.draw do
   resources :analyses do
     get 'patients', on: :collection
     get 'medical', on: :collection
+    get 'tests', on: :collection
   end
 
   resources :notices

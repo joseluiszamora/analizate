@@ -75,32 +75,15 @@
               .field-box.span4
                 - category.children.each do |subcategory|
                   %label.checkbox{ style: 'width: 100%;' }
-                    = check_box_tag '', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { id: subcategory.id, dom_id: dom_id(subcategory) }
+                    = check_box_tag '', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
                     = subcategory.description
     #step4.step-pane
-      - @analysis.categories.each do |category|
-        %h4= category.description
-        .row-fluid.form-wrapper
-          %table.table.table-striped
-            %thead
-              %tr
-                %th PARÁMETRO
-                %th RESULTADO
-                %th UNIDADES
-                %th VALORES DE REFERENCIA
-            %tbody
-              - category.tests.each do |test|
-                %tr
-                  %td= test.parameter
-                  %td
-                    %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-                  %td= test.unit
-                  %td= test.reference_values
+      = render 'tests', categories: @analysis.categories, analysis: @analysis
   .wizard-actions
     = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
       %i.icon-chevron-left
       Anterior
-    = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish' } do
+    = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
       Siguiente
       %i.icon-chevron-right
     = button_tag class: 'btn-glow success btn-finish', styel: 'display: none;' do
