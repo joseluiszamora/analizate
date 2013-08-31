@@ -63,7 +63,7 @@
             .span4.column
               .field-box.span4
                 %label.checkbox{ style: 'width: 100%;' }
-                  = check_box_tag '', 'true', false, class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
+                  = check_box_tag 'category_ids[]', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
                   %strong= category.description
     #step3.step-pane
       - (1..lotes).each do |lote|
@@ -75,36 +75,27 @@
               .field-box.span4
                 - category.children.each do |subcategory|
                   %label.checkbox{ style: 'width: 100%;' }
-                    = check_box_tag '', 'true', false, class: 'category-check', data: { id: subcategory.id, dom_id: dom_id(subcategory) }
+                    = check_box_tag '', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { id: subcategory.id, dom_id: dom_id(subcategory) }
                     = subcategory.description
     #step4.step-pane
-      .row-fluid.form-wrapper
-        %table.table.table-striped
-          %thead
-            %tr
-              %th PARÁMETRO
-              %th RESULTADO
-              %th UNIDADES
-              %th VALORES DE REFERENCIA
-          %tbody
-            %tr
-              %td Globulos Rojos
-              %td
-                %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-              %td millones/mm3
-              %td Varon 5,2 - 6,6 mujer 4,5 - 5,5
-            %tr
-              %td Hematocrito
-              %td
-                %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-              %td %
-              %td Varon 49 - 57 mujer 45 - 42
-            %tr
-              %td V.C.M
-              %td
-                %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
-              %td pg
-              %td 27 - 32
+      - @analysis.categories.each do |category|
+        %h4= category.description
+        .row-fluid.form-wrapper
+          %table.table.table-striped
+            %thead
+              %tr
+                %th PARÁMETRO
+                %th RESULTADO
+                %th UNIDADES
+                %th VALORES DE REFERENCIA
+            %tbody
+              - category.tests.each do |test|
+                %tr
+                  %td= test.parameter
+                  %td
+                    %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+                  %td= test.unit
+                  %td= test.reference_values
   .wizard-actions
     = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
       %i.icon-chevron-left
