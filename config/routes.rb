@@ -1,14 +1,17 @@
 Analizate::Application.routes.draw do
   resources :institutions
 
-  resources :analyses
-
-  resources :notices
-
-  resources :analyzes, only: [:index, :new] do
+  resources :analyses, only: [:index, :new] do
     get 'patients', on: :collection
     get 'medical', on: :collection
   end
+
+  resources :notices
+
+  #resources :analyzes, only: [:index, :new] do
+  #  get 'patients', on: :collection
+  #  get 'medical', on: :collection
+  #end
 
   resources :users, only: [:index, :new, :create] do
     get 'profile', on: :member

@@ -1,6 +1,8 @@
 class AnalysesController < ApplicationController
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :json
+
   # GET /analyses
   def index
     @analyses = Analysis.all
@@ -43,6 +45,16 @@ class AnalysesController < ApplicationController
   def destroy
     @analysis.destroy
     redirect_to analyses_url, notice: 'Analysis was successfully destroyed.'
+  end
+
+  def patients
+    @patients = User.patients.search_by_params(params[:q])
+    respond_with @patients, each_serializer: PatientSerializer
+  end
+
+  def medical
+    @medical = User.medical.search_by_params(params[:q])
+    respond_with @medical, each_serializer: PatientSerializer
   end
 
   private
