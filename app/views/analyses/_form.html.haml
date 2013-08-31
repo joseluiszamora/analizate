@@ -21,7 +21,7 @@
       %span.step 4
       %span.title
         Resultados
-= form_tag '' do
+= form_for @analysis do |f|
   - if @analysis.errors.any?
     #error_explanation
       %h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
@@ -35,22 +35,24 @@
         .span8
           .field-box
             %label Paciente:
-            = text_field :patient, '', class: 'span8 patient-typeahead', data: { url: patients_analyses_path(format: :json) }
+            = f.text_field :patient, class: 'span8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
+            = f.hidden_field :patient_id
           .field-box
             %label Medico Solicitante:
-            = text_field :medical, '', class: 'span8 medical-typeahead', data: { url: medical_analyses_path(format: :json) }
+            = f.text_field :doctor, class: 'span8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
+            = f.hidden_field :doctor_id
           .field-box
             %label Entrega de la muestra:
-            %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
+            = f.text_field :receipt_date, class: 'span4 datepicker', placeholder: 'Fecha'
             .input-append.bootstrap-timepicker
-              %input.timepicker.input-small{:type => "text"}/
+              = f.text_field :receipt_time, class: 'input-small timepicker'
               %span.add-on
                 %i.icon-time
           .field-box
             %label Entrega:
-            %input.span4{:placeholder => "Fecha", :type => "text", :class => "datepicker"}/
+            = f.text_field :delivery_date, class: 'span4 datepicker', placeholder: 'Fecha'
             .input-append.bootstrap-timepicker
-              %input.timepicker.input-small{:type => "text"}/
+              = f.text_field :delivery_time, class: 'input-small timepicker'
               %span.add-on
                 %i.icon-time
     #step2.step-pane
@@ -108,12 +110,11 @@
               %td pg
               %td 27 - 32
   .wizard-actions
-    %button.btn-glow.primary.btn-prev{:type => "button"}
+    = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
       %i.icon-chevron-left
       Anterior
-    %button.btn-glow.primary.btn-next{"data-last" => "Finish", :style => "display: inline-block;", :type => "button"}
+    = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish' } do
       Siguiente
       %i.icon-chevron-right
-    %button.btn-glow.success.btn-finish{:style => "display: none;", :type => "button"}
-
+    = button_tag class: 'btn-glow success btn-finish', styel: 'display: none;' do
       Finalizar Analisis

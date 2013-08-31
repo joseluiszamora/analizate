@@ -52,4 +52,4 @@ class TypeaheadElement
       engine: Hogan
       valueKey: 'name'
     .on 'typeahead:selected', (evt, data) ->
-      console.log data
+      $(@).parent().next('input[type=hidden]').val(data.id)
