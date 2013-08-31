@@ -1,0 +1,19 @@
+- categories.each do |category|
+  %div{ id: dom_id(category) }
+    %h4= category.description
+    .row-fluid.form-wrapper
+      %table.table.table-striped
+        %thead
+          %tr
+            %th PARÁMETRO
+            %th RESULTADO
+            %th UNIDADES
+            %th VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            %tr
+              %td= test.parameter
+              %td
+                %input{:type => "text", :style => "height: 15px;text-align: center;width: 60px;"}/
+              %td= test.unit
+              %td= test.reference_values

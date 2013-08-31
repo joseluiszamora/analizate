@@ -1,7 +1,7 @@
 class AnalysesController < ApplicationController
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   # GET /analyses
   def index
@@ -55,6 +55,14 @@ class AnalysesController < ApplicationController
   def medical
     @medical = User.medical.search_by_params(params[:q])
     respond_with @medical, each_serializer: PatientSerializer
+  end
+
+  def tests
+    @analysis = Analysis.find(params[:id]) rescue nil
+    @categories = TestCategory.find(params[:category_ids])
+    respond_with do |format|
+      format.js
+    end
   end
 
   private
