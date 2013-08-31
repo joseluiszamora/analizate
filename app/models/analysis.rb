@@ -2,6 +2,9 @@ class Analysis < ActiveRecord::Base
   belongs_to :patient, class_name: 'User'
   belongs_to :doctor, class_name: 'User'
 
+  has_many :analysis_categories, dependent: :destroy
+  has_many :categories, through: :analysis_categories, class_name: 'TestCategory'
+
   validates :patient_id, :doctor_id, presence: true
 
   attr_accessor :receipt_time, :delivery_time
