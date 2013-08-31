@@ -53,6 +53,6 @@ class TestsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def test_params
-      params.require(:test).permit(:parameter, :result, :unit, :reference_values, :test_type, :description, :image, :test_category_id)
+      params.require(:test).permit(:parameter, :unit, :reference_values, :test_type, :description, :image, :test_category_id)
     end
 end
