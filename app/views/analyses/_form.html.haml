@@ -35,11 +35,11 @@
         .span8
           .field-box
             %label Paciente:
-            = f.text_field :patient, class: 'span8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
+            = f.text_field :patient_full_name, class: 'span8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
             = f.hidden_field :patient_id
           .field-box
             %label Medico Solicitante:
-            = f.text_field :doctor, class: 'span8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
+            = f.text_field :doctor_full_name, class: 'span8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
             = f.hidden_field :doctor_id
           .field-box
             %label Entrega de la muestra:

@@ -2,6 +2,8 @@ class Analysis < ActiveRecord::Base
   belongs_to :patient, class_name: 'User'
   belongs_to :doctor, class_name: 'User'
 
+  validates :patient_id, :doctor_id, presence: true
+
   attr_accessor :receipt_time, :delivery_time
 
   def patient_full_name
