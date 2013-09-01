@@ -4,6 +4,7 @@ class Analysis < ActiveRecord::Base
 
   has_many :analysis_categories, dependent: :destroy
   has_many :categories, through: :analysis_categories, class_name: 'TestCategory'
+  accepts_nested_attributes_for :analysis_categories
 
   validates :patient_id, :doctor_id, presence: true
 
