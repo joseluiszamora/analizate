@@ -1,12 +1,11 @@
 module ApplicationHelper
   def check_category(analysis, category)
-    ac = analysis.categories.first
-    ac.present? && ac.parent_id == category.id
+    ids = analysis.categories.pluck(:ancestry)
+    ids.map { |e| e.to_i }.include?(category.id)
   end
 
   def check_subcategory(analysis, subcategory)
-    sc = analysis.categories.first
-    sc.present? && sc.id == subcategory.id
+    analysis.category_ids.include?(subcategory.id)
   end
 
   def get_categories
