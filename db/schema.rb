@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902142838) do
+ActiveRecord::Schema.define(version: 20130902151900) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
     t.integer  "doctor_id"
-    t.datetime "receipt_date"
-    t.datetime "delivery_date"
+    t.date     "receipt_date"
+    t.date     "delivery_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.time     "receipt_time"
+    t.time     "delivery_time"
   end
 
   add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree

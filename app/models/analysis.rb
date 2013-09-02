@@ -8,8 +8,6 @@ class Analysis < ActiveRecord::Base
 
   validates :patient_id, :doctor_id, presence: true
 
-  attr_accessor :receipt_time, :delivery_time
-
   def categories
     ids = tests.pluck(:test_category_id).uniq
     TestCategory.where(id: ids)

@@ -73,6 +73,6 @@ class AnalysesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def analysis_params
-      params.require(:analysis).permit(:patient_id, :doctor_id, :receipt_date, :delivery_date, { laboratories_attributes: [:id, :result, :test_id] })
+      params.require(:analysis).permit(:patient_id, :doctor_id, :receipt_date, :delivery_date, :receipt_time, :delivery_time, { laboratories_attributes: [:id, :result, :test_id] })
     end
 end
