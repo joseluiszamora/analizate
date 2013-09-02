@@ -9,7 +9,9 @@ jQuery ->
       id = $(@).data('analysis-id')
       $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
 
-  $(".timepicker").timepicker()
+  $(".timepicker").timepicker
+    showMeridian: false
+
   $(".datepicker").datepicker(format: "dd/mm/yyyy").on "changeDate", (ev) ->
     $(this).datepicker "hide"
 

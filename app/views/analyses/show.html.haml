@@ -1,18 +1,38 @@
 %p#notice= notice
 
 %p
-  %b Patient:
+  %b Paciente:
   = @analysis.patient_full_name
 %p
-  %b Doctor:
+  %b Médico:
   = @analysis.doctor_full_name
 %p
-  %b Receipt date:
-  = @analysis.receipt_date
+  %b Fecha de recepción:
+  = I18n.l @analysis.receipt_datetime, format: :long
 %p
-  %b Delivery date:
-  = @analysis.delivery_date
+  %b Fecha de entrega:
+  = I18n.l @analysis.delivery_datetime, format: :long
 
-= link_to 'Edit', edit_analysis_path(@analysis)
+%p
+  - @categories.each do |category|
+    %h4= category.description
+    .row-fluid.form-wrapper
+      %table.table.table-striped
+        %thead
+          %tr
+            %th PARÁMETRO
+            %th RESULTADO
+            %th UNIDADES
+            %th VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td= test.parameter
+              %td= laboratory.try(:result)
+              %td= test.unit
+              %td= test.reference_values
+
+= link_to 'Editar', edit_analysis_path(@analysis)
 \|
-= link_to 'Back', analyses_path
+= link_to 'Atrás', analyses_path
