@@ -11,10 +11,12 @@
             %th VALORES DE REFERENCIA
         %tbody
           - category.tests.each do |test|
+            - laboratory = get_result_for(analysis, test)
             %tr
               %td= test.parameter
               %td
+                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
-                = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", '', style: "height: 15px;text-align: center;width: 60px;"
+                = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 15px;text-align: center;width: 60px;"
               %td= test.unit
               %td= test.reference_values
