@@ -14,7 +14,7 @@
             %tr
               %td= test.parameter
               %td
-                = hidden_field_tag "analysis[analysis_categories_attributes][#{category.id}][analysis_tests_attributes][#{test.id}][test_id]", test.id, style: "height: 15px;text-align: center;width: 60px;"
-                = text_field_tag "analysis[analysis_categories_attributes][#{category.id}][analysis_tests_attributes][#{test.id}][result]", '', style: "height: 15px;text-align: center;width: 60px;"
+                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", '', style: "height: 15px;text-align: center;width: 60px;"
               %td= test.unit
               %td= test.reference_values

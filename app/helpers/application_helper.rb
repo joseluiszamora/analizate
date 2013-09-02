@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def check_subcategory(analysis, subcategory)
-    analysis.category_ids.include?(subcategory.id)
+    analysis.categories.pluck(:id).include?(subcategory.id)
   end
 
   def get_categories

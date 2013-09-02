@@ -8,11 +8,16 @@ class Analysis < ActiveRecord::Base
 
   has_many :laboratories, dependent: :destroy
   has_many :tests, through: :laboratories
-  accepts_nested_attributes_for :tests
+  accepts_nested_attributes_for :laboratories
 
   validates :patient_id, :doctor_id, presence: true
 
   attr_accessor :receipt_time, :delivery_time
+
+  def categories
+    ids = tests.pluck(:test_category_id).uniq
+    TestCategory.where(id: ids)
+  end
 
   def patient_full_name
     patient.present? ? patient.full_name : ''
