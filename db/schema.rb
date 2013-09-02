@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831151739) do
+ActiveRecord::Schema.define(version: 20130902151900) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
     t.integer  "doctor_id"
-    t.datetime "receipt_date"
-    t.datetime "delivery_date"
+    t.date     "receipt_date"
+    t.date     "delivery_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.time     "receipt_time"
+    t.time     "delivery_time"
   end
 
   add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 20130831151739) do
     t.integer  "analysis_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "result"
   end
 
   add_index "analysis_tests", ["analysis_category_id"], name: "index_analysis_tests_on_analysis_category_id", using: :btree
@@ -56,6 +59,17 @@ ActiveRecord::Schema.define(version: 20130831151739) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "laboratories", force: true do |t|
+    t.integer  "analysis_id"
+    t.integer  "test_id"
+    t.float    "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "laboratories", ["analysis_id"], name: "index_laboratories_on_analysis_id", using: :btree
+  add_index "laboratories", ["test_id"], name: "index_laboratories_on_test_id", using: :btree
 
   create_table "notices", force: true do |t|
     t.string   "title"
