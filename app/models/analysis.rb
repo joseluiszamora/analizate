@@ -13,11 +13,19 @@ class Analysis < ActiveRecord::Base
     TestCategory.where(id: ids)
   end
 
-  def patient_full_name
-    patient.present? ? patient.full_name : ''
+  def delivery_datetime
+    DateTime.parse("#{delivery_date.to_s(:db)} #{delivery_time}")
   end
 
   def doctor_full_name
     doctor.present? ? doctor.full_name : ''
+  end
+
+  def patient_full_name
+    patient.present? ? patient.full_name : ''
+  end
+
+  def receipt_datetime
+    DateTime.parse("#{receipt_date.to_s(:db)} #{receipt_time}")
   end
 end

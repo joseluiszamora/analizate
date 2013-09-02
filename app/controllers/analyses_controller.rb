@@ -10,6 +10,7 @@ class AnalysesController < ApplicationController
 
   # GET /analyses/1
   def show
+    @categories = @analysis.categories.includes(:tests)
   end
 
   # GET /analyses/new
