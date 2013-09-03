@@ -13,6 +13,10 @@ gem 'pg'
 #uploader image
 #gem 'carrierwave-google_drive'
 
+#pdf
+#gem 'wkhtmltopdf-binary'
+#gem 'wicked_pdf'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -32,7 +36,7 @@ gem 'ancestry'
 gem 'rails_12factor', group: :production
 gem 'hogan_assets'
 gem 'ransack'
-gem 'debugger', group: :development
+#gem 'debugger', group: :development
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

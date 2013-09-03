@@ -16,6 +16,10 @@ module ApplicationHelper
     TestCategory.childrens.map { |t| [t.full_description, t.id] }
   end
 
+  def get_notices
+    Notice.all
+  end
+
   def get_result_for(analysis, test)
     analysis.laboratories.find_by_test_id(test.id) rescue nil
   end

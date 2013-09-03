@@ -1,16 +1,15 @@
-.row-fluid.header      
-  %h3 Anuncios
+%h2 Anuncios
+%br
+%br
 / Users table
 .row-fluid.table
-  %table.table.table-hover
+  %table.table.table-hover.table-striped.table-bordered
     %thead
       %tr
         %th.span3.sortable Titulo
         %th.span2.sortable Descripcion
         %th.span2.sortable Imagen
-        %th.span1
-        %th.span1
-        %th.span1
+        %th{colspan: "3"}
     %tbody
       - @notices.each do |notice|
         %tr

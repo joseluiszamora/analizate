@@ -1,14 +1,10 @@
 #slideNoticesContainer
-  .notice
-    .title ahora disponible la aplicacion Android
-    .image
-      %img{:src => "/images/android.jpg"}/
-    .desc buscanos en google play
-  .notice
-    .title ahora disponible la aplicacion Android
-    .image
-      %img{:src => "/images/android.jpg"}/
-    .desc buscanos en google play
+  - get_notices.each do |notice|
+    .notice
+      .title= notice.title
+      .image
+        %img{:src => "/images/android.jpg"}/
+      .desc= notice.description
 
 :javascript
   $('#slideNoticesContainer').cycle('fade');
