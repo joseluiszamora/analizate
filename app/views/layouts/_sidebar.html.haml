@@ -15,7 +15,6 @@
       %ul.submenu
         %li= link_to "Lista de Usuarios", "/users"
         %li= link_to "Nuevo Usuario", "/users/new"
-        %li= link_to "Perfil de Usuario", '#'
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-edit
@@ -40,22 +39,6 @@
       %ul.submenu
         %li= link_to "Lista de Test", tests_path
         %li= link_to "Nuevo Test", new_test_path
-    %li
-      %a.dropdown-toggle{:href => "#"}
-        %i.icon-group
-        %span Pacientes
-        %i.icon-chevron-down
-      %ul.submenu
-        %li= link_to "Lista de Pacientes", "/patient"
-        %li= link_to "Nuevo Paciente", "/patient/new"
-    %li
-      %a.dropdown-toggle{:href => "#"}
-        %i.icon-picture
-        %span Medicos
-        %i.icon-chevron-down
-      %ul.submenu
-        %li= link_to "Lista de Medicos", "/doctor"
-        %li= link_to "Nuevo Medico", "/doctor/new"
     %li
       %a.dropdown-toggle{:href => "#"}
         %i.icon-calendar-empty

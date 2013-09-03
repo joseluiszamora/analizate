@@ -1,23 +1,26 @@
-%p#notice= notice
+/%p#notice= notice
 
-%p
-  %b Paciente:
-  = @analysis.patient_full_name
-%p
-  %b Médico:
-  = @analysis.doctor_full_name
-%p
-  %b Fecha de recepción:
-  = I18n.l @analysis.receipt_datetime, format: :long
-%p
-  %b Fecha de entrega:
-  = I18n.l @analysis.delivery_datetime, format: :long
+
+.bs-example
+  %table.table.table-bordered
+    %thead
+      %tr.success
+        %th Paciente
+        %th Médico
+        %th Fecha de recepción
+        %th Fecha de entrega
+    %tbody
+      %tr
+        %td= @analysis.patient_full_name
+        %td= @analysis.doctor_full_name
+        %td= I18n.l @analysis.receipt_datetime, format: :long
+        %td= I18n.l @analysis.delivery_datetime, format: :long
 
 %p
   - @categories.each do |category|
     %h4= category.description
     .row-fluid.form-wrapper
-      %table.table.table-striped
+      %table.table.table-striped.table-bordered.table-hover
         %thead
           %tr
             %th PARÁMETRO
@@ -33,6 +36,8 @@
               %td= test.unit
               %td= test.reference_values
 
-= link_to 'Editar', edit_analysis_path(@analysis)
-\|
-= link_to 'Atrás', analyses_path
+
+.form-actions
+  = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"
+  = link_to 'Atrás', analyses_path, class: "btnTitle btn btn-info"
+  = link_to 'Imprimir', analyses_path, class: "btnTitle btn btn-info"

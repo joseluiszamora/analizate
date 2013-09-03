@@ -1,35 +1,30 @@
-/ Test container
-.container-fluid
-  #pad-wrapper.users-list
-    .row-fluid.header
-      %h3 Tests
-    / Test table
-    .row-fluid.table
-      %table.table.table-hover.table-striped
-        %thead
-          %tr
-            %th.span2.sortable Categorias
-            %th.span2.sortable Parametro
-            %th.span2.sortable Unidades
-            %th.span3.sortable Valores de Referencia
-            %th.span2.sortable Tipo de test
-            %th.span2.sortable Descripcion
-            %th.span2.sortable Imagen
-            %th.span1.sortable
-            %th.span1.sortable
-            %th.span1.sortable
-        %tbody
-          - @tests.each do |test|
-            %tr
-              %td= test.test_category_description
-              %td= test.parameter
-              %td= test.unit
-              %td= test.reference_values
-              %td= test.test_type
-              %td= test.description
-              %td= test.image
-              %td= link_to 'Ver', test
-              %td= link_to '', edit_test_path(test), :class => "icon-edit"
-              %td= link_to '', test, :method => :delete, :data => { :confirm => 'Esta seguro de eliminar este test?' }, :class => "icon-remove"
-    / end test table
-/ end main container
+%h2 Tests
+%br
+%br
+/ Test table
+.row-fluid.table
+  %table.table.table-hover.table-striped.table-bordered
+    %thead
+      %tr
+        %th.span2.sortable Categorias
+        %th.span2.sortable Parametro
+        %th.span2.sortable Unidades
+        %th.span3.sortable Valores de Referencia
+        %th.span2.sortable Tipo de test
+        %th.span2.sortable Descripcion
+        %th.span2.sortable Imagen
+        %th.span1.sortable{colspan: "3"}
+    %tbody
+      - @tests.each do |test|
+        %tr
+          %td= test.test_category_description
+          %td= test.parameter
+          %td= test.unit
+          %td= test.reference_values
+          %td= test.test_type
+          %td= test.description
+          %td= test.image
+          %td= link_to 'Ver', test
+          %td= link_to 'Editar', edit_test_path(test)
+          %td= link_to 'Borrar', test, :method => :delete, :data => { :confirm => 'Esta seguro de eliminar este test?' }
+/ end test table
