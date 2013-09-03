@@ -1,9 +1,10 @@
 #slideNoticesContainer
-  / - @notices.each do |notice|
-  /   .notice
-  /     .title= notice.title
-  /     .image
-  /       %img{:src => "/images/android.jpg"}/
-  /     .desc= notice.description
+  - get_notices.each do |notice|
+    .notice
+      .title= notice.title
+      .image
+        %img{:src => "/images/android.jpg"}/
+      .desc= notice.description
+
 :javascript
   $('#slideNoticesContainer').cycle('fade');
