@@ -1,10 +1,10 @@
 = form_for @notice do |f|
   - if @notice.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@notice.errors.count, "error")} prohibited this notice from being saved:"
-      %ul
-        - @notice.errors.full_messages.each do |msg|
-          %li= msg
+      /%h2= "#{pluralize(@notice.errors.count, "error")} prohibited this notice from being saved:"
+      - @notice.errors.full_messages.each do |msg|
+        .alert.alert-danger
+          %strong= msg
 
   .span12.field-box
     = f.label :title, 'Titulo'

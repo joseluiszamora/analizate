@@ -1,62 +1,61 @@
-/ main container
-.row-fluid.header
-  %h3 Usuarios
-  .span10.pull-right
-    .span4
-      %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
-    .span3
-      .ui-select
-        %select
-          %option{:value => ""} Tipo de Usuario
-          %option{:value => "AK"} Medico
-          %option{:value => "HI"} Paciente
-          %option{:value => "CA"} Otro
-    .span2
-      %a.btn-glow.primary Buscar
-/ Users table
-.row-fluid.table
-  %table.table.table-hover
-    %thead
-      %tr
-        %th.span3.sortable
-          Nombre
-        %th.span2.sortable
-          %span.line>
-          Institución
-        %th.span2.sortable
-          %span.line>
-          Fecha de Registro
-        %th.span3.sortable.align-right
-          %span.line>
-          Email
-    %tbody
-      - @users.each_with_index do |user, index|
-        %tr{ class: "#{ index == 0 ? 'first' : '' }" }
-          %td
-            %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
-            = link_to user.full_name, profile_user_path(user), class: 'name'
-            %span.subtext= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
-          %td
-            Centro Medico Kolping
-          %td
-            = I18n.l user.created_at, format: :long
-          %td.align-right
-            = mail_to user.email
-.pagination.pull-right
-  %ul
-    %li
-      %a{:href => "#"} ‹
-    %li
-      %a.active{:href => "#"} 1
-    %li
-      %a{:href => "#"} 2
-    %li
-      %a{:href => "#"} 3
-    %li
-      %a{:href => "#"} 4
-    %li
-      %a{:href => "#"} 5
-    %li
-      %a{:href => "#"} ›
-/ end users table
-/ end main container
+.users-list
+  / main container
+  .row-fluid.header
+    %h3 Usuarios
+    .span10.pull-right
+      .span4
+        %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
+      .span3
+        .ui-select
+          %select
+            %option{:value => ""} Tipo de Usuario
+            %option{:value => "AK"} Medico
+            %option{:value => "HI"} Paciente
+            %option{:value => "CA"} Otro
+      .span2
+        %a.btn-glow.primary Buscar
+  / Users table
+  .row-fluid.table
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.span3.sortable
+            Nombre
+          %th.span2.sortable
+            Institución
+          %th.span2.sortable
+            Fecha de Registro
+          %th.span3.sortable.align-right
+            Email
+      %tbody
+        - @users.each_with_index do |user, index|
+          %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+            %td
+              %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+                
+              = link_to user.full_name, profile_user_path(user), class: 'name'
+              %span.subtext= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
+            %td
+              Centro Medico Kolping
+            %td
+              = I18n.l user.created_at, format: :long
+            %td.align-right
+              = mail_to user.email
+  .pagination.pull-right
+    %ul
+      %li
+        %a{:href => "#"} ‹
+      %li
+        %a.active{:href => "#"} 1
+      %li
+        %a{:href => "#"} 2
+      %li
+        %a{:href => "#"} 3
+      %li
+        %a{:href => "#"} 4
+      %li
+        %a{:href => "#"} 5
+      %li
+        %a{:href => "#"} ›
+  / end users table
+  / end main container

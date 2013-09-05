@@ -24,10 +24,10 @@
 = form_for @analysis do |f|
   - if @analysis.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
-      %ul
-        - @analysis.errors.full_messages.each do |msg|
-          %li= msg
+      /%h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
+      - @analysis.errors.full_messages.each do |msg|
+        .alert.alert-danger
+          %strong= msg
 
   .step-content
     #step1.step-pane.active

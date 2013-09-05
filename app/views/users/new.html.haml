@@ -1,5 +1,5 @@
 .row-fluid.header
-  %h3 Nuevo Usuario
+  %h2 Nuevo Usuario
 
 .row-fluid.form-wrapper
   / left column
@@ -8,10 +8,10 @@
       = form_for @user, html: { class: 'new_user_form inline-input' } do |f|
         - if @user.errors.any?
           #error_explanation
-            %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-            %ul
-              - @user.errors.full_messages.each do |msg|
-                %li= msg
+            /%h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+            - @user.errors.full_messages.each do |msg|
+              .alert.alert-danger
+                %strong= msg
         .span12.field-box
           = f.label :user_type, 'Tipo de Usuario:'
           .ui-select.span5
@@ -49,7 +49,6 @@
         .span12.field-box.textarea
           = f.label :notes, 'Notes:'
           = f.text_area :notes, class: 'span9'
-          %span.charactersleft 90 characters remaining. Field limited to 100 characters
         .span11.field-box.actions
           = f.submit 'Crear Usuario', class: 'btn-glow primary'
           %span O
