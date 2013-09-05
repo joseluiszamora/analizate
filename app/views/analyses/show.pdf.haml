@@ -1,0 +1,84 @@
+/%p#notice= notice
+
+
+.bs-example
+  %table.table
+    %thead
+      %tr.success
+        %th Paciente
+        %th Médico
+        %th Fecha de recepción
+        %th Fecha de entrega
+    %tbody
+      %tr
+        %td= @analysis.patient_full_name
+        %td= @analysis.doctor_full_name
+        %td= I18n.l @analysis.receipt_datetime, format: :long
+        %td= I18n.l @analysis.delivery_datetime, format: :long
+
+%p
+  - @categories.each do |category|
+    %h4= category.description
+    .row-fluid.form-wrapper
+      %table.table.table-striped
+        %thead
+          %tr
+            %th PARÁMETRO
+            %th RESULTADO
+            %th UNIDADES
+            %th VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td= test.parameter
+              %td= laboratory.try(:result)
+              %td= test.unit
+              %td= test.reference_values
+
+:css
+  ttable {
+      background-color: transparent;
+      border-collapse: collapse;
+      border-spacing: 0;
+      max-width: 100%;
+  }
+  .table {
+      margin-bottom: 20px;
+      width: 100%;
+  }
+  .table th, .table td {
+      border-top: 1px solid #DDDDDD;
+      line-height: 20px;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+  }
+  .table th {
+      font-weight: bold;
+      text-align:center;
+  }
+  .table td {
+      text-align:center;
+  }
+  .table thead th {
+      vertical-align: bottom;
+  }
+  .table caption + thead tr:first-child th, .table caption + thead tr:first-child td, .table colgroup + thead tr:first-child th, .table colgroup + thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
+      border-top: 0 none;
+  }
+  .table tbody + tbody {
+      border-top: 2px solid #DDDDDD;
+  }
+  .table .table {
+      background-color: #FFFFFF;
+  }
+  .table-condensed th, .table-condensed td {
+      padding: 4px 5px;
+  }
+  .table-striped tbody > tr:nth-child(2n+1) > td, .table-striped tbody > tr:nth-child(2n+1) > th {
+      background-color: #F9F9F9;
+  }
+  .table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+      background-color: #F5F5F5;
+  }

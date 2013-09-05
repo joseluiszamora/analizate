@@ -23,6 +23,7 @@
  *= require layout
  *= require user-list
  *= require users
+ *= require user-profile
  *= require form-wizard
  *= require uniform
  *= require typeahead

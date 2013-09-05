@@ -5,10 +5,10 @@
       = form_for @test_category, html: { class: 'new_test_category_form inline-input' } do |f|
         - if @test_category.errors.any?
           #error_explanation
-            %h2= "#{pluralize(@test_category.errors.count, "error")} prohibited this test_category from being saved:"
-            %ul
-              - @test_category.errors.full_messages.each do |msg|
-                %li= msg
+            /%h2= "#{pluralize(@test_category.errors.count, "error")} prohibited this test_category from being saved:"
+            - @test_category.errors.full_messages.each do |msg|
+              .alert.alert-danger
+                %strong= msg
         .span12.field-box
           = f.label :parent_id, 'Categoría Padre:'
           .ui-select.span5

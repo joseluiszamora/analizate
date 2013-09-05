@@ -11,6 +11,20 @@ class AnalysesController < ApplicationController
   # GET /analyses/1
   def show
     @categories = @analysis.categories.includes(:tests)
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => @analysis.patient_full_name,
+          :template => 'analyses/show.pdf.haml',
+          :disposition => 'attachment',
+          :show_as_html => params[:debug].present?,
+          :orientation => 'Landscape',
+          :page_size => 'letter',
+          :encoding => 'utf-8'
+
+      end
+    end
   end
 
   # GET /analyses/new

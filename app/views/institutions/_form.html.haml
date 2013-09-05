@@ -1,11 +1,10 @@
 = form_for @institution do |f|
   - if @institution.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@institution.errors.count, "error")} prohibited this institution from being saved:"
-      %ul
-        - @institution.errors.full_messages.each do |msg|
-          %li= msg
-
+      /%h2= "#{pluralize(@institution.errors.count, "error")} prohibited this institution from being saved:"
+      - @institution.errors.full_messages.each do |msg|
+        .alert.alert-danger
+          %strong= msg
   .field
     = f.label :category
     = f.text_field :category
