@@ -6,13 +6,13 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
-#gem 'sqlite3'
-#gem 'mysql2', '0.3.11'
+#gem 'pg'
+gem 'mysql2', '0.3.11'
 
 #uploader image
 #gem 'carrierwave-google_drive'
-gem 'carrierwave'
+gem "rmagick"
+gem "carrierwave"
 
 #pdf
 #gem 'wkhtmltopdf-binary'

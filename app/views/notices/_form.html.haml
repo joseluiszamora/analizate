@@ -15,6 +15,9 @@
   .span12.field-box
     = f.label :image, 'Imagen:'
     = f.text_field :image, class: 'span9'
+  .span12.field-box
+    = f.label "Imagen"
+    = f.file_field :image
   .span11.field-box.actions
     = f.submit 'Crear Anuncio', class: 'btn-glow primary'
     %span O
