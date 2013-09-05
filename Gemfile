@@ -12,6 +12,7 @@ gem 'sqlite3'
 
 #uploader image
 #gem 'carrierwave-google_drive'
+gem 'carrierwave'
 
 #pdf
 gem 'wkhtmltopdf-binary'
