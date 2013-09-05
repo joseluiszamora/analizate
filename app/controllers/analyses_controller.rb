@@ -18,6 +18,7 @@ class AnalysesController < ApplicationController
         render :pdf => @analysis.patient_full_name,
           :template => 'analyses/show.pdf.haml',
           :disposition => 'attachment',
+          :show_as_html => params[:debug].present?,
           :orientation => 'Landscape',
           :page_size => 'letter',
           :encoding => 'utf-8'
