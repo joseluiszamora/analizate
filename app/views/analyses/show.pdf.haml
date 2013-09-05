@@ -1,0 +1,249 @@
+/%p#notice= notice
+
+
+.bs-example
+  %table.table
+    %thead
+      %tr.success
+        %th Paciente
+        %th Médico
+        %th Fecha de recepción
+        %th Fecha de entrega
+    %tbody
+      %tr
+        %td= @analysis.patient_full_name
+        %td= @analysis.doctor_full_name
+        %td= I18n.l @analysis.receipt_datetime, format: :long
+        %td= I18n.l @analysis.delivery_datetime, format: :long
+
+%p
+  %h4 Category Description
+  .row-fluid.form-wrapper
+    %table.table.table-striped
+      %thead
+        %tr
+          %th PARÁMETRO
+          %th RESULTADO
+          %th UNIDADES
+          %th VALORES DE REFERENCIA
+      %tbody
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+        %tr
+          %td parameter
+          %td labo
+          %td unidad
+          %td values
+
+:css
+  ttable {
+      background-color: transparent;
+      border-collapse: collapse;
+      border-spacing: 0;
+      max-width: 100%;
+  }
+  .table {
+      margin-bottom: 20px;
+      width: 100%;
+  }
+  .table th, .table td {
+      border-top: 1px solid #DDDDDD;
+      line-height: 20px;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+  }
+  .table th {
+      font-weight: bold;
+      text-align:center;
+  }
+  .table td {
+      text-align:center;
+  }
+  .table thead th {
+      vertical-align: bottom;
+  }
+  .table caption + thead tr:first-child th, .table caption + thead tr:first-child td, .table colgroup + thead tr:first-child th, .table colgroup + thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
+      border-top: 0 none;
+  }
+  .table tbody + tbody {
+      border-top: 2px solid #DDDDDD;
+  }
+  .table .table {
+      background-color: #FFFFFF;
+  }
+  .table-condensed th, .table-condensed td {
+      padding: 4px 5px;
+  }
+  .table-bordered {
+      -moz-border-bottom-colors: none;
+      -moz-border-left-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-top-colors: none;
+      border-collapse: separate;
+      border-color: #DDDDDD #DDDDDD #DDDDDD -moz-use-text-color;
+      border-image: none;
+      border-radius: 4px 4px 4px 4px;
+      border-style: solid solid solid none;
+      border-width: 1px 1px 1px 0;
+  }
+  .table-bordered th, .table-bordered td {
+      border-left: 1px solid #DDDDDD;
+  }
+  .table-bordered caption + thead tr:first-child th, .table-bordered caption + tbody tr:first-child th, .table-bordered caption + tbody tr:first-child td, .table-bordered colgroup + thead tr:first-child th, .table-bordered colgroup + tbody tr:first-child th, .table-bordered colgroup + tbody tr:first-child td, .table-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td {
+      border-top: 0 none;
+  }
+  .table-bordered thead:first-child tr:first-child > th:first-child, .table-bordered tbody:first-child tr:first-child > td:first-child, .table-bordered tbody:first-child tr:first-child > th:first-child {
+      border-top-left-radius: 4px;
+  }
+  .table-bordered thead:first-child tr:first-child > th:last-child, .table-bordered tbody:first-child tr:first-child > td:last-child, .table-bordered tbody:first-child tr:first-child > th:last-child {
+      border-top-right-radius: 4px;
+  }
+  .table-bordered thead:last-child tr:last-child > th:first-child, .table-bordered tbody:last-child tr:last-child > td:first-child, .table-bordered tbody:last-child tr:last-child > th:first-child, .table-bordered tfoot:last-child tr:last-child > td:first-child, .table-bordered tfoot:last-child tr:last-child > th:first-child {
+      border-bottom-left-radius: 4px;
+  }
+  .table-bordered thead:last-child tr:last-child > th:last-child, .table-bordered tbody:last-child tr:last-child > td:last-child, .table-bordered tbody:last-child tr:last-child > th:last-child, .table-bordered tfoot:last-child tr:last-child > td:last-child, .table-bordered tfoot:last-child tr:last-child > th:last-child {
+      border-bottom-right-radius: 4px;
+  }
+  .table-bordered tfoot + tbody:last-child tr:last-child td:first-child {
+      border-bottom-left-radius: 0;
+  }
+  .table-bordered tfoot + tbody:last-child tr:last-child td:last-child {
+      border-bottom-right-radius: 0;
+  }
+  .table-bordered caption + thead tr:first-child th:first-child, .table-bordered caption + tbody tr:first-child td:first-child, .table-bordered colgroup + thead tr:first-child th:first-child, .table-bordered colgroup + tbody tr:first-child td:first-child {
+      border-top-left-radius: 4px;
+  }
+  .table-bordered caption + thead tr:first-child th:last-child, .table-bordered caption + tbody tr:first-child td:last-child, .table-bordered colgroup + thead tr:first-child th:last-child, .table-bordered colgroup + tbody tr:first-child td:last-child {
+      border-top-right-radius: 4px;
+  }
+  .table-striped tbody > tr:nth-child(2n+1) > td, .table-striped tbody > tr:nth-child(2n+1) > th {
+      background-color: #F9F9F9;
+  }
+  .table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+      background-color: #F5F5F5;
+  }
+  table td[class*="span"], table th[class*="span"], .row-fluid table td[class*="span"], .row-fluid table th[class*="span"] {
+      display: table-cell;
+      float: none;
+      margin-left: 0;
+  }
+  .table td.span1, .table th.span1 {
+      float: none;
+      margin-left: 0;
+      width: 44px;
+  }
+  .table td.span2, .table th.span2 {
+      float: none;
+      margin-left: 0;
+      width: 124px;
+  }
+  .table td.span3, .table th.span3 {
+      float: none;
+      margin-left: 0;
+      width: 204px;
+  }
+  .table td.span4, .table th.span4 {
+      float: none;
+      margin-left: 0;
+      width: 284px;
+  }
+  .table td.span5, .table th.span5 {
+      float: none;
+      margin-left: 0;
+      width: 364px;
+  }
+  .table td.span6, .table th.span6 {
+      float: none;
+      margin-left: 0;
+      width: 444px;
+  }
+  .table td.span7, .table th.span7 {
+      float: none;
+      margin-left: 0;
+      width: 524px;
+  }
+  .table td.span8, .table th.span8 {
+      float: none;
+      margin-left: 0;
+      width: 604px;
+  }
+  .table td.span9, .table th.span9 {
+      float: none;
+      margin-left: 0;
+      width: 684px;
+  }
+  .table td.span10, .table th.span10 {
+      float: none;
+      margin-left: 0;
+      width: 764px;
+  }
+  .table td.span11, .table th.span11 {
+      float: none;
+      margin-left: 0;
+      width: 844px;
+  }
+  .table td.span12, .table th.span12 {
+      float: none;
+      margin-left: 0;
+      width: 924px;
+  }
+  .table tbody tr.success > td {
+      background-color: #DFF0D8;
+  }
+  .table tbody tr.error > td {
+      background-color: #F2DEDE;
+  }
+  .table tbody tr.warning > td {
+      background-color: #FCF8E3;
+  }
+  .table tbody tr.info > td {
+      background-color: #D9EDF7;
+  }
+  .table-hover tbody tr.success:hover > td {
+      background-color: #D0E9C6;
+  }
+  .table-hover tbody tr.error:hover > td {
+      background-color: #EBCCCC;
+  }
+  .table-hover tbody tr.warning:hover > td {
+      background-color: #FAF2CC;
+  }

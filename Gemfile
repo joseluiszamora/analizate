@@ -36,9 +36,12 @@ gem 'ancestry'
 gem 'rails_12factor', group: :production
 gem 'hogan_assets'
 gem 'ransack'
-#gem 'debugger', group: :development
+gem 'debugger', group: :development
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'execjs'
+gem 'therubyracer'
