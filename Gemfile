@@ -16,7 +16,7 @@ gem 'carrierwave'
 
 #pdf
 #gem 'wkhtmltopdf-binary'
-#gem 'wicked_pdf'
+gem 'wicked_pdf'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
