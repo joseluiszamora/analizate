@@ -1,4 +1,6 @@
 Analizate::Application.routes.draw do
+  resources :controllers
+
   resources :institutions
 
   resources :analyses do
