@@ -597,5 +597,7 @@ input.search{
   width: 100%;
 }
 
-
+.input-append{
+  float: left;
+}
 

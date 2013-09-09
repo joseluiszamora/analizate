@@ -6,21 +6,19 @@
     %li.active{"data-target" => "#step1"}
       %span.step 1
       %span.title
-        Información
-        %br/
-        General
+        %h4 Información General
     %li{"data-target" => "#step2"}
       %span.step 2
       %span.title
-        Categorías
+        %h4 Categorías
     %li{"data-target" => "#step3"}
       %span.step 3
       %span.title
-        Análisis
+        %h4 Análisis
     %li{"data-target" => "#step4"}
       %span.step 4
       %span.title
-        Resultados
+        %h4 Resultados
 = form_for @analysis do |f|
   - if @analysis.errors.any?
     #error_explanation
@@ -33,23 +31,23 @@
     #step1.step-pane.active
       .row-fluid.form-wrapper.payment-info
         .span8
-          .field-box
-            %label Paciente:
-            = f.text_field :patient_full_name, class: 'span8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
+          .form-group
+            = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
+            = f.text_field :patient_full_name, class: 'form-control col-lg-8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
             = f.hidden_field :patient_id
-          .field-box
-            %label Medico Solicitante:
-            = f.text_field :doctor_full_name, class: 'span8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
+          .form-group
+            = f.label :doctor_full_name, 'Medico Solicitante:', class: "col-lg-2 control-label"
+            = f.text_field :doctor_full_name, class: 'form-control col-lg-8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
             = f.hidden_field :doctor_id
           .field-box
-            %label Entrega de la muestra:
+            = f.label :receipt_date, 'Entrega de la muestra:', class: "col-lg-2 control-label"
             = f.text_field :receipt_date, class: 'span4 datepicker', placeholder: 'Fecha'
             .input-append.bootstrap-timepicker
               = f.text_field :receipt_time, class: 'input-small timepicker'
               %span.add-on
                 %i.icon-time
           .field-box
-            %label Entrega:
+            = f.label :delivery_date, 'Entrega:', class: "col-lg-2 control-label"
             = f.text_field :delivery_date, class: 'span4 datepicker', placeholder: 'Fecha'
             .input-append.bootstrap-timepicker
               = f.text_field :delivery_time, class: 'input-small timepicker'

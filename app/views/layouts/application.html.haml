@@ -9,22 +9,26 @@
     /.notice= notice
     /.alert= alert
 
-    / sidebar
+    / navbar
     = render "layouts/navbar"
-    / end sidebar
+    / end navbar
 
     / sidebar
-    = render "layouts/sidebar"
+    /= render "layouts/sidebar"
     / end sidebar
 
     / main container
-    .content
-      .container-fluid
-        #pad-wrapper.form-page
-          .row-fluid.form-wrapper
-            / left column
-            .span10.column
-              = yield
-            / right column
-            .span2.column.pull-right
-              = render 'notices/slide'
+    / .content
+    /   .container-fluid
+    /     #pad-wrapper.form-page
+    /       .row-fluid.form-wrapper
+    /         / left column
+    /         .span10.column
+    /           = yield
+    /         / right column
+    /         .span2.column.pull-right
+    /           = render 'notices/slide'
+    .container
+      = yield
+
+

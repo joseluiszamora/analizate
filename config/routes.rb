@@ -1,15 +1,10 @@
 Analizate::Application.routes.draw do
-  resources :controllers
-
-  resources :institutions
 
   resources :analyses do
     get 'patients', on: :collection
     get 'medical', on: :collection
     get 'tests', on: :collection
   end
-
-  resources :notices
 
   #resources :analyzes, only: [:index, :new] do
   #  get 'patients', on: :collection
@@ -20,7 +15,13 @@ Analizate::Application.routes.draw do
     get 'profile', on: :member
   end
 
+  resources :home
+
+  resources :notices
+
   resources :tests
+
+  resources :institutions
 
   resources :test_categories
 

@@ -1,116 +1,196 @@
-/ navbar
-.navbar.navbar-inverse
-  .navbar-inner
-    %button#menu-toggler.btn.btn-navbar.visible-phone{:type => "button"}
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to root_path, class: 'brand' do
-      %img{:src => "/images/analizate.png", :width => "220"}/
-    %ul.nav.pull-right
-      %li.hidden-phone
-        %input.search{:type => "text"}/
-      %li.notification-dropdown.hidden-phone
-        %a.trigger{:href => "#"}
-          %i.icon-warning-sign
-          %span.count 8
-        .pop-dialog
-          .pointer.right
-            .arrow
-            .arrow_border
-          .body
-            %a.close-icon{:href => "#"}
-              %i.icon-remove-sign
-            .notifications
-              %h3 You have 6 new notifications
-              %a.item{:href => "#"}
-                %i.icon-signin
-                New user registration
-                %span.time
-                  %i.icon-time
-                  13 min.
-              %a.item{:href => "#"}
-                %i.icon-signin
-                New user registration
-                %span.time
-                  %i.icon-time
-                  18 min.
-              %a.item{:href => "#"}
-                %i.icon-envelope-alt
-                New message from Alejandra
-                %span.time
-                  %i.icon-time
-                  28 min.
-              %a.item{:href => "#"}
-                %i.icon-signin
-                New user registration
-                %span.time
-                  %i.icon-time
-                  49 min.
-              %a.item{:href => "#"}
-                %i.icon-download-alt
-                New order placed
-                %span.time
-                  %i.icon-time
-                  1 day.
-              .footer
-                %a.logout{:href => "#"} View all notifications
-      %li.notification-dropdown.hidden-phone
-        %a.trigger{:href => "#"}
-          %i.icon-envelope-alt
-        .pop-dialog
-          .pointer.right
-            .arrow
-            .arrow_border
-          .body
-            %a.close-icon{:href => "#"}
-              %i.icon-remove-sign
-            .messages
-              %a.item{:href => "#"}
-                %img.display{:src => "/images/contact-img.png"}/
-              .name Alejandra Galván
-              .msg
-                There are many variations of available, but the majority have suffered alterations.
-              %span.time
-                %i.icon-time
-                13 min.
-              %a.item{:href => "#"}
-                %img.display{:src => "/images/contact-img2.png"}/
-              .name Alejandra Galván
-              .msg
-                There are many variations of available, have suffered alterations.
-              %span.time
-                %i.icon-time
-                26 min.
-              %a.item.last{:href => "#"}
-                %img.display{:src => "/images/contact-img.png", :tppabs => "http://detail.herokuapp.com/img/contact-img.png"}/
-              .name Alejandra Galván
-              .msg
-                There are many variations of available, but the majority have suffered alterations.
-              %span.time
-                %i.icon-time
-                48 min.
-              .footer
-                %a.logout{:href => "#"} View all messages
-      %li.dropdown
-        %a.dropdown-toggle.hidden-phone{"data-toggle" => "dropdown", :href => "#"}
-          Your account
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            %a{:href => "personal-info.html", :tppabs => "http://detail.herokuapp.com/personal-info.html"} Personal info
-          %li
-            %a{:href => "#"} Account settings
-          %li
-            %a{:href => "#"} Billing
-          %li
-            %a{:href => "#"} Export your data
-          %li
-            %a{:href => "#"} Send feedback
-      %li.settings.hidden-phone
-        %a{:href => "#", :role => "button", :tppabs => "http://detail.herokuapp.com/personal-info.html"}
-          %i.icon-cog
-      %li.settings.hidden-phone
-        = link_to destroy_user_session_path, method: :delete, role: 'button' do
-          %i.icon-share-alt
-/ end navbar
+/ / navbar
+/ .navbar.navbar-inverse
+/   .navbar-inner
+/     %button#menu-toggler.btn.btn-navbar.visible-phone{:type => "button"}
+/       %span.icon-bar
+/       %span.icon-bar
+/       %span.icon-bar
+/     = link_to root_path, class: 'brand' do
+/       %img{:src => "/images/analizate.png", :width => "220"}/
+/     %ul.nav.pull-right
+/       %li.hidden-phone
+/         %input.search{:type => "text"}/
+/       %li.notification-dropdown.hidden-phone
+/         %a.trigger{:href => "#"}
+/           %i.icon-warning-sign
+/           %span.count 8
+/         .pop-dialog
+/           .pointer.right
+/             .arrow
+/             .arrow_border
+/           .body
+/             %a.close-icon{:href => "#"}
+/               %i.icon-remove-sign
+/             .notifications
+/               %h3 You have 6 new notifications
+/               %a.item{:href => "#"}
+/                 %i.icon-signin
+/                 New user registration
+/                 %span.time
+/                   %i.icon-time
+/                   13 min.
+/               %a.item{:href => "#"}
+/                 %i.icon-signin
+/                 New user registration
+/                 %span.time
+/                   %i.icon-time
+/                   18 min.
+/               %a.item{:href => "#"}
+/                 %i.icon-envelope-alt
+/                 New message from Alejandra
+/                 %span.time
+/                   %i.icon-time
+/                   28 min.
+/               %a.item{:href => "#"}
+/                 %i.icon-signin
+/                 New user registration
+/                 %span.time
+/                   %i.icon-time
+/                   49 min.
+/               %a.item{:href => "#"}
+/                 %i.icon-download-alt
+/                 New order placed
+/                 %span.time
+/                   %i.icon-time
+/                   1 day.
+/               .footer
+/                 %a.logout{:href => "#"} View all notifications
+/       %li.notification-dropdown.hidden-phone
+/         %a.trigger{:href => "#"}
+/           %i.icon-envelope-alt
+/         .pop-dialog
+/           .pointer.right
+/             .arrow
+/             .arrow_border
+/           .body
+/             %a.close-icon{:href => "#"}
+/               %i.icon-remove-sign
+/             .messages
+/               %a.item{:href => "#"}
+/                 %img.display{:src => "/images/contact-img.png"}/
+/               .name Alejandra Galván
+/               .msg
+/                 There are many variations of available, but the majority have suffered alterations.
+/               %span.time
+/                 %i.icon-time
+/                 13 min.
+/               %a.item{:href => "#"}
+/                 %img.display{:src => "/images/contact-img2.png"}/
+/               .name Alejandra Galván
+/               .msg
+/                 There are many variations of available, have suffered alterations.
+/               %span.time
+/                 %i.icon-time
+/                 26 min.
+/               %a.item.last{:href => "#"}
+/                 %img.display{:src => "/images/contact-img.png", :tppabs => "http://detail.herokuapp.com/img/contact-img.png"}/
+/               .name Alejandra Galván
+/               .msg
+/                 There are many variations of available, but the majority have suffered alterations.
+/               %span.time
+/                 %i.icon-time
+/                 48 min.
+/               .footer
+/                 %a.logout{:href => "#"} View all messages
+/       %li.dropdown
+/         %a.dropdown-toggle.hidden-phone{"data-toggle" => "dropdown", :href => "#"}
+/           Your account
+/           %b.caret
+/         %ul.dropdown-menu
+/           %li
+/             %a{:href => "personal-info.html", :tppabs => "http://detail.herokuapp.com/personal-info.html"} Personal info
+/           %li
+/             %a{:href => "#"} Account settings
+/           %li
+/             %a{:href => "#"} Billing
+/           %li
+/             %a{:href => "#"} Export your data
+/           %li
+/             %a{:href => "#"} Send feedback
+/       %li.settings.hidden-phone
+/         %a{:href => "#", :role => "button", :tppabs => "http://detail.herokuapp.com/personal-info.html"}
+/           %i.icon-cog
+/       %li.settings.hidden-phone
+/         = link_to destroy_user_session_path, method: :delete, role: 'button' do
+/           %i.icon-share-alt
+/ / end navbar
+
+
+
+
+
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to root_path, class: 'navbar-brand' do
+        %img{:src => "/images/analizate.png", :width => "220"}/
+      %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Usuarios
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Usuarios"}
+            %li= link_to "Lista de Usuarios", "/users", tabindex: "-1"
+            %li.divider
+            %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Analisis
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Analisis"}
+            %li= link_to "Nuevo Análisis", new_analysis_path, tabindex: "-1"
+            %li.divider
+            %li= link_to "Lista de Análisis", analyses_path, tabindex: "-1"
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Categorías
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Categorias"}
+            %li= link_to "Lista de Categorias", test_categories_path, tabindex: "-1"
+            %li.divider
+            %li= link_to "Nueva Categoria", new_test_category_path, tabindex: "-1"
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Test
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Test"}
+            %li= link_to "Lista de Test", tests_path, tabindex: "-1"
+            %li.divider
+            %li= link_to "Nuevo Test", new_test_path, tabindex: "-1"
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Centros Medicos
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Hospitales"}
+            %li= link_to "Lista de Hospitales", "/hospital", tabindex: "-1"
+            %li.divider
+            %li= link_to "Lista de Farmacias", "/pharm", tabindex: "-1"
+            %li.divider
+            %li= link_to "Nuevo Hospital", "/hospital/new", tabindex: "-1"
+            %li.divider
+            %li= link_to "Nuevo Farmacia", "/pharm/new", tabindex: "-1"
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Anuncios
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Anuncios"}
+            %li= link_to "Lista de Anuncios", notices_path, tabindex: "-1"
+            %li.divider
+            %li= link_to "Nuevo Anuncio", new_notice_path, tabindex: "-1"
+        
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            Jose Luis
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "Usuario"}
+            %li= link_to "Informacion", "#", tabindex: "-1"
+            %li.divider
+            %li= link_to "Salir", destroy_user_session_path, tabindex: "-1", method: :delete
+/ / end navbar
+

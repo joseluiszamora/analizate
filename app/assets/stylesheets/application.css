@@ -8,18 +8,18 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ 
  *= require bootstrap-overrides
  *= require bootstrap-responsive
  *= require bootstrap-wysihtml5
- *= require bootstrap
  *= require datepicker
  *= require bootstrap-timepicker
  *= require elements
  *= require font-awesome
- * require form-showcase
+ *= require form-showcase
  *= require icons
- * require index
- * require jquery-ui-1.10.2.custom
+ *= require index
+ *= require jquery-ui-1.10.2.custom
  *= require layout
  *= require user-list
  *= require users
@@ -27,5 +27,8 @@
  *= require form-wizard
  *= require uniform
  *= require typeahead
- *= require_self
+
+ *= require bootstrap
+ *= require bootswatch
+ * require_self
  */
