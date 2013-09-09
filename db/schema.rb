@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902151900) do
+ActiveRecord::Schema.define(version: 20130905202854) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
@@ -26,27 +26,6 @@ ActiveRecord::Schema.define(version: 20130902151900) do
 
   add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree
   add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id", using: :btree
-
-  create_table "analysis_categories", force: true do |t|
-    t.integer  "analysis_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "analysis_categories", ["analysis_id"], name: "index_analysis_categories_on_analysis_id", using: :btree
-  add_index "analysis_categories", ["category_id"], name: "index_analysis_categories_on_category_id", using: :btree
-
-  create_table "analysis_tests", force: true do |t|
-    t.integer  "test_id"
-    t.integer  "analysis_category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "result"
-  end
-
-  add_index "analysis_tests", ["analysis_category_id"], name: "index_analysis_tests_on_analysis_category_id", using: :btree
-  add_index "analysis_tests", ["test_id"], name: "index_analysis_tests_on_test_id", using: :btree
 
   create_table "institutions", force: true do |t|
     t.string   "category"
@@ -75,13 +54,6 @@ ActiveRecord::Schema.define(version: 20130902151900) do
     t.string   "title"
     t.text     "description"
     t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "patients", force: true do |t|
-    t.string   "name"
-    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -139,6 +111,7 @@ ActiveRecord::Schema.define(version: 20130902151900) do
     t.string   "cellular"
     t.date     "birthday"
     t.text     "notes"
+    t.string   "image"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

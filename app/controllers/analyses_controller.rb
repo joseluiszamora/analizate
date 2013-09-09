@@ -19,7 +19,7 @@ class AnalysesController < ApplicationController
           :template => 'analyses/show.pdf.haml',
           :disposition => 'attachment',
           :show_as_html => params[:debug].present?,
-          :orientation => 'Landscape',
+          :orientation => 'Portrait',
           :page_size => 'letter',
           :encoding => 'utf-8'
 
