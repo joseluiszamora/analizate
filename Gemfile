@@ -11,8 +11,8 @@ gem 'pg'
 
 #uploader image
 #gem 'carrierwave-google_drive'
-gem "rmagick"
-gem "carrierwave"
+#gem "rmagick"
+#gem "carrierwave"
 
 #pdf
 #gem 'wkhtmltopdf-binary'
