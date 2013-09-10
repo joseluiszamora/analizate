@@ -2,13 +2,9 @@
   .content-wrap
     %h6 Log in
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      = f.text_field :login, :autofocus => true, :class => 'span12', :placeholder => "E-mail or Username"
-      = f.password_field :password, :class => 'span12', :placeholder => "Password"
-      %a.forgot{:href => "#"} Forgot password?
-      .remember
-        - if devise_mapping.rememberable?
-          = f.check_box :remember_me, :id => 'remember-me'
-          = f.label :remember_me, :for => 'remember-me'
+      = f.text_field :login, :autofocus => true, :class => 'span12 form-control', :placeholder => "Email o Nombre de Usuario"
+      = f.password_field :password, :class => 'span12 form-control', :placeholder => "Password"
+      /%a.forgot{:href => "#"} Forgot password?
 
       %div= f.submit "Ingresar", :class => 'btn-glow primary login'
 = render "devise/shared/links"

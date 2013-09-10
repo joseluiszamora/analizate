@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  mount_uploader :image, ImagesUploader
   
   USER_TYPE = %w(medical patient laboratory_staff)
 

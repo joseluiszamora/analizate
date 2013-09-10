@@ -148,17 +148,13 @@
             %li= link_to "Lista de Análisis", analyses_path, tabindex: "-1"
         %li.dropdown
           %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Categorías
+            Tests y Categorías
             %span.caret
           %ul.dropdown-menu{"aria-labelledby" => "Categorias"}
             %li= link_to "Lista de Categorias", test_categories_path, tabindex: "-1"
             %li.divider
             %li= link_to "Nueva Categoria", new_test_category_path, tabindex: "-1"
-        %li.dropdown
-          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Test
-            %span.caret
-          %ul.dropdown-menu{"aria-labelledby" => "Test"}
+            %li.divider
             %li= link_to "Lista de Test", tests_path, tabindex: "-1"
             %li.divider
             %li= link_to "Nuevo Test", new_test_path, tabindex: "-1"

@@ -9,11 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  * require_self
- * require bootstrap-overrides
- * require bootstrap-responsive
- * require bootstrap-wysihtml5
- * require bootstrap
- * require elements
+ *= require bootstrap-overrides
+ *= require bootstrap-responsive
+ *= require bootstrap-wysihtml5
+ *= require bootstrap
+ *= require elements
  * require font-awesome
  * require icons
  * require index
@@ -23,14 +23,6 @@
  * require user-list
 
 
-
-
-
-
-
- *= require bootstrap
- *= require layout
- *= require login
  *= require signin
  
 
