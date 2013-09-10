@@ -20,9 +20,18 @@ class AnalysesController < ApplicationController
           :disposition => 'attachment',
           :show_as_html => params[:debug].present?,
           :orientation => 'Portrait',
+          :font_size   => 12px,
           :page_size => 'letter',
-          :encoding => 'utf-8'
-
+          :encoding => 'utf-8',
+          :no_background => true,
+          :margin => {:top => 180px,
+            :bottom => 100px,
+            :left => 40px,
+            :right => 20px},
+            :font_size => 12px,
+          :footer => {:html => { :template => 'analyses/pdf_footer.html.haml'},
+            :font_size => 10px,
+            :left => 30px}
       end
     end
   end
