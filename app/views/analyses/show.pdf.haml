@@ -1,26 +1,23 @@
-/%p#notice= notice
+.pdf-container
+  .bs-example
+    %table.tablepdf
+      %thead
+        %tr.success
+          %th Paciente
+          %th Médico
+          %th Fecha de recepción
+          %th Fecha de entrega
+      %tbody
+        %tr
+          %td= @analysis.patient_full_name
+          %td= @analysis.doctor_full_name
+          %td= I18n.l @analysis.receipt_datetime, format: :long
+          %td= I18n.l @analysis.delivery_datetime, format: :long
 
-
-.bs-example
-  %table.table
-    %thead
-      %tr.success
-        %th Paciente
-        %th Médico
-        %th Fecha de recepción
-        %th Fecha de entrega
-    %tbody
-      %tr
-        %td= @analysis.patient_full_name
-        %td= @analysis.doctor_full_name
-        %td= I18n.l @analysis.receipt_datetime, format: :long
-        %td= I18n.l @analysis.delivery_datetime, format: :long
-
-%p
   - @categories.each do |category|
     %h4= category.description
     .row-fluid.form-wrapper
-      %table.table.table-striped
+      %table.tablepdf.table-striped
         %thead
           %tr
             %th PARÁMETRO
@@ -37,41 +34,47 @@
               %td= test.reference_values
 
 :css
+  .pdf-container{
+    float:left;
+    width: 600px;
+    margin: 100px 0 0 100px;
+  }
   table {
       background-color: transparent;
       border-collapse: collapse;
       border-spacing: 0;
       max-width: 100%;
   }
-  .table {
+  .tablepdf {
       margin-bottom: 20px;
       width: 100%;
   }
-  .table th, .table td {
+  .tablepdf th, .tablepdf td {
       border-top: 1px solid #DDDDDD;
       line-height: 20px;
       padding: 8px;
       text-align: left;
       vertical-align: top;
+      font-size: 12px;
       background-color: #ccc;
   }
-  .table th {
+  .tablepdf th {
       font-weight: bold;
       text-align:center;
   }
-  .table td {
+  .tablepdf td {
       text-align:center;
   }
-  .table thead th {
+  .tablepdf thead th {
       vertical-align: bottom;
   }
-  .table caption + thead tr:first-child th, .table caption + thead tr:first-child td, .table colgroup + thead tr:first-child th, .table colgroup + thead tr:first-child td, .table thead:first-child tr:first-child th, .table thead:first-child tr:first-child td {
+  .tablepdf caption + thead tr:first-child th, .tablepdf caption + thead tr:first-child td, .tablepdf colgroup + thead tr:first-child th, .tablepdf colgroup + thead tr:first-child td, .tablepdf thead:first-child tr:first-child th, .tablepdf thead:first-child tr:first-child td {
       border-top: 0 none;
   }
-  .table tbody + tbody {
+  .tablepdf tbody + tbody {
       border-top: 2px solid #DDDDDD;
   }
-  .table .table {
+  .tablepdf .table {
       background-color: #FFFFFF;
   }
   .table-condensed th, .table-condensed td {

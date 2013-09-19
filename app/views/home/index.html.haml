@@ -4,8 +4,8 @@
       %h1#type Laboratorios Analizate
 
 .row
-  .col-lg-2
-  .col-lg-8
+  /.col-lg-2
+  .col-lg-12
     .bs-example
       #carousel-example-generic.carousel.slide.bs-docs-carousel-example
         %ol.carousel-indicators
@@ -24,7 +24,7 @@
           %span.icon-prev
         %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
           %span.icon-next
-  .col-lg-2
+  /.col-lg-2
 
 .row
   .col-lg-12.background-sky
@@ -36,21 +36,21 @@
       .bs-example
         %ul.nav.nav-tabs{:style => "margin-bottom: 15px;"}
           %li.active
-            %a{"data-toggle" => "tab", :href => "#section1"} Objetivo
+            %a{"data-toggle" => "tab", :href => "#section1"} Mision
           %li
-            %a{"data-toggle" => "tab", :href => "#section2"} Mision
+            %a{"data-toggle" => "tab", :href => "#section2"} Vision
           %li
-            %a{"data-toggle" => "tab", :href => "#section3"} Vision
+            %a{"data-toggle" => "tab", :href => "#section3"} Nuestros Valores
         #myTabContent.tab-content
           #section1.tab-pane.fade.active.in
             %p
-              objetivo.
+              Mision.
           #section2.tab-pane.fade
             %p
-              Mision.
+              Vision.
           #section3.tab-pane.fade
             %p
-              Vision.
+              Nuestros Valores.
     .col-lg-4
       %h2 Nuestros Servicios
       .bs-example
@@ -62,4 +62,4 @@
         Estamos ubicados en
 
       .map_container
-        %iframe{:frameborder => "0", :height => "322", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.com/maps/ms?msa=0&msid=203680980198088788374.0004d99f13e908222e1e5&ie=UTF8&t=m&ll=47.880894,-1.522293&spn=0.148286,0.348129&z=11&output=embed", :width => "380"}
+        /%iframe{:frameborder => "0", :height => "322", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.com/maps/ms?msa=0&msid=203680980198088788374.0004d99f13e908222e1e5&ie=UTF8&t=m&ll=47.880894,-1.522293&spn=0.148286,0.348129&z=11&output=embed", :width => "380"}

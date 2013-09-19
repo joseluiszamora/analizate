@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{ name } #{ last_name }".presence || username.presence || email
   end
+
+  def contact_numbers
+    "#{ phone } #{ cellular }".presence || phone.presence || cellular
+  end
 end

@@ -1,4 +1,5 @@
 class TestCategoriesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_test_category, only: [:show, :edit, :update, :destroy]
 
   # GET /test_categories

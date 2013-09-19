@@ -1,4 +1,5 @@
 class NoticesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_notice, only: [:show, :edit, :update, :destroy]
 
   # GET /notices

@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.time     "delivery_time"
   end
 
-  add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id"
-  add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id"
+  add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree
+  add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id", using: :btree
 
   create_table "institutions", force: true do |t|
     t.string   "category"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.datetime "updated_at"
   end
 
-  add_index "laboratories", ["analysis_id"], name: "index_laboratories_on_analysis_id"
-  add_index "laboratories", ["test_id"], name: "index_laboratories_on_test_id"
+  add_index "laboratories", ["analysis_id"], name: "index_laboratories_on_analysis_id", using: :btree
+  add_index "laboratories", ["test_id"], name: "index_laboratories_on_test_id", using: :btree
 
   create_table "notices", force: true do |t|
     t.string   "title"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.datetime "updated_at"
   end
 
-  add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry"
+  add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry", using: :btree
 
   create_table "tests", force: true do |t|
     t.string   "parameter"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.datetime "updated_at"
   end
 
-  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id"
+  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -114,11 +114,11 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.string   "image"
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

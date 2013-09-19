@@ -1,32 +1,34 @@
-.users-list
-  / main container
-  .row-fluid.header
-    %h3 Usuarios
-    .span10.pull-right
-      .span4
-        %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
-      .span3
-        .ui-select
-          %select
-            %option{:value => ""} Tipo de Usuario
-            %option{:value => "AK"} Medico
-            %option{:value => "HI"} Paciente
-            %option{:value => "CA"} Otro
-      .span2
-        %a.btn-glow.primary Buscar
+.row
+  .col-lg-12
+    .page-header
+      %h1#forms Usuarios
+
+.row-fluid.header
+  .span10.pull-right
+    .span4
+      %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
+    .span3
+      .ui-select
+        %select
+          %option{:value => ""} Tipo de Usuario
+          %option{:value => "AK"} Medico
+          %option{:value => "HI"} Paciente
+          %option{:value => "CA"} Otro
+    .span2
+      %a.btn-glow.primary Buscar
   / Users table
-  .row-fluid.table
-    %table.table.table-hover
+.row
+  .col-lg-1
+  .col-lg-10
+    %table.table.table-hover.table-striped
       %thead
         %tr
-          %th.span3.sortable
-            Nombre
-          %th.span2.sortable
-            Institución
-          %th.span2.sortable
-            Fecha de Registro
-          %th.span3.sortable.align-right
-            Email
+          %th.sortable Nombre
+            
+          %th.sortable Tipo de Usuario
+          %th.sortable Contacto
+          %th.sortable Fecha de Registro
+          %th.sortable.align-right Email
       %tbody
         - @users.each_with_index do |user, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
@@ -34,13 +36,23 @@
               %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
                 
               = link_to user.full_name, profile_user_path(user), class: 'name'
-              %span.subtext= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
-            %td
-              Centro Medico Kolping
-            %td
-              = I18n.l user.created_at, format: :long
-            %td.align-right
-              = mail_to user.email
+            %td= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
+            %td=  user.contact_numbers
+            %td= I18n.l user.created_at, format: :long
+            %td.align-right= mail_to user.email
+  .col-lg-1
+
+
+
+
+/ :user_type, :name, :last_name, :email, :username, :password, :password_confirmation, :phone, :cellular, :address, :birthday, :notes
+
+
+
+
+
+
+.row  
   .pagination.pull-right
     %ul
       %li

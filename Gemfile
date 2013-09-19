@@ -6,16 +6,16 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
-#gem 'mysql2', '0.3.11'
+#gem 'pg'
+gem 'sqlite3'
 
 #uploader image
 #gem 'carrierwave-google_drive'
-#gem "rmagick"
-#gem "carrierwave"
+gem "rmagick"
+gem "carrierwave"
 
 #pdf
-#gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 
 # Use SCSS for stylesheets
