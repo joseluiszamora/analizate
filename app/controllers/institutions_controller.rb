@@ -20,12 +20,21 @@ class InstitutionsController < ApplicationController
   def edit
   end
 
+  def hospitals
+    @institutions = Institution.hospitals
+  end
+
+  def pharms
+    @institutions = Institution.pharms
+  end
+
   # POST /institutions
   def create
     @institution = Institution.new(institution_params)
 
     if @institution.save
-      redirect_to @institution, notice: 'Institution was successfully created.'
+      redirect_to institutions_url
+      #redirect_to @institution, notice: 'Institution was successfully created.'
     else
       render action: 'new'
     end

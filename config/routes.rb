@@ -21,7 +21,9 @@ Analizate::Application.routes.draw do
 
   resources :tests
 
-  resources :institutions
+  resources :institutions do
+    get "hospitals", on: :collection
+  end
 
   resources :test_categories
 

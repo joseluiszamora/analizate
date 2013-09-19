@@ -42,13 +42,13 @@
             Centros Medicos
             %span.caret
           %ul.dropdown-menu{"aria-labelledby" => "Hospitales"}
-            %li= link_to "Lista de Hospitales", "/hospital", tabindex: "-1"
+            %li= link_to "Todos", institutions_path, tabindex: "-1"
             %li.divider
-            %li= link_to "Lista de Farmacias", "/pharm", tabindex: "-1"
+            %li= link_to "Lista de Hospitales", hospitals_institutions_path, tabindex: "-1"
             %li.divider
-            %li= link_to "Nuevo Hospital", new_institution_path, tabindex: "-1"
+            %li= link_to "Lista de Farmacias", pharms_institutions_path, tabindex: "-1"
             %li.divider
-            %li= link_to "Nuevo Farmacia", "/pharm/new", tabindex: "-1"
+            %li= link_to "Nuevo Centro Medico", new_institution_path, tabindex: "-1"
         %li.dropdown
           %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             Anuncios

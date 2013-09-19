@@ -30,5 +30,6 @@
 
  *= require bootstrap
  *= require bootswatch
+ *= require navbar
  * require_self
  */
