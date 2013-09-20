@@ -10,7 +10,6 @@ gem 'mysql2'
 #gem 'sqlite3'
 
 #uploader image
-#gem 'carrierwave-google_drive'
 gem "rmagick"
 gem "carrierwave"
 
