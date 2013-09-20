@@ -2,13 +2,18 @@
   .col-lg-2
   .col-lg-8
     .well
-      = form_for @institution, html: { class: 'bs-example form-horizontal' } do |f|
+      = form_for @institution, html: { class: 'bs-example form-horizontal', :multipart => true } do |f|
         - if @institution.errors.any?
           #error_explanation
             - @institution.errors.full_messages.each do |msg|
               .alert.alert-danger
                 %strong= msg
         %fieldset
+          .form-group
+            = f.label :category, 'Imagen:', class: "col-lg-2 control-label"
+            .col-lg-10
+              = f.file_field :image, class: 'form-control'
+              = f.hidden_field :image_cache
           .form-group
             = f.label :category, 'Categoria:', class: "col-lg-2 control-label"
             .col-lg-10

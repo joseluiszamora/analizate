@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905202854) do
+ActiveRecord::Schema.define(version: 20130920153337) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130905202854) do
     t.string   "web"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "laboratories", force: true do |t|

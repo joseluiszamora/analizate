@@ -63,6 +63,6 @@ class InstitutionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def institution_params
-      params.require(:institution).permit(:category, :name, :address, :desc, :phone, :mail, :web)
+      params.require(:institution).permit(:category, :name, :address, :desc, :phone, :mail, :web, :image, :image_cache)
     end
 end

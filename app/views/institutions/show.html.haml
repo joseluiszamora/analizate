@@ -1,6 +1,8 @@
 %p#notice= notice
 
 %p
+  = image_tag @institution.image.url(:thumb)
+%p
   %b Category:
   = @institution.category
 %p

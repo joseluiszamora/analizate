@@ -6,7 +6,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'mysql2'
 #gem 'sqlite3'
 
 #uploader image
@@ -43,3 +43,7 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'unicorn'
+gem 'capistrano'
+gem 'rvm-capistrano'

@@ -23,6 +23,7 @@ Analizate::Application.routes.draw do
 
   resources :institutions do
     get "hospitals", on: :collection
+    get "pharms", on: :collection
   end
 
   resources :test_categories
