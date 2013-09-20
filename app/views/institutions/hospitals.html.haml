@@ -1,22 +1,26 @@
-%h2 Hospitals
-%br
-%br
-/ Users table
-.row-fluid.table
-  %table.table.table-hover.table-striped.table-bordered
-    %thead
-      %tr
-        %th.span3.sortable Titulo
-        %th.span2.sortable Descripcion
-        %th.span2.sortable Imagen
-        %th{colspan: "3"}
-    %tbody
-      - @institutions.each do |institution|
-        %tr
-          %td= institution.category
-          %td= institution.name
-          %td= institution.address
-          %td= institution.desc
-          %td= institution.phone
-          %td= institution.mail
-          %td= institution.web
+.container
+  .page-header
+    %h3 Hospitales
+
+  .row.post_row
+    - @institutions.each do |institution|
+      .col-sm-6
+        .postMedical
+          .img
+            = image_tag institution.image.url(:thumb), class: "img-responsive"
+          .text
+            %h3= institution.name
+            %address
+              %i.icon.icon-home.icon-white
+              = institution.address
+            %p
+              %i.icon.icon-phone.icon-white
+              = institution.phone
+            %p
+              %i.icon.icon-envelope.icon-white
+              = institution.mail
+            %p
+              %i.icon.icon-globe.icon-white
+              = institution.web
+            %p
+              = institution.desc
