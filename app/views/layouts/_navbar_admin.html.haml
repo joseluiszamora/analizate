@@ -9,14 +9,16 @@
         %span.icon-bar
     #navbar-main.navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li.dropdown
-          %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            Usuarios
-            %span.caret
-          %ul.dropdown-menu{"aria-labelledby" => "Usuarios"}
-            %li= link_to "Lista de Usuarios", "/users", tabindex: "-1"
-            %li.divider
-            %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
+        - if can? :manage, User
+          %li.dropdown
+            %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Usuarios
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "Usuarios"}
+              %li= link_to "Lista de Usuarios", "/users", tabindex: "-1"
+              %li.divider
+              %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
+        
         %li.dropdown
           %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             Registro

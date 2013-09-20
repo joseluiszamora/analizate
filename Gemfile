@@ -6,7 +6,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'mysql2'
+gem 'pg'
 #gem 'sqlite3'
 
 #uploader image
@@ -31,6 +31,7 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 gem 'devise'
+gem "cancan"
 gem 'active_model_serializers'
 gem 'ancestry'
 gem 'rails_12factor', group: :production

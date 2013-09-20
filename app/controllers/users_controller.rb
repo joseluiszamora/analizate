@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   respond_to :html
 
   def index
@@ -37,6 +39,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:user_type, :name, :last_name, :email, :username, :password, :password_confirmation, :phone, :cellular, :address, :birthday, :notes)
+      params.require(:user).permit(:user_type, :name, :last_name, :email, :username, :password, :password_confirmation, :phone, :cellular, :address, :birthday, :notes, :role)
     end
 end
