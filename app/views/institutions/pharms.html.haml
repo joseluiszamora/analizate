@@ -4,23 +4,22 @@
 
   .row.post_row
     - @institutions.each do |institution|
-      .col-sm-6
-        .postMedical
-          .img
-            = image_tag institution.image.url(:thumb), class: "img-responsive"
-          .text
-            %h3= institution.name
-            %address
-              %i.icon.icon-home.icon-white
-              = institution.address
-            %p
-              %i.icon.icon-phone.icon-white
-              = institution.phone
-            %p
-              %i.icon.icon-envelope.icon-white
-              = institution.mail
-            %p
-              %i.icon.icon-globe.icon-white
-              = institution.web
-            %p
-              = institution.desc
+      .col-sm-6.postMedical
+        .img
+          = image_tag institution.image.url(:thumb), class: "img-responsive"
+        .text
+          %h3= institution.name
+          %address
+            %i.icon.icon-home.icon-white
+            = institution.address
+          %p
+            %i.icon.icon-phone.icon-white
+            = institution.phone
+          %p
+            %i.icon.icon-envelope.icon-white
+            = institution.mail
+          %p
+            %i.icon.icon-globe.icon-white
+            = institution.web
+          %p
+            = institution.desc

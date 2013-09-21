@@ -1,9 +1,9 @@
 class InstitutionsController < ApplicationController
-  before_filter :authenticate_user!
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
 
   # GET /institutions
   def index
+    before_filter :authenticate_user!
     @institutions = Institution.all
   end
 
@@ -13,6 +13,7 @@ class InstitutionsController < ApplicationController
 
   # GET /institutions/new
   def new
+    before_filter :authenticate_user!
     @institution = Institution.new
   end
 
@@ -30,6 +31,7 @@ class InstitutionsController < ApplicationController
 
   # POST /institutions
   def create
+    before_filter :authenticate_user!
     @institution = Institution.new(institution_params)
 
     if @institution.save
