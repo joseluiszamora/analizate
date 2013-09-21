@@ -1,7 +1,7 @@
-.row.background-sky
-  .col-lg-12
-    .page-header
-      %h1#type Laboratorios Analizate
+/ .row.background-sky
+/   .col-lg-12
+/     .page-header
+/       %h1#type Laboratorios Analizate
 
 
 
@@ -20,68 +20,30 @@
     
     For the backgrounds, you can combine from the bgs folder :D
   %article#showcasing.slide{style: "background: url('/images/slide1.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-30.sp600.t120.z1{src: "business_archivos/macbook_002.png", style: "left: -966px; top: 120px; z-index: 1; display: inline;"}/
+    %img.asset.left-30.sp600.t120.z1{src: "/images/gallery1.jpg", style: "left: -966px; top: 120px; z-index: 1; display: inline;"}/
     .info{style: "display: none;"}
       %h2 Beautiful theme for showcasing your works.
   %article#ideas.slide.active{style: "background: url('/images/slide2.jpg') repeat-x scroll center top transparent; display: block;"}
     .info{style: "display: block;"}
       %h2 We love to turn ideas into beautiful things.
-    %img.asset.left-480.sp600.t260.z1{src: "business_archivos/left.png", style: "left: 121px; top: 260px; z-index: 1; display: inline;"}/
-    %img.asset.left-210.sp600.t213.z2{src: "business_archivos/middle.png", style: "left: 391px; top: 213px; z-index: 2; display: inline;"}/
-    %img.asset.left60.sp600.t260.z1{src: "business_archivos/right.png", style: "left: 661px; top: 260px; z-index: 1; display: inline;"}/
+    %img.asset.left-480.sp600.t260.z1{src: "/images/gallery2.jpg", style: "left: 121px; top: 260px; z-index: 1; display: inline;"}/
+    %img.asset.left-210.sp600.t213.z2{src: "/images/gallery3.jpg", style: "left: 391px; top: 213px; z-index: 2; display: inline;"}/
+    %img.asset.left60.sp600.t260.z1{src: "/images/gallery4.jpg", style: "left: 661px; top: 260px; z-index: 1; display: inline;"}/
   %article#tour.slide{style: "background: url('/images/slide3.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-472.sp650.t210.z3{src: "business_archivos/ipad.png", style: "left: -558px; top: 210px; z-index: 3; display: inline;"}/
-    %img.asset.left-365.sp600.t270.z4{src: "business_archivos/iphone.png", style: "left: -485px; top: 270px; z-index: 4; display: inline;"}/
-    %img.asset.left-350.sp450.t135.z2{src: "business_archivos/desktop.png", style: "left: -742px; top: 135px; z-index: 2; display: inline;"}/
-    %img.asset.left-185.sp550.t220.z1{src: "business_archivos/macbook.png", style: "left: -746px; top: 220px; z-index: 1; display: inline;"}/
+    %img.asset.left-472.sp650.t210.z3{src: "/images/gallery4.jpg", style: "left: -558px; top: 210px; z-index: 3; display: inline;"}/
+    %img.asset.left-365.sp600.t270.z4{src: "/images/gallery5.jpg", style: "left: -485px; top: 270px; z-index: 4; display: inline;"}/
+    %img.asset.left-350.sp450.t135.z2{src: "/images/gallery1.jpg", style: "left: -742px; top: 135px; z-index: 2; display: inline;"}/
+    %img.asset.left-185.sp550.t220.z1{src: "/images/gallery2.jpg", style: "left: -746px; top: 220px; z-index: 1; display: inline;"}/
     .info{style: "display: none;"}
       %h2 Fully Responsive theme
-      %a{href: "http://cleancanvas.herokuapp.com/features.html"} TOUR THE PRODUCT
   %article#responsive.slide{style: "background: url('/images/slide1.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-472.sp600.t120.z3{src: "business_archivos/html5.png", style: "left: -732px; top: 120px; z-index: 3; display: inline;"}/
-    %img.asset.left-190.sp500.t120.z2{src: "business_archivos/css3.png", style: "left: -732px; top: 120px; z-index: 2; display: inline;"}/
+    %img.asset.left-472.sp600.t120.z3{src: "/images/gallery3.jpg", style: "left: -732px; top: 120px; z-index: 3; display: inline;"}/
+    %img.asset.left-190.sp500.t120.z2{src: "/images/gallery4.jpg", style: "left: -732px; top: 120px; z-index: 2; display: inline;"}/
     .info{style: "display: none;"}
       %h2
         Responsive
         %strong HTML5 & CSS3
         Theme
-
-%ul#pagination{style: "left: 573px; display: block;"}
-  %li
-    %a{href: "#showcasing"} 0
-  %li.active
-    %a{href: "#ideas"} 1
-  %li
-    %a{href: "#tour"} 2
-  %li
-    %a{href: "#responsive"} 3
-    %a#slide-left{href: "", style: "display: inline;"}
-    %a#slide-right{href: "", style: "display: inline;"}
-
-
-
-/ .row
-/   /.col-lg-2
-/   .col-lg-12
-/     .bs-example
-/       #carousel-example-generic.carousel.slide.bs-docs-carousel-example
-/         %ol.carousel-indicators
-/           %li{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-/           %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-/           %li.active{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
-/         .carousel-inner
-/           .item.active
-/             %img{alt: "First slide", :src => "/images/slide1.jpg", :height => "250"}/
-/           .item
-/             %img{:alt => "Second slide", :src => "/images/slide2.jpg"}/
-/           .item
-/             %img{:alt => "Third slide", :src => "/images/slide3.jpg"}/
-
-/         %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic"}
-/           %span.icon-prev
-/         %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic"}
-/           %span.icon-next
-/   /.col-lg-2
 
 .row
   .col-lg-12.background-sky
