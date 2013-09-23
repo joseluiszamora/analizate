@@ -25,11 +25,14 @@
         %thead
           %tr
             %th.sortable Nombre
-              
             %th.sortable Tipo de Usuario
             %th.sortable Contacto
             %th.sortable Fecha de Registro
             %th.sortable.align-right Email
+            %th.sortable Tipo de Usuario
+            %th.sortable Contacto
+            %th.sortable Contacto
+            %th.sortable Contacto
         %tbody
           - @users.each_with_index do |user, index|
             %tr{ class: "#{ index == 0 ? 'first' : '' }" }
@@ -41,6 +44,9 @@
               %td=  user.contact_numbers
               %td= I18n.l user.created_at, format: :long
               %td.align-right= mail_to user.email
+              /%td= link_to 'Show', profile_user_path
+              %td= link_to 'Edit', edit_user_registration(user)
+              %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
     .col-lg-1
 
     / end users table

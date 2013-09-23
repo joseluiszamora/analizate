@@ -17,19 +17,20 @@
 *= require bootstrap-datepicker
 *= require bootstrap-timepicker
 *= require bootstrap-carousel
-*= require index-slider
-*= require jquery.flot
-*= require jquery.flot.resize
-*= require jquery.flot.stack
-*= require jquery-latest
-*= require theme
 *= require fuelux.wizard
-*= require theme
-*= require jquery.uniform
-*= require hogan.js
-*= require typeahead
-*= require jquery.cycle.lite
-*= require analyses
+*= require function-js
+* require index-slider
+* require jquery.flot
+* require jquery.flot.resize
+* require jquery.flot.stack
+* require jquery-latest
+* require theme
+* require theme
+* require jquery.uniform
+* require hogan.js
+* require typeahead
+* require jquery.cycle.lite
+* require analyses
 
 
 

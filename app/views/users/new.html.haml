@@ -2,69 +2,7 @@
   .col-lg-12
     .page-header
       %h1#forms Nuevo Usuario
-.row
-  .col-lg-2
-  .col-lg-8
-    .well
-      = form_for @user, html: { class: 'bs-example form-horizontal' } do |f|
-        - if @user.errors.any?
-          #error_explanation
-            - @user.errors.full_messages.each do |msg|
-              .alert.alert-danger
-                %strong= msg
-        %fieldset
-          .form-group
-            = f.label :role, 'Tipo de Usuario:', class: 'col-lg-2 control-label'
-            .col-lg-10
-              = f.select(:role, options_for_select(get_user_type), {}, { :class => 'form-control' })
-              /= f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control select' }
-          .form-group
-            = f.label :name, 'Nombres:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :name, class: 'form-control'
-          
-          .form-group
-            = f.label :last_name, 'Apellidos:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :last_name, class: 'form-control'
-          .form-group
-            = f.label :email, 'Email:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.email_field :email, class: 'form-control'
-          .form-group
-            = f.label :username, 'Nombre de Usuario:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :username, class: 'form-control'
-          .form-group
-            = f.label :password, 'Contraseña:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.password_field :password, class: 'form-control'
-          .form-group
-            = f.label :password_confirmation, 'Confirmar Contraseña:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.password_field :password_confirmation, class: 'form-control'
-          .form-group
-            = f.label :phone, 'Telefono:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :phone, class: 'form-control'
-          .form-group
-            = f.label :cellular, 'Celular:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :cellular, class: 'form-control'
-          .form-group
-            = f.label :address, 'Direccion:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :address, class: 'form-control'
-          .form-group
-            = f.label :birthday, 'Fecha de Nacimiento:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :birthday, class: 'form-control datepicker'
-          .form-group
-            = f.label :notes, 'Notes:', class: 'col-lg-2 control-label'
-            .col-lg-10
-              = f.text_area :notes, class: 'form-control'
-          .form-group
-            .col-lg-10.col-lg-offset-2
-              = f.submit 'Crear Usuario', class: 'btn btn-primary'
-              = link_to 'CANCELAR', users_path, class: 'btn btn-default'
-  .col-lg-2
+
+= render 'form'
+
+= link_to 'Volver', users_path

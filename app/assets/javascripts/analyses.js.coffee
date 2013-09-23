@@ -1,4 +1,21 @@
 jQuery ->
+  $(".timepicker").timepicker
+    showMeridian: false
+
+  $(".datepicker").datepicker(
+    format: "dd/mm/yyyy"
+  ).on "changeDate", (ev) ->
+    $(this).datepicker "hide"
+
+
+  $(".datepicker").datepicker().on "changeDate", (ev) ->
+    $(this).datepicker "hide"
+
+  #$(".select2").select2 placeholder: "Select a State"
+
+  #$(".wysihtml5").wysihtml5 "font-styles": false
+
+
   new TypeaheadElement('patients', '.patient-typeahead')
   new TypeaheadElement('medical', '.medical-typeahead')
 
@@ -8,12 +25,6 @@ jQuery ->
         $(value).val()
       id = $(@).data('analysis-id')
       $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
-
-  $(".timepicker").timepicker
-    showMeridian: false
-
-  $(".datepicker").datepicker(format: "dd/mm/yyyy").on "changeDate", (ev) ->
-    $(this).datepicker "hide"
 
   $wizard = $("#fuelux-wizard")
   $btnPrev = $(".wizard-actions .btn-prev")
@@ -39,12 +50,11 @@ jQuery ->
   $btnNext.on "click", ->
     $wizard.wizard "next"
 
-  #$("input:checkbox, input:radio").uniform()
-  $(".select2").select2 placeholder: "Select a State"
-  $(".datepicker").datepicker().on "changeDate", (ev) ->
-    $(this).datepicker "hide"
+  $("input:checkbox, input:radio").uniform()
+  
+  
 
-  $(".wysihtml5").wysihtml5 "font-styles": false
+  
 
 
 class TypeaheadElement
