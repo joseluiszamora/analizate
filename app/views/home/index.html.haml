@@ -1,10 +1,3 @@
-/ .row.background-sky
-/   .col-lg-12
-/     .page-header
-/       %h1#type Laboratorios Analizate
-
-
-
 %section#feature_slider
   /
     Each slide is composed by <img> and .info
@@ -19,31 +12,34 @@
     Note: Maintain this order of params
     
     For the backgrounds, you can combine from the bgs folder :D
-  %article#showcasing.slide{style: "background: url('/images/slide1.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-30.sp600.t120.z1{src: "/images/gallery1.jpg", style: "left: -966px; top: 120px; z-index: 1; display: inline;"}/
-    .info{style: "display: none;"}
-      %h2 Beautiful theme for showcasing your works.
-  %article#ideas.slide.active{style: "background: url('/images/slide2.jpg') repeat-x scroll center top transparent; display: block;"}
+  %article#ideas.slide{style: "background: url('/gallery/slide1.jpg') repeat-x scroll center top transparent; display: block;"}
     .info{style: "display: block;"}
-      %h2 We love to turn ideas into beautiful things.
-    %img.asset.left-480.sp600.t260.z1{src: "/images/gallery2.jpg", style: "left: 121px; top: 260px; z-index: 1; display: inline;"}/
-    %img.asset.left-210.sp600.t213.z2{src: "/images/gallery3.jpg", style: "left: 391px; top: 213px; z-index: 2; display: inline;"}/
-    %img.asset.left60.sp600.t260.z1{src: "/images/gallery4.jpg", style: "left: 661px; top: 260px; z-index: 1; display: inline;"}/
-  %article#tour.slide{style: "background: url('/images/slide3.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-472.sp650.t210.z3{src: "/images/gallery4.jpg", style: "left: -558px; top: 210px; z-index: 3; display: inline;"}/
-    %img.asset.left-365.sp600.t270.z4{src: "/images/gallery5.jpg", style: "left: -485px; top: 270px; z-index: 4; display: inline;"}/
-    %img.asset.left-350.sp450.t135.z2{src: "/images/gallery1.jpg", style: "left: -742px; top: 135px; z-index: 2; display: inline;"}/
-    %img.asset.left-185.sp550.t220.z1{src: "/images/gallery2.jpg", style: "left: -746px; top: 220px; z-index: 1; display: inline;"}/
+      %h2 
+        %strong Contamos con la mejor tecnologia para brindarle un buen servicio
+    %img.asset.left-480.sp600.t260.z1{src: "/gallery/slide1-1.jpg", style: "left: 121px; top: 260px; z-index: 1; display: inline;"}/
+    %img.asset.left-210.sp600.t213.z2{src: "/gallery/slide1-2.jpg", style: "left: 391px; top: 213px; z-index: 2; display: inline;"}/
+    %img.asset.left60.sp600.t260.z1{src: "/gallery/slide1-3.jpg", style: "left: 661px; top: 260px; z-index: 1; display: inline;"}/
+
+  %article#showcasing.slide{style: "background: url('/gallery/slide2.jpg') repeat-x scroll center top transparent; display: none;"}
+    %img.asset.left-30.sp600.t120.z1{src: "/gallery/slide2-1.jpg", style: "left: -966px; top: 120px; z-index: 1; display: inline;"}/
+    %img.asset.left60.sp600.t260.z1{src: "/gallery/slide2-2.jpg", style: "left: -466px; top: 150px; z-index: 1; display: inline;"}/
     .info{style: "display: none;"}
-      %h2 Fully Responsive theme
-  %article#responsive.slide{style: "background: url('/images/slide1.jpg') repeat-x scroll center top transparent; display: none;"}
-    %img.asset.left-472.sp600.t120.z3{src: "/images/gallery3.jpg", style: "left: -732px; top: 120px; z-index: 3; display: inline;"}/
-    %img.asset.left-190.sp500.t120.z2{src: "/images/gallery4.jpg", style: "left: -732px; top: 120px; z-index: 2; display: inline;"}/
+      %h2 Calidez y buena atencion es nuestra caracteristica.
+  %article#tour.slide{style: "background: url('/gallery/slide3.jpg') repeat-x scroll center top transparent; display: none;"}
+    %img.asset.left-472.sp650.t210.z3{src: "/gallery/slide3-1.jpg", style: "left: -558px; top: 210px; z-index: 3; display: inline;"}/
+    %img.asset.left-365.sp600.t270.z4{src: "/gallery/slide3-2.jpg", style: "left: -485px; top: 270px; z-index: 4; display: inline;"}/
+    %img.asset.left-350.sp450.t135.z2{src: "/gallery/slide3-3.jpg", style: "left: -742px; top: 135px; z-index: 2; display: inline;"}/
+    %img.asset.left-185.sp550.t220.z1{src: "/gallery/slide3-4.jpg", style: "left: -746px; top: 220px; z-index: 1; display: inline;"}/
+    .info{style: "display: none;"}
+      %h2 Variedad De Analisis a su Disposicion
+  %article#responsive.slide{style: "background: url('/gallery/slide4.jpg') repeat-x scroll center top transparent; display: none;"}
+    %img.asset.left-472.sp600.t120.z3{src: "/gallery/slide4-1.jpg", style: "left: -732px; top: 120px; z-index: 3; display: inline;"}/
+    %img.asset.left-190.sp500.t120.z2{src: "/gallery/slide4-2.jpg", style: "left: -732px; top: 120px; z-index: 2; display: inline;"}/
     .info{style: "display: none;"}
       %h2
-        Responsive
-        %strong HTML5 & CSS3
-        Theme
+        Un equipo
+        %strong Profesional y Responsable
+        a tu Servicio
 
 .row
   .col-lg-12.background-sky
@@ -61,24 +57,45 @@
           %li
             %a{"data-toggle" => "tab", :href => "#section3"} Nuestros Valores
         #myTabContent.tab-content
-          #section1.tab-pane.fade.active.in
+          #section1.tab-pane.active.in
             %p
               Mision.
-          #section2.tab-pane.fade
+          #section2.tab-pane
             %p
               Vision.
-          #section3.tab-pane.fade
+          #section3.tab-pane
             %p
               Nuestros Valores.
     .col-lg-4
       %h2 Nuestros Servicios
       .bs-example
-        %p.text-info Gasometria.
-        %p.text-info Analisis de Sangre.
+        / Gasometria
+        %p
+          %a.text-info{"data-toggle" => "modal", href: "#modal-analisis-1", role: "button"} Gasometria.
+        / Modal
+        #modal-analisis-1.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h3#myModalLabel Servicios de Gasometria
+          .modal-body
+            %p Ofrecemos los servicios de gasometria.
+
+
+        / Analisis
+        %p
+          %a.text-info{"data-toggle" => "modal", href: "#modal-analisis-2", role: "button"} Analisis de Sangre.
+        / Modal
+        #modal-analisis-2.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h3#myModalLabel Analisis de Sangre.
+          .modal-body
+            %p Analisis de Sangre.
+
     .col-lg-4
       %h2 Encuentranos
       %p
         Estamos ubicados en
 
       .map_container
-        %iframe{frameborder: "0", height: "350", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=es&geocode=&q=centro+medico+kolping+la+paz+bolivia&aq=&sll=37.0625,-95.677068&sspn=40.409448,86.572266&ie=UTF8&hq=centro+medico+kolping&hnear=La+Paz,+Departamento+Aut%C3%B3nomo+de+La+Paz,+Bolivia&ll=-16.511089,-68.157136&spn=0.026574,0.023954&t=m&output=embed", width: "380"}
+        /%iframe{frameborder: "0", height: "350", marginheight: "0", marginwidth: "0", scrolling: "no", src: "https://maps.google.com/maps?f=q&source=s_q&hl=es&geocode=&q=centro+medico+kolping+la+paz+bolivia&aq=&sll=37.0625,-95.677068&sspn=40.409448,86.572266&ie=UTF8&hq=centro+medico+kolping&hnear=La+Paz,+Departamento+Aut%C3%B3nomo+de+La+Paz,+Bolivia&ll=-16.511089,-68.157136&spn=0.026574,0.023954&t=m&output=embed", width: "380"}

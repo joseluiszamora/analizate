@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
 #gem 'pg'
-gem 'mysql2'
+gem 'sqlite3'
 
 #uploader image
 gem "rmagick"

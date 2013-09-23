@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(version: 20130920231242) do
     t.string   "cellular"
     t.date     "birthday"
     t.text     "notes"
-    t.string   "image"
     t.string   "role"
   end
 

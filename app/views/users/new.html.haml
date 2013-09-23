@@ -14,11 +14,11 @@
                 %strong= msg
         %fieldset
           .form-group
-            = f.label :user_type, 'Tipo de Usuario:', class: 'col-lg-2 control-label'
+            = f.label :role, 'Tipo de Usuario:', class: 'col-lg-2 control-label'
             .col-lg-10
-              /= f.select(:user_type, options_for_select(get_user_type), {}, { :class => 'form-control' })
+              = f.select(:role, options_for_select(get_user_type), {}, { :class => 'form-control' })
 
-              = f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control' }
+              /= f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control select' }
           .form-group
             = f.label :name, 'Nombres:', class: "col-lg-2 control-label"
             .col-lg-10

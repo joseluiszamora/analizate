@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Analizate
+    = stylesheet_link_tag    "frontend", media: "all"
+    = javascript_include_tag "frontend"
+    = csrf_meta_tags
+  %body
+    /.notice= notice
+    /.alert= alert
+
+    / navbar
+    /= I18n.t(user.user_type, scope: 'user.user_type') 
+    
+    = render "layouts/navbar_admin"
+    
+    / end navbar
+
+    /.container
+    = yield
+
+    = render "layouts/footer"
