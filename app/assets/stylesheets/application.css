@@ -14,19 +14,19 @@
  *= require bootstrap-wysihtml5
  *= require datepicker
  *= require bootstrap-timepicker
- *= require elements
- *= require font-awesome
- *= require form-showcase
- *= require icons
- *= require index
- *= require jquery-ui-1.10.2.custom
- *= require layout
- *= require user-list
- *= require users
- *= require user-profile
- *= require form-wizard
- *= require uniform
- *= require typeahead
+ * require elements
+ * require font-awesome
+ * require form-showcase
+ * require icons
+ * require index
+ * require jquery-ui-1.10.2.custom
+ * require layout
+ * require user-list
+ * require users
+ * require user-profile
+ * require form-wizard
+ * require uniform
+ * require typeahead
 
  *= require bootstrap
  *= require bootswatch
