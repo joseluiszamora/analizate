@@ -4,20 +4,22 @@
       .page-header
         %h1#forms Usuarios
 
-  .row-fluid.header
-    .span10.pull-right
-      .span4
-        %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
-      .span3
-        .ui-select
-          %select
-            %option{:value => ""} Tipo de Usuario
-            %option{:value => "AK"} Medico
-            %option{:value => "HI"} Paciente
-            %option{:value => "CA"} Otro
-      .span2
-        %a.btn-glow.primary Buscar
-    / Users table
+  / .row-fluid.header
+  /   .span10.pull-right
+  /     .span4
+  /       %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
+  /     .span3
+  /       .ui-select
+  /         %select
+  /           %option{:value => ""} Tipo de Usuario
+  /           %option{:value => "AK"} Medico
+  /           %option{:value => "HI"} Paciente
+  /           %option{:value => "CA"} Otro
+  /     .span2
+  /       %a.btn-glow.primary Buscar
+  
+  
+  / Users table
   .row
     .col-lg-1
     .col-lg-10
@@ -38,7 +40,7 @@
                 - if user.image.present?
                   = image_tag user.image.url(:thumb), class: "img-circle avatar hidden-phone"
                 - else
-                  %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+                  %img.img-circle.avatar.hidden-phone{:src => "/images/user-icon.jpg"}/
               %td= link_to user.full_name, profile_user_path(user), class: 'name'
               %td= user.role
               %td= user.contact_numbers
