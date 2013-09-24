@@ -35,6 +35,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(user_params)
+      redirect_to users_url, notice: 'Usuario Actualizado.'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to users_url, notice: 'Usuario eliminado.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

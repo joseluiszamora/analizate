@@ -15,14 +15,14 @@
               = f.select(:role, options_for_select(get_user_type), {}, { :class => 'form-control' })
               /= f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control select' }
           .form-group
-            = f.label :name, 'Nombres:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_field :name, class: 'form-control'
-          .form-group
-            = f.label :category, 'Imagen:', class: "col-lg-2 control-label"
+            = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
             .col-lg-10
               = f.file_field :image, class: 'form-control'
               = f.hidden_field :image_cache
+          .form-group
+            = f.label :name, 'Nombres:', class: "col-lg-2 control-label"
+            .col-lg-10
+              = f.text_field :name, class: 'form-control'
           .form-group
             = f.label :last_name, 'Apellidos:', class: "col-lg-2 control-label"
             .col-lg-10
@@ -65,6 +65,6 @@
               = f.text_area :notes, class: 'form-control'
           .form-group
             .col-lg-10.col-lg-offset-2
-              = f.submit 'Crear Usuario', class: 'btn btn-primary'
+              = f.submit 'Guardar', class: 'btn btn-primary'
               = link_to 'CANCELAR', users_path, class: 'btn btn-default'
   .col-lg-2

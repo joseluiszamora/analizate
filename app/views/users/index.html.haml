@@ -21,32 +21,32 @@
   .row
     .col-lg-1
     .col-lg-10
-      %table.table.table-hover.table-striped
+      %table.table.table-hover.table-striped.table-users
         %thead
           %tr
-            %th.sortable Nombre
-            %th.sortable Tipo de Usuario
-            %th.sortable Contacto
-            %th.sortable Fecha de Registro
-            %th.sortable.align-right Email
-            %th.sortable Tipo de Usuario
-            %th.sortable Contacto
-            %th.sortable Contacto
-            %th.sortable Contacto
+            %th 
+            %th Nombre
+            %th Tipo de Usuario
+            %th Contacto
+            %th Fecha de Registro
+            %th Email
+            %th 
         %tbody
           - @users.each_with_index do |user, index|
             %tr{ class: "#{ index == 0 ? 'first' : '' }" }
               %td
-                %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
-                  
-                = link_to user.full_name, profile_user_path(user), class: 'name'
-              %td= I18n.t(user.user_type, scope: 'user.user_type') if user.user_type.present?
-              %td=  user.contact_numbers
+                - if user.image.present?
+                  = image_tag user.image.url(:thumb), class: "img-circle avatar hidden-phone"
+                - else
+                  %img.img-circle.avatar.hidden-phone{:src => "/images/contact-img.png"}/
+              %td= link_to user.full_name, profile_user_path(user), class: 'name'
+              %td= user.role
+              %td= user.contact_numbers
               %td= I18n.l user.created_at, format: :long
-              %td.align-right= mail_to user.email
-              /%td= link_to 'Show', profile_user_path
-              %td= link_to 'Edit', edit_user_registration(user)
-              %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %td= mail_to user.email
+              %td
+                = link_to 'Edit', edit_user_path(user), class: "btn btn-primary"
+                = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
     .col-lg-1
 
     / end users table

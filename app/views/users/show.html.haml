@@ -1,49 +1,15 @@
-.container-fluid
+.container
   #pad-wrapper.user-profile
-    / header
+    %h2.name= @user.full_name
+    %h3.name= @user.role
     .row.header
-      .col-md-8
-        %img.avatar.img-circle{:src => "/images/personal-info.png"}/
-        %h3.name= @user.full_name
-        %span.area= I18n.t(@user.user_type, scope: 'user.user_type') if @user.user_type.present?
-      %a.btn-flat.icon.pull-right.delete-user{"data-original-title" => "Delete user", "data-placement" => "top", "data-toggle" => "tooltip", :title => ""}
-        %i.icon-trash
-      %a.btn-flat.icon.large.pull-right.edit
-        Edit this person
+      .col-md-6
+        - if @user.image.present?
+          = image_tag @user.image.url(:thumb), class: "avatar"
+        - else
+          %img.avatar{:src => "/images/contact-img.png"}/
 
-    .row-fluid.profile
-      / bio, new note & orders column
-      .span12
-        .profile-box
-          / biography
-          .span12.section
-            %h6 Biography
-            %p There are many variations of passages of Lorem Ipsum available but the majority have humour suffered alteration in believable some formhumour , by injected humour, or randomised words which don't look even slightly believable.
-          %h6 Recent orders
-          %br/
-          / recent orders table
-          %table.table.table-hover
-            %thead
-              %tr
-                %th.span2
-                  Order ID
-                %th.span3
-                  %span.line
-                  Date
-                %th.span3
-                  %span.line
-                  Items
-                %th.span3
-                  %span.line
-                  Total amount
-            %tbody
-              / row
-              %tr.first
-                %td
-                  %a{:href => "#"} #459
-                %td
-                  Jan 03, 2013
-                %td
-                  3
-                %td
-                  $ 3,500.00
+      .col-md-6
+        %ul
+          %li
+            %span 
