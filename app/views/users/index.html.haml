@@ -1,55 +1,69 @@
-.container
-  .row
-    .col-lg-12
-      .page-header
-        %h1#forms Usuarios
+.row
+  .col-lg-12
+    .page-header
+      %h1#forms Usuarios
 
-  / .row-fluid.header
-  /   .span10.pull-right
-  /     .span4
-  /       %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
-  /     .span3
-  /       .ui-select
-  /         %select
-  /           %option{:value => ""} Tipo de Usuario
-  /           %option{:value => "AK"} Medico
-  /           %option{:value => "HI"} Paciente
-  /           %option{:value => "CA"} Otro
-  /     .span2
-  /       %a.btn-glow.primary Buscar
-  
-  
-  / Users table
-  .row
-    .col-lg-1
-    .col-lg-10
-      %table.table.table-hover.table-striped.table-users
-        %thead
-          %tr
-            %th 
-            %th Nombre
-            %th Tipo de Usuario
-            %th Contacto
-            %th Fecha de Registro
-            %th Email
-            %th 
-        %tbody
-          - @users.each_with_index do |user, index|
-            %tr{ class: "#{ index == 0 ? 'first' : '' }" }
-              %td
-                - if user.image.present?
-                  = image_tag user.image.url(:thumb), class: "img-circle avatar hidden-phone"
-                - else
-                  %img.img-circle.avatar.hidden-phone{:src => "/images/user-icon.jpg"}/
-              %td= link_to user.full_name, profile_user_path(user), class: 'name'
-              %td= user.role
-              %td= user.contact_numbers
-              %td= I18n.l user.created_at, format: :long
-              %td= mail_to user.email
-              %td
-                = link_to 'Edit', edit_user_path(user), class: "btn btn-primary"
-                = link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default"
-    .col-lg-1
+/ .row-fluid.header
+/   .span10.pull-right
+/     .span4
+/       %input.search{:placeholder => "Escriba un nombre de usuario...", :type => "text"}/
+/     .span3
+/       .ui-select
+/         %select
+/           %option{:value => ""} Tipo de Usuario
+/           %option{:value => "AK"} Medico
+/           %option{:value => "HI"} Paciente
+/           %option{:value => "CA"} Otro
+/     .span2
+/       %a.btn-glow.primary Buscar
 
-    / end users table
-    / end main container
+.row  
+  .col-lg-12
+    %table.table.table-hover.table-striped.table-users
+      %thead
+        %tr
+          %th 
+          %th Nombre
+          %th Tipo de Usuario
+          %th Contacto
+          /%th Fecha de Registro
+          %th Email
+          %th 
+      %tbody
+        - @users.each_with_index do |user, index|
+          %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+            %td
+              - if user.image.present?
+                = image_tag user.image.url(:thumb), class: "img-circle avatar hidden-phone"
+              - else
+                %img.img-circle.avatar.hidden-phone{:src => "/images/user-icon.jpg"}/
+            %td= link_to user.full_name, profile_user_path(user), class: 'name'
+            %td= user.role
+            %td= user.contact_numbers
+            /%td= I18n.l user.created_at, format: :long
+            %td= mail_to user.email
+            %td
+              = link_to user, :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-search.icon-white
+                Ver
+              = link_to edit_user_path(user), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-remove.icon-white
+                Editar
+              = link_to "#modal-user-#{user.id}", :class => 'btn btn-default btn-sm', :'data-toggle' => 'modal' do
+                %i.icon.icon-remove.icon-white
+                Eliminar
+                
+                / Modal
+                .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1", id: "modal-user-#{user.id}"}
+                  .modal-dialog
+                    .modal-header
+                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                      %h4.modal-title Eliminar Usuario
+                    .modal-body= "Esta seguro de Eliminar este user"
+                    .modal-footer
+                      %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Cancelar
+                      = link_to "Ok", user, :class => 'btn btn-primary', method: :delete
+
+
+  / end users table
+  / end main container

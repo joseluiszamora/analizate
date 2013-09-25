@@ -14,7 +14,11 @@
     
     / end navbar
 
-    /.container
-    = yield
+    .container
+      .row
+        .col-lg-10
+          = yield
+        .col-lg-2
+          /= render "notices/slide"
 
     = render "layouts/footer"

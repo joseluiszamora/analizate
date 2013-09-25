@@ -2,8 +2,7 @@
   - get_notices.each do |notice|
     .notice
       .title= notice.title
-      .image
-        %img{:src => "/images/android.jpg"}/
+      .image= image_tag notice.image.url(:thumb), class: "avatar"
       .desc= notice.description
 
 :javascript
