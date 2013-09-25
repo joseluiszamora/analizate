@@ -1,21 +1,25 @@
-%h2 Anuncios
-%br
-%br
-/ Users table
-.row-fluid.table
-  %table.table.table-hover.table-striped.table-bordered
-    %thead
-      %tr
-        %th.span3.sortable Titulo
-        %th.span2.sortable Descripcion
-        %th.span2.sortable Imagen
-        %th{colspan: "3"}
-    %tbody
-      - @notices.each do |notice|
-        %tr
-          %td= notice.title
-          %td= notice.description
-          %td= notice.image
-          %td= link_to 'Show', notice
-          %td= link_to 'Edit', edit_notice_path(notice)
-          %td= link_to 'Destroy', notice, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.container
+  .row
+    .col-lg-12
+      .page-header
+        %h1#forms Anuncios
+  .row
+    .col-lg-1
+    .col-lg-10
+      %table.table.table-hover.table-striped.table-users
+        %thead
+          %tr
+            %th Titulo
+            %th Descripcion
+            %th Imagen
+            %th{colspan: "3"}
+        %tbody
+          - @notices.each do |notice|
+            %tr
+              %td= notice.title
+              %td= notice.description
+              %td= image_tag notice.image.url(:thumb), class: "avatar"
+              %td= link_to 'Ver', notice
+              %td= link_to 'Editar', edit_notice_path(notice)
+              %td= link_to 'Eliminar', notice, :method => :delete, :data => { :confirm => 'Estas seguro?' }
+    .col-lg-1

@@ -1,24 +1,26 @@
-= form_for @notice do |f|
-  - if @notice.errors.any?
-    #error_explanation
-      /%h2= "#{pluralize(@notice.errors.count, "error")} prohibited this notice from being saved:"
-      - @notice.errors.full_messages.each do |msg|
-        .alert.alert-danger
-          %strong= msg
-
-  .span12.field-box
-    = f.label :title, 'Titulo'
-    = f.text_field :title, class: 'span9'
-  .span12.field-box
-    = f.label :description, 'Descripcion:'
-    = f.text_area :description, class: 'span9'
-  .span12.field-box
-    = f.label :image, 'Imagen:'
-    = f.text_field :image, class: 'span9'
-  .span12.field-box
-    = f.label "Imagen"
-    = f.file_field :image
-  .span11.field-box.actions
-    = f.submit 'Crear Anuncio', class: 'btn-glow primary'
-    %span O
-    = link_to 'CANCELAR', notices_path, class: 'reset'
+.row
+  .col-lg-2
+  .col-lg-8
+    .well
+      = form_for @notice do |f|
+        - if @notice.errors.any?
+          #error_explanation          
+            - @notice.errors.full_messages.each do |msg|
+              .alert.alert-danger
+                %strong= msg
+        %fieldset
+          .form-group
+            = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
+            .col-lg-10
+              = f.file_field :image, class: 'form-control'
+              = f.hidden_field :image_cache
+          .form-group
+            = f.label :title, 'Titulo', class: "col-lg-2 control-label"
+            = f.text_field :title, class: 'form-control'
+          .form-group
+            = f.label :description, 'Descripcion:', class: "col-lg-2 control-label"
+            = f.text_area :description, class: 'form-control'
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit 'Guardar', class: 'btn btn-primary'
+            = link_to 'CANCELAR', notices_path, class: 'btn btn-default'

@@ -1,8 +1,8 @@
-.row-fluid.header
-  %h3 Nuevo Anuncio
+.row
+  .col-lg-12
+    .page-header
+      %h1#forms Nuevo Anuncio
 
-.row-fluid.form-wrapper
-  / left column
-  .span9.with-sidebar
-    .container
-      = render 'form'
+= render 'form'
+
+/= link_to 'Volver', users_path
