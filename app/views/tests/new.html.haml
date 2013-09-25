@@ -1,3 +1,9 @@
-.row-fluid.header
-  %h3 Nuevo Test
+.row
+  .col-lg-12
+    .page-header
+      %h1#forms Nuevo Test
+
+%p#notice= notice
 = render 'form'
+
+/= link_to 'Volver', users_path

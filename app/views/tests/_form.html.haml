@@ -15,24 +15,47 @@
           .ui-select.span5
             = f.grouped_collection_select :test_category_id, get_categories, :children, :description, :id, :description
         .span12.field-box
-          %label Parámetro:
-          = f.text_field :parameter, :class => "span9 inline-input"
-        .span12.field-box
-          %label Unidad:
-          = f.text_field :unit, :class => "span9 inline-input"
-        .span12.field-box
-          %label Valores de Referencia:
-          = f.text_field :reference_values, :class => "span9 inline-input"
-        .span12.field-box
           %label Tipo de Test:
-          = f.text_field :test_type, :class => "span9 inline-input"
-        .span12.field-box
-          %label Descripción:
-          = f.text_area :description, :class => "span9"
-        .span12.field-box
-          = f.label :image
-          = f.text_field :image, :class => "span9 inline-input"
+          = f.select(:test_type, options_for_select([['normal', 'normal'], ['imagen', 'image'], ['descripcion', 'desc']], @test.test_type), {include_blank: true}, { :class => 'form-control', data: {new: @test.new_record?} })
+        #image.group
+          .form-group
+            = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
+            .col-lg-10
+              = f.file_field :image, class: 'form-control'
+              = f.hidden_field :image_cache
+        #desc.group
+          .span12.field-box
+            %label Descripción:
+            = f.text_area :description, :class => "span9"  
+        #normal.group
+          .span12.field-box
+            %label Parámetro:
+            = f.text_field :parameter, :class => "span9 inline-input"
+          .span12.field-box
+            %label Unidad:
+            = f.text_field :unit, :class => "span9 inline-input"
+          .span12.field-box
+            %label Valores de Referencia:
+            = f.text_field :reference_values, :class => "span9 inline-input"
+          .span12.field-box
+            %label Descripción:
+            = f.text_area :description, :class => "span9"
         .span11.field-box.actions
           = f.submit 'Guardar', class: 'btn-glow primary'
           %span O
           = link_to 'CANCELAR', tests_path, class: 'reset'
+
+:javascript
+  $(document).ready(function(){
+    $(".group").hide();
+    if($("#test_test_type").data("new") === false){
+
+      $("#" + $("#test_test_type").val()).show();
+    }
+
+    $("#test_test_type").change(function(){
+      $(".group").hide();
+      $("#"+$(this).val()).show();
+    });
+  });
+  

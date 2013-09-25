@@ -1,4 +1,6 @@
 class Test < ActiveRecord::Base
+  mount_uploader :image, ImageUploader
+  
   belongs_to :test_category
 
   has_many :laboratories, dependent: :destroy
