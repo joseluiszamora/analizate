@@ -1,22 +1,22 @@
-.row-fluid.form-wrapper
-  / left column
-  .span9.with-sidebar
-    .container
+.row
+  .col-lg-2
+  .col-lg-8
+    .well
       = form_for @test_category, html: { class: 'new_test_category_form inline-input' } do |f|
         - if @test_category.errors.any?
           #error_explanation
-            /%h2= "#{pluralize(@test_category.errors.count, "error")} prohibited this test_category from being saved:"
             - @test_category.errors.full_messages.each do |msg|
               .alert.alert-danger
                 %strong= msg
-        .span12.field-box
-          = f.label :parent_id, 'Categoría Padre:'
-          .ui-select.span5
-            = f.select :parent_id, options_for_select(get_test_category_roots, f.object.parent_id), include_blank: true
-        .span12.field-box
-          = f.label :description, 'Descripción:'
-          = f.text_field :description, class: 'span9'
-        .span11.field-box.actions
-          = f.submit 'Guardar Categoría', class: 'btn-glow primary'
-          %span O
-          = link_to 'CANCELAR', test_categories_path, class: 'reset'
+        %fieldset
+          .form-group
+            = f.label :parent_id, 'Categoría Padre:', class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {}, { :class => 'form-control span7' })
+          .form-group
+            = f.label :description, 'Descripción:'
+            = f.text_field :description, class: 'form-control'
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              = f.submit 'Guardar', class: 'btn btn-primary'
+              = link_to 'CANCELAR', test_categories_path, class: 'btn btn-default'
