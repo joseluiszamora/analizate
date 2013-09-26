@@ -13,34 +13,35 @@
 *
 *= require jquery
 *= require jquery_ujs
-*= require bootstrap.min
+*= require bootstrap
+* require bootstrap.min
 *= require bootstrap-datepicker
 *= require bootstrap-timepicker
-*= require bootstrap-carousel
+* require bootstrap-carousel
 *= require fuelux.wizard
-*= require function-js
-*= require index-slider
-*= require jquery.flot
-*= require jquery.flot.resize
-*= require jquery.flot.stack
-*= require jquery-latest
-*= require theme
-*= require theme
-*= require jquery.uniform
-*= require hogan.js
+* require function-js
+* require index-slider
+* require jquery.flot
+* require jquery.flot.resize
+* require jquery.flot.stack
+* require jquery-latest
+* require theme
+* require theme
+* require jquery.uniform
+* require hogan.js
 *= require typeahead
-*= require jquery.cycle.lite
-*= require analyses
+* require jquery.cycle.lite
+* require analyses
 
 
 
-*= require fullcalendar.min
-*= require html5
-*= require jquery.knob
-*= require jquery-1.10.2
-*= require jquery-ui-1.10.2.custom.min
-*= require login
-*= require morris.min
-*= require raphael-min
+* require fullcalendar.min
+* require html5
+* require jquery.knob
+* require jquery-1.10.2
+* require jquery-ui-1.10.2.custom.min
+* require login
+* require morris.min
+* require raphael-min
 * require function
  */

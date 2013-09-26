@@ -1,15 +1,46 @@
 .container
   #pad-wrapper.user-profile
-    %h2.name= @user.full_name
-    %h3.name= @user.role
     .row.header
-      .col-md-6
+      .col-md-3
         - if @user.image.present?
           = image_tag @user.image.url(:thumb), class: "avatar"
         - else
-          %img.avatar{:src => "/images/contact-img.png"}/
-
-      .col-md-6
-        %ul
-          %li
-            %span 
+          %img.avatar.bb{:src => "/images/user-icon.jpg"}/
+      .col-md-9
+        %h3.name= @user.full_name
+        %h3.area
+          -if(@user.role == "medical")
+            = "Medico"
+          - elsif(@user.role == "patient")
+            = "Paciente"
+          - elsif(@user.role == "laboratory_staff")
+            = "Personal de Laboratorio"
+          - elsif(@user.role == "admin")
+            = "Administrador"
+        %br
+        %br
+        %br
+        %br
+        %br
+        %form.form-horizontal{role: "form"}
+          .form-group
+            %label.col-lg-4 Email:
+            = @user.email
+          .form-group
+            %label.col-lg-4 Nombre de Usuario:
+            = @user.username
+          .form-group
+            %label.col-lg-4 Direccion:
+            = @user.address
+          .form-group
+            %label.col-lg-4 Telefono:
+            = @user.phone
+          .form-group
+            %label.col-lg-4 Celular:
+            = @user.cellular
+          .form-group
+            %label.col-lg-4 Fecha de Nacimiento:
+            = @user.birthday
+          .form-group
+            %label.col-lg-4 Observaciones:
+            = @user.notes

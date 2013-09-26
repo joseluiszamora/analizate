@@ -1,88 +1,89 @@
-- elements = 3
-- categories = get_categories
-- lotes = (categories.length/elements.to_f).ceil
-#fuelux-wizard.wizard.row-fluid
-  %ul.wizard-steps
-    %li.active{"data-target" => "#step1"}
-      %span.step 1
-      %span.title
-        %h4 Información General
-    %li{"data-target" => "#step2"}
-      %span.step 2
-      %span.title
-        %h4 Categorías
-    %li{"data-target" => "#step3"}
-      %span.step 3
-      %span.title
-        %h4 Análisis
-    %li{"data-target" => "#step4"}
-      %span.step 4
-      %span.title
-        %h4 Resultados
-= form_for @analysis do |f|
-  - if @analysis.errors.any?
-    #error_explanation
-      /%h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
-      - @analysis.errors.full_messages.each do |msg|
-        .alert.alert-danger
-          %strong= msg
+.col-lg-12
+  - elements = 3
+  - categories = get_categories
+  - lotes = (categories.length/elements.to_f).ceil
+  #fuelux-wizard.wizard.row-fluid.step-content
+    %ul.wizard-steps
+      %li.active{"data-target" => "#step1"}
+        %span.step 1
+        %span.title
+          %h4 Información General
+      %li{"data-target" => "#step2"}
+        %span.step 2
+        %span.title
+          %h4 Categorías
+      %li{"data-target" => "#step3"}
+        %span.step 3
+        %span.title
+          %h4 Análisis
+      %li{"data-target" => "#step4"}
+        %span.step 4
+        %span.title
+          %h4 Resultados
+  = form_for @analysis do |f|
+    - if @analysis.errors.any?
+      #error_explanation
+        /%h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
+        - @analysis.errors.full_messages.each do |msg|
+          .alert.alert-danger
+            %strong= msg
 
-  .step-content
-    #step1.step-pane.active
-      .row-fluid.form-wrapper.payment-info
-        .span8
-          .form-group
-            = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
-            = f.text_field :patient_full_name, class: 'form-control col-lg-8 patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
-            = f.hidden_field :patient_id
-          .form-group
-            = f.label :doctor_full_name, 'Medico Solicitante:', class: "col-lg-2 control-label"
-            = f.text_field :doctor_full_name, class: 'form-control col-lg-8 medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
-            = f.hidden_field :doctor_id
-          .field-box
-            = f.label :receipt_date, 'Entrega de la muestra:', class: "col-lg-2 control-label"
-            = f.text_field :receipt_date, class: 'span4 datepicker', placeholder: 'Fecha'
-            .input-append.bootstrap-timepicker
-              = f.text_field :receipt_time, class: 'input-small timepicker'
-              %span.add-on
-                %i.icon-time
-          .field-box
-            = f.label :delivery_date, 'Entrega:', class: "col-lg-2 control-label"
-            = f.text_field :delivery_date, class: 'span4 datepicker', placeholder: 'Fecha'
-            .input-append.bootstrap-timepicker
-              = f.text_field :delivery_time, class: 'input-small timepicker'
-              %span.add-on
-                %i.icon-time
-    #step2.step-pane.editing-categories
-      - (1..lotes).each do |lote|
-        - start = elements * (lote - 1)
-        .row-fluid
-          - categories[start, elements].each do |category|
-            .span4.column
-              .field-box.span4
-                %label.checkbox{ style: 'width: 100%;' }
-                  = check_box_tag 'category', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
-                  %strong= category.description
-    #step3.step-pane
-      - (1..lotes).each do |lote|
-        - start = elements * (lote - 1)
-        .row-fluid.form-wrapper
-          - categories[start, elements].each do |category|
-            .span4.column
-              %h4.span8= category.description
-              .field-box.span4
-                - category.children.each do |subcategory|
+    .step-content
+      #step1.step-pane.active
+        .row-fluid.form-wrapper.payment-info
+          .col-lg-10
+            .form-group
+              = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
+              = f.text_field :patient_full_name, class: 'form-control patient-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: patients_analyses_path(format: :json) }
+              = f.hidden_field :patient_id
+            .form-group
+              = f.label :doctor_full_name, 'Medico Solicitante:', class: "col-lg-2 control-label"
+              = f.text_field :doctor_full_name, class: 'form-control medical-typeahead', placeholder: 'Escriba el nombre y seleccione', data: { url: medical_analyses_path(format: :json) }
+              = f.hidden_field :doctor_id
+            .form-group
+              = f.label :receipt_date, 'Entrega de la muestra:', class: "col-lg-2 control-label"
+              = f.text_field :receipt_date, class: 'form-control span4 datepicker', placeholder: 'Fecha'
+              .input-append.bootstrap-timepicker.span5
+                = f.text_field :receipt_time, class: 'form-control input-small timepicker'
+                %span.add-on.input-append
+                  %i.icon-time
+            .form-group
+              = f.label :delivery_date, 'Entrega:', class: "col-lg-2 control-label"
+              = f.text_field :delivery_date, class: 'form-control span4 datepicker', placeholder: 'Fecha'
+              .input-append.bootstrap-timepicker.span5
+                = f.text_field :delivery_time, class: 'form-control input-small timepicker'
+                %span.add-on.input-append
+                  %i.icon-time
+      #step2.step-pane.editing-categories
+        - (1..lotes).each do |lote|
+          - start = elements * (lote - 1)
+          .row-fluid
+            - categories[start, elements].each do |category|
+              .span4.column
+                .field-box.span4
                   %label.checkbox{ style: 'width: 100%;' }
-                    = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
-                    = subcategory.description
-    #step4.step-pane
-      = render 'tests', categories: @analysis.categories, analysis: @analysis
-  .wizard-actions
-    = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
-      %i.icon-chevron-left
-      Anterior
-    = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
-      Siguiente
-      %i.icon-chevron-right
-    = button_tag class: 'btn-glow success btn-finish', styel: 'display: none;' do
-      Finalizar Analisis
+                    = check_box_tag 'category', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
+                    %strong= category.description
+      #step3.step-pane
+        - (1..lotes).each do |lote|
+          - start = elements * (lote - 1)
+          .row-fluid.form-wrapper
+            - categories[start, elements].each do |category|
+              .span4.column
+                %h4.span8= category.description
+                .field-box.span4
+                  - category.children.each do |subcategory|
+                    %label.checkbox{ style: 'width: 100%;' }
+                      = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
+                      = subcategory.description
+      #step4.step-pane
+        = render 'tests', categories: @analysis.categories, analysis: @analysis
+    .wizard-actions
+      = button_tag class: 'btn-glow primary btn-prev', type: 'button' do
+        %i.icon-chevron-left
+        Anterior
+      = button_tag class: 'btn-glow primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
+        Siguiente
+        %i.icon-chevron-right
+      = button_tag class: 'btn-glow success btn-finish', styel: 'display: none;' do
+        Finalizar Analisis

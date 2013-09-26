@@ -1,7 +1,7 @@
 .row
   .col-lg-12
     .page-header
-      %h1#forms Usuarios
+      %h2 Usuarios
 
 / .row-fluid.header
 /   .span10.pull-right
@@ -38,16 +38,24 @@
               - else
                 %img.img-circle.avatar.hidden-phone{:src => "/images/user-icon.jpg"}/
             %td= link_to user.full_name, profile_user_path(user), class: 'name'
-            %td= user.role
+            %td
+              -if(user.role == "medical")
+                = "Medico"
+              - elsif(user.role == "patient")
+                = "Paciente"
+              - elsif(user.role == "laboratory_staff")
+                = "Personal de Laboratorio"
+              - elsif(user.role == "admin")
+                = "Administrador"
             %td= user.contact_numbers
             /%td= I18n.l user.created_at, format: :long
             %td= mail_to user.email
             %td
-              = link_to user, :class => 'btn btn-primary btn-sm' do
-                %i.icon.icon-search.icon-white
-                Ver
+              / = link_to profile_user_path(user), :class => 'btn btn-primary btn-sm' do
+              /   %i.icon.icon-search.icon-white
+              /   Ver
               = link_to edit_user_path(user), :class => 'btn btn-primary btn-sm' do
-                %i.icon.icon-remove.icon-white
+                %i.icon.icon-edit.icon-white
                 Editar
               = link_to "#modal-user-#{user.id}", :class => 'btn btn-default btn-sm', :'data-toggle' => 'modal' do
                 %i.icon.icon-remove.icon-white
