@@ -11,7 +11,7 @@ Analizate::Application.routes.draw do
   #  get 'medical', on: :collection
   #end
 
-  resources :users, only: [:index, :new, :create, :edit, :destroy] do
+  resources :users, only: [:index, :new, :create, :edit, :destroy, :update] do
     get 'profile', on: :member
   end
 

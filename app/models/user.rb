@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, #:confirmable,
          :timeoutable
 
-  scope :patients, -> { where(user_type: 'patient') }
-  scope :medical, -> { where(user_type: 'medical') }
+  scope :patients, -> { where(role: 'patient') }
+  scope :medical, -> { where(role: 'medical') }
 
   validates :username, uniqueness: { case_sensitive: true }
 

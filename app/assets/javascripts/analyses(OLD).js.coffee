@@ -1,9 +1,23 @@
 jQuery ->
+  $(".timepicker").timepicker
+    showMeridian: false
+
+  $(".datepicker").datepicker(
+    format: "dd/mm/yyyy"
+  ).on "changeDate", (ev) ->
+    $(this).datepicker "hide"
+
+
+  $(".datepicker").datepicker().on "changeDate", (ev) ->
+    $(this).datepicker "hide"
 
   #$(".select2").select2 placeholder: "Select a State"
 
   #$(".wysihtml5").wysihtml5 "font-styles": false
 
+
+  new TypeaheadElement('patients', '.patient-typeahead')
+  new TypeaheadElement('medical', '.medical-typeahead')
 
   $(document).on 'change', '.category-check', ->
     if $('li[data-target="#step3"]').hasClass('active')
@@ -35,3 +49,27 @@ jQuery ->
 
   $btnNext.on "click", ->
     $wizard.wizard "next"
+
+  $("input:checkbox, input:radio").uniform()
+  
+  
+
+  
+
+
+class TypeaheadElement
+  constructor: (name, selector) ->
+    @name = name
+    @elem = $(selector)
+    @url = "#{ $(selector).data('url') }?q=%QUERY"
+    @initialize_typeahead()
+
+  initialize_typeahead: =>
+    @elem.typeahead
+      name: @name
+      remote: @url
+      template: '<p>{{name}}</p>'
+      engine: Hogan
+      valueKey: 'name'
+    .on 'typeahead:selected', (evt, data) ->
+      $(@).parent().next('input[type=hidden]').val(data.id)

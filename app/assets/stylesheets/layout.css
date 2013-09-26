@@ -628,3 +628,21 @@ input.search{
   display: block;
   margin: 0 auto;
 }
+
+
+/** ANALYSES **/
+.timepicker-clock{
+  float: left;
+  margin: 0 0 0 -2px;
+  padding: 9px !important;
+}
+.step-content .group-date-time{
+  width: 425px;
+  float: left;
+}
+.step-content .group-date-time .datepicker{
+  float: left;
+}
+.step-content .group-date-time .timepicker{
+  float: left;
+}

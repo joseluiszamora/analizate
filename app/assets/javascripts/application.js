@@ -14,12 +14,13 @@
 *= require jquery
 *= require jquery_ujs
 *= require bootstrap
-* require bootstrap.min
 *= require bootstrap-datepicker
 *= require bootstrap-timepicker
-* require bootstrap-carousel
 *= require fuelux.wizard
-* require function-js
+*= require chosen.jquery
+*= require function
+*= require analyses
+
 * require index-slider
 * require jquery.flot
 * require jquery.flot.resize
@@ -28,13 +29,9 @@
 * require theme
 * require theme
 * require jquery.uniform
-* require hogan.js
-*= require typeahead
+*= require hogan.js
+* require typeahead
 * require jquery.cycle.lite
-* require analyses
-
-
-
 * require fullcalendar.min
 * require html5
 * require jquery.knob
@@ -43,5 +40,5 @@
 * require login
 * require morris.min
 * require raphael-min
-* require function
+* require bootstrap-carousel
  */
