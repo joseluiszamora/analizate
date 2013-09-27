@@ -14,8 +14,8 @@
             .col-lg-10
               = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {}, { :class => 'form-control span7' })
           .form-group
-            = f.label :description, 'Descripción:'
-            = f.text_field :description, class: 'form-control'
+            = f.label :description, 'Descripción:',  class: 'col-lg-2 control-label'
+            = f.text_area :description, class: 'form-control'
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'

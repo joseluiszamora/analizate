@@ -646,3 +646,6 @@ input.search{
 .step-content .group-date-time .timepicker{
   float: left;
 }
+.form-group-left{
+  float: left;
+}
