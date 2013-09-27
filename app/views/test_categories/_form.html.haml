@@ -9,14 +9,15 @@
               .alert.alert-danger
                 %strong= msg
         %fieldset
-          .form-group
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :parent_id, 'Categoría Padre:', class: 'col-lg-2 control-label'
             .col-lg-10
-              = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {}, { :class => 'form-control span7' })
-          .form-group
+              = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {:include_blank => true}, { :class => 'form-control span7' })
+
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :description, 'Descripción:',  class: 'col-lg-2 control-label'
             = f.text_area :description, class: 'form-control'
-          .form-group
+          .form-group{style: "float: left; width: 100%;"}
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'
               = link_to 'CANCELAR', test_categories_path, class: 'btn btn-default'

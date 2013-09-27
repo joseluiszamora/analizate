@@ -1,50 +1,49 @@
-.row-fluid.form-wrapper
-  / left column
-  .span9.with-sidebar
-    .container
+.row
+  .col-lg-1
+  .col-lg-10
+    .well
       = form_for @test, html: { class: 'inline-input' } do |f|
         - if @test.errors.any?
-          #error_explanation
-            /%h2= "#{pluralize(@test.errors.count, "error")} prohibited this test from being saved:"
+          #error_explanation           
             - @test.errors.full_messages.each do |msg|
               .alert.alert-danger
                 %strong= msg
-
-        .span12.field-box
-          %label Categoría
-          .ui-select.span5
-            = f.grouped_collection_select :test_category_id, get_categories, :children, :description, :id, :description
-        .span12.field-box
-          %label Tipo de Test:
-          = f.select(:test_type, options_for_select([['normal', 'normal'], ['imagen', 'image'], ['descripcion', 'desc']], @test.test_type), {include_blank: true}, { :class => 'form-control', data: {new: @test.new_record?} })
-        #image.group
-          .form-group
-            = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
+        %fieldset
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :test_category_id, 'Categoría:', class: 'col-lg-2 control-label'
             .col-lg-10
-              = f.file_field :image, class: 'form-control'
-              = f.hidden_field :image_cache
-        #desc.group
-          .span12.field-box
-            %label Descripción:
-            = f.text_area :description, :class => "span9"  
-        #normal.group
-          .span12.field-box
-            %label Parámetro:
-            = f.text_field :parameter, :class => "span9 inline-input"
-          .span12.field-box
-            %label Unidad:
-            = f.text_field :unit, :class => "span9 inline-input"
-          .span12.field-box
-            %label Valores de Referencia:
-            = f.text_field :reference_values, :class => "span9 inline-input"
-          .span12.field-box
-            %label Descripción:
-            = f.text_area :description, :class => "span9"
-        .span11.field-box.actions
-          = f.submit 'Guardar', class: 'btn-glow primary'
-          %span O
-          = link_to 'CANCELAR', tests_path, class: 'reset'
-
+              = f.grouped_collection_select(:test_category_id, get_categories, :children, :description, :id, :description, { :include_blank => false }, { :class=> "form-control" })
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :test_type, 'Tipo de Test:', class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.select(:test_type, options_for_select([['normal', 'normal'], ['imagen', 'image'], ['descripcion', 'desc']], @test.test_type), {include_blank: true}, { :class => 'form-control', data: {new: @test.new_record?} })
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :parameter, 'Parámetro:', class: "col-lg-2 control-label"
+            = f.text_field :parameter, :class => "col-lg-7 inline-input form-control"
+          #image.group
+            / .form-group{style: "float: left; width: 100%;"}
+            /   = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
+            /   .col-lg-10
+            /     = f.file_field :image, class: 'form-control'
+            /     = f.hidden_field :image_cache
+          #desc.group
+            / .form-group{style: "float: left; width: 100%;"}
+            /   = f.label :description, 'Descripción:', class: "col-lg-2 control-label"
+            /   = f.text_area :description, :class => "col-lg-7 form-control"  
+          #normal.group
+            .form-group{style: "float: left; width: 100%;"}
+              = f.label :unit, 'Unidad:', class: "col-lg-2 control-label"
+              = f.text_field :unit, :class => "col-lg-7 inline-input form-control"
+            .form-group{style: "float: left; width: 100%;"}
+              = f.label :reference_values, 'Valores de Referencia:', class: "col-lg-2 control-label"
+              = f.text_field :reference_values, :class => "col-lg-7 inline-input form-control"
+            .form-group{style: "float: left; width: 100%;"}
+              = f.label :description, 'Descripción:', class: "col-lg-2 control-label"
+              = f.text_area :description, :class => "col-lg-7 form-control"
+          .form-group{style: "float: left; width: 100%;"}
+            .col-lg-10.col-lg-offset-2
+              = f.submit 'Guardar', class: 'btn btn-primary'
+              = link_to 'CANCELAR', tests_path, class: 'btn btn-default'
 :javascript
   $(document).ready(function(){
     $(".group").hide();

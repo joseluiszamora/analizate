@@ -25,7 +25,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
 
     if @test.save
-      redirect_to @test, notice: 'Test was successfully created.'
+      redirect_to tests_url, notice: 'Test fue creado correctamente.'
     else
       render action: 'new'
     end
@@ -34,7 +34,7 @@ class TestsController < ApplicationController
   # PATCH/PUT /tests/1
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
+      redirect_to @test, notice: 'Test fue actualizado correctamente.'
     else
       render action: 'edit'
     end
@@ -43,7 +43,7 @@ class TestsController < ApplicationController
   # DELETE /tests/1
   def destroy
     @test.destroy
-    redirect_to tests_url, notice: 'Test was successfully destroyed.'
+    redirect_to tests_url, notice: 'Test fue eliminado.'
   end
 
   private

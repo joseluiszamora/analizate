@@ -26,6 +26,8 @@
           %th RESULTADO
           %th UNIDADES
           %th VALORES DE REFERENCIA
+          %th DESCRIPCION
+          %th IMAGE
       %tbody
         - category.tests.each do |test|
           - laboratory = get_result_for(@analysis, test)
@@ -34,6 +36,10 @@
             %td= laboratory.try(:result)
             %td= test.unit
             %td= test.reference_values
+            %td= test.reference_values
+            %td= test.reference_values
+            %td
+              = image_tag laboratory.try(:image).image.url(:thumb), class: "avatar"
 
 
 .form-actions
