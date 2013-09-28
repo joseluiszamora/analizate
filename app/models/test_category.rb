@@ -5,7 +5,5 @@ class TestCategory < ActiveRecord::Base
 
   scope :childrens, -> { where('ancestry IS NOT ? OR ancestry != ?', nil, '') }
 
-  has_many :analysis_categories, dependent: :destroy
-  has_many :analyses, through: :analysis_categories, dependent: :destroy
   has_many :tests, dependent: :destroy
 end
