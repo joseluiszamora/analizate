@@ -573,7 +573,7 @@ input.search{
 /** SLIDES NOTICES CONTAINER **/
 #slideNoticesContainer{
   float: left;
-  margin: 70px 0 0;
+  margin: 100px 0 0;
   width: 100%;
 }
 #slideNoticesContainer .notice{
@@ -591,10 +591,15 @@ input.search{
   float: left;
   width: 100%;
 }
+#slideNoticesContainer .notice .image img{
+  float: left;
+  width: 100%;
+}
 #slideNoticesContainer .notice .desc{
   float: left;
   text-align: justify;
   width: 100%;
+  margin: 15px 0 0;
 }
 
 .input-append{

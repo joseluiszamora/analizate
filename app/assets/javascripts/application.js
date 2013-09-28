@@ -20,6 +20,7 @@
 *= require chosen.jquery
 *= require function
 *= require analyses
+*= require jquery.cycle.lite
 
 * require index-slider
 * require jquery.flot
@@ -31,7 +32,6 @@
 * require jquery.uniform
 *= require hogan.js
 * require typeahead
-* require jquery.cycle.lite
 * require fullcalendar.min
 * require html5
 * require jquery.knob

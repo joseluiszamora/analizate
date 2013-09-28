@@ -30,7 +30,7 @@ class NoticesController < ApplicationController
     @notice = Notice.new(notice_params)
 
     if @notice.save
-      redirect_to @notice, notice: 'Notice was successfully created.'
+      redirect_to notices_url, notice: 'Notice was successfully created.'
     else
       render action: 'new'
     end
@@ -39,7 +39,7 @@ class NoticesController < ApplicationController
   # PATCH/PUT /notices/1
   def update
     if @notice.update(notice_params)
-      redirect_to @notice, notice: 'Notice was successfully updated.'
+      redirect_to notices_url, notice: 'Notice was successfully updated.'
     else
       render action: 'edit'
     end

@@ -1,39 +1,26 @@
-.container
-  .row
-    .col-lg-12
-      .page-header
-        %h2#forms Test
-  .row
-    .col-lg-1
-    .col-lg-10
-      %table.table.table-hover.table-striped.table-users
-        %thead
-          %tr
-            %th.text-center Categoria
-            %th.text-center Tipo de test
-            %th.text-center Parametro
-            %th.text-center Unidades
-            %th.text-center Valores de Referencia
-            %th.text-center Descripcion
-            %th.text-center
-        %tbody
-          / - @tests.each do |test|
-          /   %tr
-          /     %td.text-center= test.test_category_description
-          /     %td.text-center= test.test_type
-          /     %td.text-center= test.parameter
-          /     %td.text-center= test.unit
-          /     %td.text-center= test.reference_values
-          /     %td.text-center= test.description
-          /     %td.text-center
-          /       - if test.image.present?
-          /         = image_tag test.image.url(:thumb)
-          /       = link_to test, :class => 'btn btn-primary btn-sm' do
-          /         %i.icon.icon-edit.icon-white
-          /         Ver
-          /       = link_to edit_test_path(test), :class => 'btn btn-primary btn-sm' do
-          /         %i.icon.icon-remove.icon-white
-          /         Editar          
-          /       = link_to "Eliminar", test, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Test?' }
-                  
-    .col-lg-1
+.row
+  .col-lg-12
+    .page-header
+      %h2 Test
+  
+.row  
+  .col-lg-12
+    %table.table.table-hover.table-striped.table-users
+      %thead
+        %tr
+          %th.text-center Descripción
+          %th.text-center Subcategorías
+          %th.text-center 
+      %tbody
+        - @test_categories.each_with_index do |test_category, index|
+          %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+            %td.text-center= test_category.description
+            %td.text-center= link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'subcategoría'), test_category_path(test_category)
+            %td.text-center
+              = link_to new_test_category_path(parent_id: test_category.id), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Nueva Subcategoría
+              = link_to edit_test_category_path(test_category), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Editar          
+              = link_to "Eliminar", test_category_path(test_category), :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Test?' }

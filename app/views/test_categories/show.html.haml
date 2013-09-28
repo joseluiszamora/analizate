@@ -1,21 +1,33 @@
-.row-fluid.header
-  %h2
-    Categoría:
-    %span.muted= @test_category.description
+.container
+  .row
+    .col-lg-12
+      .page-header
+        %h2#forms
+          Categoría:
+          %span.muted= @test_category.description
+
+
 - if @test_category.children.present?
   .row-fluid.table
     %table.table.table-hover
+      %thead
+        %tr
+          %th.text-center Id
+          %th.text-center Descripción
+          %th.text-center 
       %tbody
         - @test_category.children.each_with_index do |test_category, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
-            %td.span1
-              = index + 1
-            %td
-              = test_category.description
-            %td
-              = link_to 'Editar', edit_test_category_path(test_category)
-              = link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
+            %td.text-center= index + 1
+            %td.text-center= test_category.description
+            %td.text-center
+              /= link_to 'Editar', edit_test_category_path(test_category)
+              /= link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
 
-    = link_to 'Edit', edit_test_category_path(@test_category)
-    \|
-    = link_to 'Back', test_categories_path
+              = link_to edit_test_category_path(test_category), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Editar          
+              = link_to "Eliminar", test_category_path(test_category), :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Test?' }
+
+    /= link_to 'Edit', edit_test_category_path(@test_category)
+    /= link_to 'Back', test_categories_path

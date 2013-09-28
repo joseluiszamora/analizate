@@ -1,25 +1,28 @@
-.container
-  .row
-    .col-lg-12
-      .page-header
-        %h1#forms Anuncios
-  .row
-    .col-lg-1
-    .col-lg-10
-      %table.table.table-hover.table-striped.table-users
-        %thead
+.row
+  .col-lg-12
+    .page-header
+      %h2 Anuncios
+.row  
+  .col-lg-12
+    %table.table.table-hover.table-striped.table-users
+      %thead
+        %tr
+          %th.text-center Titulo
+          %th.text-center Descripcion
+          %th.text-center Imagen
+          %th.text-center
+      %tbody
+        - @notices.each do |notice|
           %tr
-            %th Titulo
-            %th Descripcion
-            %th Imagen
-            %th{colspan: "3"}
-        %tbody
-          - @notices.each do |notice|
-            %tr
-              %td= notice.title
-              %td= notice.description
-              %td= image_tag notice.image.url(:thumb), class: "avatar"
-              %td= link_to 'Ver', notice
-              %td= link_to 'Editar', edit_notice_path(notice)
-              %td= link_to 'Eliminar', notice, :method => :delete, :data => { :confirm => 'Estas seguro?' }
-    .col-lg-1
+            %td.text-center= notice.title
+            %td.text-center= notice.description
+            %td.text-center= image_tag notice.image.url(:thumb), class: "avatar"
+            %td.text-center
+              /= link_to 'Ver', notice
+              /= link_to 'Editar', edit_notice_path(notice)
+              /= link_to 'Eliminar', notice, :method => :delete, :data => { :confirm => 'Estas seguro?' }
+
+              = link_to edit_notice_path(notice), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Editar          
+              = link_to "Eliminar", notice, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Anuncio?' }

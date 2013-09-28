@@ -34,7 +34,7 @@ class TestsController < ApplicationController
   # PATCH/PUT /tests/1
   def update
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test fue actualizado correctamente.'
+      redirect_to tests_url, notice: 'Test fue actualizado correctamente.'
     else
       render action: 'edit'
     end

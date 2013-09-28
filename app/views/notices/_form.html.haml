@@ -1,6 +1,6 @@
 .row
-  .col-lg-2
-  .col-lg-8
+  .col-lg-1
+  .col-lg-10
     .well
       = form_for @notice do |f|
         - if @notice.errors.any?
@@ -9,15 +9,15 @@
               .alert.alert-danger
                 %strong= msg
         %fieldset
-          .form-group
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
             .col-lg-10
               = f.file_field :image, class: 'form-control'
               = f.hidden_field :image_cache
-          .form-group
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :title, 'Titulo', class: "col-lg-2 control-label"
             = f.text_field :title, class: 'form-control'
-          .form-group
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :description, 'Descripcion:', class: "col-lg-2 control-label"
             = f.text_area :description, class: 'form-control'
         .form-group
