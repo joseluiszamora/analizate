@@ -20,7 +20,7 @@
         %span.step 4
         %span.title
           %h4 Resultados
-  = form_for @analysis do |f|
+  = form_for @analysis, html: { multipart: true } do |f|
     - if @analysis.errors.any?
       #error_explanation
         /%h2= "#{pluralize(@analysis.errors.count, "error")} prohibited this analysis from being saved:"
@@ -83,7 +83,7 @@
 
       #step4.step-pane
         = render 'tests', categories: @analysis.categories, analysis: @analysis
-    
+
     .wizard-actions
       = button_tag class: 'btn btn-primary btn-prev', type: 'button' do
         %i.icon-chevron-left
