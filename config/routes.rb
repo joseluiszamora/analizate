@@ -28,7 +28,13 @@ Analizate::Application.routes.draw do
 
   resources :test_categories
 
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { sessions: 'sessions' }, skip: [ :sessions ]
+  as :user do
+    get '/login' => 'sessions#new', as: :new_user_session
+    post '/login' => 'sessions#create', as: :user_session
+    delete '/logout' => 'sessions#destroy', as: :destroy_user_session
+  end
+
 
   root 'home#index'
 
