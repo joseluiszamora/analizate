@@ -32,7 +32,20 @@
               - if test.test_type == "image"
                 %td.text-center{colspan: 3}
                   - if laboratory.present? && laboratory.image.present?
-                    = image_tag laboratory.image.url, style: "width:100%;"
+                    /= wicked_pdf_image_tag "#{Rails.root}/public/images/master_student/profile/default_student.png" ,:width=>85,:height=>100
+                    /= wicked_pdf_image_tag laboratory.image.url
+                    /= image_tag laboratory.image.url, style: "width:100%;"
+                    /= wicked_pdf_image_tag Rails.root.join('public','uploads', laboratory.image.url)
+                    /= image_tag "file:///#{WickedPdfHelper.root_path.join('public', 'uploads', laboratory.image.url)}"
+
+
+
+
+
+                    = image_tag "#{Rails.root}/public/uploads/laboratory/image/38/3570-android.jpg", style: "width:100%;"
+
+                    
+                    /= image_tag "file://#{Rails.root.join('public', laboratory.image.url)}"
 
               - if test.test_type == "desc"
                 %td.text-center{colspan: 3}
