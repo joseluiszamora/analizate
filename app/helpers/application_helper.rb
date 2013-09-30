@@ -35,4 +35,9 @@ module ApplicationHelper
   def get_user_role
     User::USER_ROLE.map { |ut| [I18n.t(ut, scope: 'user.role'), ut] }
   end
+
+  def wicked_pdf_image_tag_j(image, options = {})
+    options[:src] = File.expand_path(Rails.root) + '/public' + image
+    tag(:img, options)
+   end
 end
