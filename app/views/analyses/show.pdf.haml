@@ -28,10 +28,23 @@
           - category.tests.each do |test|
             - laboratory = get_result_for(@analysis, test)
             %tr
-              %td= test.parameter
-              %td= laboratory.try(:result)
-              %td= test.unit
-              %td= test.reference_values
+              %td.text-center= test.parameter
+              - if test.test_type == "image"
+                %td.text-center{colspan: 3}
+                  - if laboratory.present? && laboratory.image.present?
+                    = image_tag laboratory.image.url, style: "width:100%;"
+
+              - if test.test_type == "desc"
+                %td.text-center{colspan: 3}
+                  - if laboratory.present? && laboratory.desc.present?
+                    = laboratory.desc
+
+              - if test.test_type == "normal"
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+                %td.text-center= test.unit
+                %td.text-center= test.reference_values
 
 :css
   .pdf-container{

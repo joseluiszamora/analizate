@@ -12,6 +12,8 @@
         %tbody
           - category.tests.each do |test|
             - laboratory = get_result_for(analysis, test)
+            = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+            = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
             %tr
               %td.text-center= test.parameter
               - if test.test_type == "image"
@@ -23,8 +25,6 @@
                   = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control"
               - if test.test_type == "normal"
                 %td.text-center
-                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                   = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 27px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
