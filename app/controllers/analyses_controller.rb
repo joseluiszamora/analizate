@@ -23,7 +23,17 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'letter',
-          :encoding => 'utf-8'
+          :encoding => 'utf-8',
+          :header => {:html => { :template => 'analyses/header.pdf.haml',  # use :template OR :url          
+            :locals   => { :analysis => @analysis }},
+            :font_name          => 'Arial'},
+          :footer => {:html => { :template => 'analyses/footer.pdf.haml',
+            :locals   => { :analysis => @analysis }},
+            :font_name          => 'Arial'}
+          # :header => {:html => { :template => 'analyses/header.pdf.haml', 
+          #   :locals   => { :analyses => @analysis }},
+          # :footer => {:html => { :template => 'analyses/footer.pdf.haml',
+          #   :locals   => { :analyses => @analysis }}
       end
     end
   end

@@ -1,19 +1,4 @@
 .pdf-container
-  .bs-example
-    %table.tablepdf
-      %thead
-        %tr.success
-          %th Paciente
-          %th Médico
-          %th Fecha de recepción
-          %th Fecha de entrega
-      %tbody
-        %tr
-          %td= @analysis.patient_full_name
-          %td= @analysis.doctor_full_name
-          %td= I18n.l @analysis.receipt_datetime, format: :long
-          %td= I18n.l @analysis.delivery_datetime, format: :long
-
   - @categories.each do |category|
     %h4= category.description
     .row-fluid.form-wrapper
@@ -50,7 +35,7 @@
   .pdf-container{
     float:left;
     width: 600px;
-    margin: 100px 0 0 100px;
+    margin: 250px 0 0 100px;
   }
   table {
       background-color: transparent;

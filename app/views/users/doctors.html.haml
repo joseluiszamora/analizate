@@ -1,0 +1,32 @@
+.container
+  .page-header
+    %h3 Doctores
+
+  .row.post_row
+    - @user.each do |user|
+      .col-sm-6.postMedical
+        .img
+          - if user.image.present?
+            = image_tag user.image.url(:thumb), class: "img-responsive"
+          - else
+            %img.avatar.bb{:src => "/images/user-icon.jpg"}/
+        .text
+          %h3= user.full_name
+          %address
+            %i.icon.icon-home.icon-white
+            = user.address
+          %p
+            %i.icon.icon-phone.icon-white
+            = "#{user.phone} #{user.cellular}" 
+          %p
+            %i.icon.icon-envelope.icon-white
+            = user.email
+          %p
+            %i.icon.icon-globe.icon-white
+            = user.username
+          %p
+            %i.icon.icon-globe.icon-white
+            = user.birthday
+          %p
+            %i.icon.icon-globe.icon-white
+            = user.notes

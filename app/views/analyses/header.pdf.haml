@@ -1,0 +1,58 @@
+.pdf-container
+  .bs-example
+    %table.tablepdftitle
+      %thead
+        %tr.success
+          %th Paciente
+          %th Médico
+          %th Fecha de recepción
+          %th Fecha de entrega
+      %tbody
+        %tr
+          %td= @analysis.patient_full_name
+          %td= @analysis.doctor_full_name
+          %td= I18n.l @analysis.receipt_datetime, format: :long
+          %td= I18n.l @analysis.delivery_datetime, format: :long
+
+
+:css
+  .pdf-container{
+    float:left;
+    width: 600px; 
+    margin: 100px 0 0 100px;
+  }
+  table {
+      background-color: transparent;
+      border-collapse: collapse;
+      border-spacing: 0;
+      max-width: 100%;
+  }
+  .tablepdftitle {
+      margin-bottom: 20px;
+      width: 100%;
+  }
+  .tablepdftitle th, .tablepdftitle td {
+    border-top: 1px solid #DDDDDD;
+    line-height: 20px;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 12px;
+  }
+  .tablepdftitle th {
+    font-weight: bold;
+    text-align:center;
+    background-color: #ccc;
+  }
+  .tablepdftitle td {
+      text-align:center;
+  }
+  .tablepdftitle thead th {
+      vertical-align: bottom;
+  }
+  .tablepdftitle caption + thead tr:first-child th, .tablepdftitle caption + thead tr:first-child td, .tablepdftitle colgroup + thead tr:first-child th, .tablepdftitle colgroup + thead tr:first-child td, .tablepdftitle thead:first-child tr:first-child th, .tablepdftitle thead:first-child tr:first-child td {
+      border-top: 0 none;
+  }
+  .tablepdftitle tbody + tbody {
+      border-top: 2px solid #DDDDDD;
+  }

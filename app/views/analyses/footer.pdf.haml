@@ -1,0 +1,11 @@
+#footer-style
+  = DateTime.now.strftime("%Y %m %d %H:%M:%S")
+  = "  /  "
+  = current_user.full_name
+
+
+:css
+  #footer-style{
+    float:right;
+    font-size:10px;
+  }

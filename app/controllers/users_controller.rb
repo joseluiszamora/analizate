@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def doctors
+    render :doctors
+    @user = User.where("role = 'medical'")
+  end
+
   def new
     @user = User.new
     #respond_with @user
