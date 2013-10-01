@@ -18,7 +18,10 @@
               %li= link_to "Lista de Usuarios", "/users", tabindex: "-1"
               %li.divider
               %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
-        
+              %li.divider
+              %li= link_to "Lista de Doctores", doctors_path, tabindex: "-1"
+
+
         - if can? :manage, Analysis
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -59,6 +62,8 @@
         - else
           %li= link_to "Hospitales", hospitals_institutions_path, tabindex: "-1"
           %li= link_to "Farmacias", pharms_institutions_path, tabindex: "-1"
+          %li= link_to "Doctores", doctors_path, tabindex: "-1"
+
         
         - if can? :manage, Notice
           %li.dropdown

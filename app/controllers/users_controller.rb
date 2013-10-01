@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
   #load_and_authorize_resource
@@ -16,9 +16,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def doctors
-    render :doctors
-    @user = User.where("role = 'medical'")
+  def doctors    
+    @user = User.medical
   end
 
   def new

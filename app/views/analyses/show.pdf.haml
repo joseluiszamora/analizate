@@ -1,41 +1,45 @@
 .pdf-container
   - @categories.each do |category|
-    %h4= category.description
-    .row-fluid.form-wrapper
-      %table.tablepdf.table-striped
-        %thead
-          %tr
-            %th PARÁMETRO
-            %th RESULTADO
-            %th UNIDADES
-            %th VALORES DE REFERENCIA
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
+    .categoryContainer
+      %h4= category.description
+      .row-fluid.form-wrapper
+        %table.tablepdf.table-striped
+          %thead
             %tr
-              %td.text-center= test.parameter
-              - if test.test_type == "image"
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.image.present?
-                    = wicked_pdf_image_tag_j laboratory.image.url
-                   
-              - if test.test_type == "desc"
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.desc.present?
-                    = laboratory.desc
+              %th PARÁMETRO
+              %th RESULTADO
+              %th UNIDADES
+              %th VALORES DE REFERENCIA
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                - if test.test_type == "image"
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.image.present?
+                      = wicked_pdf_image_tag_j laboratory.image.url
+                     
+                - if test.test_type == "desc"
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.desc.present?
+                      = laboratory.desc
 
-              - if test.test_type == "normal"
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.unit
-                %td.text-center= test.reference_values
+                - if test.test_type == "normal"
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.unit
+                  %td.text-center= test.reference_values
 
 :css
   .pdf-container{
     float:left;
     width: 600px;
-    margin: 250px 0 0 100px;
+    margin: 100px 0 0 100px;
+  }
+  .categoryContainer{
+    float:left;   
   }
   table {
       background-color: transparent;

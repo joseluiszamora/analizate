@@ -30,8 +30,6 @@
           %th Email
           %th Web
           %th 
-          %th 
-          %th 
       %tbody
         - @institutions.each do |institution|
           %tr
@@ -42,7 +40,16 @@
             %td= institution.phone
             %td= institution.mail
             %td= institution.web
-            %td= link_to 'Show', institution
-            %td= link_to 'Edit', edit_institution_path(institution)
-            %td= link_to 'Destroy', institution, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %td
+              /= link_to 'Show', institution
+              /= link_to 'Edit', edit_institution_path(institution)
+              /= link_to 'Destroy', institution, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+              = link_to institution, :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-loupe.icon-white
+                Ver
+              = link_to edit_institution_path(institution), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-remove.icon-white
+                Editar
+              = link_to "Eliminar", institution, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Test?' }
   .col-lg-1

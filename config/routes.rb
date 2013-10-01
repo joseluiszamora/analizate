@@ -13,8 +13,8 @@ Analizate::Application.routes.draw do
 
   resources :users, only: [:index, :new, :create, :edit, :destroy, :update] do
     get 'profile', on: :member
-    get 'doctors', on: :member
   end
+  get '/doctors' => 'users#doctors', as: :doctors
 
   resources :home
 
