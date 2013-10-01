@@ -14,7 +14,7 @@
 *= require jquery
 *= require jquery_ujs
 * require function
-*= require bootstrap.min
+*= require bootstrap
 * require bootstrap-datepicker
 * require bootstrap-timepicker
 * require bootstrap-carousel
