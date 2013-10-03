@@ -7,8 +7,9 @@
           #error_explanation           
             - @test.errors.full_messages.each do |msg|
               .alert.alert-danger
-                %strong= msg
+                %strong= msgx
         %fieldset
+          /= @test.test_category.description
           .form-group{style: "float: left; width: 100%;"}
             = f.label :test_category_id, 'Categoría:', class: 'col-lg-2 control-label'
             .col-lg-10

@@ -29,7 +29,7 @@
 
 :javascript
   $("#test_category_parent_id").change(function(){
-    if ($(this).val() != ""){
+    if ($(this).val() == ""){
       $("#form_test_type").hide();
       $("#test_category_category").val("");
     }else{
