@@ -1,7 +1,7 @@
 .row
   .col-lg-12
     .page-header
-      %h2 Test
+      %h2 Areas
   
 .row  
   .col-lg-12
@@ -9,17 +9,31 @@
       %thead
         %tr
           %th.text-center Descripción
+          %th.text-center Tipo de Area
           %th.text-center Subcategorías
           %th.text-center 
       %tbody
         - @test_categories.each_with_index do |test_category, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
             %td.text-center= test_category.description
-            %td.text-center= link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'subcategoría'), test_category_path(test_category)
+            %td.text-center
+              - if test_category.category == "table1"
+                = "Tabla Normal de 4 Columnas"
+              - if test_category.category == "table2"
+                = "Tabla Espaciada de 4 Columnas"
+              - if test_category.category == "table3"
+                = "Tabla Normal de 3 Columnas"
+              - if test_category.category == "table4"
+                = "Tabla Normal de 2 Columnas"
+              - if test_category.category == "image"
+                = "Imagen"
+              - if test_category.category == "desc"
+                = "Descripcion"
+            %td.text-center= link_to_if test_category.children.count > 0, pluralize(test_category.children.count, 'sub area'), test_category_path(test_category)
             %td.text-center
               = link_to new_test_category_path(parent_id: test_category.id), :class => 'btn btn-primary btn-sm' do
                 %i.icon.icon-edit.icon-white
-                Nueva Subcategoría
+                Nueva Sub Area
               = link_to edit_test_category_path(test_category), :class => 'btn btn-primary btn-sm' do
                 %i.icon.icon-edit.icon-white
                 Editar          

@@ -12,7 +12,12 @@
           .form-group{style: "float: left; width: 100%;"}
             = f.label :parent_id, 'Categoría Padre:', class: 'col-lg-2 control-label'
             .col-lg-10
-              = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {:include_blank => true}, { :class => 'form-control span7' })
+              = f.select(:parent_id, options_for_select(get_test_category_roots, f.object.parent_id), {:include_blank => true}, { :class => 'form-control' })
+
+          .form-group{id: "form_test_type", style: "float: left; width: 100%;"}
+            = f.label :category, 'Tipo de Examen:', class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.select(:category, options_for_select([['Tabla Normal de 4 Columnas', 'table1'], ['Tabla Espaciada de 4 Columnas', 'table2'], ['Tabla Normal de 3 Columnas', 'table3'], ['Tabla Normal de 2 Columnas', 'table4'], ['Imagen', 'image'], ['Descripcion', 'desc']], @test_category.category), {include_blank: false}, { :class => 'form-control', data: {new: @test_category.new_record?} })
 
           .form-group{style: "float: left; width: 100%;"}
             = f.label :description, 'Descripción:',  class: 'col-lg-2 control-label'
@@ -21,3 +26,14 @@
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'
               = link_to 'CANCELAR', test_categories_path, class: 'btn btn-default'
+
+:javascript
+  $("#test_category_parent_id").change(function(){
+    if ($(this).val() != ""){
+      $("#form_test_type").hide();
+      $("#test_category_category").val("");
+    }else{
+      $("#form_test_type").show();
+    }
+    //console.log($(this).val());
+  });

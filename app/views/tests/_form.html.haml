@@ -20,41 +20,29 @@
           .form-group{style: "float: left; width: 100%;"}
             = f.label :parameter, 'Parámetro:', class: "col-lg-2 control-label"
             = f.text_field :parameter, :class => "col-lg-7 inline-input form-control"
-          #image.group
-            / .form-group{style: "float: left; width: 100%;"}
-            /   = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
-            /   .col-lg-10
-            /     = f.file_field :image, class: 'form-control'
-            /     = f.hidden_field :image_cache
-          #desc.group
-            / .form-group{style: "float: left; width: 100%;"}
-            /   = f.label :description, 'Descripción:', class: "col-lg-2 control-label"
-            /   = f.text_area :description, :class => "col-lg-7 form-control"  
-          #normal.group
-            .form-group{style: "float: left; width: 100%;"}
-              = f.label :unit, 'Unidad:', class: "col-lg-2 control-label"
-              = f.text_field :unit, :class => "col-lg-7 inline-input form-control"
-            .form-group{style: "float: left; width: 100%;"}
-              = f.label :reference_values, 'Valores de Referencia:', class: "col-lg-2 control-label"
-              = f.text_field :reference_values, :class => "col-lg-7 inline-input form-control"
-            .form-group{style: "float: left; width: 100%;"}
-              = f.label :description, 'Descripción:', class: "col-lg-2 control-label"
-              = f.text_area :description, :class => "col-lg-7 form-control"
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :unit, 'Unidad:', class: "col-lg-2 control-label"
+            = f.text_field :unit, :class => "col-lg-7 inline-input form-control"
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :reference_values, 'Valores de Referencia:', class: "col-lg-2 control-label"
+            = f.text_field :reference_values, :class => "col-lg-7 inline-input form-control"
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :description, 'Descripción:', class: "col-lg-2 control-label"
+            = f.text_area :description, :class => "col-lg-7 form-control"
           .form-group{style: "float: left; width: 100%;"}
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'
               = link_to 'CANCELAR', tests_path, class: 'btn btn-default'
 :javascript
-  $(document).ready(function(){
-    $(".group").hide();
-    if($("#test_test_type").data("new") === false){
+  / $(document).ready(function(){
+  /   $(".group").hide();
+  /   if($("#test_test_type").data("new") === false){
 
-      $("#" + $("#test_test_type").val()).show();
-    }
+  /     $("#" + $("#test_test_type").val()).show();
+  /   }
 
-    $("#test_test_type").change(function(){
-      $(".group").hide();
-      $("#"+$(this).val()).show();
-    });
-  });
-  
+  /   $("#test_test_type").change(function(){
+  /     $(".group").hide();
+  /     $("#"+$(this).val()).show();
+  /   });
+  / });

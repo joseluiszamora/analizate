@@ -54,6 +54,6 @@ class TestCategoriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def test_category_params
-      params.require(:test_category).permit(:description, :parent_id)
+      params.require(:test_category).permit(:description, :parent_id, :category)
     end
 end
