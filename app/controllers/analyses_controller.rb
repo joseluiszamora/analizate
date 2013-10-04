@@ -23,6 +23,10 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'letter',
+          :margin => {:top => 50,
+            :bottom => 10,
+            :left => 25,
+            :right => 10},
           :encoding => 'utf-8',
           :header => {:html => { :template => 'analyses/header.pdf.haml',  # use :template OR :url          
             :locals   => { :analysis => @analysis }},

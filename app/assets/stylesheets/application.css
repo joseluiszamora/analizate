@@ -17,6 +17,7 @@
  *= require form-wizard
  *= require chosen
  *= require font-awesome	
+ *= require bootstrap-wysihtml5
  *= require layout
  
  * require elements

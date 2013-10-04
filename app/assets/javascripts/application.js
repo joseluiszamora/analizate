@@ -14,6 +14,7 @@
 *= require jquery
 *= require jquery_ujs
 *= require bootstrap
+*= require bootstrap-wysiwyg
 *= require bootstrap-datepicker
 *= require bootstrap-timepicker
 *= require fuelux.wizard
@@ -21,6 +22,7 @@
 *= require function
 *= require analyses
 *= require jquery.cycle.lite
+*= require bootstrap-wysihtml5
 
 * require index-slider
 * require jquery.flot
