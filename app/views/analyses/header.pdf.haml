@@ -16,21 +16,6 @@
         %span.title2.bold FECHA DE ENTREGA :
         %span.title.desc= I18n.l @analysis.delivery_datetime, format: "%d / %m / %Y"
 
-    / %table.tablepdftitle
-    /   %thead
-    /     %tr.success
-    /       %th Paciente
-    /       %th Médico
-    /       %th Fecha de recepción
-    /       %th Fecha de entrega
-    /   %tbody
-    /     %tr
-    /       %td= @analysis.patient_full_name
-    /       %td= @analysis.doctor_full_name
-    /       %td= I18n.l @analysis.receipt_datetime, format: :long
-    /       %td= I18n.l @analysis.delivery_datetime, format: :long
-
-
 :css
   .header{
     float:left;
@@ -38,7 +23,8 @@
     width: 100%;
     height: 100px;    
     padding: 5px;
-    margin: 0 15px;
+    /*margin: 0 15px;*/
+    margin: -50px 15px 0;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     border-radius: 7px;
