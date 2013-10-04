@@ -14,12 +14,26 @@
         %tr
           %th.text-center Id
           %th.text-center Descripción
+          %th.text-center Tipo de Area
           %th.text-center 
       %tbody
         - @test_category.children.each_with_index do |test_category, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
             %td.text-center= index + 1
             %td.text-center= test_category.description
+            %td.text-center
+              - if test_category.category == "table1"
+                = "Tabla Normal de 4 Columnas"
+              - if test_category.category == "table2"
+                = "Tabla Espaciada de 4 Columnas"
+              - if test_category.category == "table3"
+                = "Tabla Normal de 3 Columnas"
+              - if test_category.category == "table4"
+                = "Tabla Normal de 2 Columnas"
+              - if test_category.category == "image"
+                = "Imagen"
+              - if test_category.category == "desc"
+                = "Descripcion"
             %td.text-center
               /= link_to 'Editar', edit_test_category_path(test_category)
               /= link_to 'Eliminar', test_category_path(test_category), method: :delete, data: { confirm: '¿Está seguro?' }
