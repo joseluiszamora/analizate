@@ -19,7 +19,7 @@
               %li.divider
               %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
               %li.divider
-              %li= link_to "Lista de Doctores", doctors_path, tabindex: "-1"
+              %li= link_to "Lista de Medicos", doctors_path, tabindex: "-1"
 
 
         - if can? :manage, Analysis
@@ -38,13 +38,13 @@
               Edicion de Pruebas
               %span.caret
             %ul.dropdown-menu{"aria-labelledby" => "Categorias"}
-              %li= link_to "Lista de Categorias", test_categories_path, tabindex: "-1"
+              %li= link_to "Lista de Areas", test_categories_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Nueva Categoria", new_test_category_path, tabindex: "-1"
+              %li= link_to "Nueva Area", new_test_category_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Lista de Test", tests_path, tabindex: "-1"
+              %li= link_to "Lista de Examenes", tests_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Nuevo Test", new_test_path, tabindex: "-1"
+              %li= link_to "Nuevo Examen", new_test_path, tabindex: "-1"
         
         - if can? :manage, Institution
           %li.dropdown
@@ -62,7 +62,7 @@
         - else
           %li= link_to "Hospitales", hospitals_institutions_path, tabindex: "-1"
           %li= link_to "Farmacias", pharms_institutions_path, tabindex: "-1"
-          %li= link_to "Doctores", doctors_path, tabindex: "-1"
+          %li= link_to "Medicos", doctors_path, tabindex: "-1"
 
         
         - if can? :manage, Notice

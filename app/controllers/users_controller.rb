@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   #load_and_authorize_resource
 
+  layout "frontend", only: [:doctors]
+
   respond_to :html
 
   def index
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def doctors    
+  def doctors
     @user = User.medical
   end
 

@@ -8,6 +8,7 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'mysql2'
 
+gem 'ransack'	
 gem 'kaminari'
 
 #uploader image

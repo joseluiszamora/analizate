@@ -1,11 +1,31 @@
 .span4.box
   .content-wrap
     %h6 Registro
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      = f.text_field :username, autofocus: true, class: 'span12', placeholder: 'Username'
-      = f.email_field :email, :class => 'span12', :placeholder => "E-mail"
-      = f.password_field :password, :class => 'span12', :placeholder => "Password"
-      = f.password_field :password_confirmation, :class => 'span12', :placeholder => "Password Confirmation"
-      %div= f.submit "Registrarme ahora", :class => 'btn-glow primary login'
-= render "devise/shared/links"
+    .row
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .form-group
+          .col-lg-12
+            = f.text_field :username, autofocus: true, class: 'span12 form-control', placeholder: 'Nombre de Usuario'
+        .form-group
+          .col-lg-12
+            = f.select(:role, options_for_select([['Paciente', 'patient'], ['Medico', 'medical']]), {}, { :class => 'form-control', :placeholder => "Tipo de usuario" })
+        .form-group
+          .col-lg-12
+            = f.email_field :email, :class => 'span12 form-control', :placeholder => "E-mail"
+        
+        .form-group
+          .col-lg-12
+            = f.password_field :password, :class => 'span12 form-control', :placeholder => "Contrasena"
+
+        .form-group
+          .col-lg-12
+            = f.password_field :password_confirmation, :class => 'span12 form-control', :placeholder => "Repita Contrasena"
+        %div= f.submit "Registrarme ahora", :class => 'btn-glow primary login'
+/= render "devise/shared/links"
+
+:css
+  .form-group{
+    float:left;
+    width:100%;
+  }

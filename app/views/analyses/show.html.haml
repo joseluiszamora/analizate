@@ -97,7 +97,7 @@
             %tr
               %td.text-center{colspan: 3}
                 - if laboratory.present? && laboratory.image.present?
-                  = image_tag laboratory.image.url, style: "width:100%;"
+                  = image_tag laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
 
       - if category.category == "desc"
         %thead
