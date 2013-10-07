@@ -1,129 +1,122 @@
-.categoryContainer
-  - @categories.each do |category|
-    .block-container
-      .tablepdf     
-        %h4= category.description
-        %table.table
-          - if category.category == "table1"
-            %thead
-              %tr
-                %th.text-center PARÁMETRO
-                %th.text-center RESULTADO
-                %th.text-center UNIDADES
-                %th.text-center VALORES DE REFERENCIA
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center= test.parameter
-                  %td.text-center
-                    - if laboratory.present? && laboratory.result.present?
-                      = laboratory.result
-                  %td.text-center= test.unit
-                  %td.text-center= test.reference_values
-          - if category.category == "table2"
-            %thead
-              %tr
-                %th.text-center PARÁMETRO
-                %th.text-center RESULTADO
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center= test.parameter
-                  %td.text-center
-                    - if laboratory.present? && laboratory.result.present?
-                      = laboratory.result
-          - if category.category == "table3"
-            %thead
-              %tr
-                %th.text-center PARÁMETRO
-                %th.text-center RESULTADO
-                %th.text-center UNIDADES
-                %th.text-center VALORES DE REFERENCIA
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center= test.parameter
-                  %td.text-center
-                    - if laboratory.present? && laboratory.result.present?
-                      = laboratory.result
-                  %td.text-center= test.unit
-                  %td.text-center= test.reference_values
-          - if category.category == "table4"
-            %thead
-              %tr
-                %th.text-center PARÁMETRO
-                %th.text-center RESULTADO
-                %th.text-center VALORES DE REFERENCIA
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center= test.parameter
-                  %td.text-center
-                    - if laboratory.present? && laboratory.result.present?
-                      = laboratory.result
-                  %td.text-center= test.reference_values
-          - if category.category == "image"
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center{colspan: 3}
-                    - if laboratory.present? && laboratory.image.present?
-                      = wicked_pdf_image_tag_j laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
-          - if category.category == "desc"
-            %thead
-              %tr
-                %th.text-center Descripcion
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(@analysis, test)
-                %tr
-                  %td.text-center{colspan: 3}
-                    - if laboratory.present? && laboratory.desc.present?
-                      = laboratory.desc
+- @categories.each do |category| 
+  .block-container
+    %h4= category.description
+    %table.table
+      - if category.category == "table1"
+        %thead
+          %tr
+            %th.text-center PARÁMETRO
+            %th.text-center RESULTADO
+            %th.text-center UNIDADES
+            %th.text-center VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center= test.parameter
+              %td.text-center
+                - if laboratory.present? && laboratory.result.present?
+                  = laboratory.result
+              %td.text-center= test.unit
+              %td.text-center= test.reference_values
+      - if category.category == "table2"
+        %thead
+          %tr
+            %th.text-center PARÁMETRO
+            %th.text-center RESULTADO
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center= test.parameter
+              %td.text-center
+                - if laboratory.present? && laboratory.result.present?
+                  = laboratory.result
+      - if category.category == "table3"
+        %thead
+          %tr
+            %th.text-center PARÁMETRO
+            %th.text-center RESULTADO
+            %th.text-center UNIDADES
+            %th.text-center VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center= test.parameter
+              %td.text-center
+                - if laboratory.present? && laboratory.result.present?
+                  = laboratory.result
+              %td.text-center= test.unit
+              %td.text-center= test.reference_values
+      - if category.category == "table4"
+        %thead
+          %tr
+            %th.text-center PARÁMETRO
+            %th.text-center RESULTADO
+            %th.text-center VALORES DE REFERENCIA
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center= test.parameter
+              %td.text-center
+                - if laboratory.present? && laboratory.result.present?
+                  = laboratory.result
+              %td.text-center= test.reference_values
+      - if category.category == "image"
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center{colspan: 3}
+                - if laboratory.present? && laboratory.image.present?
+                  = wicked_pdf_image_tag_j laboratory.image.url, style: "width:500px;margin:0 auto;float:none;height:400px"
+      - if category.category == "desc"
+        %thead
+          %tr
+            %th.text-center Descripcion
+        %tbody
+          - category.tests.each do |test|
+            - laboratory = get_result_for(@analysis, test)
+            %tr
+              %td.text-center{colspan: 3}
+                - if laboratory.present? && laboratory.desc.present?
+                  = laboratory.desc
+  
 
-
-
-:css
-  .categoryContainerx{
-    float:left;
-    margin: 120px 0 50px 75px;
-    width: 500px;
-  }
-  .categoryContainery{
-    float:left;
-    margin: 0 0 10px;
-    width: 100%;
-    height: 200px;
-    background-color: #ddd;
-  }
-  .categoryContainer{
-    float:left;
-    margin: 120px 0 50px 75px;
-    /*margin: 0 0 50px 75px;*/
-    width: 500px;
-  }
+:css    
+  .block-container { page-break-inside:avoid; page-break-after:auto; }
+  table, tr, td, th, tbody, thead, tfoot    { page-break-inside:avoid; page-break-after:auto }
+ 
+  / .categoryContainerx{
+  /   float:left;
+  /   margin: 120px 0 50px 75px;
+  /   width: 500px;
+  / }
+  / .categoryContainery{
+  /   float:left;
+  /   margin: 0 0 10px;
+  /   width: 100%;
+  /   height: 200px;
+  /   background-color: #ddd;
+  / }
+  / .categoryContainer{
+    
+  / }
   .block-container{
     float:left;
-    margin: 0 0 50px;
-    width: 100%;
-    /*height: 200px;
-    background-color: #ddd;*/
+   /*margin: 15px 0 100px 75px;*/
+    width: 500px;
   }
   table {
     background-color: transparent;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-  }
-  .tablepdf {
-    width: 100%;
-  }
-  .tablepdf th, .tablepdf td {
+       
+  }  
+  .block-container th, .block-container td {
     /*border-top: 1px solid #DDDDDD;*/
     border: 1px solid #000;
     line-height: 20px;
@@ -135,7 +128,7 @@
     text-align:center;
     font-family: sans-serif;
   }
-  .tablepdf th {
+  .block-container th {
     border: 1px solid #000;
     text-transform: uppercase;
     font-weight: bold;
@@ -143,13 +136,13 @@
     vertical-align: bottom;
     background-color: #CCCCCC;
   }
-  .tablepdf td {
+  .block-container td {
     text-align:center;
   }
   
-  .tablepdf tbody + tbody {
+  .block-container tbody + tbody {
     border-top: 2px solid #DDDDDD;
   }
-  .tablepdf .table {
+  .block-container .table {
     background-color: transparent;
   }
