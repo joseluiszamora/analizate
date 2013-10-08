@@ -24,14 +24,15 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'Letter',
-          :margin => {:top => 25,
+          :margin => {:top => 58,
             :bottom => 10,
             :left => 25,
             :right => 10},
           :encoding => 'utf-8',
-          :header => {:spacing => 10, :html => { :template => 'analyses/header.pdf.haml',  # use :template OR :url          
+          :header => {:html => { :template => 'analyses/header.pdf.haml',  # use :template OR :url          
             :locals   => { :analysis => @analysis }},
-            :font_name          => 'Arial'},
+            :font_name  => 'Arial',
+            :spacing  => 40},
           :footer => {:html => { :template => 'analyses/footer.pdf.haml',
             :locals   => { :analysis => @analysis }},
             :font_name          => 'Arial'}
