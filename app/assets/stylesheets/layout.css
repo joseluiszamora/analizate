@@ -655,3 +655,7 @@ input.search{
 .form-group-left{
   float: left;
 }
+.titleCategory{
+  text-align: center;
+  width: 100%;
+}

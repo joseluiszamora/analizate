@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     respond_with @users
   end
 
+
   def profile
     render :show
     @user = User.find(params[:id])

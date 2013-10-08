@@ -3,6 +3,16 @@
     .page-header
       %h2 Usuarios
 
+  / .col-lg-2
+  /   - search_form_for @search do |f|
+  /     .field
+  /       - f.label :name_cont, "Name contains"
+  /       - f.text_field :name_cont
+  /     .actions
+  /       - f.submit "Search"
+
+
+
 / .row-fluid.header
 /   .span10.pull-right
 /     .span4
@@ -16,6 +26,7 @@
 /           %option{:value => "CA"} Otro
 /     .span2
 /       %a.btn-glow.primary Buscar
+
 
 .row  
   .col-lg-12

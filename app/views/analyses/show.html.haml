@@ -20,96 +20,101 @@
           %td= I18n.l @analysis.receipt_datetime, format: :long
           %td= I18n.l @analysis.delivery_datetime, format: :long
 
-- @categories.each do |category|
-  %h4= category.description
-  .row-fluid.form-wrapper
-    %table.table.table-striped.table-bordered.table-hover
-      - if category.category == "table1"
-        %thead
-          %tr
-            %th.text-center PARÁMETRO
-            %th.text-center RESULTADO
-            %th.text-center UNIDADES
-            %th.text-center VALORES DE REFERENCIA
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
-            %tr
-              %td.text-center= test.parameter
-              %td.text-center
-                - if laboratory.present? && laboratory.result.present?
-                  = laboratory.result
-              %td.text-center= test.unit
-              %td.text-center= test.reference_values
-      - if category.category == "table2"
-        %thead
-          %tr
-            %th.text-center PARÁMETRO
-            %th.text-center RESULTADO
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
-            %tr
-              %td.text-center= test.parameter
-              %td.text-center
-                - if laboratory.present? && laboratory.result.present?
-                  = laboratory.result
-      - if category.category == "table3"
-        %thead
-          %tr
-            %th.text-center PARÁMETRO
-            %th.text-center RESULTADO
-            %th.text-center UNIDADES
-            %th.text-center VALORES DE REFERENCIA
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
-            %tr
-              %td.text-center= test.parameter
-              %td.text-center
-                - if laboratory.present? && laboratory.result.present?
-                  = laboratory.result
-              %td.text-center= test.unit
-              %td.text-center= test.reference_values
-      - if category.category == "table4"
-        %thead
-          %tr
-            %th.text-center PARÁMETRO
-            %th.text-center RESULTADO
-            %th.text-center VALORES DE REFERENCIA
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
-            %tr
-              %td.text-center= test.parameter
-              %td.text-center
-                - if laboratory.present? && laboratory.result.present?
-                  = laboratory.result
-              %td.text-center= test.reference_values
+- @parents.each do |parent|
+  - @cats = @categories.select { |c| c.parent == parent}
 
-      - if category.category == "image"
-        %thead
-          %tr
-            %th.text-center Imagen
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
-            %tr
-              %td.text-center{colspan: 3}
-                - if laboratory.present? && laboratory.image.present?
-                  = image_tag laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
+  %h1.titleCategory= parent.description
 
-      - if category.category == "desc"
-        %thead
-          %tr
-            %th.text-center Descripcion
-        %tbody
-          - category.tests.each do |test|
-            - laboratory = get_result_for(@analysis, test)
+  - @cats.each do |category|
+    %h4= category.description
+    .row-fluid.form-wrapper
+      %table.table.table-striped.table-bordered.table-hover
+        - if category.category == "table1"
+          %thead
             %tr
-              %td.text-center{colspan: 3}
-                - if laboratory.present? && laboratory.desc.present?
-                  = laboratory.desc
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+              %th.text-center UNIDADES
+              %th.text-center VALORES DE REFERENCIA
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+                %td.text-center= test.unit
+                %td.text-center= test.reference_values
+        - if category.category == "table2"
+          %thead
+            %tr
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+        - if category.category == "table3"
+          %thead
+            %tr
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+              %th.text-center UNIDADES
+              %th.text-center VALORES DE REFERENCIA
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+                %td.text-center= test.unit
+                %td.text-center= test.reference_values
+        - if category.category == "table4"
+          %thead
+            %tr
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+              %th.text-center VALORES DE REFERENCIA
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+                %td.text-center= test.reference_values
+
+        - if category.category == "image"
+          %thead
+            %tr
+              %th.text-center Imagen
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center{colspan: 3}
+                  - if laboratory.present? && laboratory.image.present?
+                    = image_tag laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
+
+        - if category.category == "desc"
+          %thead
+            %tr
+              %th.text-center Descripcion
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center{colspan: 3}
+                  - if laboratory.present? && laboratory.desc.present?
+                    = laboratory.desc
 
 .form-actions
   = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"

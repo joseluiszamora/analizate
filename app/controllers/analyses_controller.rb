@@ -12,6 +12,7 @@ class AnalysesController < ApplicationController
   # GET /analyses/1
   def show
     @categories = @analysis.categories.includes(:tests)
+    @parents = @categories.map { |c| c.parent }.uniq
 
     respond_to do |format|
       format.html
@@ -29,17 +30,13 @@ class AnalysesController < ApplicationController
             :left => 25,
             :right => 10},
           :encoding => 'utf-8',
-          :header => {:html => { :template => 'analyses/header.pdf.haml',  # use :template OR :url          
+          :header => {:html => { :template => 'analyses/header.pdf.haml',
             :locals   => { :analysis => @analysis }},
             :font_name  => 'Arial',
             :spacing  => 40},
           :footer => {:html => { :template => 'analyses/footer.pdf.haml',
             :locals   => { :analysis => @analysis }},
             :font_name          => 'Arial'}
-          # :header => {:html => { :template => 'analyses/header.pdf.haml', 
-          #   :locals   => { :analyses => @analysis }},
-          # :footer => {:html => { :template => 'analyses/footer.pdf.haml',
-          #   :locals   => { :analyses => @analysis }}
       end
     end
   end
@@ -92,6 +89,7 @@ class AnalysesController < ApplicationController
   def tests
     @analysis = Analysis.find(params[:id]) rescue nil
     @categories = TestCategory.find(params[:category_ids])
+    @parents = @categories.map { |c| c.parent }.uniq
     respond_with do |format|
       format.js
     end

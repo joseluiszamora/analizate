@@ -9,4 +9,8 @@ class Test < ActiveRecord::Base
   def test_category_description
     test_category.present? ? test_category.description : ''
   end
+
+  def test_category_category
+  	test_category.present? ? test_category.category : ''
+  end
 end
