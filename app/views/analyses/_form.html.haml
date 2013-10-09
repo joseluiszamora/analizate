@@ -73,7 +73,7 @@
           .row-fluid.form-wrapper
             .col-lg-10.col-md-offset-1
               - categories[start, elements].each do |category|
-                .span4.column
+                .span4.column{"data-category" => category.id}
                   %h4.span8= category.description
                   .field-box
                     - category.children.each do |subcategory|
@@ -82,7 +82,7 @@
                         = subcategory.description
 
       #step4.step-pane
-        = render 'tests', categories: @analysis.categories, analysis: @analysis
+        = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents
 
     .wizard-actions
       = button_tag class: 'btn btn-primary btn-prev', type: 'button' do

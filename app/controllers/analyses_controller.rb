@@ -44,10 +44,12 @@ class AnalysesController < ApplicationController
   # GET /analyses/new
   def new
     @analysis = Analysis.new
+    @parents = []
   end
 
   # GET /analyses/1/edit
   def edit
+    @parents = @analysis.categories.map { |c| c.parent }.uniq
   end
 
   # POST /analyses

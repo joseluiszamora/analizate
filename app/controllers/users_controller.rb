@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, :only => :doctors
   before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
   #load_and_authorize_resource
@@ -9,10 +10,11 @@ class UsersController < ApplicationController
   respond_to :html
 
   def index
-    @users = User.all
+    sort = "#{params[:sort]} #{params[:direction]}"
+    q = User.search({:name_or_last_name_or_username_or_email_cont => params[:q]})
+    @users = q.result.order(sort).page(params[:page]).per(5)
     respond_with @users
   end
-
 
   def profile
     render :show
@@ -36,7 +38,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_url, notice: 'User was successfully created.'
+      if user_signed_in?
+        redirect_to users_url, notice: 'User was successfully created.'  
+      else
+        redirect_to root_url, notice: 'User was successfully created.'  
+      end
+      
     else
       render :action => "new"
     end
@@ -56,6 +63,14 @@ class UsersController < ApplicationController
   end
 
   private
+    def sort_column
+      User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

@@ -79,10 +79,10 @@
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Admin
+              = current_user.full_name
               %span.caret
             %ul.dropdown-menu{"aria-labelledby" => "Usuario"}
-              %li= link_to "Informacion", "#", tabindex: "-1"
+              %li= link_to "Información", profile_user_path(current_user), tabindex: "-1"
               %li.divider
               %li= link_to "Salir", destroy_user_session_path, tabindex: "-1", method: :delete
       -else
