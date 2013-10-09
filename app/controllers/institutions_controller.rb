@@ -43,7 +43,8 @@ class InstitutionsController < ApplicationController
   # PATCH/PUT /institutions/1
   def update
     if @institution.update(institution_params)
-      redirect_to @institution, notice: 'Institution was successfully updated.'
+      redirect_to institutions_url
+      # redirect_to @institution, notice: 'Institution was successfully updated.'
     else
       render action: 'edit'
     end

@@ -32,7 +32,7 @@
         - if category.category == "table1"
           %thead
             %tr
-              %th.text-center PARÁMETRO
+              %th.text-center PARÁMETRO 
               %th.text-center RESULTADO
               %th.text-center UNIDADES
               %th.text-center VALORES DE REFERENCIA
@@ -76,6 +76,7 @@
                     = laboratory.result
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
+              %tr.spacing
         - if category.category == "table4"
           %thead
             %tr

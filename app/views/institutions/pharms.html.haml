@@ -5,21 +5,31 @@
   .row.post_row
     - @institutions.each do |institution|
       .col-sm-6.postMedical
-        .img
-          = image_tag institution.image.url(:thumb), class: "img-responsive"
+        - if institution.image.present?
+          .img
+            = image_tag institution.image.url(:thumb), class: "img-responsive"
         .text
           %h3= institution.name
-          %address
-            %i.icon.icon-home.icon-white
-            = institution.address
-          %p
-            %i.icon.icon-phone.icon-white
-            = institution.phone
-          %p
-            %i.icon.icon-envelope.icon-white
-            = institution.mail
-          %p
-            %i.icon.icon-globe.icon-white
-            = institution.web
-          %p
-            = institution.desc
+          - if institution.address.present?
+            %p
+              %i.icon.icon-home.icon-white
+              = institution.address
+
+          - if institution.phone.present?
+            %p
+              %i.icon.icon-phone.icon-white
+              = institution.phone
+          
+          - if institution.mail.present?
+            %p
+              %i.icon.icon-envelope.icon-white
+              = institution.mail
+          
+          - if institution.web.present?
+            %p
+              %i.icon.icon-globe.icon-white
+              = link_to institution.web, "http://#{institution.web}", target: "blank"
+
+          - if institution.desc.present?
+            %p
+              = institution.desc

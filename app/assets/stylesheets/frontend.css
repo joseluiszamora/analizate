@@ -17,5 +17,7 @@
  *= require bootstrap-normal
  *= require bootswatch
  *= require navbar
+ *= require icons
+ *= require font-awesome
  * require_self
  */

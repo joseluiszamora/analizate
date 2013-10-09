@@ -54,6 +54,7 @@
                     = laboratory.result
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
+              %tr.spacing
         - if category.category == "table4"
           %thead
             %tr
@@ -153,4 +154,7 @@
   .titleCategory{
     text-align: center;
     width: 100%;
+  }
+  .spacing{
+    height:10px;
   }

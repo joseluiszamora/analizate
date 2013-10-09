@@ -1,6 +1,6 @@
 .container
   .page-header
-    %h3 Doctores
+    %h3 Medicos
 
   .row.post_row
     - @user.each do |user|
@@ -9,27 +9,31 @@
           - if user.image.present?
             = image_tag user.image.url(:thumb), class: "img-responsive"
           - else
-            %img.avatar.bb{:src => "/images/user-icon.jpg"}/
+            %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
         .text
           %h3= user.full_name
-          %address
-            %i.icon.icon-home.icon-white
-            = user.address
-          %p
-            %i.icon.icon-phone.icon-white
-            = "#{user.phone} #{user.cellular}" 
-          %p
-            %i.icon.icon-phone.icon-white
-            = user.contact_numbers
-          %p
-            %i.icon.icon-envelope.icon-white
-            = user.email
-          %p
-            %i.icon.icon-globe.icon-white
-            = user.username
-          %p
-            %i.icon.icon-globe.icon-white
-            = user.birthday
-          %p
-            %i.icon.icon-globe.icon-white
-            = user.notes
+
+          - if user.address.present?
+            %p
+              %i.icon.icon-home.icon-white
+              = user.address
+          
+          - if user.contact_numbers.present?
+            %p
+              %i.icon.icon-phone.icon-white
+              = user.contact_numbers
+          
+          - if user.email.present?
+            %p
+              %i.icon.icon-envelope.icon-white
+              = user.email
+          
+          - if user.birthday.present?
+            %p
+              %i.icon.icon-globe.icon-white
+              = user.birthday
+          
+          - if user.notes.present?
+            %p
+              %i.icon.icon-globe.icon-white
+              = user.notes
