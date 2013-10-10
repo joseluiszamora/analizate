@@ -16,4 +16,6 @@
 /tmp
 /config/database.yml
 /public/uploads/
+/public/assets/
 /.ruby-version
+/.rvmrc
