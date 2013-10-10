@@ -8,6 +8,8 @@
           %img.avatar.bb{:src => "/images/user-icon.jpg"}/
       .col-md-9
         %h3.name= @user.full_name
+        %br/
+        %br/
         %h3.area
           -if(@user.role == "medical")
             = "Medico"
@@ -44,3 +46,7 @@
           .form-group
             %label.col-lg-4 Observaciones:
             = @user.notes
+
+          = link_to edit_user_path(@user), :class => 'btn btn-primary btn-sm' do
+            %i.icon.icon-edit.icon-white
+            Editar

@@ -22,7 +22,8 @@
 *= require function
 *= require analyses
 *= require jquery.cycle.lite
-*= require bootstrap-wysihtml5
+* require bootstrap-wysihtml5-0.0.2
+*= require summernote
 
 * require index-slider
 * require jquery.flot

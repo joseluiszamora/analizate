@@ -11,13 +11,13 @@
  
  * require bootstrap-overrides
  *= require bootstrap-responsive
- *= require bootstrap-wysihtml5
  *= require datepicker
  *= require bootstrap-timepicker
  *= require form-wizard
  *= require chosen
  *= require font-awesome	
- *= require bootstrap-wysihtml5
+ * require bootstrap-wysihtml5-0.0.2
+ *= require summernote-bootstrap
  *= require layout
  
  * require elements

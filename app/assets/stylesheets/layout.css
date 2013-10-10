@@ -659,3 +659,12 @@ input.search{
   text-align: center;
   width: 100%;
 }
+.margin-search{
+  margin-top: -45px;
+}
+.sort-link, .sort-link a{
+  color: #555555 !important;
+}
+.note-editable{
+  background-color: #ffffff;
+}

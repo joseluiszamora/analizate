@@ -2,27 +2,24 @@
   .col-lg-12
     .page-header
       %h2 Usuarios
-
-
-.row-fluid.header
-  .span10.pull-right
-    = form_tag users_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
-      .span1
-      .span5= text_field_tag :q, "", class: 'form-control'
-      .span2= submit_tag "Buscar", class: 'btn btn-primary'
+      .pull-right.margin-search
+        = form_tag users_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
+          .span1
+          .span3= text_field_tag :q, "", class: 'form-control'
+          .span1= submit_tag "Buscar", class: 'btn btn-primary'
 
 
 .row  
   .col-lg-12
-    %table.table.table-hover.table-striped.table-users
+    %table.table.table-hover.table-striped.table-bordered.table-users
       %thead
         %tr
           %th 
-          %th= sortable "name", "Nombre Completo"
-          %th= sortable "username", "Nombre de Usuario"
-          %th= sortable "role", "Tipo de Usuario"
-          %th= sortable "phone", "Contacto"
-          %th= sortable "email", "Email"
+          %th.sort-link= sortable "name", "Nombre Completo"
+          %th.sort-link= sortable "username", "Nombre de Usuario"
+          %th.sort-link= sortable "role", "Tipo de Usuario"
+          %th.sort-link= sortable "phone", "Contacto"
+          %th.sort-link= sortable "email", "Email"
           %th 
       %tbody
         - @users.each_with_index do |user, index|
