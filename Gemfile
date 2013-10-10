@@ -11,7 +11,7 @@ gem 'mysql2'
 gem 'ransack'	
 gem 'kaminari'
 
-#uploader image
+#uploader imag	e
 gem "rmagick"
 gem "carrierwave"
 
