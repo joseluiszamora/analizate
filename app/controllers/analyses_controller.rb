@@ -6,7 +6,11 @@ class AnalysesController < ApplicationController
 
   # GET /analyses
   def index
-    @analyses = Analysis.all
+    if current_user.is_admin?
+      @analyses = Analysis.all
+    else
+      @analyses = current_user.analyses
+    end
   end
 
   # GET /analyses/1
@@ -20,7 +24,7 @@ class AnalysesController < ApplicationController
         render :pdf => @analysis.patient_full_name,
           :template => 'analyses/show.pdf.haml',
           :disposition => 'attachment',
-          :layout => 'pdf.html.haml', 
+          :layout => 'pdf.html.haml',
           :show_as_html => params[:debug].present?,
           :orientation => 'Portrait',
           :font_size   => '12px',
