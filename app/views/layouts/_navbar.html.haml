@@ -19,7 +19,7 @@
               %li.divider
               %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
               %li.divider
-              %li= link_to "Lista de Medicos", doctors_path, tabindex: "-1"
+              %li= link_to "Lista de Médicos", doctors_path, tabindex: "-1"
 
 
         - if can? :manage, Analysis
@@ -31,7 +31,7 @@
               %li= link_to "Nuevo Registro", new_analysis_path, tabindex: "-1"
               %li.divider
               %li= link_to "Lista de Registros", analyses_path, tabindex: "-1"
-        
+
         - if can? :manage, TestCategory
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -45,16 +45,16 @@
               %li= link_to "Lista de Examenes", tests_path, tabindex: "-1"
               %li.divider
               %li= link_to "Nuevo Examen", new_test_path, tabindex: "-1"
-        
+
         - if can? :manage, Institution
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Centros Medicos
+              Centros Médicos
               %span.caret
             %ul.dropdown-menu{"aria-labelledby" => "Hospitales"}
               %li= link_to "Ver Todos", institutions_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Nuevo Centro Medico", new_institution_path, tabindex: "-1"
+              %li= link_to "Nuevo Centro Médico", new_institution_path, tabindex: "-1"
               %li.divider
               %li= link_to "Lista de Hospitales", hospitals_institutions_path, tabindex: "-1"
               %li.divider
@@ -62,9 +62,9 @@
         - else
           %li= link_to "Hospitales", hospitals_institutions_path, tabindex: "-1"
           %li= link_to "Farmacias", pharms_institutions_path, tabindex: "-1"
-          %li= link_to "Medicos", doctors_path, tabindex: "-1"
+          %li= link_to "Médicos", doctors_path, tabindex: "-1"
 
-        
+
         - if can? :manage, Notice
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -74,7 +74,7 @@
               %li= link_to "Lista de Anuncios", notices_path, tabindex: "-1"
               %li.divider
               %li= link_to "Nuevo Anuncio", new_notice_path, tabindex: "-1"
-        
+
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown

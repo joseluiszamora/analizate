@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  mount_uploader :image, ImageUploader  
+  mount_uploader :image, ImageUploader
   USER_TYPE = %w(medical patient laboratory_staff)
 
   before_save :ensure_authentication_token
@@ -33,11 +33,38 @@ class User < ActiveRecord::Base
     qq.result
   end
 
+  def analyses
+    if is_medical?
+      Analysis.where(doctor_id: self.id)
+    elsif is_patient?
+      Analysis.where(patient_id: self.id)
+    else
+      # TODO que es lo que va a poder ver el de laboratorio
+      []
+    end
+  end
+
   def full_name
     "#{ name } #{ last_name }".presence || username.presence || email
   end
 
   def contact_numbers
     "#{ phone } #{ cellular }".presence || phone.presence || cellular
+  end
+
+  def is_admin?
+    role == 'admin'
+  end
+
+  def is_medical?
+    role == 'medical'
+  end
+
+  def is_patient?
+    role == 'patient'
+  end
+
+  def is_laboratory_staff?
+    role == 'laboratory_staff'
   end
 end

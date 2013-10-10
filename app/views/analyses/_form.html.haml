@@ -36,8 +36,11 @@
               = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
               = f.select :patient_id, options_for_select(User.patients.map{|p| [p.full_name, p.id]}), {}, {class: "chosen-select span8", :"data-placeholder" => "Seleccione un Paciente"}
             .form-group
-              = f.label :doctor_full_name, 'Medico Solicitante:', class: "col-lg-2 control-label"
-              = f.select :doctor_id, options_for_select(User.medical.map{|p| [p.full_name, p.id]}), {}, {class: "chosen-select span8", :"data-placeholder" => "Seleccione un Médico"}
+              - if current_user.is_admin?
+                = f.label :doctor_full_name, 'Médico Solicitante:', class: "col-lg-2 control-label"
+                = f.select :doctor_id, User.medical.map{|p| [p.full_name, p.id]}, {}, {class: "chosen-select span8", :"data-placeholder" => "Seleccione un Médico"}
+              - elsif current_user.is_medical?
+                = f.hidden_field :doctor_id, value: current_user.id
             .form-group{style: "float:left;"}
               = f.label :receipt_date, 'Entrega de la muestra:', class: "col-lg-2 control-label"
               .group-date-time
@@ -92,4 +95,4 @@
         Siguiente
         %i.icon-chevron-right
       = button_tag class: 'btn btn-success btn-finish', styel: 'display: none;' do
-        Finalizar Analisis
+        Finalizar Análisis
