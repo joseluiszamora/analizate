@@ -659,7 +659,11 @@ input.search{
   text-align: center;
   width: 100%;
 }
-.margin-search{
+.table-users{
+  width: 100%;
+  text-align: center;
+  color: #000;
+}.margin-search{
   margin-top: -45px;
 }
 .sort-link, .sort-link a{
