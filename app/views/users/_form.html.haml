@@ -60,14 +60,11 @@
             .col-lg-10
               = f.text_field :birthday, class: 'form-control'
           .form-group
-            = f.label :notes, 'Nota:', class: 'col-lg-2 control-label'
+            = f.label :notes, 'Observaciones:', class: 'col-lg-2 control-label'
             .col-lg-10
-              = f.text_area :notes, class: 'form-control wysi'
+              = f.text_area :notes, class: 'form-control wysihtml5'
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'
               = link_to 'CANCELAR', users_path, class: 'btn btn-default'
   .col-lg-2
-
-:javascript
-  $('#user_notes').summernote();

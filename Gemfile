@@ -51,4 +51,4 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 
 # add rich text editor on analisis
-#gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-wysihtml5-rails'

@@ -15,5 +15,10 @@ $(document).ready(function(){
     showMeridian: false
   });
 
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+
+
   $(".chosen-select").chosen({no_results_text: "Ninguna coincidencia!"});
 });

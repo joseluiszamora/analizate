@@ -16,8 +16,8 @@
  *= require form-wizard
  *= require chosen
  *= require font-awesome	
- * require bootstrap-wysihtml5-0.0.2
- *= require summernote-bootstrap
+ *= require bootstrap-wysihtml5
+ * require summernote-bootstrap
  *= require layout
  
  * require elements

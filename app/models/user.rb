@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   scope :medical, -> { where(role: 'medical') }
 
   validates :username, uniqueness: { case_sensitive: true }
+  validates :email, presence: true, if: proc { |user| user.email.present? }
 
   attr_accessor :login
 
