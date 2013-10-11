@@ -1,7 +1,7 @@
 - @parents.each do |parent|
   - @cats = @categories.select { |c| c.parent == parent}
 
-  %h1.titleCategory= parent.description
+  %h3.titleCategory= parent.description
 
   - @cats.each do |category|
     .block-container
