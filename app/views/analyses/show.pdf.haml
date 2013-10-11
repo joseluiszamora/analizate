@@ -1,7 +1,7 @@
 - @parents.each do |parent|
   - @cats = @categories.select { |c| c.parent == parent}
 
-  %h3.titleCategory= parent.description
+  .titleCategory= parent.description
 
   - @cats.each do |category|
     .block-container
@@ -110,10 +110,10 @@
     /*border-top: 1px solid #DDDDDD;*/
     border: 1px solid #000;
     line-height: 20px;
-    padding: 8px;
+    padding: 0 8px;
     text-align: left;
     vertical-align: top;
-    font-size: 9px;
+    font-size: 11px;
     background-color: transparent;
     text-align:center;
     font-family: Arial;
@@ -139,6 +139,8 @@
   .titleCategory{
     text-align: center;
     width: 100%;
+    font-size: 18px;
+    font-weight:bold;
   }
   .spacing{
     height:10px;
