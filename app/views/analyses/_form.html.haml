@@ -11,11 +11,11 @@
       %li{"data-target" => "#step2"}
         %span.step 2
         %span.title
-          %h4 Categorías
+          %h4 Areas
       %li{"data-target" => "#step3"}
         %span.step 3
         %span.title
-          %h4 Análisis
+          %h4 Examenes
       %li{"data-target" => "#step4"}
         %span.step 4
         %span.title
@@ -42,7 +42,7 @@
               - elsif current_user.is_medical?
                 = f.hidden_field :doctor_id, value: current_user.id
             .form-group{style: "float:left;"}
-              = f.label :receipt_date, 'Entrega de la muestra:', class: "col-lg-2 control-label"
+              = f.label :receipt_date, 'Toma muestra:', class: "col-lg-2 control-label"
               .group-date-time
                 = f.text_field :receipt_date, class: 'form-control datepicker span6', placeholder: 'Fecha'
                 .input-append.bootstrap-timepicker.span5
@@ -50,7 +50,7 @@
                   %span.add-on.input-append.timepicker-clock
                     %i.icon-time
             .form-group{style: "float:left;"}
-              = f.label :delivery_date, 'Entrega:', class: "col-lg-2 control-label"
+              = f.label :delivery_date, 'Entrega de Resultado:', class: "col-lg-2 control-label"
               .group-date-time
                 = f.text_field :delivery_date, class: 'form-control span6 datepicker', placeholder: 'Fecha'
                 .input-append.bootstrap-timepicker.span5
