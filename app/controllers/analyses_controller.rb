@@ -29,7 +29,7 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'Letter',
-          :margin => {:top => 80,
+          :margin => {:top => 60,
             :bottom => 10,
             :left => 25,
             :right => 10},
@@ -37,7 +37,7 @@ class AnalysesController < ApplicationController
           :header => {:html => { :template => 'analyses/header.pdf.haml',
             :locals   => { :analysis => @analysis }},
             :font_name  => 'Arial',
-            :spacing  => 40},
+            :spacing  => 20},
           :footer => {:html => { :template => 'analyses/footer.pdf.haml',
             :locals   => { :analysis => @analysis }},
             :font_name          => 'Arial'}
