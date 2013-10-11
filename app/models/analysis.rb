@@ -14,7 +14,7 @@ class Analysis < ActiveRecord::Base
   end
 
   def delivery_datetime
-    DateTime.parse("#{delivery_date.to_s(:db)} #{delivery_time}")
+    DateTime.parse("#{delivery_date.to_s(:db)} #{delivery_time}") rescue nil
   end
 
   def doctor_full_name
@@ -26,6 +26,6 @@ class Analysis < ActiveRecord::Base
   end
 
   def receipt_datetime
-    DateTime.parse("#{receipt_date.to_s(:db)} #{receipt_time}")
+    DateTime.parse("#{receipt_date.to_s(:db)} #{receipt_time}") rescue nil
   end
 end

@@ -17,8 +17,12 @@
         %tr
           %td= @analysis.patient_full_name
           %td= @analysis.doctor_full_name
-          %td= I18n.l @analysis.receipt_datetime, format: :long
-          %td= I18n.l @analysis.delivery_datetime, format: :long
+          %td
+            - if @analysis.receipt_datetime.present?
+              = I18n.l @analysis.receipt_datetime, format: :long
+          %td
+            - if @analysis.delivery_datetime.present?
+              = I18n.l @analysis.delivery_datetime, format: :long
 
 - @parents.each do |parent|
   - @cats = @categories.select { |c| c.parent == parent}

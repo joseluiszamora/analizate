@@ -47,7 +47,7 @@ class AnalysesController < ApplicationController
 
   # GET /analyses/new
   def new
-    @analysis = Analysis.new
+    @analysis = Analysis.new(receipt_date: Date.today, delivery_date: Date.today)
     @parents = []
   end
 
