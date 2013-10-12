@@ -33,6 +33,8 @@ GEM
     atomic (1.1.13)
     bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
+    bootstrap-wysihtml5-rails (0.3.1.23)
+      railties (>= 3.0)
     builder (3.1.4)
     cancan (1.6.10)
     capistrano (2.15.5)
@@ -183,6 +185,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   ancestry
+  bootstrap-wysihtml5-rails
   cancan
   capistrano
   carrierwave
