@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   scope :medical, -> { where(role: 'medical') }
 
   validates :username, uniqueness: { case_sensitive: true }
-  validates :email, presence: true, if: proc { |user| user.email.present? }
 
   attr_accessor :login
 
@@ -51,6 +50,10 @@ class User < ActiveRecord::Base
 
   def contact_numbers
     "#{ phone } #{ cellular }".presence || phone.presence || cellular
+  end
+
+  def email_required?
+    email.present?
   end
 
   def is_admin?
