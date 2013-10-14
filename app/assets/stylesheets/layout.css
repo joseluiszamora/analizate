@@ -677,3 +677,9 @@ input.search{
   width: 100%;
   height: 150px;
 }
+.wysihtml5-sandbox{
+  min-height: 180px;
+}
+.spacing{
+  height:10px;
+}

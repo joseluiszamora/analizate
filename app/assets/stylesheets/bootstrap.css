@@ -672,7 +672,7 @@ abbr.initialism {
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
-  border-left: 5px solid #eeeeee;
+  /*border-left: 5px solid #eeeeee;*/
 }
 
 blockquote p {

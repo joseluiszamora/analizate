@@ -21,7 +21,9 @@
 
           .form-group{style: "float: left; width: 100%;"}
             = f.label :description, 'Descripción:',  class: 'col-lg-2 control-label'
-            = f.text_area :description, class: 'form-control'
+            %br
+            %br
+            = f.text_area :description, class: 'form-control wysihtml5'
           .form-group{style: "float: left; width: 100%;"}
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'

@@ -50,20 +50,8 @@
                     = laboratory.result
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
+        
         - if category.category == "table2"
-          %thead
-            %tr
-              %th.text-center PARÁMETRO
-              %th.text-center RESULTADO
-          %tbody
-            - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-        - if category.category == "table3"
           %thead
             %tr
               %th.text-center PARÁMETRO
@@ -81,7 +69,8 @@
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
               %tr.spacing
-        - if category.category == "table4"
+
+        - if category.category == "table3"
           %thead
             %tr
               %th.text-center PARÁMETRO
@@ -97,6 +86,22 @@
                     = laboratory.result
                 %td.text-center= test.reference_values
 
+
+        - if category.category == "table4"
+          %thead
+            %tr
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+        
+        
         - if category.category == "image"
           %thead
             %tr
@@ -119,9 +124,16 @@
               %tr
                 %td.text-center{colspan: 3}
                   - if laboratory.present? && laboratory.desc.present?
-                    = laboratory.desc
+                    = laboratory.desc.html_safe
 
 .form-actions
   = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"
   = link_to 'Atrás', analyses_path, class: "btnTitle btn btn-info"
   = link_to 'Imprimir', analysis_path(@analysis, format: :pdf), class: "btnTitle btn btn-info"
+
+
+
+:css
+  .spacing{
+    height:10px;
+  }

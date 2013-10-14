@@ -24,21 +24,8 @@
                     = laboratory.result
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
+      
       - if category.category == "table2"
-        %table.table.table2
-          %thead
-            %tr
-              %th.text-center PARÁMETRO
-              %th.text-center RESULTADO
-          %tbody
-            - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-      - if category.category == "table3"
         %table.table
           %thead
             %tr
@@ -57,7 +44,8 @@
                 %td.text-center= test.unit
                 %td.text-center= test.reference_values
               %tr.spacing
-      - if category.category == "table4"
+
+      - if category.category == "table3"
         %table.table.table4
           %thead
             %tr
@@ -73,6 +61,22 @@
                   - if laboratory.present? && laboratory.result.present?
                     = laboratory.result
                 %td.text-center= test.reference_values
+
+      - if category.category == "table4"
+        %table.table.table2
+          %thead
+            %tr
+              %th.text-center PARÁMETRO
+              %th.text-center RESULTADO
+          %tbody
+            - category.tests.each do |test|
+              - laboratory = get_result_for(@analysis, test)
+              %tr
+                %td.text-center= test.parameter
+                %td.text-center
+                  - if laboratory.present? && laboratory.result.present?
+                    = laboratory.result
+      
       - if category.category == "image"
         %table.table
           %tbody
@@ -82,6 +86,7 @@
                 %td.text-center{colspan: 3}
                   - if laboratory.present? && laboratory.image.present?
                     = wicked_pdf_image_tag_j laboratory.image.url, style: "width:500px;margin:0 auto;float:none;height:400px"
+      
       - if category.category == "desc"
         %table.table
           %thead
@@ -93,7 +98,7 @@
               %tr
                 %td.text-center{colspan: 3}
                   - if laboratory.present? && laboratory.desc.present?
-                    = laboratory.desc
+                    = laboratory.desc.html_safe
     
 
 :css    
@@ -150,6 +155,7 @@
     height:10px;
     font-family: Arial;
     text-transform: uppercase;
+    margin-top: 20px;
   }
   .spacing{
     height:10px;
