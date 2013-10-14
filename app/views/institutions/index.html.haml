@@ -36,10 +36,10 @@
             %td= institution.category
             %td= institution.name
             %td= institution.address
-            %td= institution.desc
             %td= institution.phone
             %td= institution.mail
             %td= institution.web
+            %td= institution.desc.html_safe
             %td
               /= link_to 'Show', institution
               /= link_to 'Edit', edit_institution_path(institution)
