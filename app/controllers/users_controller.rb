@@ -39,17 +39,22 @@ class UsersController < ApplicationController
 
     if @user.save
       if user_signed_in?
-        redirect_to users_url, notice: 'User was successfully created.'  
+        redirect_to users_url, notice: 'User was successfully created.'
       else
-        redirect_to root_url, notice: 'User was successfully created.'  
+        redirect_to root_url, notice: 'User was successfully created.'
       end
-      
+
     else
       render :action => "new"
     end
   end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete("password")
+      params[:user].delete("password_confirmation")
+    end
+
     if @user.update(user_params)
       redirect_to users_url, notice: 'Usuario Actualizado.'
     else
