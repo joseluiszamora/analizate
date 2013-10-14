@@ -35,3 +35,7 @@ jQuery ->
 
   $btnNext.on "click", ->
     $wizard.wizard "next"
+
+  $(document).on 'change', '.show-patient-name', (evt) ->
+    $('#analysis_patient_id_chosen').toggle()
+    $('#analysis_patient_name').toggle()

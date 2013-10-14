@@ -6,9 +6,7 @@ class Analysis < ActiveRecord::Base
   has_many :tests, through: :laboratories
   accepts_nested_attributes_for :laboratories
 
-  validates :patient_id, presence: true
-
-  attr_accessor :patient_type_selector, :patient_name
+  validates :patient_id, presence: true, if: proc { |a| a.patient_type_selector == false }
 
   def categories
     ids = tests.pluck(:test_category_id).uniq

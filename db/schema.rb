@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002183758) do
+ActiveRecord::Schema.define(version: 20131014172023) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20131002183758) do
     t.datetime "updated_at"
     t.time     "receipt_time"
     t.time     "delivery_time"
+    t.string   "patient_name"
+    t.boolean  "patient_type_selector", default: false
   end
 
   add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree

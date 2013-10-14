@@ -1,3 +1,5 @@
+- parents ||= []
+- categories ||= []
 - parents.each do |parent|
   - cats = categories.select { |c| c.parent == parent}
   %h1.titleCategory= parent.description
@@ -103,7 +105,7 @@
   //   "html": false, //Button which allows you to edit the generated HTML. Default false
   //   "link": true, //Button to insert a link. Default true
   //   "image": true, //Button to insert an image. Default true,
-  //   "color": false //Button to change color of font  
+  //   "color": false //Button to change color of font
   // });
 
 
