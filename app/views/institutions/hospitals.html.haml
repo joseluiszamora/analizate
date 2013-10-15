@@ -33,7 +33,7 @@
 
             - if institution.desc.present? && institution.desc.present?
               %p
-                = institution.desc
+                = institution.desc.html_safe
     - else
       .alert.alert-info
         No hay hospitales para mostrar.

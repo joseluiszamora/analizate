@@ -70,7 +70,7 @@
                   .field-box
                     %label.checkbox{ style: 'width: 100%;' }
                       = check_box_tag 'category', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
-                      %strong= category.description
+                      %strong= category.description.html_safe
 
       #step3.step-pane
         - (1..lotes).each do |lote|
@@ -79,12 +79,12 @@
             .col-lg-10.col-md-offset-1
               - categories[start, elements].each do |category|
                 .span4.column{"data-category" => category.id}
-                  %h4.span8= category.description
+                  %h4.span8= category.description.html_safe
                   .field-box
                     - category.children.each do |subcategory|
                       %label.checkbox{ style: 'width: 100%;' }
                         = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
-                        = subcategory.description
+                        = subcategory.description.html_safe
 
       #step4.step-pane
         = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents

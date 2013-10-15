@@ -9,7 +9,6 @@
       %thead
         %tr
           %th.text-center Area
-          %th.text-center Tipo de Examen
           %th.text-center Parametro
           %th.text-center Unidades
           %th.text-center Valores de Referencia
@@ -18,7 +17,6 @@
         - @tests.each do |test|
           %tr
             %td.text-center= test.test_category_description
-            %td.text-center= test.test_type
             %td.text-center= test.parameter
             %td.text-center= test.unit
             %td.text-center= test.reference_values

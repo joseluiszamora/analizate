@@ -27,10 +27,6 @@
             .col-lg-10
               = f.text_area :address, class: 'form-control'
           .form-group
-            = f.label :desc, 'Descripcion:', class: "col-lg-2 control-label"
-            .col-lg-10
-              = f.text_area :desc, class: 'form-control'
-          .form-group
             = f.label :phone, 'Telefono:', class: "col-lg-2 control-label"
             .col-lg-10
               = f.text_field :phone, class: 'form-control'
@@ -42,6 +38,10 @@
             = f.label :web, 'Pagina Web:', class: "col-lg-2 control-label"
             .col-lg-10
               = f.text_field :web, class: 'form-control'
+          .form-group
+            = f.label :desc, 'Descripcion:', class: "col-lg-2 control-label"
+            .col-lg-10
+              = f.text_area :desc, class: 'form-control wysihtml5'
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'

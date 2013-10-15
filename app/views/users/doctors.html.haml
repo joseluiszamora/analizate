@@ -37,7 +37,7 @@
             - if user.notes.present?
               %p
                 %i.icon.icon-globe.icon-white
-                = user.notes
+                = user.notes.html_safe
     - else
       .alert.alert-info
         No hay médicos para mostrar.

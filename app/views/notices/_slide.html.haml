@@ -3,7 +3,7 @@
     .notice
       .title= notice.title
       .image= image_tag notice.image.url(:thumb), class: "avatar"
-      .desc= notice.description
+      .desc= notice.description.html_safe
 
 :javascript
   $('#slideNoticesContainer').cycle('fade');

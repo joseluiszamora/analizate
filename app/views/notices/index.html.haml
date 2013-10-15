@@ -15,7 +15,7 @@
         - @notices.each do |notice|
           %tr
             %td.text-center= notice.title
-            %td.text-center= notice.description
+            %td.text-center= notice.description.html_safe
             %td.text-center= image_tag notice.image.url(:thumb), class: "avatar"
             %td.text-center
               /= link_to 'Ver', notice

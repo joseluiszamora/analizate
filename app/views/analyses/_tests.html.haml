@@ -25,20 +25,8 @@
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                   %td.text-center= test.unit
                   %td.text-center= test.reference_values
+
           - if category.category == "table2"
-            %thead
-              %tr
-                %th.text-center PARÁMETRO
-                %th.text-center RESULTADO
-            %tbody
-              - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
-                %tr
-                  %td.text-center= test.parameter
-                  %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
-          - if category.category == "table3"
             %thead
               %tr
                 %th.text-center PARÁMETRO
@@ -55,7 +43,9 @@
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                   %td.text-center= test.unit
                   %td.text-center= test.reference_values
-          - if category.category == "table4"
+                %tr.spacing
+
+          - if category.category == "table3"
             %thead
               %tr
                 %th.text-center PARÁMETRO
@@ -70,6 +60,23 @@
                   %td.text-center= test.parameter
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                   %td.text-center= test.reference_values
+
+
+          - if category.category == "table4"
+            %thead
+              %tr
+                %th.text-center PARÁMETRO
+                %th.text-center RESULTADO
+            %tbody
+              - category.tests.each do |test|
+                - laboratory = get_result_for(analysis, test)
+                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                %tr
+                  %td.text-center= test.parameter
+                  %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
+
+
           - if category.category == "image"
             %thead
               %tr
@@ -86,7 +93,7 @@
           - if category.category == "desc"
             %thead
               %tr
-                %th.text-center Descripcion
+                %th.text-center DESCRIPCIÓN
             %tbody
               - category.tests.each do |test|
                 - laboratory = get_result_for(analysis, test)
@@ -94,43 +101,10 @@
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 %tr
                   %td.text-center
-                    = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc"
+                    = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc wysihtml5"
+
 
 :javascript
-  //$('.textarea-desc').wysiwyg();
-  // $('.textarea-desc').wysihtml5({
-  //   "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-  //   "emphasis": true, //Italics, bold, etc. Default true
-  //   "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-  //   "html": false, //Button which allows you to edit the generated HTML. Default false
-  //   "link": true, //Button to insert a link. Default true
-  //   "image": true, //Button to insert an image. Default true,
-  //   "color": false //Button to change color of font
-  // });
-
-
-/ %thead
-/     %tr
-/       %th.text-center PARÁMETRO
-/       %th.text-center RESULTADO
-/       %th.text-center UNIDADES
-/       %th.text-center VALORES DE REFERENCIA
-/   %tbody
-/     - category.tests.each do |test|
-/       - laboratory = get_result_for(analysis, test)
-/       = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-/       = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
-/       %tr
-/         %td.text-center= test.parameter
-/         - if test.test_type == "image"
-/           %td.text-center
-/             = file_field_tag "analysis[laboratories_attributes][#{test.id}][image]", class: 'form-control'
-/             = hidden_field_tag :image_cache
-/         - if test.test_type == "desc"
-/           %td.text-center
-/             = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control"
-/         - if test.test_type == "normal"
-/           %td.text-center
-/             = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
-/           %td.text-center= test.unit
-/           %td.text-center= test.reference_values
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
