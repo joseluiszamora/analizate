@@ -6,9 +6,9 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'mysql2'
 
-gem 'ransack'	
+gem 'ransack'
 gem 'kaminari'
 
 #uploader imag	e

@@ -1,4 +1,14 @@
+check_user_exist = ->
+  if $('#analysis_patient_type_selector').is(':checked')
+    $('#analysis_patient_id_chosen').hide()
+    $('#analysis_patient_name').show()
+  else
+    $('#analysis_patient_id_chosen').show()
+    $('#analysis_patient_name').hide()
+
 jQuery ->
+
+  check_user_exist()
 
   #$(".select2").select2 placeholder: "Select a State"
 
@@ -35,3 +45,7 @@ jQuery ->
 
   $btnNext.on "click", ->
     $wizard.wizard "next"
+
+  $(document).on 'change', '.show-patient-name', (evt) ->
+    $('#analysis_patient_id_chosen').toggle()
+    $('#analysis_patient_name').toggle()
