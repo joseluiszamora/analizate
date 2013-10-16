@@ -32,10 +32,10 @@
 - @parents.each do |parent|
   - @cats = @categories.select { |c| c.parent == parent}
 
-  %h1.titleCategory= parent.description
+  %h1.titleCategory= parent.description.html_safe
 
   - @cats.each do |category|
-    %h4= category.description
+    %h4= category.description.html_safe
     .row-fluid.form-wrapper
       %table.table.table-striped.table-bordered.table-hover
         - if category.category == "table1"
@@ -49,12 +49,12 @@
             - category.tests.each do |test|
               - laboratory = get_result_for(@analysis, test)
               %tr
-                %td.text-center= test.parameter
+                %td.text-center= test.parameter.html_safe
                 %td.text-center
                   - if laboratory.present? && laboratory.result.present?
                     = laboratory.result
                 %td.text-center= test.unit
-                %td.text-center= test.reference_values
+                %td.text-center= test.reference_values.html_safe
         
         - if category.category == "table2"
           %thead
@@ -67,12 +67,12 @@
             - category.tests.each do |test|
               - laboratory = get_result_for(@analysis, test)
               %tr
-                %td.text-center= test.parameter
+                %td.text-center= test.parameter.html_safe
                 %td.text-center
                   - if laboratory.present? && laboratory.result.present?
                     = laboratory.result
                 %td.text-center= test.unit
-                %td.text-center= test.reference_values
+                %td.text-center= test.reference_values.html_safe
               %tr.spacing
 
         - if category.category == "table3"
@@ -85,11 +85,11 @@
             - category.tests.each do |test|
               - laboratory = get_result_for(@analysis, test)
               %tr
-                %td.text-center= test.parameter
+                %td.text-center= test.parameter.html_safe
                 %td.text-center
                   - if laboratory.present? && laboratory.result.present?
                     = laboratory.result
-                %td.text-center= test.reference_values
+                %td.text-center= test.reference_values.html_safe
 
 
         - if category.category == "table4"
@@ -101,7 +101,7 @@
             - category.tests.each do |test|
               - laboratory = get_result_for(@analysis, test)
               %tr
-                %td.text-center= test.parameter
+                %td.text-center= test.parameter.html_safe
                 %td.text-center
                   - if laboratory.present? && laboratory.result.present?
                     = laboratory.result
