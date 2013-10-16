@@ -5,7 +5,7 @@
   %h1.titleCategory= parent.description
   - cats.each do |category|
     %div{ id: dom_id(category) }
-      %h4= category.description
+      %h4= category.description.html_safe
       .row-fluid.form-wrapper
         %table.table.table-striped.table-bordered
           - if category.category == "table1"
@@ -21,10 +21,10 @@
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 %tr
-                  %td.text-center= test.parameter
+                  %td.text-center= test.parameter.html_safe
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                   %td.text-center= test.unit
-                  %td.text-center= test.reference_values
+                  %td.text-center= test.reference_values.html_safe
 
           - if category.category == "table2"
             %thead
@@ -39,10 +39,10 @@
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 %tr
-                  %td.text-center= test.parameter
+                  %td.text-center= test.parameter.html_safe
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
                   %td.text-center= test.unit
-                  %td.text-center= test.reference_values
+                  %td.text-center= test.reference_values.html_safe
                 %tr.spacing
 
           - if category.category == "table3"
@@ -57,9 +57,9 @@
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 %tr
-                  %td.text-center= test.parameter
+                  %td.text-center= test.parameter.html_safe
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
-                  %td.text-center= test.reference_values
+                  %td.text-center= test.reference_values.html_safe
 
 
           - if category.category == "table4"
@@ -73,7 +73,7 @@
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
                 = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 %tr
-                  %td.text-center= test.parameter
+                  %td.text-center= test.parameter.html_safe
                   %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 70px;margin:0 auto;", class: "form-control"
 
 
