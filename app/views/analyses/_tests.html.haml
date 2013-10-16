@@ -2,7 +2,7 @@
 - categories ||= []
 - parents.each do |parent|
   - cats = categories.select { |c| c.parent == parent}
-  %h1.titleCategory= parent.description
+  %h1.titleCategory= parent.description.html_safe
   - cats.each do |category|
     %div{ id: dom_id(category) }
       %h4= category.description.html_safe
