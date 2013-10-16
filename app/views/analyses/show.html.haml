@@ -15,7 +15,12 @@
           %th Fecha de entrega
       %tbody
         %tr
-          %td= @analysis.patient_full_name
+          %td
+            - if @analysis.patient_type_selector
+              = @analysis.patient_name
+            - else
+              = @analysis.patient_full_name
+
           %td= @analysis.doctor_full_name
           %td
             - if @analysis.receipt_datetime.present?

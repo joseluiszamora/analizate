@@ -3,7 +3,11 @@
     %li
       .big
         %span.title1.bold NOMBRE:
-        %span.title.desc= @analysis.patient_full_name
+        %span.title.desc
+          - if @analysis.patient_type_selector
+            = @analysis.patient_name
+          - else
+            = @analysis.patient_full_name
     %li
       .big
         %span.title1.bold MEDICO SOL.:

@@ -2,6 +2,12 @@
   .col-lg-12
     .page-header
       %h2 Listado de Análisis
+      / .pull-right.margin-search
+      /   = form_tag analyses_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
+      /     .span1
+      /     .span3= text_field_tag :q, "", class: 'form-control'
+      /     .span1= submit_tag "Buscar", class: 'btn btn-primary'
+
 .row
   .col-lg-12
     - if @analyses.present?
@@ -16,7 +22,11 @@
         %tbody
           - @analyses.each do |analysis|
             %tr
-              %td.text-center= analysis.patient_full_name
+              %td.text-center
+                - if analysis.patient_type_selector
+                  = analysis.patient_name
+                - else
+                  = analysis.patient_full_name
               %td.text-center= analysis.doctor_full_name
               %td.text-center= analysis.receipt_date
               %td.text-center= analysis.delivery_date

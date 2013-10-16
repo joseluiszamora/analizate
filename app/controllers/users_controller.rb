@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def index
     sort = "#{params[:sort]} #{params[:direction]}"
     q = User.search({:name_or_last_name_or_username_or_email_cont => params[:q]})
-    @users = q.result.order(sort).page(params[:page]).per(5)
+    @users = q.result.order(sort).page(params[:page]).per(10)
     respond_with @users
   end
 
