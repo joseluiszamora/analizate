@@ -35,7 +35,11 @@
             .form-group
               = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
               = f.select :patient_id, options_for_select(User.patients.map{|p| [p.full_name, p.id]}), {}, {class: "chosen-select span8", :"data-placeholder" => "Seleccione un Paciente"}
-              = f.check_box :patient_type_selector, class: 'show-patient-name'
+              
+              .check-right
+                = f.check_box :patient_type_selector, class: 'show-patient-name'
+                No Registrado
+
               = f.text_field :patient_name, class: 'form-control span7', style: 'display: none;'
             .form-group
               - if current_user.is_admin?

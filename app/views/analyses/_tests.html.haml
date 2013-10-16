@@ -103,8 +103,7 @@
                   %td.text-center
                     = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc wysihtml5"
 
-
 :javascript
-  $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
-  });
+  / $('.wysihtml5').each(function(i, elem) {
+  /   $(elem).wysihtml5();
+  / });

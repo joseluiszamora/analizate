@@ -683,3 +683,13 @@ input.search{
 .spacing{
   height:10px;
 }
+
+#analysis_patient_name{
+  height: 38px;
+  margin: 0 2px 17px 0;
+  width: 450px;
+}
+.check-right{
+  float: right;
+  width: 60px;
+}
