@@ -16,8 +16,8 @@ jQuery ->
 
 
   $(document).on 'change', '.category-check', ->
-    if $('li[data-target="#step3"]').hasClass('active')
-      ids = $.map $('#step3').find('input[type=checkbox]:checked'), (value, index) ->
+    if $('li[data-target="#step2"]').hasClass('active')
+      ids = $.map $('#step2').find('input[type=checkbox]:checked'), (value, index) ->
         $(value).val()
       id = $(@).data('analysis-id')
       $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
@@ -36,7 +36,7 @@ jQuery ->
     $btnFinish.hide()
     if step.step is 1
       $btnPrev.attr "disabled", "disabled"
-    else if step.step is 4
+    else if step.step is 3
       $btnNext.hide()
       $btnFinish.show()
 
