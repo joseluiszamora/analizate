@@ -22,6 +22,11 @@ jQuery ->
       id = $(@).data('analysis-id')
       $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
 
+  $(document).on 'change', '.subcategory-check', ->
+    if $('li[data-target="#step2"]').hasClass('active')
+      if $(@).is(':checked')
+        $.get('/analyses/categories', { id: $(@).val() }, null, 'script')
+
   $wizard = $("#fuelux-wizard")
   $btnPrev = $(".wizard-actions .btn-prev")
   $btnNext = $(".wizard-actions .btn-next")

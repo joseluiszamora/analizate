@@ -101,8 +101,15 @@ class AnalysesController < ApplicationController
 
   def tests
     @analysis = Analysis.find(params[:id]) rescue nil
-    @categories = TestCategory.find(params[:category_ids])
+    @categories = TestCategory.find(params[:category_ids]) rescue []
     @parents = @categories.map { |c| c.parent }.uniq
+    respond_with do |format|
+      format.js
+    end
+  end
+
+  def categories
+    @category = TestCategory.find(params[:id]) rescue nil
     respond_with do |format|
       format.js
     end
