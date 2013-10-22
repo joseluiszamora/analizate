@@ -8,7 +8,7 @@
         - if @category.present?
           - @category.tests.each do |test|
             = label_tag dom_id(test), class: 'checkbox' do
-              = check_box_tag dom_id(test), test.id, false, class: 'selected-tests'
+              = check_box_tag dom_id(test), test.try(:id), false, class: 'selected-tests'
               = test.parameter
       .modal-footer
-        = link_to "Seleccionar", '#', class: 'btn btn-primary', id: 'btn-select-tests', data: { category_id: dom_id(@category), analysis_id: @analysis.id }
+        = link_to "Seleccionar", '#', class: 'btn btn-primary', id: 'btn-select-tests', data: { category_id: dom_id(@category), analysis_id: @analysis.try(:id) }
