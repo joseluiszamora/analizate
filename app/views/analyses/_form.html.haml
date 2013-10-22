@@ -71,7 +71,7 @@
                   .field-box
                     - category.children.each do |subcategory|
                       %label.checkbox{ style: 'width: 100%;' }
-                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'subcategory-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
+                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'subcategory-check', id: dom_id(subcategory), data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory), test_ids: subcategory.test_ids.join(',') }
                         = subcategory.description.html_safe
 
       #step3.step-pane

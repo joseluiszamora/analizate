@@ -54,3 +54,11 @@ jQuery ->
   $(document).on 'change', '.show-patient-name', (evt) ->
     $('#analysis_patient_id_chosen').toggle()
     $('#analysis_patient_name').toggle()
+
+  $(document).on 'click', '#btn-select-tests', (e) ->
+    checkboxes = $(@).parent().siblings('.modal-body').find('input[type=checkbox]:checked')
+    test_ids = $.map checkboxes, (e) ->
+      $(e).val()
+    $('#' + $(@).data('category-id')).data('test-ids', test_ids.join(','))
+    $('#test-menu-modal').modal('hide')
+    e.preventDefault()
