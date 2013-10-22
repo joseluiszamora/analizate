@@ -1,0 +1,22 @@
+.row
+  .col-lg-12
+    .page-header
+      %h2 Especialidades
+.row  
+  .col-lg-12
+    %table.table.table-hover.table-striped.table-users
+      %thead
+        %tr
+          %th.text-center Nombre
+          %th.text-center
+      %tbody
+        - @specialties.each do |specialty|
+          %tr
+            %td.text-center= specialty.name
+            %td.text-center
+              = link_to edit_specialty_path(specialty), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Editar          
+              = link_to "Eliminar", specialty, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar esta Especialidad?' }
+
+/= link_to 'New Specialty', new_specialty_path
