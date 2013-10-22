@@ -20,6 +20,11 @@
               %li= link_to "Nuevo Usuario", "/users/new", tabindex: "-1"
               %li.divider
               %li= link_to "Lista de Médicos", doctors_path, tabindex: "-1"
+              %li.divider
+              %li= link_to "Lista de Especialidades", specialties_path, tabindex: "-1"
+              %li.divider
+              %li= link_to "Nueva Especialidad", new_specialty_path, tabindex: "-1"
+
 
 
         - if can? :manage, Analysis

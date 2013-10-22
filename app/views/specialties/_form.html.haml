@@ -1,0 +1,22 @@
+.row
+  .col-lg-1
+  .col-lg-10
+    .well
+      = form_for @specialty do |f|
+        - if @specialty.errors.any?
+          #error_explanation
+            - @specialty.errors.full_messages.each do |msg|
+              .alert.alert-danger
+                %strong= msg
+        %fieldset
+          .form-group{style: "float: left; width: 100%;"}
+            = f.label :name, 'Nombre', class: "col-lg-2 control-label"
+            = f.text_field :name, class: 'form-control'
+          
+          / .form-group{style: "float: left; width: 100%;"}
+          /   = f.label :desc, 'Descripcion:', class: "col-lg-2 control-label"
+          /   = f.text_area :desc, class: 'form-control wysihtml5'
+        .form-group
+          .col-lg-10.col-lg-offset-2
+            = f.submit 'Guardar', class: 'btn btn-primary'
+            = link_to 'CANCELAR', specialties_path, class: 'btn btn-default'

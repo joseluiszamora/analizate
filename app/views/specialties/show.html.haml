@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @specialty.name
+%p
+  %b Desc:
+  = @specialty.desc
+
+= link_to 'Edit', edit_specialty_path(@specialty)
+\|
+= link_to 'Back', specialties_path

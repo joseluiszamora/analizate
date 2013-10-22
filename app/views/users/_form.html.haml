@@ -59,6 +59,14 @@
             = f.label :birthday, 'Fecha de Nacimiento:', class: "col-lg-2 control-label"
             .col-lg-10
               = f.text_field :birthday, class: 'form-control datepicker'
+
+          .form-group
+            = f.label :specialties, 'Especialidad:', class: "col-lg-2 control-label"
+            .col-lg-10
+              /= f.select :specialty_id, Specialty.all.map { |s| [s.name, s.id] }
+              = f.select :specialty_id, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {}, {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"}
+            
+
           .form-group
             = f.label :notes, 'Observaciones:', class: 'col-lg-2 control-label'
             .col-lg-10
