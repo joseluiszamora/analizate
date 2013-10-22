@@ -109,7 +109,7 @@ class AnalysesController < ApplicationController
   end
 
   def categories
-    @category = TestCategory.find(params[:id]) rescue nil
+    @category = TestCategory.includes(:tests).find(params[:id]) rescue nil
     respond_with do |format|
       format.js
     end
