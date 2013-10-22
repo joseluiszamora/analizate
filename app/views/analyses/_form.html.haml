@@ -1,3 +1,4 @@
+- test_ids = []
 .col-lg-12
   - elements = 3
   - categories = get_categories
@@ -70,12 +71,14 @@
                   %h4.span8= category.description.html_safe
                   .field-box
                     - category.children.each do |subcategory|
+                      - t_ids = @analysis.laboratories.where(test_id: subcategory.test_ids).pluck(:test_id)
                       %label.checkbox{ style: 'width: 100%;' }
-                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'subcategory-check', id: dom_id(subcategory), data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory), test_ids: subcategory.test_ids.join(',') }
+                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'subcategory-check', id: dom_id(subcategory), data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory), test_ids: t_ids.join(',') }
                         = subcategory.description.html_safe
+                        - test_ids += t_ids
 
       #step3.step-pane
-        = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents
+        = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents, test_ids: test_ids
 
     .wizard-actions
       = button_tag class: 'btn btn-primary btn-prev', type: 'button' do
