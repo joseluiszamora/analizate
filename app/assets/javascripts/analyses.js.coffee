@@ -14,13 +14,19 @@ jQuery ->
 
   #$(".wysihtml5").wysihtml5 "font-styles": false
 
-
-  $(document).on 'change', '.category-check', ->
-    if $('li[data-target="#step3"]').hasClass('active')
-      ids = $.map $('#step3').find('input[type=checkbox]:checked'), (value, index) ->
-        $(value).val()
-      id = $(@).data('analysis-id')
-      $.get('/analyses/tests', { id: id, category_ids: ids }, null, 'script')
+  $(document).on 'change', '.subcategory-check', ->
+    if $('li[data-target="#step2"]').hasClass('active')
+      if $(@).is(':checked')
+        analysis_id = $(@).data('analysis-id')
+        $.get('/analyses/categories', { id: $(@).val(), analysis_id: analysis_id }, null, 'script')
+      else
+        subcategories = $('#step2').find('input[type=checkbox]:checked')
+        ids = $.map subcategories, (value, index) ->
+          $(value).val()
+        test_ids = $.map subcategories, (value, index) ->
+          $(value).data('test-ids')
+        id = $(@).data('analysis-id')
+        $.get('/analyses/tests', { id: id, category_ids: ids, test_ids: test_ids.join(',').split(',') }, null, 'script')
 
   $wizard = $("#fuelux-wizard")
   $btnPrev = $(".wizard-actions .btn-prev")
@@ -36,7 +42,7 @@ jQuery ->
     $btnFinish.hide()
     if step.step is 1
       $btnPrev.attr "disabled", "disabled"
-    else if step.step is 4
+    else if step.step is 3
       $btnNext.hide()
       $btnFinish.show()
 
@@ -49,3 +55,20 @@ jQuery ->
   $(document).on 'change', '.show-patient-name', (evt) ->
     $('#analysis_patient_id_chosen').toggle()
     $('#analysis_patient_name').toggle()
+
+  $(document).on 'click', '#btn-select-tests', (e) ->
+    checkboxes = $(@).parent().siblings('.modal-body').find('input[type=checkbox]:checked')
+    test_ids = $.map checkboxes, (e) ->
+      $(e).val()
+    $('#' + $(@).data('category-id')).data('test-ids', test_ids.join(','))
+    $('#test-menu-modal').modal('hide')
+
+    if $('li[data-target="#step2"]').hasClass('active')
+      subcategories = $('#step2').find('input[type=checkbox]:checked')
+      ids = $.map subcategories, (value, index) ->
+        $(value).val()
+      test_ids = $.map subcategories, (value, index) ->
+        $(value).data('test-ids')
+      id = $(@).data('analysis-id')
+      $.get('/analyses/tests', { id: id, category_ids: ids, test_ids: test_ids.join(',').split(',') }, null, 'script')
+    e.preventDefault()

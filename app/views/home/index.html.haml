@@ -75,11 +75,13 @@
             %a.text-info{"data-toggle" => "modal", href: "#modal-analisis-1", role: "button"} Gasometria.
           / Modal
           #modal-analisis-1.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h3#myModalLabel Servicios de Gasometria
-            .modal-body
-              %p Ofrecemos los servicios de gasometria.
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h3#myModalLabel Servicios de Gasometria
+                .modal-body
+                  %p Ofrecemos los servicios de gasometria.
 
 
           / Analisis
@@ -87,11 +89,13 @@
             %a.text-info{"data-toggle" => "modal", href: "#modal-analisis-2", role: "button"} Analisis de Sangre.
           / Modal
           #modal-analisis-2.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h3#myModalLabel Analisis de Sangre.
-            .modal-body
-              %p Analisis de Sangre.
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                  %h3#myModalLabel Analisis de Sangre.
+                .modal-body
+                  %p Analisis de Sangre.
 
       .col-lg-4
         %h2 Encuentranos

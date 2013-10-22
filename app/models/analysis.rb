@@ -4,7 +4,7 @@ class Analysis < ActiveRecord::Base
 
   has_many :laboratories, dependent: :destroy
   has_many :tests, through: :laboratories
-  accepts_nested_attributes_for :laboratories
+  accepts_nested_attributes_for :laboratories, allow_destroy: true
 
   validates :patient_id, presence: true, if: proc { |a| a.patient_type_selector == false }
 

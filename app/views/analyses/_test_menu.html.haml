@@ -1,0 +1,14 @@
+#test-menu-modal.modal.hide.fade{ 'aria-hidden' => 'true', 'aria-labelledby' => 'myModalLabel', role: 'dialog', tabindex: '-1' }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h3= @category.try(:name)
+      .modal-body
+        - if @category.present?
+          - @category.tests.each do |test|
+            = label_tag dom_id(test), class: 'checkbox' do
+              = check_box_tag dom_id(test), test.id, false, class: 'selected-tests'
+              = test.parameter
+      .modal-footer
+        = link_to "Seleccionar", '#', class: 'btn btn-primary', id: 'btn-select-tests', data: { category_id: dom_id(@category), analysis_id: @analysis.id }

@@ -1,3 +1,4 @@
+- test_ids = []
 .col-lg-12
   - elements = 3
   - categories = get_categories
@@ -11,13 +12,9 @@
       %li{"data-target" => "#step2"}
         %span.step 2
         %span.title
-          %h4 Areas
+          %h4 Exámenes
       %li{"data-target" => "#step3"}
         %span.step 3
-        %span.title
-          %h4 Examenes
-      %li{"data-target" => "#step4"}
-        %span.step 4
         %span.title
           %h4 Resultados
   = form_for @analysis, html: { multipart: true } do |f|
@@ -35,7 +32,7 @@
             .form-group
               = f.label :patient_full_name, 'Paciente:', class: "col-lg-2 control-label"
               = f.select :patient_id, options_for_select(User.patients.map{|p| [p.full_name, p.id]}), {}, {class: "chosen-select span8", :"data-placeholder" => "Seleccione un Paciente"}
-              
+
               .check-right
                 = f.check_box :patient_type_selector, class: 'show-patient-name'
                 No Registrado
@@ -64,19 +61,7 @@
                   %span.add-on.input-append.timepicker-clock
                     %i.icon-time
 
-      #step2.step-pane.editing-categories
-        - (1..lotes).each do |lote|
-          - start = elements * (lote - 1)
-          .row-fluid
-            .col-lg-10.col-md-offset-1
-              - categories[start, elements].each do |category|
-                .span4.column
-                  .field-box
-                    %label.checkbox{ style: 'width: 100%;' }
-                      = check_box_tag 'category', category.id, check_category(@analysis, category) , class: 'category-check', data: { id: category.id, dom_id: dom_id(category) }
-                      %strong= category.description.html_safe
-
-      #step3.step-pane
+      #step2.step-pane
         - (1..lotes).each do |lote|
           - start = elements * (lote - 1)
           .row-fluid.form-wrapper
@@ -86,12 +71,14 @@
                   %h4.span8= category.description.html_safe
                   .field-box
                     - category.children.each do |subcategory|
+                      - t_ids = @analysis.laboratories.where(test_id: subcategory.test_ids).pluck(:test_id)
                       %label.checkbox{ style: 'width: 100%;' }
-                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'category-check', data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory) }
+                        = check_box_tag 'analysis[category_ids][]', subcategory.id, check_subcategory(@analysis, subcategory), class: 'subcategory-check', id: dom_id(subcategory), data: { analysis_id: @analysis.id, dom_id: dom_id(subcategory), test_ids: t_ids.join(',') }
                         = subcategory.description.html_safe
+                        - test_ids += t_ids
 
-      #step4.step-pane
-        = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents
+      #step3.step-pane
+        = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents, test_ids: test_ids
 
     .wizard-actions
       = button_tag class: 'btn btn-primary btn-prev', type: 'button' do
@@ -100,5 +87,7 @@
       = button_tag class: 'btn btn-primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
         Siguiente
         %i.icon-chevron-right
-      = button_tag class: 'btn btn-success btn-finish', styel: 'display: none;' do
+      = button_tag class: 'btn btn-success btn-finish', style: 'display: none;' do
         Finalizar Análisis
+
+#test-menu-container
