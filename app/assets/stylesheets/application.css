@@ -11,18 +11,22 @@
  
  * require bootstrap-overrides
  *= require bootstrap-responsive
+ *= require bootstrap-wysihtml5
+ *= require layout
+ *= require bootstrap
+ *= require bootstrap-normal
+ *= require bootswatch
+ *= require navbar
+ *= require icons
+ *= require font-awesome
  *= require datepicker
  *= require bootstrap-timepicker
  *= require form-wizard
  *= require chosen
- *= require font-awesome	
- *= require bootstrap-wysihtml5
+
  * require summernote-bootstrap
- *= require layout
- 
  * require elements
  * require form-showcase
- * require icons
  * require index
  * require jquery-ui-1.10.2.custom
  * require user-list
@@ -30,9 +34,5 @@
  * require user-profile
  * require uniform
  * require typeahead
-
- *= require bootstrap
- *= require bootswatch
- *= require navbar
  * require_self
  */
