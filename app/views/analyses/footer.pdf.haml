@@ -1,11 +1,11 @@
 #footer-style
   .left
-    Pagina 
+    Pagina
     %span.page
-    de 
+    de
     %span.topage
   .right
-    = DateTime.now.strftime("%Y %m %d %H:%M:%S")
+    = l DateTime.now, format: :pdf
     = "  /  "
     = current_user.full_name
 
