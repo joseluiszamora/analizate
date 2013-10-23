@@ -9,11 +9,12 @@
               .alert.alert-danger
                 %strong= msg
         %fieldset
-          .form-group
-            = f.label :role, 'Tipo de Usuario:', class: 'col-lg-2 control-label'
-            .col-lg-10
-              = f.select(:role, get_user_type, {}, { :class => 'form-control' })
-              /= f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control select' }
+          - unless @user.is_admin?
+            .form-group
+              = f.label :role, 'Tipo de Usuario:', class: 'col-lg-2 control-label'
+              .col-lg-10
+                = f.select(:role, get_user_type, {}, { :class => 'form-control' })
+                /= f.collection_select :role, User::USER_TYPE, :to_s, :humanize, { :class => 'form-control select' }
           .form-group
             = f.label :image, 'Imagen:', class: "col-lg-2 control-label"
             .col-lg-10
@@ -65,7 +66,7 @@
             .col-lg-10
               /= f.select :specialty_id, Specialty.all.map { |s| [s.name, s.id] }
               = f.select :specialty_id, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {}, {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"}
-            
+
 
           .form-group
             = f.label :notes, 'Observaciones:', class: 'col-lg-2 control-label'
