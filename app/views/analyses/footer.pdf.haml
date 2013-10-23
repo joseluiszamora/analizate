@@ -5,7 +5,7 @@
     de
     %span.topage
   .right
-    = l DateTime.now, format: :pdf
+    = l Time.zone.now, format: :pdf
     = "  /  "
     = current_user.full_name
 
