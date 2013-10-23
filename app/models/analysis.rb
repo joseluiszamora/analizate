@@ -22,7 +22,11 @@ class Analysis < ActiveRecord::Base
   end
 
   def patient_full_name
-    patient.present? ? patient.full_name : ''
+    if patient_type_selector == true
+      patient_name
+    else
+      patient.present? ? patient.full_name : ''
+    end
   end
 
   def receipt_datetime
