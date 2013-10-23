@@ -1,5 +1,7 @@
 Analizate::Application.routes.draw do
 
+  resources :services
+
   resources :specialties
 
   resources :analyses do

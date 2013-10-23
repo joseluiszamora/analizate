@@ -1,0 +1,24 @@
+/= link_to 'New Service', new_service_path
+.row
+  .col-lg-12
+    .page-header
+      %h2 Servicios
+.row  
+  .col-lg-12
+    %table.table.table-hover.table-striped.table-users
+      %thead
+        %tr
+          %th.text-center Nombre
+          %th.text-center Descripcion
+          %th.text-center
+      %tbody
+        - @services.each do |service|
+          %tr
+            %td.text-center= service.name
+            %td.text-center= service.desc.html_safe
+            /%td.text-center= service.image
+            %td.text-center
+              = link_to edit_service_path(service), :class => 'btn btn-primary btn-sm' do
+                %i.icon.icon-edit.icon-white
+                Editar          
+              = link_to "Eliminar", service, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Servicio?' }

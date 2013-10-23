@@ -80,6 +80,16 @@
               %li.divider
               %li= link_to "Nuevo Anuncio", new_notice_path, tabindex: "-1"
 
+              %li.divider
+              %li= link_to "Lista de Servicios", services_path, tabindex: "-1"
+              %li.divider
+              %li= link_to "Nuevo Servicio", new_service_path, tabindex: "-1"
+
+
+
+
+
+
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
