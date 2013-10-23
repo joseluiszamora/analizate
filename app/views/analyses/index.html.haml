@@ -41,7 +41,8 @@
                 = link_to edit_analysis_path(analysis), :class => 'btn btn-primary btn-sm' do
                   %i.icon.icon-remove.icon-edit
                   Editar
-                = link_to "Eliminar", analysis, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Analisis?' }
+                - if can? :destroy, analysis
+                  = link_to "Eliminar", analysis, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Analisis?' }
     - else
       .alert.alert-info
         No hay análisis para mostrar.

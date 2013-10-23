@@ -2,23 +2,18 @@ class AnalysesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   respond_to :html, :json, :js
 
   # GET /analyses
   def index
-    # sort = "#{params[:sort]} #{params[:direction]}"
-    # q = Analysis.search({:patient_name => params[:q]})
-    # @analyses = q.result.order(sort).page(params[:page]).per(10)
-    # respond_with @analyses
-
-
     if current_user.is_admin?
       @analyses = Analysis.all
     else
       @analyses = current_user.analyses
     end
   end
-
 
   # GET /analyses/1
   def show
