@@ -72,3 +72,9 @@ jQuery ->
       id = $(@).data('analysis-id')
       $.get('/analyses/tests', { id: id, category_ids: ids, test_ids: test_ids.join(',').split(',') }, null, 'script')
     e.preventDefault()
+
+  $(document).on 'change', '#user_role', ->
+    if $(@).val() is 'medical'
+      $('#user_specialty_id').closest('.form-group').show()
+    else
+      $('#user_specialty_id').closest('.form-group').hide()
