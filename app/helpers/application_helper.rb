@@ -41,17 +41,11 @@ module ApplicationHelper
     tag(:img, options)
   end
 
-  # def sortable(column, title = nil)
-  #   title ||= column.titleize
-  #   css_class = (column == sort_column) ? "current #{sort_direction}" : nil
-  #   direction = (column == sort_column && sort_direction == "asc") ? "desc" : "asc"
-  #   options = { sort: column, direction: direction, q: params[:q] }
-  #   link_to title, options, class: css_class
-  # end
-  
   def sortable(column, title = nil)
     title ||= column.titleize
+    css_class = (column == params[:sort]) ? "current #{ params[:sort] }" : nil
     direction = (column == params[:sort] && params[:direction] == "asc") ? "desc" : "asc"
-    link_to title, :sort => column, :direction => direction
+    options = params.merge({ sort: column, direction: direction })
+    link_to title, options, class: css_class
   end
 end
