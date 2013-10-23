@@ -78,3 +78,7 @@ jQuery ->
       $('#user_specialty_id').closest('.form-group').show()
     else
       $('#user_specialty_id').closest('.form-group').hide()
+
+  $('div[data-role]').each (i, e)->
+    if !($(e).data('role') is 'medical')
+      $(e).hide()
