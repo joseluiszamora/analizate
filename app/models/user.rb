@@ -73,4 +73,17 @@ class User < ActiveRecord::Base
   def is_laboratory_staff?
     role == 'laboratory_staff'
   end
+
+  def specialty_name
+    specialty.present? ? specialty.name : ''
+  end
+
+  def age
+    if birthday.present?
+      now = Time.now.to_date
+      now.year - birthday.year - (birthday.to_date.change(:year => now.year) > now ? 1 : 0)
+    else
+      0
+    end
+  end
 end

@@ -14,6 +14,7 @@
         %h3.area
           -if(@user.role == "medical")
             = "Medico"
+            %small.muted= @user.specialty_name
           - elsif(@user.role == "patient")
             = "Paciente"
           - elsif(@user.role == "laboratory_staff")
