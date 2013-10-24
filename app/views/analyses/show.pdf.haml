@@ -16,15 +16,16 @@
               %th.text-center._p4 VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.align-left= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.unit
-                %td.text-center= test.reference_values.html_safe
-      
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.align-left= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.unit
+                  %td.text-center= test.reference_values.html_safe
+
       - if category.category == "table2"
         %table.table
           %thead
@@ -35,16 +36,17 @@
               %th.text-center._p4 VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.unit
-                %td.text-center= test.reference_values.html_safe
-              %tr
-                %td.spacing2{:colspan=>4}
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.unit
+                  %td.text-center= test.reference_values.html_safe
+                %tr
+                  %td.spacing2{:colspan=>4}
 
       - if category.category == "table3"
         %table.table.table4
@@ -55,13 +57,14 @@
               %th.text-center._3 VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.align-left= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.reference_values.html_safe
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.align-left= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.reference_values.html_safe
 
       - if category.category == "table4"
         %table.table.table2
@@ -71,23 +74,25 @@
               %th.text-center RESULTADO
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.align-left= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-      
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.align-left= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+
       - if category.category == "image"
         %table.table
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.image.present?
-                    = wicked_pdf_image_tag_j laboratory.image.url, style: ";margin:0 auto;float:none;height:680px"
-      
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.image.present?
+                      = wicked_pdf_image_tag_j laboratory.image.url, style: ";margin:0 auto;float:none;height:680px"
+
       - if category.category == "desc"
         %table.table
           %thead
@@ -95,17 +100,18 @@
               %th.text-center Descripcion
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.desc.present?
-                    = laboratory.desc.html_safe
-    
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.desc.present?
+                      = laboratory.desc.html_safe
 
-:css    
+
+:css
   .block-container { page-break-inside:avoid; page-break-after:auto; }
   table, tr, td, th, tbody, thead, tfoot    { page-break-inside:avoid; page-break-after:auto }
- 
+
   .block-container{
     /*float:left;*/
     margin: 0 0 0 53px;
@@ -116,7 +122,7 @@
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-  }  
+  }
   .block-container th, .block-container td {
     /*border-top: 1px solid #DDDDDD;*/
     border: 1px solid #000;
@@ -142,7 +148,7 @@
     text-align:center;
     vertical-align: middle;
   }
-  
+
   .block-container tbody + tbody {
     border-top: 2px solid #DDDDDD;
   }
