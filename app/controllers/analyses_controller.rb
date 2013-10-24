@@ -1,6 +1,5 @@
 class AnalysesController < ApplicationController
-  # FIXME hay un error con la acción create para cancan, no deja guardar registros nuevos. Investigar. Al solucionarlo, quitar la acción create de la lista :except
-  load_and_authorize_resource except: [:create, :tests, :categories, :medical, :patients]
+  load_and_authorize_resource except: [:tests, :categories, :medical, :patients]
   before_filter :authenticate_user!
 
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
