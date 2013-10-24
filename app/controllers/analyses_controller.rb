@@ -18,6 +18,7 @@ class AnalysesController < ApplicationController
   # GET /analyses/1
   def show
     @categories = @analysis.categories.includes(:tests)
+    @test_ids = @analysis.test_ids
     @parents = @categories.map { |c| c.parent }.uniq
 
     respond_to do |format|
@@ -120,6 +121,6 @@ class AnalysesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def analysis_params
-      params.require(:analysis).permit(:patient_id, :patient_type_selector, :patient_name, :doctor_id, :receipt_date, :delivery_date, :receipt_time, :delivery_time, { laboratories_attributes: [:id, :result, :test_id, :desc, :image] })
+      params.require(:analysis).permit(:patient_id, :patient_type_selector, :patient_name, :doctor_id, :receipt_date, :delivery_date, :receipt_time, :delivery_time, { laboratories_attributes: [:id, :result, :test_id, :desc, :image] }, test_ids: [])
     end
 end

@@ -1,6 +1,7 @@
 - parents ||= []
 - categories ||= []
 - test_ids ||= []
+
 - parents.each do |parent|
   - cats = categories.select { |c| c.parent == parent}
   %h1.titleCategory= parent.description.html_safe
@@ -18,10 +19,11 @@
                 %th.text-center VALORES DE REFERENCIA
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center= test.parameter.html_safe
                     %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
@@ -37,10 +39,11 @@
                 %th.text-center VALORES DE REFERENCIA
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center= test.parameter.html_safe
                     %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
@@ -56,10 +59,11 @@
                 %th.text-center VALORES DE REFERENCIA
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center= test.parameter.html_safe
                     %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
@@ -73,10 +77,11 @@
                 %th.text-center RESULTADO
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center= test.parameter.html_safe
                     %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
@@ -88,10 +93,11 @@
                 %th.text-center IMAGEN
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center
                       = file_field_tag "analysis[laboratories_attributes][#{test.id}][image]", class: 'form-control'
@@ -102,10 +108,11 @@
                 %th.text-center DESCRIPCIÓN
             %tbody
               - category.tests.each do |test|
-                - laboratory = get_result_for(analysis, test)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
-                = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
                 - if test_ids.include?(test.id)
+                  - laboratory = get_result_for(analysis, test)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][id]", laboratory.try(:id)
+                  = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][test_id]", test.id
+                  = hidden_field_tag 'analysis[test_ids][]', test.id
                   %tr
                     %td.text-center
                       = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc wysihtml52"

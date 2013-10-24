@@ -41,21 +41,22 @@
         - if category.category == "table1"
           %thead
             %tr
-              %th.text-center PARÁMETRO 
+              %th.text-center PARÁMETRO
               %th.text-center RESULTADO
               %th.text-center UNIDADES
               %th.text-center VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.unit
-                %td.text-center= test.reference_values.html_safe
-        
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.unit
+                  %td.text-center= test.reference_values.html_safe
+
         - if category.category == "table2"
           %thead
             %tr
@@ -65,15 +66,16 @@
               %th.text-center VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.unit
-                %td.text-center= test.reference_values.html_safe
-              %tr.spacing
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.unit
+                  %td.text-center= test.reference_values.html_safe
+                %tr.spacing
 
         - if category.category == "table3"
           %thead
@@ -83,14 +85,14 @@
               %th.text-center VALORES DE REFERENCIA
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-                %td.text-center= test.reference_values.html_safe
-
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+                  %td.text-center= test.reference_values.html_safe
 
         - if category.category == "table4"
           %thead
@@ -99,25 +101,26 @@
               %th.text-center RESULTADO
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center= test.parameter.html_safe
-                %td.text-center
-                  - if laboratory.present? && laboratory.result.present?
-                    = laboratory.result
-        
-        
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center= test.parameter.html_safe
+                  %td.text-center
+                    - if laboratory.present? && laboratory.result.present?
+                      = laboratory.result
+
         - if category.category == "image"
           %thead
             %tr
               %th.text-center Imagen
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.image.present?
-                    = image_tag laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.image.present?
+                      = image_tag laboratory.image.url, style: "width:500px;margin:0 auto;float:none;"
 
         - if category.category == "desc"
           %thead
@@ -125,18 +128,17 @@
               %th.text-center Descripcion
           %tbody
             - category.tests.each do |test|
-              - laboratory = get_result_for(@analysis, test)
-              %tr
-                %td.text-center{colspan: 3}
-                  - if laboratory.present? && laboratory.desc.present?
-                    = laboratory.desc.html_safe
+              - if @test_ids.include?(test.id)
+                - laboratory = get_result_for(@analysis, test)
+                %tr
+                  %td.text-center{colspan: 3}
+                    - if laboratory.present? && laboratory.desc.present?
+                      = laboratory.desc.html_safe
 
 .form-actions
   = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"
   = link_to 'Atrás', analyses_path, class: "btnTitle btn btn-info"
   = link_to 'Imprimir', analysis_path(@analysis, format: :pdf), class: "btnTitle btn btn-info"
-
-
 
 :css
   .spacing{
