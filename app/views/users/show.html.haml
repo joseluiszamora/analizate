@@ -45,9 +45,10 @@
           .form-group
             %label.col-lg-4 Fecha de Nacimiento:
             = @user.birthday
-          .form-group
-            %label.col-lg-4 Observaciones:
-            = @user.notes.html_safe
+          - if @user.notes.present?
+            .form-group
+              %label.col-lg-4 Observaciones:
+              = @user.notes.html_safe
 
           = link_to edit_user_path(@user), :class => 'btn btn-primary btn-sm' do
             %i.icon.icon-edit.icon-white
