@@ -1,8 +1,8 @@
 class AnalysesController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_analysis, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource except: [:tests, :categories, :medical, :patients]
 
-  load_and_authorize_resource
+  before_action :set_analysis, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, :json, :js
 
@@ -95,7 +95,7 @@ class AnalysesController < ApplicationController
   end
 
   def tests
-    @analysis = Analysis.find(params[:id]) rescue nil
+    @analysis = Analysis.find(params[:id]) rescue Analysis.new
     @categories = TestCategory.find(params[:category_ids]) rescue []
     @parents = @categories.map { |c| c.parent }.uniq
     @test_ids = params[:test_ids].map { |e| e.to_i }
@@ -105,7 +105,7 @@ class AnalysesController < ApplicationController
   end
 
   def categories
-    @analysis = Analysis.find(params[:analysis_id]) rescue nil
+    @analysis = Analysis.find(params[:analysis_id]) rescue Analysis.new
     @category = TestCategory.includes(:tests).find(params[:id]) rescue nil
     respond_with do |format|
       format.js
