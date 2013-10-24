@@ -612,7 +612,8 @@ input.search{
 
 /** Show Hospitals **/
 .postMedical{
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  height: 210px;
 }
 .postMedical img{
   float: left;

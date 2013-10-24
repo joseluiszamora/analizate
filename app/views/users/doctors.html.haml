@@ -1,43 +1,59 @@
 .container
-  .page-header
-    %h3 Médicos
+  .row
+    .col-lg-12
+      .page-header
+        %h2 Médicos
+        .pull-right.margin-search
+          = form_tag users_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
+            .span3
+              /= select_tag :specialty_id, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {}, {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"}
 
-  .row.post_row
-    - if @user.present?
-      - @user.each do |user|
-        .col-sm-6.postMedical
-          .img
-            - if user.image.present?
-              = image_tag user.image.url(:thumb), class: "img-responsive"
-            - else
-              %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
-          .text
-            %h3= user.full_name
+              = select_tag(:q, options_for_select(Specialty.all.map { |s| [s.name, s.name] }), {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"})
 
-            - if user.address.present?
-              %p
-                %i.icon.icon-home.icon-white
-                = user.address
 
-            - if user.contact_numbers.present?
-              %p
-                %i.icon.icon-phone.icon-white
-                = user.contact_numbers
 
-            - if user.email.present?
-              %p
-                %i.icon.icon-envelope.icon-white
-                = user.email
 
-            - if user.birthday.present?
-              %p
-                %i.icon.icon-globe.icon-white
-                = user.birthday
+            .span1= submit_tag "Buscar", class: 'btn btn-primary'
 
-            - if user.notes.present?
-              %p
-                %i.icon.icon-globe.icon-white
-                = user.notes.html_safe
-    - else
-      .alert.alert-info
-        No hay médicos para mostrar.
+
+
+
+    .row.post_row
+      - if @user.present?
+        - @user.each do |user|
+          .col-sm-6.postMedical
+            .img
+              - if user.image.present?
+                = image_tag user.image.url(:thumb), class: "img-responsive"
+              - else
+                %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
+            .text
+              %h3= user.full_name
+              %h4.muted= user.specialty_name
+              - if user.address.present?
+                %p
+                  %i.icon.icon-home.icon-white
+                  = user.address
+
+              - if user.contact_numbers.present?
+                %p
+                  %i.icon.icon-phone.icon-white
+                  = user.contact_numbers
+
+              - if user.email.present?
+                %p
+                  %i.icon.icon-envelope.icon-white
+                  = user.email
+
+              - if user.birthday.present?
+                %p
+                  %i.icon.icon-globe.icon-white
+                  = user.birthday
+
+              - if user.notes.present?
+                %p
+                  %i.icon.icon-globe.icon-white
+                  = user.notes.html_safe
+      - else
+        .alert.alert-info
+          No hay médicos para mostrar.
