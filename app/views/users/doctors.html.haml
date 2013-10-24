@@ -4,11 +4,11 @@
       .page-header
         %h2 Médicos
         .pull-right.margin-search
-          = form_tag users_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
+          = form_tag doctors_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
             .span3
               /= select_tag :specialty_id, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {}, {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"}
 
-              = select_tag(:q, options_for_select(Specialty.all.map { |s| [s.name, s.name] }), {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"})
+              = select_tag(:e, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"})
 
 
 

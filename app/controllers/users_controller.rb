@@ -22,7 +22,12 @@ class UsersController < ApplicationController
   end
 
   def doctors
-    @user = User.medical
+    if params[:e].present?
+      q = User.medical.search({:specialty_id_eq => params[:e]})  
+      @user = q.result.page(params[:page]).per(10)
+    else
+      @user = User.medical
+    end
   end
 
   def new
