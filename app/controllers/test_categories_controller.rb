@@ -2,6 +2,8 @@ class TestCategoriesController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_test_category, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /test_categories
   def index
     @test_categories = TestCategory.roots
