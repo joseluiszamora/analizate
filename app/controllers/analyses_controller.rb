@@ -1,8 +1,8 @@
 class AnalysesController < ApplicationController
-  load_and_authorize_resource except: [:tests, :categories, :medical, :patients]
   before_filter :authenticate_user!
-
   before_action :set_analysis, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource except: [:tests, :categories, :medical, :patients]
 
   respond_to :html, :json, :js
 

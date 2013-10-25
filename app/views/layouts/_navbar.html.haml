@@ -27,15 +27,17 @@
 
 
 
-        - if can? :manage, Analysis
+        - if can? :read, Analysis
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               Registro
               %span.caret
             %ul.dropdown-menu{"aria-labelledby" => "Analisis"}
-              %li= link_to "Nuevo Registro", new_analysis_path, tabindex: "-1"
-              %li.divider
-              %li= link_to "Lista de Registros", analyses_path, tabindex: "-1"
+              - if can? :create, Analysis
+                %li= link_to "Nuevo Registro", new_analysis_path, tabindex: "-1"
+                %li.divider
+              - if can? :read, Analysis
+                %li= link_to "Lista de Registros", analyses_path, tabindex: "-1"
 
         - if can? :manage, TestCategory
           %li.dropdown

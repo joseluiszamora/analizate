@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :doctors
   before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
-  #load_and_authorize_resource
+  load_and_authorize_resource
 
   layout "frontend", only: [:doctors]
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def doctors
     if params[:e].present?
-      q = User.medical.search({:specialty_id_eq => params[:e]})  
+      q = User.medical.search({:specialty_id_eq => params[:e]})
       @user = q.result.page(params[:page]).per(10)
     else
       @user = User.medical
