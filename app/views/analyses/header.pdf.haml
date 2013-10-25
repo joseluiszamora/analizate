@@ -1,13 +1,19 @@
 .header
   %ul
     %li
-      .big
+      .medium
         %span.title1.bold NOMBRES Y APELLIDOS:
         %span.title.desc
           - if @analysis.patient_type_selector
             = @analysis.patient_name
           - else
             = @analysis.patient_full_name
+
+      - if @analysis.patient.age.present? && @analysis.patient.age != nil && @analysis.patient.age != 0
+        .tiny
+          %span.title3.bold EDAD:
+          %span.title.desc
+            = pluralize @analysis.patient.age, 'año'
     %li
       .big
         %span.title1.bold MEDICO SOLICITANTE:
@@ -57,8 +63,14 @@
     font-size: 14px;
     width: 180px;
   }
+  .header ul li .title3{
+    font-weight: bold;
+    font-size: 14px;
+    width: 60px;
+  }
   .header ul li .desc{
     font-size: 14px;
+    float: left;
   }
   .header ul li .big{
     width: 650px;
@@ -66,5 +78,13 @@
   }
   .header ul li .small{
     width: 320px;
+    float: left;
+  }
+  .header ul li .medium{
+    width: 477px;
+    float: left;
+  }
+  .header ul li .tiny{
+    width: 120px;
     float: left;
   }
