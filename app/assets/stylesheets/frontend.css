@@ -19,5 +19,6 @@
  *= require navbar
  *= require icons
  *= require font-awesome
+ *= require chosen
  * require_self
  */

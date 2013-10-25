@@ -20,6 +20,7 @@
 //= require chosen.jquery
 //= require function
 //= require analyses
+//= require jquery.easing.1.3
 //= require jquery.cycle.lite
 //= require bootstrap-wysihtml5
 //= require hogan.js

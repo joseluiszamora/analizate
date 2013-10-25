@@ -694,3 +694,19 @@ input.search{
   float: right;
   width: 60px;
 }
+
+.doctors-search{
+  width: 500px;
+}
+.doctors-search .select{
+  float: left;
+  width: 300px;
+}
+.doctors-search .sub{
+  float: left;
+  width: 100px;
+}
+
+.doctors-search #e_chosen{
+  width: 270px !important;
+}

@@ -53,4 +53,3 @@ gem 'rvm-capistrano'
 # add rich text editor on analisis
 gem 'bootstrap-wysihtml5-rails'
 gem 'therubyracer'
-gem 'rails-erd', group: :development
