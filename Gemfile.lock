@@ -98,7 +98,6 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.7.9)
-    mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -166,6 +165,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.8)
+    sqlite3 (1.3.8-x86-mingw32)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -208,7 +209,6 @@ DEPENDENCIES
   hogan_assets
   jquery-rails
   kaminari
-  mysql2
   rails (= 4.0.0)
   rails-erd
   rails_12factor
@@ -217,6 +217,7 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
+  sqlite3
   therubyracer
   uglifier (>= 1.3.0)
   unicorn
