@@ -2,11 +2,11 @@
   .col-lg-12
     .page-header
       %h2 Listado de Análisis
-      / .pull-right.margin-search
-      /   = form_tag analyses_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
-      /     .span1
-      /     .span3= text_field_tag :q, "", class: 'form-control'
-      /     .span1= submit_tag "Buscar", class: 'btn btn-primary'
+      .pull-right.margin-search
+        = form_tag analyses_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
+          .span1
+          .span3= text_field_tag :q, params[:q], class: 'form-control'
+          .span1= submit_tag "Buscar", class: 'btn btn-primary'
 
 .row
   .col-lg-12

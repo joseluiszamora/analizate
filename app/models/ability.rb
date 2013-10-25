@@ -11,11 +11,11 @@ class Ability
       cannot [:destroy, :update], Analysis
       can :profile, User, id: user.id
       cannot [:read, :create, :update, :destroy], User
-    elsif user.is_patient?
-      can [:read], Analysis, patient_id: user.id
     elsif user.is_laboratory_staff?
-      can [:read, :update], Analysis
+      can [:read, :create, :update], Analysis
       can :profile, User, id: user.id
+    elsif user.is_patient?
+      can :read, Analysis, patient_id: user.id
     end
   end
 end

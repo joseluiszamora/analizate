@@ -5,22 +5,22 @@
       .pull-right.margin-search
         = form_tag users_path, html: { class: 'bs-example form-horizontal'}, :method => "get" do
           .span1
-          .span3= text_field_tag :q, "", class: 'form-control'
+          .span3= text_field_tag :q, params[:q], class: 'form-control'
           .span1= submit_tag "Buscar", class: 'btn btn-primary'
 
 
-.row  
+.row
   .col-lg-12
     %table.table.table-hover.table-striped.table-bordered.table-users
       %thead
         %tr
-          %th 
+          %th
           %th.sort-link= sortable "name", "Nombre Completo"
           %th.sort-link= sortable "username", "Nombre de Usuario"
           %th.sort-link= sortable "role", "Tipo de Usuario"
           %th.sort-link= sortable "phone", "Contacto"
           %th.sort-link= sortable "email", "Email"
-          %th 
+          %th
       %tbody
         - @users.each_with_index do |user, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
@@ -38,7 +38,7 @@
                 = "Paciente"
               - elsif(user.role == "laboratory_staff")
                 = "Personal de Laboratorio"
-              - elsif(user.role == "admin") 
+              - elsif(user.role == "admin")
                 = "Administrador"
             %td= user.contact_numbers
             /%td= I18n.l user.created_at, format: :long
@@ -53,7 +53,7 @@
               = link_to "#modal-user-#{user.id}", :class => 'btn btn-default btn-sm', :'data-toggle' => 'modal' do
                 %i.icon.icon-remove.icon-white
                 Eliminar
-                
+
                 / Modal
                 .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1", id: "modal-user-#{user.id}"}
                   .modal-dialog

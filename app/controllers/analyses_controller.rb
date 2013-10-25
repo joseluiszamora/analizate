@@ -9,9 +9,9 @@ class AnalysesController < ApplicationController
   # GET /analyses
   def index
     if current_user.is_admin?
-      @analyses = Analysis.all
+      @analyses = Analysis.searching(params[:q])
     else
-      @analyses = current_user.analyses
+      @analyses = current_user.analyses.searching(params[:q])
     end
   end
 

@@ -1,5 +1,6 @@
 class Analysis < ActiveRecord::Base
   belongs_to :patient, class_name: 'User'
+  belongs_to :other, class_name: 'User', foreign_key: 'patient_id'
   belongs_to :doctor, class_name: 'User'
 
   has_many :laboratories, dependent: :destroy
@@ -7,6 +8,13 @@ class Analysis < ActiveRecord::Base
   accepts_nested_attributes_for :laboratories, allow_destroy: true
 
   validates :patient_id, presence: true, if: proc { |a| a.patient_type_selector == false }
+
+  def self.searching(q)
+    options = {}
+    options.merge!({ patient_name_or_other_name_or_other_last_name_or_doctor_name_or_doctor_last_name_cont: q }) if q.present?
+    qq = search(options)
+    qq.result
+  end
 
   def categories
     ids = tests.pluck(:test_category_id).uniq
