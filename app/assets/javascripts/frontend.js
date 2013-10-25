@@ -40,4 +40,6 @@
 * require jquery.cycle.lite
 
 *= require index-slider
+
+*= require chosen.jquery
  */

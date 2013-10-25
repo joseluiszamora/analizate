@@ -6,7 +6,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'mysql2'
+gem 'sqlite3'
 
 gem 'ransack'
 gem 'kaminari'
@@ -53,4 +53,3 @@ gem 'rvm-capistrano'
 # add rich text editor on analisis
 gem 'bootstrap-wysihtml5-rails'
 gem 'therubyracer'
-gem 'rails-erd', group: :development
