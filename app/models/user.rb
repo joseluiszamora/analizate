@@ -40,9 +40,8 @@ class User < ActiveRecord::Base
       Analysis.where(doctor_id: self.id)
     elsif is_patient?
       Analysis.where(patient_id: self.id)
-    else
-      # TODO que es lo que va a poder ver el de laboratorio
-      []
+    elsif is_laboratory_staff?
+      Analysis.where(nil)
     end
   end
 

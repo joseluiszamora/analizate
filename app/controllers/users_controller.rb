@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate_user!, :only => :doctors
   before_action :set_user, only: [:profile, :edit, :update, :destroy]
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:doctors]
 
   layout "frontend", only: [:doctors]
 
