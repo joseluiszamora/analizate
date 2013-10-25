@@ -40,14 +40,14 @@
         - if can? :manage, TestCategory
           %li.dropdown
             %a#themes.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Edicion de Pruebas
+              Edición de Pruebas
               %span.caret
             %ul.dropdown-menu{"aria-labelledby" => "Categorias"}
-              %li= link_to "Lista de Areas", test_categories_path, tabindex: "-1"
+              %li= link_to "Lista de Áreas", test_categories_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Nueva Area", new_test_category_path, tabindex: "-1"
+              %li= link_to "Nueva Área", new_test_category_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Lista de Examenes", tests_path, tabindex: "-1"
+              %li= link_to "Lista de Exámenes", tests_path, tabindex: "-1"
               %li.divider
               %li= link_to "Nuevo Examen", new_test_path, tabindex: "-1"
 
@@ -59,7 +59,7 @@
             %ul.dropdown-menu{"aria-labelledby" => "Hospitales"}
               %li= link_to "Ver Todos", institutions_path, tabindex: "-1"
               %li.divider
-              %li= link_to "Nueva Institucion", new_institution_path, tabindex: "-1"
+              %li= link_to "Nueva Institución", new_institution_path, tabindex: "-1"
               %li.divider
               %li= link_to "Lista de Hospitales", hospitals_institutions_path, tabindex: "-1"
               %li.divider

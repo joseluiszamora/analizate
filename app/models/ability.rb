@@ -6,9 +6,9 @@ class Ability
     if user.is_admin?
       can :manage, :all
     elsif user.is_medical?
-      can :manage, Analysis, doctor_id: user.id
+      can [:read, :create], Analysis, doctor_id: user.id
       can [:categories, :tests], Analysis
-      cannot [:destroy], Analysis
+      cannot [:destroy, :update], Analysis
       cannot :manage, User
     elsif user.is_patient?
       can [:read], Analysis, patient_id: user.id

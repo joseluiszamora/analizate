@@ -31,16 +31,14 @@
               %td.text-center= analysis.receipt_date
               %td.text-center= analysis.delivery_date
               %td
-                /= link_to 'Ver', analysis
-                /= link_to 'Editar', edit_analysis_path(analysis)
-                /= link_to 'Borrar', analysis, :method => :delete, :data => { :confirm => 'Esta seguro?' }
-
-                = link_to analysis, :class => 'btn btn-primary btn-sm' do
-                  %i.icon.icon-loupe.icon-white
-                  Ver
-                = link_to edit_analysis_path(analysis), :class => 'btn btn-primary btn-sm' do
-                  %i.icon.icon-remove.icon-edit
-                  Editar
+                - if can? :read, analysis
+                  = link_to analysis, :class => 'btn btn-primary btn-sm' do
+                    %i.icon.icon-loupe.icon-white
+                    Ver
+                - if can? :update, analysis
+                  = link_to edit_analysis_path(analysis), :class => 'btn btn-primary btn-sm' do
+                    %i.icon.icon-remove.icon-edit
+                    Editar
                 - if can? :destroy, analysis
                   = link_to "Eliminar", analysis, :class => 'btn btn-default btn-sm', method: :delete, :data => { :confirm => 'Esta seguro de Eliminar este Analisis?' }
     - else

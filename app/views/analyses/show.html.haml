@@ -136,9 +136,11 @@
                       = laboratory.desc.html_safe
 
 .form-actions
-  = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"
-  = link_to 'Atrás', analyses_path, class: "btnTitle btn btn-info"
-  = link_to 'Imprimir', analysis_path(@analysis, format: :pdf), class: "btnTitle btn btn-info"
+  - if can? :update, @analysis
+    = link_to 'Editar', edit_analysis_path(@analysis), class: "btn btn-primary"
+  - if can? :read, @analysis
+    = link_to 'Atrás', analyses_path, class: "btnTitle btn btn-info"
+    = link_to 'Imprimir', analysis_path(@analysis, format: :pdf), class: "btnTitle btn btn-info"
 
 :css
   .spacing{
