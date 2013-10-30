@@ -8,6 +8,7 @@
     %table.table.table-hover.table-striped.table-users
       %thead
         %tr
+          %th.text-center Posición
           %th.text-center Area
           %th.text-center Parametro
           %th.text-center Unidades
@@ -16,7 +17,8 @@
       %tbody
         - @tests.each do |test|
           %tr
-            %td.text-center= test.test_category_description
+            %td.text-center= test.level
+            %td.text-center= test.test_category_description.html_safe
             %td.text-center= test.parameter
             %td.text-center= test.unit
             %td.text-center= test.reference_values

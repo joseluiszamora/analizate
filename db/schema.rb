@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131023103819) do
+ActiveRecord::Schema.define(version: 20131030183649) do
 
   create_table "analyses", force: true do |t|
     t.integer  "patient_id"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+    t.integer  "level"
   end
 
   add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry", using: :btree
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.integer  "test_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "level"
   end
 
   add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id", using: :btree
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.string   "role"
     t.integer  "specialty_id"
     t.string   "especiality"
+    t.integer  "level"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

@@ -21,6 +21,10 @@
           /   .col-lg-10
           /     = f.select(:test_type, options_for_select([['normal', 'normal'], ['imagen', 'image'], ['descripcion', 'desc']], @test.test_type), {include_blank: true}, { :class => 'form-control', data: {new: @test.new_record?} })
           .form-group{style: "float: left; width: 100%;"}
+            = f.label :level, 'Posición:', class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :level, class: 'col-lg-7 inline-input form-control input-form-2'
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :parameter, 'Parámetro:', class: "col-lg-2 control-label label-form-2"
             = f.text_field :parameter, :class => "col-lg-7 inline-input form-control input-form-2"
           .form-group{style: "float: left; width: 100%;"}

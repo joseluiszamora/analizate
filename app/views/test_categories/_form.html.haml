@@ -20,6 +20,11 @@
               = f.select(:category, options_for_select([['Tabla Normal de 4 Columnas', 'table1'], ['Tabla Espaciada de 4 Columnas', 'table2'], ['Tabla Normal de 3 Columnas', 'table3'], ['Tabla Normal de 2 Columnas', 'table4'], ['Imagen', 'image'], ['Descripcion', 'desc']], @test_category.category), {include_blank: false}, { :class => 'form-control', data: {new: @test_category.new_record?} })
 
           .form-group{style: "float: left; width: 100%;"}
+            = f.label :level, 'Posición:', class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :level, class: 'col-lg-7 inline-input form-control input-form-2'
+
+          .form-group{style: "float: left; width: 100%;"}
             = f.label :description, 'Descripción:',  class: 'col-lg-2 control-label'
             %br
             %br

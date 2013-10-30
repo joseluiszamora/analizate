@@ -8,6 +8,7 @@
     %table.table.table-hover.table-striped.table-users
       %thead
         %tr
+          %th.text-center Posición
           %th.text-center Descripción
           %th.text-center Tipo de Area
           %th.text-center Subcategorías
@@ -15,6 +16,7 @@
       %tbody
         - @test_categories.each_with_index do |test_category, index|
           %tr{ class: "#{ index == 0 ? 'first' : '' }" }
+            %td.text-center= test_category.level
             %td.text-center= test_category.description.html_safe
             %td.text-center
               - if test_category.category == "table1"
