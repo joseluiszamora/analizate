@@ -25,7 +25,9 @@
                 - if test_ids.include?(test.id)
                   %tr
                     %td.text-center= test.parameter.html_safe
-                    %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
+                    %td.text-center
+                      - unless current_user.is_medical?
+                        = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
                     %td.text-center= test.unit
                     %td.text-center= test.reference_values.html_safe
                 - else
@@ -46,7 +48,9 @@
                 - if test_ids.include?(test.id)
                   %tr
                     %td.text-center= test.parameter.html_safe
-                    %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
+                    %td.text-center
+                      - unless current_user.is_medical?
+                        = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
                     %td.text-center= test.unit
                     %td.text-center= test.reference_values.html_safe
                   %tr.spacing
@@ -67,7 +71,9 @@
                 - if test_ids.include?(test.id)
                   %tr
                     %td.text-center= test.parameter.html_safe
-                    %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
+                    %td.text-center
+                      - unless current_user.is_medical?
+                        = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
                     %td.text-center= test.reference_values.html_safe
                 - else
                   = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][_destroy]", '1'
@@ -86,7 +92,9 @@
                 - if test_ids.include?(test.id)
                   %tr
                     %td.text-center= test.parameter.html_safe
-                    %td.text-center= text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
+                    %td.text-center
+                      - unless current_user.is_medical?
+                        = text_field_tag "analysis[laboratories_attributes][#{test.id}][result]", laboratory.try(:result), style: "height: 32px;text-align: center;width: 200px;margin:0 auto;", class: "form-control"
                 - else
                   = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][_destroy]", '1'
 

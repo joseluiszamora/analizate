@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.boolean  "patient_type_selector", default: false
   end
 
-  add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id"
-  add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id"
+  add_index "analyses", ["doctor_id"], name: "index_analyses_on_doctor_id", using: :btree
+  add_index "analyses", ["patient_id"], name: "index_analyses_on_patient_id", using: :btree
 
   create_table "institutions", force: true do |t|
     t.string   "category"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.string   "image"
   end
 
-  add_index "laboratories", ["analysis_id"], name: "index_laboratories_on_analysis_id"
-  add_index "laboratories", ["test_id"], name: "index_laboratories_on_test_id"
+  add_index "laboratories", ["analysis_id"], name: "index_laboratories_on_analysis_id", using: :btree
+  add_index "laboratories", ["test_id"], name: "index_laboratories_on_test_id", using: :btree
 
   create_table "notices", force: true do |t|
     t.string   "title"
@@ -86,12 +86,12 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.string   "category"
   end
 
-  add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry"
+  add_index "test_categories", ["ancestry"], name: "index_test_categories_on_ancestry", using: :btree
 
   create_table "tests", force: true do |t|
     t.string   "parameter"
     t.string   "unit"
-    t.text     "reference_values", limit: 255
+    t.text     "reference_values"
     t.string   "test_type"
     t.text     "description"
     t.string   "image"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.datetime "updated_at"
   end
 
-  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id"
+  add_index "tests", ["test_category_id"], name: "index_tests_on_test_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -132,17 +132,17 @@ ActiveRecord::Schema.define(version: 20131023103819) do
     t.string   "cellular"
     t.date     "birthday"
     t.text     "notes"
-    t.string   "role"
     t.string   "image"
-    t.string   "especiality"
+    t.string   "role"
     t.integer  "specialty_id"
+    t.string   "especiality"
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
