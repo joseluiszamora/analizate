@@ -1,7 +1,7 @@
 class TestCategory < ActiveRecord::Base
   has_ancestry
 
-  default_scope -> { order(:description) }
+  default_scope -> { order(:level) }
 
   scope :childrens, -> { where('ancestry IS NOT ? OR ancestry != ?', nil, '') }
 
