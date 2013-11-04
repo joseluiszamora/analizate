@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def get_childrens
-    TestCategory.childrens.map { |t| [t.full_description.html_safe, t.id] }
+    TestCategory.childrens.map { |t| [t.description.html_safe, t.id] }
   end
 
   def get_notices
