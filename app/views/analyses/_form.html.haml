@@ -25,6 +25,16 @@
           .alert.alert-danger
             %strong= msg
 
+    .wizard-actions
+      = button_tag class: 'btn btn-primary btn-prev', type: 'button' do
+        %i.icon-chevron-left
+        Anterior
+      = button_tag class: 'btn btn-primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
+        Siguiente
+        %i.icon-chevron-right
+      = button_tag class: 'btn btn-success btn-finish', style: 'display: none;' do
+        Finalizar Análisis
+
     .step-content
       #step1.step-pane.active
         .row-fluid.form-wrapper.payment-info
@@ -79,15 +89,5 @@
 
       #step3.step-pane
         = render 'tests', categories: @analysis.categories, analysis: @analysis, parents: @parents, test_ids: test_ids
-
-    .wizard-actions
-      = button_tag class: 'btn btn-primary btn-prev', type: 'button' do
-        %i.icon-chevron-left
-        Anterior
-      = button_tag class: 'btn btn-primary btn-next', type: 'button', style: 'display: inline-block;', data: { last: 'Finish', id: @analysis.id } do
-        Siguiente
-        %i.icon-chevron-right
-      = button_tag class: 'btn btn-success btn-finish', style: 'display: none;' do
-        Finalizar Análisis
 
 #test-menu-container

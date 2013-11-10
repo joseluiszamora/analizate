@@ -709,3 +709,14 @@ input.search{
 .doctors-search #e_chosen{
   width: 270px !important;
 }
+
+
+
+
+.blockHomeFix{
+  float: left;
+  height: 380px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;  
+}
