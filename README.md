@@ -18,6 +18,14 @@ Logout with `curl`:
 curl -H "Accept: application/json" -H "Content-type: application/json" -X DELETE http://localhost:3000/users/sign_out.json?auth_token=VmxAbMJxQZpyGenGAHPx
 ```
 
+### Show base64 images
+
+For show `logo_base64` in `img` tag:
+
+```html
+<img src="data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD//gADKv/iAhxJQ0NfUF...">
+```
+
 ### API for doctors
 
 ```console
@@ -36,7 +44,7 @@ Response:
     address: "Calle G #32",
     specialty_name: "Ginecólogo",
     observations: "Director Medico del Hospital.",
-    avatar: "/uploads/user/image/20/thumb_5c8df.jpg"
+    avatar_base64: "/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAQDAwQDAwQE..."
   },
   {
     full_name: "Yomerito Mero",
@@ -46,7 +54,7 @@ Response:
     address: "Av. Palotes #1000",
     specialty_name: "Ginecólogo",
     observations: "Observaciones",
-    avatar: "/uploads/user/image/2/thumb_7d8f2.jpg"
+    avatar_base64: null
   }
 ]
 ```
@@ -69,7 +77,7 @@ Response:
     mail: "angeles.charlie@gmail.com",
     web: "http://angeles-charlie.com",
     desc: "Hospital de tercer nivel medicina critica y tradicional",
-    logo: "/uploads/institution/image/665/thumb_8282.jpg"
+    logo_base64: "/9j/4AAQSkZJRgABAQEASABIAAD//gADKv/iAhxJQ0NfUF..."
   },
   {
     category: "Farmacias",
@@ -79,7 +87,7 @@ Response:
     mail: "bolivia@gmail.com",
     web: "",
     desc: "Farmacia economica",
-    logo: "/uploads/institution/image/5223/thumb_1103.jpg"
+    logo_base64: null
   }
 ]
 ```
