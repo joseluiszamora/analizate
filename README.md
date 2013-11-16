@@ -50,3 +50,35 @@ Response:
   }
 ]
 ```
+### API for institutions
+
+```console
+curl -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:3000/api/v1/institutions.json
+```
+
+Response:
+
+```json
+[
+  {
+    category: "Hospitales",
+    name: "Hospital Los Angeles de Charlie",
+    address: "Av. Juan Pablo II",
+    phone: "2823423",
+    mail: "angeles.charlie@gmail.com",
+    web: "http://angeles-charlie.com",
+    desc: "Hospital de tercer nivel medicina critica y tradicional",
+    logo: "/uploads/institution/image/665/thumb_8282.jpg"
+  },
+  {
+    category: "Farmacias",
+    name: "Farmacias Bolivia",
+    address: "Av 6 de marzo No. 45",
+    phone: "28456435",
+    mail: "bolivia@gmail.com",
+    web: "",
+    desc: "Farmacia economica",
+    logo: "/uploads/institution/image/5223/thumb_1103.jpg"
+  }
+]
+```
