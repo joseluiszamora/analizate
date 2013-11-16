@@ -50,6 +50,7 @@ Response:
   }
 ]
 ```
+
 ### API for institutions
 
 ```console
@@ -79,6 +80,27 @@ Response:
     web: "",
     desc: "Farmacia economica",
     logo: "/uploads/institution/image/5223/thumb_1103.jpg"
+  }
+]
+```
+
+### API for specialties
+
+```console
+curl -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:3000/api/v1/specialties.json
+```
+
+Response:
+
+```json
+[
+  {
+    name: "Ginecólogo",
+    desc: null
+  },
+  {
+    name: "Pediatría",
+    desc: null
   }
 ]
 ```
