@@ -104,3 +104,24 @@ Response:
   }
 ]
 ```
+
+### API for services
+
+```console
+curl -H "Accept: application/json" -H "Content-type: application/json" -X GET http://localhost:3000/api/v1/services.json
+```
+
+Response:
+
+```json
+[
+  {
+    name: "Análisis",
+    desc: "Descripción de análisis"
+  },
+  {
+    name: "Consultas",
+    desc: "Descripción de consultas"
+  }
+]
+```
