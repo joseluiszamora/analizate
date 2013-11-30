@@ -33,7 +33,7 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'Letter',
-          :margin => {:top => 58,
+          :margin => {:top => 50,
             :bottom => 10,
             :left => 25,
             :right => 10},
