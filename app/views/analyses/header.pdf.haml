@@ -2,8 +2,8 @@
   %ul
     %li
       .medium
-        %span.title1.bold NOMBRES Y APELLIDOS:
-        %span.title.desc
+        %span.title1.desc NOMBRES Y APELLIDOS:
+        %span.title.bold
           - if @analysis.patient_type_selector
             = @analysis.patient_name
           - else
@@ -11,20 +11,20 @@
 
       - if @analysis.patient.age.present? && @analysis.patient.age != nil && @analysis.patient.age != 0
         .tiny
-          %span.title3.bold EDAD:
-          %span.title.desc
+          %span.title3.desc EDAD:
+          %span.title.bold
             = pluralize @analysis.patient.age, 'año'
     %li
       .big
-        %span.title1.bold MEDICO SOLICITANTE:
-        %span.title.desc= @analysis.doctor_full_name
+        %span.title1.desc MEDICO SOLICITANTE:
+        %span.title.bold= @analysis.doctor_full_name
     %li
       .small
-        %span.title2.bold FECHA DE RECEPCIÓN:
-        %span.title.desc= I18n.l @analysis.receipt_datetime, format: "%d / %m / %Y"
+        %span.title2.desc FECHA DE RECEPCIÓN:
+        %span.title.bold= I18n.l @analysis.receipt_datetime, format: "%d / %m / %Y"
       .small
-        %span.title2.bold FECHA DE ENTREGA:
-        %span.title.desc= I18n.l @analysis.delivery_datetime, format: "%d / %m / %Y"
+        %span.title2.desc FECHA DE INFORME:
+        %span.title.bold= I18n.l @analysis.delivery_datetime, format: "%d / %m / %Y"
 
 
 :css
@@ -54,17 +54,14 @@
     float:left;
   }
   .header ul li .title1{
-    font-weight: bold;
     font-size: 14px;
     width: 180px;
   }
   .header ul li .title2{
-    font-weight: bold;
     font-size: 14px;
     width: 180px;
   }
   .header ul li .title3{
-    font-weight: bold;
     font-size: 14px;
     width: 60px;
   }
@@ -87,4 +84,7 @@
   .header ul li .tiny{
     width: 120px;
     float: left;
+  }
+  .bold{
+    font-weight: bold;
   }
