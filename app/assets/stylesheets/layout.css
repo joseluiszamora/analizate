@@ -720,3 +720,18 @@ input.search{
   overflow-x: hidden;
   overflow-y: auto;  
 }
+
+
+#section1, #section2, #section3{
+  text-align: justify;
+}
+.conttable{
+  float: left;
+  width: 100%;
+}
+.conttable .block{
+  float: left;
+  width: 50%;
+  line-height: 40px;
+  text-align: center;
+}

@@ -1,6 +1,9 @@
 
 .login-bg {
-  background-image : url("/images/9.jpg");
+  /*background-color: #1491ff;*/
+  background-color: #ffffff;  
+  background-image : url("/images/background.jpg");
+  background-repeat: repeat-x;
   width: 100%;
   height: 100%;
   float: left;
