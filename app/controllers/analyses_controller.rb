@@ -20,6 +20,7 @@ class AnalysesController < ApplicationController
     @categories = @analysis.categories.includes(:tests)
     @test_ids = @analysis.test_ids
     @parents = @categories.map { |c| c.parent }.uniq
+    @parents.sort_by! {|obj| obj.level}
 
     respond_to do |format|
       format.html
@@ -32,7 +33,7 @@ class AnalysesController < ApplicationController
           :orientation => 'Portrait',
           :font_size   => '12px',
           :page_size => 'Letter',
-          :margin => {:top => 58,
+          :margin => {:top => 50,
             :bottom => 10,
             :left => 25,
             :right => 10},
@@ -60,6 +61,7 @@ class AnalysesController < ApplicationController
   # GET /analyses/1/edit
   def edit
     @parents = @analysis.categories.map { |c| c.parent }.uniq
+    @parents.sort_by! {|obj| obj.level}
   end
 
   # POST /analyses
@@ -102,6 +104,7 @@ class AnalysesController < ApplicationController
     @analysis = Analysis.find(params[:id]) rescue Analysis.new
     @categories = TestCategory.find(params[:category_ids]) rescue []
     @parents = @categories.map { |c| c.parent }.uniq
+    @parents.sort_by! {|obj| obj.level}
     @test_ids = params[:test_ids].map { |e| e.to_i }
     respond_with do |format|
       format.js

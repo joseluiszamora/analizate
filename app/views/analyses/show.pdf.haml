@@ -20,7 +20,7 @@
                 - laboratory = get_result_for(@analysis, test)
                 %tr
                   %td.align-left= test.parameter.html_safe
-                  %td.text-center
+                  %td.text-center.result
                     - if laboratory.present? && laboratory.result.present?
                       = laboratory.result
                   %td.text-center= test.unit
@@ -40,7 +40,7 @@
                 - laboratory = get_result_for(@analysis, test)
                 %tr
                   %td.text-center= test.parameter.html_safe
-                  %td.text-center
+                  %td.text-center.result
                     - if laboratory.present? && laboratory.result.present?
                       = laboratory.result
                   %td.text-center= test.unit
@@ -61,7 +61,7 @@
                 - laboratory = get_result_for(@analysis, test)
                 %tr
                   %td.align-left= test.parameter.html_safe
-                  %td.text-center
+                  %td.text-center.result
                     - if laboratory.present? && laboratory.result.present?
                       = laboratory.result
                   %td.text-center= test.reference_values.html_safe
@@ -78,7 +78,7 @@
                 - laboratory = get_result_for(@analysis, test)
                 %tr
                   %td.align-left= test.parameter.html_safe
-                  %td.text-center
+                  %td.text-center.result
                     - if laboratory.present? && laboratory.result.present?
                       = laboratory.result
 
@@ -160,10 +160,11 @@
     width: 100%;
     font-size: 18px;
     font-weight:bold;
-    height:10px;
+    height:30px;
     font-family: Arial;
     text-transform: uppercase;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    margin-top: 10px;
   }
   .spacing{
     height:10px;
@@ -174,7 +175,7 @@
   }
 
   .titleSubCategory{
-    margin: 10px 0 2px;
+    margin: 5px 0 1px;
     font-family: Arial;
     text-transform: uppercase;
     font-size: 10px;
@@ -208,4 +209,8 @@
   }
   .align-left{
     text-align: left !important;
+  }
+  .result{
+    font-size:13px !important;
+    font-weight:bold !important;
   }

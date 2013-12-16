@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def get_childrens
-    TestCategory.childrens.map { |t| [t.full_description, t.id] }
+    TestCategory.childrens.map { |t| [t.description.html_safe, t.id] }
   end
 
   def get_notices
@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def get_test_category_roots
-    TestCategory.roots.map { |t| [t.description, t.id] }
+    TestCategory.roots.map { |t| [t.description.html_safe, t.id] }
   end
 
   def get_user_type

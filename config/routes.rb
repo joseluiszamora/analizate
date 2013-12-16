@@ -1,4 +1,14 @@
 Analizate::Application.routes.draw do
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1 do
+      resources :institutions, only: :index
+      resources :services, only: :index
+      resources :specialties, only: :index
+      resources :users, only: [] do
+        get 'doctors', on: :collection
+      end
+    end
+  end
 
   resources :services
 

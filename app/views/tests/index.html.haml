@@ -21,7 +21,7 @@
             %td.text-center= test.test_category_description.html_safe
             %td.text-center= test.parameter
             %td.text-center= test.unit
-            %td.text-center= test.reference_values
+            %td.text-center= test.reference_values.html_safe
             %td.text-center
               - if test.image.present?
                 = image_tag test.image.url(:thumb)

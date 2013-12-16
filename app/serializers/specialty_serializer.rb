@@ -1,3 +1,3 @@
 class SpecialtySerializer < ActiveModel::Serializer
-  attributes :id, :name, :desc
+  attributes :name, :desc
 end

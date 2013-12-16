@@ -25,6 +25,7 @@
   z-index: 1050;
   width: 50%;
   margin-left: -25%;
+  outline: none !important;
   /*background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);

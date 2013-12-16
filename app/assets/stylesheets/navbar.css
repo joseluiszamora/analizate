@@ -663,6 +663,7 @@
       text-align: center; }
       #feature_slider .slide#ideas .info h2 {
         color: #fff;
+        text-shadow: 1px 3px #666666;
         font-weight: normal; }
     #feature_slider .slide#tour .info {
       position: absolute;
