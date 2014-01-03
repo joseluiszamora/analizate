@@ -18,7 +18,6 @@ class UsersController < ApplicationController
 
   def profile
     render :show
-    @user = User.find(params[:id])
   end
 
   def doctors
