@@ -612,15 +612,29 @@ input.search{
 
 /** Show Hospitals **/
 .postMedical{
-  margin-bottom: 50px;
+  margin: 2.5%;
+  padding: 0;
   height: 210px;
+  background-color: #FFFFFF;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  width: 95%;
+}
+.postMedical .img{
+  float: left;
+  padding: 4px 20px 0 6px;
+  width: 130px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 .postMedical img{
   float: left;
-  padding: 0 20px 0 0;
-  /*min-height: 200px;*/
-  /*min-width: 275px;*/
-  max-width: 220px;
+  width: 100%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
 .postMedical .icon{
   color: #317EAC;
@@ -734,4 +748,18 @@ input.search{
   width: 50%;
   line-height: 40px;
   text-align: center;
+}
+
+
+.gradient-gray {
+  height: 100%;
+  background-color: #F3F8FA;
+  background-image: linear-gradient(to bottom, #FFFFFF 0px, #E4EEF2 100%);
+  background: -webkit-linear-gradient(#FFFFFF, #E4EEF2); /* For Safari */
+  background: -o-linear-gradient(#FFFFFF, #E4EEF2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FFFFFF, #E4EEF2); /* For Firefox 3.6 to 15 */
+}
+.no-padding{
+  padding-left: 5px !important;
+  padding-right: 5px !important;
 }
