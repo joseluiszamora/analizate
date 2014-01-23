@@ -653,7 +653,8 @@ input.search{
 .postMedical .text{
   float: left;
   margin: 7px 0 0;
-  max-width: 240px;
+  max-width: 235px;
+  overflow-y: auto;
 }
 .postMedical .title._1{
   font-size: 20px;
