@@ -7,13 +7,12 @@
       - @institutions.each do |institution|
         .col-sm-4.no-padding
           .postMedical
-            .top    
-              - if institution.image.present?
-                .img
-                  - if user.image.present?
-                    = image_tag institution.image.url(:thumb), class: "img-responsive"
-                  - else
-                    %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
+            .top
+              .img
+                - if institution.image.present?
+                  = image_tag institution.image.url(:thumb), class: "img-responsive"
+                - else
+                  %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
               .text
                 .title._1= institution.name
                 - if institution.address.present?
