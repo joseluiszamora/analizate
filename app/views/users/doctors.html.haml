@@ -1,4 +1,4 @@
-.container.gradient-gray
+.container.gradient-gray.padding5
   .row
     .col-lg-12
       .page-header
@@ -52,18 +52,15 @@
                       = user.contact_numbers
               .bottom
                 - if user.address.present?
-                  %p
-                    %i.icon.icon-home.icon-white
+                  %i.icon.icon-home.icon-white
                     = user.address
 
                 - if user.email.present?
-                  %p
-                    %i.icon.icon-envelope.icon-white
+                  %i.icon.icon-envelope.icon-white
                     = user.email
 
                 - if user.notes.present?
-                  %p
-                    %i.icon.icon-globe.icon-white
+                  %i.icon.icon-globe.icon-white
                     = user.notes.html_safe
       - else
         .alert.alert-info
