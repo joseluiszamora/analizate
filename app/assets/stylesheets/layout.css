@@ -596,10 +596,12 @@ input.search{
   font-size: 18px;
   text-align: center;
   width: 100%;
+  padding: 25px 10px 0;
 }
 #slideNoticesContainer .notice .image{
   float: left;
   width: 100%;
+  padding: 25px 10px;
 }
 #slideNoticesContainer .notice .image img{
   float: left;
