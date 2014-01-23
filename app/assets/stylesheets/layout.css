@@ -612,6 +612,7 @@ input.search{
   text-align: justify;
   width: 100%;
   margin: 15px 0 0;
+  padding: 0 10px;
 }
 
 .input-append{
