@@ -38,24 +38,23 @@
           .col-sm-4.no-padding
             .postMedical
               .top
+                .img
+                  - if user.image.present?
+                    = image_tag user.image.url(:thumb), class: "img-responsive"
+                  - else
+                    %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
+                .text
+                  .title._1= user.full_name
+                  .title._2.muted= user.specialty_name
+                  - if user.contact_numbers.present?
+                    %p
+                      %i.icon.icon-phone.icon-white
+                      = user.contact_numbers
               .bottom
-              .img
-                - if user.image.present?
-                  = image_tag user.image.url(:thumb), class: "img-responsive"
-                - else
-                  %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
-              .text
-                .title._1= user.full_name
-                .title._2.muted= user.specialty_name
                 - if user.address.present?
                   %p
                     %i.icon.icon-home.icon-white
                     = user.address
-
-                - if user.contact_numbers.present?
-                  %p
-                    %i.icon.icon-phone.icon-white
-                    = user.contact_numbers
 
                 - if user.email.present?
                   %p
