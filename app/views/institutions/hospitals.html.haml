@@ -5,35 +5,39 @@
   .row.post_row
     - if @institutions.present?
       - @institutions.each do |institution|
-        .col-sm-6.postMedical
-          - if institution.image.present? && institution.image.present?
-            .img
-              = image_tag institution.image.url(:thumb), class: "img-responsive"
-          .text
-            %h3= institution.name
-            - if institution.address.present? && institution.address.present?
-              %p
-                %i.icon.icon-home.icon-white
-                = institution.address
+        .col-sm-4.no-padding
+          .postMedical
+            .top
+              .img
+                - if institution.image.present? && institution.image.present?
+                  = image_tag institution.image.url(:thumb), class: "img-responsive"
+                - else
+                  %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/  
+              .text
+                .title._1= institution.name
+                - if institution.address.present? && institution.address.present?
+                  %p
+                    %i.icon.icon-home.icon-white
+                    = institution.address
 
-            - if institution.phone.present? && institution.phone.present?
-              %p
-                %i.icon.icon-phone.icon-white
-                = institution.phone
+                - if institution.phone.present? && institution.phone.present?
+                  %p
+                    %i.icon.icon-phone.icon-white
+                    = institution.phone
+            .bottom
+              - if institution.mail.present? && institution.mail.present?
+                %p
+                  %i.icon.icon-envelope.icon-white
+                  = institution.mail
 
-            - if institution.mail.present? && institution.mail.present?
-              %p
-                %i.icon.icon-envelope.icon-white
-                = institution.mail
+              - if institution.web.present? && institution.web.present?
+                %p
+                  %i.icon.icon-globe.icon-white
+                  = link_to institution.web, "http://#{institution.web}", target: "blank"
 
-            - if institution.web.present? && institution.web.present?
-              %p
-                %i.icon.icon-globe.icon-white
-                = link_to institution.web, "http://#{institution.web}", target: "blank"
-
-            - if institution.desc.present? && institution.desc.present?
-              %p
-                = institution.desc.html_safe
+              - if institution.desc.present? && institution.desc.present?
+                %p
+                  = institution.desc.html_safe
     - else
       .alert.alert-info
         No hay hospitales para mostrar.
