@@ -10,18 +10,43 @@
               = select_tag(:e, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad")
             .sub= submit_tag "Buscar", class: 'btn btn-primary'
 
+    .row
+      .col-sm-4.no-padding
+        .postMedical
+          .top
+            .img
+              %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
+            .text
+              .title._1 full name
+              .title._2.muted speciality
+              %p
+                %i.icon.icon-phone.icon-white
+                contact numbers
+          .bottom
+            %p
+              %i.icon.icon-home.icon-white
+              address
+            %p
+              %i.icon.icon-envelope.icon-white
+              email
+            %p
+              %i.icon.icon-globe.icon-white
+              user notes
+
       - if @user.present?
         - @user.each do |user|
           .col-sm-4.no-padding
             .postMedical
+              .top
+              .bottom
               .img
                 - if user.image.present?
                   = image_tag user.image.url(:thumb), class: "img-responsive"
                 - else
                   %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
               .text
-                %h3= user.full_name
-                %h4.muted= user.specialty_name
+                .title._1= user.full_name
+                .title._2.muted= user.specialty_name
                 - if user.address.present?
                   %p
                     %i.icon.icon-home.icon-white

@@ -613,8 +613,7 @@ input.search{
 /** Show Hospitals **/
 .postMedical{
   margin: 2.5%;
-  padding: 0;
-  height: 210px;
+  float: left;
   background-color: #FFFFFF;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -635,6 +634,33 @@ input.search{
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+}
+.postMedical .top{
+  float: left;
+  width: 100%;
+}
+.postMedical .bottom{
+  float: left;
+  width: 100%;
+  padding: 0 5px;
+}
+.postMedical .title{
+  float: left;
+  font-weight: bold;
+  color:  #317EAC;
+}
+.postMedical .text{
+  float: left;
+  margin: 7px 0 0;
+}
+.postMedical .title._1{
+  font-size: 20px;
+  width: 100%;
+}
+.postMedical .title._2{
+  font-size: 15px;
+  width: 100%;
+  margin: 0 0 10px;
 }
 .postMedical .icon{
   color: #317EAC;
