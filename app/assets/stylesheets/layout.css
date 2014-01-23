@@ -574,7 +574,17 @@ input.search{
 #slideNoticesContainer{
   float: left;
   margin: 100px 0 0;
-  width: 100%;
+  background-color: #F3F8FA;
+  min-height: 500px;
+  width: 116%;
+
+  background-color: #F3F8FA;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -moz-box-shadow: 3px 6px 12px #ccc;
+  -webkit-box-shadow: 3px 6px 12px #ccc;
+  box-shadow: 3px 6px 12px #ccc;
 }
 #slideNoticesContainer .notice{
   float: left;

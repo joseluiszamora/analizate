@@ -9,10 +9,10 @@
           .postMedical
             .top
               .img
-                - if institution.image.present?
+                - if institution.image.present? 
                   = image_tag institution.image.url(:thumb), class: "img-responsive"
                 - else
-                  %img.avatar.bb{ src: "/images/user-icon.jpg", width: "140" }/
+                  %img.avatar.bb{ src: "/images/pharm.png", width: "140" }/
               .text
                 .title._1= institution.name
                 - if institution.address.present?
