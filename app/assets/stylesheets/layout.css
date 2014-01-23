@@ -619,6 +619,7 @@ input.search{
   -moz-border-radius: 20px;
   border-radius: 20px;
   width: 95%;
+  min-height: 200px;
 }
 .postMedical .img{
   float: left;
@@ -652,6 +653,7 @@ input.search{
 .postMedical .text{
   float: left;
   margin: 7px 0 0;
+  max-width: 240px;
 }
 .postMedical .title._1{
   font-size: 20px;
