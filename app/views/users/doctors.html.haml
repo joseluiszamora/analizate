@@ -52,15 +52,18 @@
                       = user.contact_numbers
               .bottom
                 - if user.address.present?
-                  %i.icon.icon-home.icon-white
+                  %p
+                    %i.icon.icon-home.icon-white
                     = user.address
 
                 - if user.email.present?
-                  %i.icon.icon-envelope.icon-white
+                  %p
+                    %i.icon.icon-envelope.icon-white
                     = user.email
 
                 - if user.notes.present?
-                  %i.icon.icon-globe.icon-white
+                  %p
+                    %i.icon.icon-globe.icon-white
                     = user.notes.html_safe
       - else
         .alert.alert-info
