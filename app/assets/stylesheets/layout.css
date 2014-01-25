@@ -627,6 +627,7 @@ input.search{
 .postMedical{
   margin: 2.5%;
   float: left;
+  border: 2px solid #178ACC;
   background-color: #F3F8FA;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
