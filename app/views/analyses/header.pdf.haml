@@ -3,7 +3,7 @@
     %li
       .medium
         %span.title1.desc NOMBRES Y APELLIDOS:
-        %span.title.bold
+        %span.title
           - if @analysis.patient_type_selector
             = @analysis.patient_name
           - else
@@ -12,24 +12,24 @@
       - if @analysis.patient.age.present? && @analysis.patient.age != nil && @analysis.patient.age != 0
         .tiny
           %span.title3.desc EDAD:
-          %span.title.bold
+          %span.title
             = pluralize @analysis.patient.age, 'año'
     %li
       .big
         %span.title1.desc MEDICO SOLICITANTE:
-        %span.title.bold= @analysis.doctor_full_name
+        %span.title= @analysis.doctor_full_name
     %li
       .small
         %span.title2.desc FECHA DE RECEPCIÓN:
-        %span.title.bold= I18n.l @analysis.receipt_datetime, format: "%d / %m / %Y"
+        %span.title= I18n.l @analysis.receipt_datetime, format: "%d / %m / %Y"
       .small
         %span.title2.desc FECHA DE INFORME:
-        %span.title.bold= I18n.l @analysis.delivery_datetime, format: "%d / %m / %Y"
+        %span.title= I18n.l @analysis.delivery_datetime, format: "%d / %m / %Y"
 
 
 :css
   .header{
-    page-break-inside:avoid; 
+    page-break-inside:avoid;
     page-break-after:auto;
     float:left;
     padding: 0px;
