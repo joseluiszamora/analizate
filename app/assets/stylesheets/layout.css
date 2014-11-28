@@ -633,11 +633,17 @@ input.search{
   -moz-border-radius: 20px;
   border-radius: 20px;
   width: 95%;
-  min-height: 200px;
+  height: 250px;
 
   -moz-box-shadow: 3px 6px 12px #ccc;
   -webkit-box-shadow: 3px 6px 12px #ccc;
   box-shadow: 3px 6px 12px #ccc;
+}
+.postMedicalContent{
+  float: left;
+  width: 100%;
+  overflow-y: auto;
+  height: 100%; 
 }
 .postMedical .img{
   float: left;
