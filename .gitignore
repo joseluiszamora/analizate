@@ -20,3 +20,7 @@
 /.ruby-version
 /.rvmrc
 /erd.pdf
+
+# Ignore gemfile
+Gemfile
+Gemfile.lock
