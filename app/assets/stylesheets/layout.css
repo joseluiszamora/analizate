@@ -622,6 +622,9 @@ input.search{
 .background-sky{
   background-color: #e4eef2;
 }
+.background-orange{
+  background-color: #fa8110;
+}
 
 /** Show Hospitals **/
 .postMedical{
@@ -894,4 +897,10 @@ input.search{
   margin-top: 55px; 
   text-shadow: 1px 2px 3px rgb(0, 0, 0); 
   letter-spacing: 14px;
+}
+h2.titleorange{
+  color: #fa8110 !important;
+}
+.bs-example.blockHomeFix a{
+  color: #fa8110 !important; 
 }

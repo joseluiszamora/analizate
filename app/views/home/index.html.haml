@@ -92,7 +92,7 @@
     /    %img{"src" => "/images/androidapp.jpg", :width => "500"}
 
   .row
-    .col-lg-12.background-sky
+    .col-lg-12.background-orange
       .page-header
         %h1#type Quiénes Somos
     / Headings
@@ -138,7 +138,7 @@
               %p
                 Contamos con un gran espiritu solidario, porque sabemos que nos debemos a nuestra sociedad y porque tomamos muy en cuenta el dolor humano.
       .col-lg-4
-        %h2 Nuestros Servicios
+        %h2.titleorange Nuestros Servicios
         .bs-example.blockHomeFix
           - @services.each do |service|
             %p
@@ -154,7 +154,7 @@
                     %p= service.desc.html_safe
 
       .col-lg-4
-        %h2 Encuéntranos
+        %h2.titleorange Encuéntranos
         %p
           Estamos ubicados en
 
