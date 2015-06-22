@@ -46,9 +46,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'unicorn'
-gem 'capistrano'
-gem 'rvm-capistrano'
+#gem 'unicorn'
+#gem 'capistrano'
+#gem 'rvm-capistrano'
 
 # add rich text editor on analisis
 gem 'bootstrap-wysihtml5-rails'
