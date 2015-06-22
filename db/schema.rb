@@ -136,8 +136,8 @@ ActiveRecord::Schema.define(version: 20131230145453) do
     t.text     "notes"
     t.string   "image"
     t.string   "role"
-    t.integer  "specialty_id"
     t.string   "especiality"
+    t.integer  "specialty_id"
     t.integer  "level"
   end
 
