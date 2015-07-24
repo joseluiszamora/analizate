@@ -889,18 +889,18 @@ input.search{
 }
 
 #home-navbar-title{
-  color: rgb(255, 255, 255); 
-  text-align: center; 
-  font-style: italic; 
-  font-size: 45px; 
-  text-transform: capitalize; 
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-style: italic;
+  font-size: 45px;
+  text-transform: capitalize;
   margin-top: 55px; 
   text-shadow: 1px 2px 3px rgb(0, 0, 0); 
   letter-spacing: 14px;
 }
-h2.titleorange{
+/*h2.titleorange{
   color: #fa8110 !important;
 }
 .bs-example.blockHomeFix a{
-  color: #fa8110 !important; 
-}
+  color: #fa8110 !important;
+}*/
