@@ -67,11 +67,12 @@
               /= f.select :specialty_id, Specialty.all.map { |s| [s.name, s.id] }
               = f.select :specialty_id, options_for_select(Specialty.all.map { |s| [s.name, s.id] }), {}, {class: "chosen-select span5", :"data-placeholder" => "Seleccione una Especialidad"}
 
-
           .form-group
             = f.label :notes, 'Observaciones:', class: 'col-lg-2 control-label'
             .col-lg-10
               = f.text_area :notes, class: 'form-control wysihtml5'
+              /= f.text_area :notes, :class => 'form-control ckeditor'
+              /= f.cktext_area :notes, :class => 'someclass', :ckeditor => {:language => 'es'}
           .form-group
             .col-lg-10.col-lg-offset-2
               = f.submit 'Guardar', class: 'btn btn-primary'

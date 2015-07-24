@@ -4,3 +4,5 @@ $('#test-menu-modal').modal('show');
 $('.modal-dialog .modal-body .checkbox').first().before('<label for="select_all" class="checkbox"><input type="checkbox" value="0" name="select_all" id="select_all" class="selected-tests">Seleccionar Todo</label>');
 
 $("#select_all").click(function(){ if($(this).prop('checked')) { $('.selected-tests').prop('checked', true); } else { $('.selected-tests').prop('checked', false); }});
+
+$('.ckeditor').ckeditor({ });
