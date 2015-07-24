@@ -879,28 +879,27 @@ input.search{
       line-height: 5em;
       margin: 0;
     }
-    
       #footer .menu li {
         font-size: 0.9em;
       }
 
 .bodylayout{
-  min-height: 95%; 
+  min-height: 95%;
 }
 
 #home-navbar-title{
-  color: rgb(255, 255, 255); 
-  text-align: center; 
-  font-style: italic; 
-  font-size: 45px; 
-  text-transform: capitalize; 
-  margin-top: 55px; 
-  text-shadow: 1px 2px 3px rgb(0, 0, 0); 
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-style: italic;
+  font-size: 45px;
+  text-transform: capitalize;
+  margin-top: 55px;
+  text-shadow: 1px 2px 3px rgb(0, 0, 0);
   letter-spacing: 14px;
 }
-h2.titleorange{
+/*h2.titleorange{
   color: #fa8110 !important;
 }
 .bs-example.blockHomeFix a{
-  color: #fa8110 !important; 
-}
+  color: #fa8110 !important;
+}*/
