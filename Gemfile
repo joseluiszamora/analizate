@@ -55,3 +55,4 @@ end
 # add rich text editor on analisis
 #gem 'bootstrap-wysihtml5-rails'
 #gem 'therubyracer'
+gem 'ckeditor_rails'

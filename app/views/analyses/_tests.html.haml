@@ -127,7 +127,7 @@
                 - if test_ids.include?(test.id)
                   %tr
                     %td.text-center
-                      = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc wysihtml52"
+                      = text_area_tag "analysis[laboratories_attributes][#{test.id}][desc]", laboratory.try(:result), class: "form-control textarea-desc ckeditor"
                 - else
                   = hidden_field_tag "analysis[laboratories_attributes][#{test.id}][_destroy]", '1'
 

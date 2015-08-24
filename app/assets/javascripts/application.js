@@ -23,6 +23,7 @@
 //= require jquery.easing.1.3
 //= require jquery.cycle.lite
 //= require hogan.js
+//= require ckeditor-jquery
 
 // require summernote
 // require index-slider
